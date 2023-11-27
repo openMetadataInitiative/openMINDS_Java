@@ -1,6 +1,5 @@
 package org.openmetadatainitiative.openminds;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openmetadatainitiative.openminds.utils.Instance;
 import org.openmetadatainitiative.openminds.utils.OpenMINDSContext;
 import org.openmetadatainitiative.openminds.utils.ParsingUtils;
