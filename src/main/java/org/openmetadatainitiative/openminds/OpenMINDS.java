@@ -8,7 +8,7 @@ import org.openmetadatainitiative.openminds.utils.LocalId;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -2508,7 +2508,7 @@ public class OpenMINDS {
         
 
        public void persist(String targetDirectory) {
-            OpenMINDS.persist(targetDirectory, builders.stream().map(Builder::build));
+            OpenMINDS.persist(targetDirectory, builders.stream().map(org.openmetadatainitiative.openminds.utils.Builder::build));
         }
     }
 
@@ -4982,7 +4982,7 @@ public class OpenMINDS {
         
 
        public void persist(String targetDirectory) {
-            OpenMINDS.persist(targetDirectory, builders.stream().map(Builder::build));
+            OpenMINDS.persist(targetDirectory, builders.stream().map(org.openmetadatainitiative.openminds.utils.Builder::build));
         }
     }
 
