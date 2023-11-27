@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.*;
+import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME;
 /**
  * 
  *

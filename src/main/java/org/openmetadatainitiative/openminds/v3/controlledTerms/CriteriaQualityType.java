@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.SEMANTIC_NAME;
 /**
  * Structured information on the quality type of the defined criteria for a measurement.
  *

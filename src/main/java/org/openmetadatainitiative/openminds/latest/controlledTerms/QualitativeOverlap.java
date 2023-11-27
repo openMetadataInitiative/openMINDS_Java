@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.SEMANTIC_NAME;
 /**
  * 
  *

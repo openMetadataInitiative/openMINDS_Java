@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.SEMANTIC_NAME;
 /**
  * Structured information on the biological sex of a subject.
  *

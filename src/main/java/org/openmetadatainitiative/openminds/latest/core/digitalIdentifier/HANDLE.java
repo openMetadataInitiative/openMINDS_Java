@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.*;
+import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.SEMANTIC_NAME;
 /**
  * A persistent identifier for an information resource provided by the Handle System of the Corporation for National Research Initiatives.
  *

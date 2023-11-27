@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.chemicals.ProductSource;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType;
 
 
-import static org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.*;
+import static org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.SEMANTIC_NAME;
 /**
  * Structured information about a mixture of chemical substances.
  *

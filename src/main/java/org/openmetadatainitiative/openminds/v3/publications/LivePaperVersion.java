@@ -26,7 +26,7 @@ import org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersio
 import org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.*;
+import static org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.SEMANTIC_NAME;
 /**
  * 
  *

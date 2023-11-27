@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.SEMANTIC_NAME;
 /**
  * 
  *

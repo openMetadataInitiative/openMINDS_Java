@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.Slic
 import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen;
 
 
-import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.*;
+import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.SEMANTIC_NAME;
 /**
  * 
  *

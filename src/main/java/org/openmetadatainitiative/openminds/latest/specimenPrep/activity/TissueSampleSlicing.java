@@ -17,7 +17,7 @@ import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.Ti
 import org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage;
 
 
-import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.*;
+import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.SEMANTIC_NAME;
 /**
  * 
  *

@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.Quantita
 import org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution;
 
 
-import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.*;
+import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.SEMANTIC_NAME;
 /**
  * 
  *

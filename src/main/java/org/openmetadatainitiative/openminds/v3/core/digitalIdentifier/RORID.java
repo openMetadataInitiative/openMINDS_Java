@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.*;
+import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.SEMANTIC_NAME;
 /**
  * A persistent identifier for a research organization, provided by the Research Organization Registry.
  *

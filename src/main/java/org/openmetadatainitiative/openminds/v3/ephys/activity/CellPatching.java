@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingP
 import org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.*;
+import static org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.SEMANTIC_NAME;
 /**
  * 
  *

@@ -27,7 +27,7 @@ import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.*;
+import static org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.SEMANTIC_NAME;
 /**
  * Structured information about a specific implemented version of a workflow recipe.
  *

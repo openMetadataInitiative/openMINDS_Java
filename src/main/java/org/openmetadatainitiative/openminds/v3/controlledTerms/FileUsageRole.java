@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.SEMANTIC_NAME;
 /**
  * Structured information on the usage role of a file instance or bundle.
  *

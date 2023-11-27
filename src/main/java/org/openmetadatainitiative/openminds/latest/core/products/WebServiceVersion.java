@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.WebService
 import org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionRelatedPublication;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.*;
+import static org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.SEMANTIC_NAME;
 /**
  * 
  *

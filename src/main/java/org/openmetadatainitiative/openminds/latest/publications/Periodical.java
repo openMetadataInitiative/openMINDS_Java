@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN;
 
 
-import static org.openmetadatainitiative.openminds.latest.publications.Periodical.*;
+import static org.openmetadatainitiative.openminds.latest.publications.Periodical.SEMANTIC_NAME;
 /**
  * 
  *

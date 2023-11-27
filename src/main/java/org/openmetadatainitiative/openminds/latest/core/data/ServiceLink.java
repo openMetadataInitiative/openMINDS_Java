@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.core.data.File;
 import org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.*;
+import static org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.SEMANTIC_NAME;
 /**
  * 
  *

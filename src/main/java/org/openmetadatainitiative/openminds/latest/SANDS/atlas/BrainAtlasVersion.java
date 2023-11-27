@@ -29,7 +29,7 @@ import org.openmetadatainitiative.openminds.latest.core.data.License;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.SEMANTIC_NAME;
 /**
  * Structured information on a brain atlas (version level).
  *

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.SEMANTIC_NAME;
 /**
  * 
  *

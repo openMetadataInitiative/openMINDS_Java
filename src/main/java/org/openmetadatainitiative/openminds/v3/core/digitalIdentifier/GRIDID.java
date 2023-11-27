@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.*;
+import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.SEMANTIC_NAME;
 /**
  * A GRID (Global Research Identifier Database) identifier.
  *

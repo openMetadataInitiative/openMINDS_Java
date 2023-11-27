@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique
 import org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.ModelValidation.*;
+import static org.openmetadatainitiative.openminds.v3.computation.ModelValidation.SEMANTIC_NAME;
 /**
  * Structured information about a process of validating a computational model.
  *

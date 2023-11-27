@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement;
 
 
-import static org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.*;
+import static org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.SEMANTIC_NAME;
 /**
  * 
  *

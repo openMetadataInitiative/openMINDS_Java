@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeAr
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayOwner;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.SEMANTIC_NAME;
 /**
  * 
  *

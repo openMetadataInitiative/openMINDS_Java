@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.publications.PublicationVolume;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.*;
+import static org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.SEMANTIC_NAME;
 /**
  * 
  *

@@ -20,7 +20,7 @@ import org.openmetadatainitiative.openminds.v3.controlledTerms.Technique;
 import org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.ValidationTest.*;
+import static org.openmetadatainitiative.openminds.v3.computation.ValidationTest.SEMANTIC_NAME;
 /**
  * Structured information about the definition of a process for validating a computational model.
  *

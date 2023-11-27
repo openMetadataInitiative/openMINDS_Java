@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.SEMANTIC_NAME;
 /**
  * Structured information on a disease.
  *

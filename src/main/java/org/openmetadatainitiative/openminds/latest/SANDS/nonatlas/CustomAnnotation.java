@@ -22,7 +22,7 @@ import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Quantitati
 import org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.SEMANTIC_NAME;
 /**
  * 
  *

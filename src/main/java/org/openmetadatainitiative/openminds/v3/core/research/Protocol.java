@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolStimul
 import org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolTechnique;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.Protocol.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.Protocol.SEMANTIC_NAME;
 /**
  * Structured information on a research project.
  *

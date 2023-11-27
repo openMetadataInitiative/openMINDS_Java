@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.*;
+import static org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.SEMANTIC_NAME;
 /**
  * Structured information about how to contact a given person or consortium.
  *

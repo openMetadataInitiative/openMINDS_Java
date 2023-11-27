@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDe
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDigitalIdentifier;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.products.Software.*;
+import static org.openmetadatainitiative.openminds.latest.core.products.Software.SEMANTIC_NAME;
 /**
  * Structured information on a software tool (concept level).
  *

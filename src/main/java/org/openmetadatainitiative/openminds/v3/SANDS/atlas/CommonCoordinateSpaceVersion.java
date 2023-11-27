@@ -30,7 +30,7 @@ import org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding;
 import org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.*;
+import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.SEMANTIC_NAME;
 /**
  * 
  *

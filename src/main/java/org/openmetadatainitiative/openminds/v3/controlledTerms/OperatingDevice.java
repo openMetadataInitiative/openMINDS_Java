@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.SEMANTIC_NAME;
 /**
  * Structured information on the operating device.
  *

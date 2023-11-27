@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType;
 import org.openmetadatainitiative.openminds.v3.core.actors.intf.ContributionContributor;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.actors.Contribution.*;
+import static org.openmetadatainitiative.openminds.v3.core.actors.Contribution.SEMANTIC_NAME;
 /**
  * Structured information on the contribution made to a research product.
  *

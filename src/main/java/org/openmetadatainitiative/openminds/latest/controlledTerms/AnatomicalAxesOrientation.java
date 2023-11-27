@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.SEMANTIC_NAME;
 /**
  * Structured information on the anatomical directions of the X, Y, and Z axis.
  *

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.SEMANTIC_NAME;
 /**
  * 
  *

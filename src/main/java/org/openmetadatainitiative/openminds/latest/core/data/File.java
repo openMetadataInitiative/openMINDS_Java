@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.latest.core.data.Hash;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.data.File.*;
+import static org.openmetadatainitiative.openminds.latest.core.data.File.SEMANTIC_NAME;
 /**
  * Structured information on a file instance that is accessible via a URL.
  *

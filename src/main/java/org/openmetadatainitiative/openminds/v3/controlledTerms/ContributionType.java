@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.SEMANTIC_NAME;
 /**
  * Structured information on the type of contribution a person or organization performed.
  *

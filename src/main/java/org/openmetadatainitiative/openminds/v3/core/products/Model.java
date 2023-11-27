@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.ModelDigitalId
 import org.openmetadatainitiative.openminds.v3.core.products.intf.ModelStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.Model.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.Model.SEMANTIC_NAME;
 /**
  * Structured information on a computational model (concept level).
  *

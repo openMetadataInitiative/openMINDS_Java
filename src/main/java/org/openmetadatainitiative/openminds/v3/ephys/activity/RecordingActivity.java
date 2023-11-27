@@ -21,7 +21,7 @@ import org.openmetadatainitiative.openminds.v3.ephys.activity.intf.RecordingActi
 import org.openmetadatainitiative.openminds.v3.ephys.activity.intf.RecordingActivityStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.*;
+import static org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.SEMANTIC_NAME;
 /**
  * 
  *

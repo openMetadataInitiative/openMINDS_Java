@@ -17,7 +17,7 @@ import org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinate
 import org.openmetadatainitiative.openminds.v3.controlledTerms.Species;
 
 
-import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.*;
+import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.SEMANTIC_NAME;
 /**
  * 
  *

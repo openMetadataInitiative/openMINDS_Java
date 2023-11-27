@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleIsPa
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.data.FileBundle.*;
+import static org.openmetadatainitiative.openminds.latest.core.data.FileBundle.SEMANTIC_NAME;
 /**
  * Structured information on a bundle of file instances.
  *

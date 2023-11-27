@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingDa
 import org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.SEMANTIC_NAME;
 /**
  * 
  *

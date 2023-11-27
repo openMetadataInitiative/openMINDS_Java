@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.SEMANTIC_NAME;
 /**
  * Structured information on the scope of the computational model.
  *

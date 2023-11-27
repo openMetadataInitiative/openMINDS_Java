@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.SEMANTIC_NAME;
 /**
  * 
  *

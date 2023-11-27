@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.*;
+import static org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.SEMANTIC_NAME;
 /**
  * Structured information about computing hardware.
  *

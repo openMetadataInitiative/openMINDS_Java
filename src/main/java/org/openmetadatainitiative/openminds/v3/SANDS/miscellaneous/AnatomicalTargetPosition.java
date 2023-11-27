@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.Anatomic
 import org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType;
 
 
-import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.*;
+import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.SEMANTIC_NAME;
 /**
  * 
  *

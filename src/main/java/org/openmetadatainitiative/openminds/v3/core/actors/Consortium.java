@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.actors.Consortium.*;
+import static org.openmetadatainitiative.openminds.v3.core.actors.Consortium.SEMANTIC_NAME;
 /**
  * Structured information about an association of two or more persons or organizations, with the objective of participating in a common activity.
  *

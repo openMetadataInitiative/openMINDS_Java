@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.View
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.SEMANTIC_NAME;
 /**
  * 
  *

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.SEMANTIC_NAME;
 /**
  * 
  *

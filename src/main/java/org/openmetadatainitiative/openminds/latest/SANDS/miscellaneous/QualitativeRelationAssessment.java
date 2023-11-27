@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOv
 import org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.SEMANTIC_NAME;
 /**
  * 
  *

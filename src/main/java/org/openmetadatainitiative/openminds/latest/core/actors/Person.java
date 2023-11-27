@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.core.actors.ContactInformatio
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.actors.Person.*;
+import static org.openmetadatainitiative.openminds.latest.core.actors.Person.SEMANTIC_NAME;
 /**
  * Structured information on a person.
  *

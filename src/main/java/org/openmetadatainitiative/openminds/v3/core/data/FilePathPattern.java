@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.*;
+import static org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.SEMANTIC_NAME;
 /**
  * 
  *

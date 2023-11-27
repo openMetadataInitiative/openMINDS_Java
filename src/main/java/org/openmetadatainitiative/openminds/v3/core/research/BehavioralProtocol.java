@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.intf.BehavioralProt
 import org.openmetadatainitiative.openminds.v3.core.research.intf.BehavioralProtocolStimulusType;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.SEMANTIC_NAME;
 /**
  * Structured information about a protocol used in an experiment studying human or animal behavior.
  *

@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.core.research.SubjectState;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectSpecies;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.Subject.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.Subject.SEMANTIC_NAME;
 /**
  * Structured information on a subject.
  *

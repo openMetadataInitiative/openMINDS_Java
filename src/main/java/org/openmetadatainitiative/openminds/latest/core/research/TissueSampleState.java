@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSamp
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateWeight;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.SEMANTIC_NAME;
 /**
  * Structured information on a temporary state of a tissue sample.
  *

@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.Parcellation
 import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityVersionRelationAssessment;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME;
 /**
  * 
  *

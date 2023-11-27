@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.chemicals.intf.ChemicalSubsta
 import org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity;
 
 
-import static org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.*;
+import static org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.SEMANTIC_NAME;
 /**
  * Structured information about a chemical substance.
  *

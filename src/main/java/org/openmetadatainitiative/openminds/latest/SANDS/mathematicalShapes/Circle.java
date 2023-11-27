@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.SEMANTIC_NAME;
 /**
  * 
  *

@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.controlledTerms.DataType;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.data.ContentType.*;
+import static org.openmetadatainitiative.openminds.v3.core.data.ContentType.SEMANTIC_NAME;
 /**
  * Structured information on the content type of a file instance, bundle or repository.
  *

@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetCus
 import org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetDigitalIdentifier;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.products.Dataset.*;
+import static org.openmetadatainitiative.openminds.latest.core.products.Dataset.SEMANTIC_NAME;
 /**
  * Structured information on data originating from human/animal studies or simulations (concept level).
  *

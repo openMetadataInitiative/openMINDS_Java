@@ -21,7 +21,7 @@ import org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsagePip
 import org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsageUsedSpecimen;
 
 
-import static org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.*;
+import static org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.SEMANTIC_NAME;
 /**
  * 
  *

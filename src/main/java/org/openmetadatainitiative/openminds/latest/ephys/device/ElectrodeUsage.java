@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUs
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.SEMANTIC_NAME;
 /**
  * 
  *

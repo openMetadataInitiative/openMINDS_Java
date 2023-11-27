@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.SEMANTIC_NAME;
 /**
  * Structured information on the ethics assessment of a dataset.
  *

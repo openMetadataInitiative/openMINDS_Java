@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.core.data.ContentType;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.Configuration.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.Configuration.SEMANTIC_NAME;
 /**
  * Structured information about the properties or parameters of an entity or process.
  *

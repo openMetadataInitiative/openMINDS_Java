@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.SEMANTIC_NAME;
 /**
  * 
  *

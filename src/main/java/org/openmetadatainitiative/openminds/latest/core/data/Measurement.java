@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMea
 import org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.data.Measurement.*;
+import static org.openmetadatainitiative.openminds.latest.core.data.Measurement.SEMANTIC_NAME;
 /**
  * Structured information about a measurement performed during a scientific experiment.
  *

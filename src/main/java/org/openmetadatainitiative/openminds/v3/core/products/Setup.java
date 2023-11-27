@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart;
 import org.openmetadatainitiative.openminds.v3.core.products.intf.SetupManufacturer;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.Setup.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.Setup.SEMANTIC_NAME;
 /**
  * 
  *

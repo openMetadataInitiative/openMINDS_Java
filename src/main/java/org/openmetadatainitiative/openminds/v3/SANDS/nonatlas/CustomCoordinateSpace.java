@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.v3.core.data.File;
 import org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.*;
+import static org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.SEMANTIC_NAME;
 /**
  * 
  *

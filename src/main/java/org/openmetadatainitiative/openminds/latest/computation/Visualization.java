@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechn
 import org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.Visualization.*;
+import static org.openmetadatainitiative.openminds.latest.computation.Visualization.SEMANTIC_NAME;
 /**
  * Structured information about a process of visualizing a computational model, a computational process, or a dataset.
  *

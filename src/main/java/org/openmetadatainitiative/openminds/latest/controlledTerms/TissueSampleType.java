@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.SEMANTIC_NAME;
 /**
  * Structured information on the general type of the tissue sample.
  *

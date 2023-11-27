@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.*;
+import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.SEMANTIC_NAME;
 /**
  * An International Standard Book Number of the International ISBN Agency.
  *

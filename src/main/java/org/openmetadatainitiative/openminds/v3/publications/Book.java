@@ -22,7 +22,7 @@ import org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword;
 import org.openmetadatainitiative.openminds.v3.publications.intf.BookPublisher;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.Book.*;
+import static org.openmetadatainitiative.openminds.v3.publications.Book.SEMANTIC_NAME;
 /**
  * 
  *

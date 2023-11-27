@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.SEMANTIC_NAME;
 /**
  * Structured information on the operating system.
  *

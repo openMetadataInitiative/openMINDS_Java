@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeAr
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.SEMANTIC_NAME;
 /**
  * 
  *

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.*;
+import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.SEMANTIC_NAME;
 /**
  * 
  *

@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.FundingFunder;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.*;
+import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.SEMANTIC_NAME;
 /**
  * Structured information on used funding.
  *

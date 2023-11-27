@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.StringProperty.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.StringProperty.SEMANTIC_NAME;
 /**
  * 
  *

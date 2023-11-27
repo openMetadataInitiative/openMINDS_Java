@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.SEMANTIC_NAME;
 /**
  * Structured information on the unit of measurement.
  *

@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.v3.computation.Environment;
 import org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.*;
+import static org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.SEMANTIC_NAME;
 /**
  * Structured information about a piece of software or web service that can perform a task autonomously.
  *

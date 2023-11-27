@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.chemicals.intf.AmountOfChemic
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.*;
+import static org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.SEMANTIC_NAME;
 /**
  * Structured information about the amount of a given chemical that was used.
  *

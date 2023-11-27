@@ -28,7 +28,7 @@ import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.*;
+import static org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.SEMANTIC_NAME;
 /**
  * Structured information about a specific implementation of a validation test.
  *

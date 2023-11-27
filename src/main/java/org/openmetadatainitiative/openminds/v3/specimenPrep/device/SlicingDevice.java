@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingD
 import org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceOwner;
 
 
-import static org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.*;
+import static org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.SEMANTIC_NAME;
 /**
  * 
  *

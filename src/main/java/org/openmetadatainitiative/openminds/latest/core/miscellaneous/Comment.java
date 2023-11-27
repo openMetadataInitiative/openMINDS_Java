@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.core.actors.Person;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.*;
+import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.SEMANTIC_NAME;
 /**
  * Structured information about a short text expressing an opinion on, or giving information about some entity.
  *

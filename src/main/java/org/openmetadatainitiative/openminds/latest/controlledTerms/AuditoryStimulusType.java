@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.SEMANTIC_NAME;
 /**
  * 
  *

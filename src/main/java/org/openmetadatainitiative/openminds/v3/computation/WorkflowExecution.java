@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutio
 import org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStartedBy;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.*;
+import static org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.SEMANTIC_NAME;
 /**
  * Structured information about an execution of a computational workflow.
  *

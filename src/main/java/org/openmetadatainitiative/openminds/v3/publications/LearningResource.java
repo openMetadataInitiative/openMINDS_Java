@@ -26,7 +26,7 @@ import org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourc
 import org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceRequiredTime;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.LearningResource.*;
+import static org.openmetadatainitiative.openminds.v3.publications.LearningResource.SEMANTIC_NAME;
 /**
  * 
  *

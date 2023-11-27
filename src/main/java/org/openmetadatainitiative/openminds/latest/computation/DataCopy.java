@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechn
 import org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.DataCopy.*;
+import static org.openmetadatainitiative.openminds.latest.computation.DataCopy.SEMANTIC_NAME;
 /**
  * 
  *

@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasDi
 import org.openmetadatainitiative.openminds.latest.controlledTerms.Species;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.SEMANTIC_NAME;
 /**
  * Structured information on a brain atlas (concept level).
  *

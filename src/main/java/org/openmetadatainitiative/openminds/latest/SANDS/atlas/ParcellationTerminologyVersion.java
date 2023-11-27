@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntit
 import org.openmetadatainitiative.openminds.latest.core.data.File;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.SEMANTIC_NAME;
 /**
  * 
  *

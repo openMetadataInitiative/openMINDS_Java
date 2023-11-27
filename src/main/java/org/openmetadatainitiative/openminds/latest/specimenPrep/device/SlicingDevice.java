@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.Slic
 import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceOwner;
 
 
-import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.*;
+import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.SEMANTIC_NAME;
 /**
  * 
  *

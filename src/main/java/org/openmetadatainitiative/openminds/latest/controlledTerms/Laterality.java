@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.SEMANTIC_NAME;
 /**
  * Structured information on the lateral direction.
  *

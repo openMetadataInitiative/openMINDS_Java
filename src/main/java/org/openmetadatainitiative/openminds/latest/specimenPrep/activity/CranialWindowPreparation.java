@@ -22,7 +22,7 @@ import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.Cr
 import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.*;
+import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.SEMANTIC_NAME;
 /**
  * 
  *

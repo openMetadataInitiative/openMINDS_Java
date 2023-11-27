@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.v3.core.data.Hash;
 import org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.LocalFile.*;
+import static org.openmetadatainitiative.openminds.v3.computation.LocalFile.SEMANTIC_NAME;
 /**
  * Structured information about a file that is not accessible via a URL.
  *

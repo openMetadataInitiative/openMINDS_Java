@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.core.actors.Organization;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.*;
+import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.SEMANTIC_NAME;
 /**
  * 
  *

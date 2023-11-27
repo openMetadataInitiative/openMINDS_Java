@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.chemicals.intf.ProductSourcePurit
 import org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID;
 
 
-import static org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.*;
+import static org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.SEMANTIC_NAME;
 /**
  * Structured information about the source of a chemical substance or mixture.
  *

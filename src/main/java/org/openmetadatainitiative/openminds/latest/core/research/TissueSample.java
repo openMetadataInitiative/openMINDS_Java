@@ -20,7 +20,7 @@ import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSamp
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleSpecies;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.TissueSample.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.TissueSample.SEMANTIC_NAME;
 /**
  * Structured information on a tissue sample.
  *

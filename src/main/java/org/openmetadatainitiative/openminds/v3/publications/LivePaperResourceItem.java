@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.v3.core.actors.Organization;
 import org.openmetadatainitiative.openminds.v3.publications.LivePaperSection;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.*;
+import static org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.SEMANTIC_NAME;
 /**
  * 
  *

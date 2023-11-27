@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.core.data.Hash.*;
+import static org.openmetadatainitiative.openminds.v3.core.data.Hash.SEMANTIC_NAME;
 /**
  * Structured information on a hash.
  *

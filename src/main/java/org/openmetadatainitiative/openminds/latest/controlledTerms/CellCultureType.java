@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.SEMANTIC_NAME;
 /**
  * 
  *

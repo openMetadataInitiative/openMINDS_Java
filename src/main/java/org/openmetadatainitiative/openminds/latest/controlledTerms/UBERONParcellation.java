@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.SEMANTIC_NAME;
 /**
  * 
  *

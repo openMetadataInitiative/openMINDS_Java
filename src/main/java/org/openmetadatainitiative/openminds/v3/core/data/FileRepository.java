@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.v3.core.data.Hash;
 import org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.data.FileRepository.*;
+import static org.openmetadatainitiative.openminds.v3.core.data.FileRepository.SEMANTIC_NAME;
 /**
  * Structured information on a file repository.
  *

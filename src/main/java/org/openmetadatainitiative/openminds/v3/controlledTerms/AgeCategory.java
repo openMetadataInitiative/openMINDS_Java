@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.SEMANTIC_NAME;
 /**
  * Structured information on the life cycle (semantic term) of a specific age group.
  *

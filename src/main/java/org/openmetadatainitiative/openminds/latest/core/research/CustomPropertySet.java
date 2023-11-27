@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.core.research.intf.CustomProp
 import org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetRelevantFor;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.SEMANTIC_NAME;
 /**
  * Structured information about properties of an entity that are not represented in an openMINDS schema.
  *

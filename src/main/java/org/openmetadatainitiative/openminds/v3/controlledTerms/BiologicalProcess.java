@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.SEMANTIC_NAME;
 /**
  * 
  *

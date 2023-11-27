@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.SEMANTIC_NAME;
 /**
  * 
  *

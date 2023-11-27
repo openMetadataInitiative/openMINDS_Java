@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.NumericalPropertyValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.SEMANTIC_NAME;
 /**
  * Structured information about a property of some entity or process whose value is a number.
  *

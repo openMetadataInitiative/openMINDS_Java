@@ -23,7 +23,7 @@ import org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword;
 import org.openmetadatainitiative.openminds.v3.publications.intf.ChapterPublisher;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.Chapter.*;
+import static org.openmetadatainitiative.openminds.v3.publications.Chapter.SEMANTIC_NAME;
 /**
  * 
  *

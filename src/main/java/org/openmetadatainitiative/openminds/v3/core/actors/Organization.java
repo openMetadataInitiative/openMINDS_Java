@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.v3.core.actors.Affiliation;
 import org.openmetadatainitiative.openminds.v3.core.actors.intf.OrganizationDigitalIdentifier;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.actors.Organization.*;
+import static org.openmetadatainitiative.openminds.v3.core.actors.Organization.SEMANTIC_NAME;
 /**
  * Structured information on an organization.
  *

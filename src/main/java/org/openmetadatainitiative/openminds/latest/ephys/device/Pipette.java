@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteMate
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteOwner;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.SEMANTIC_NAME;
 /**
  * 
  *

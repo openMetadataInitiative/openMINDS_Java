@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.Species.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.Species.SEMANTIC_NAME;
 /**
  * Structured information on the species.
  *

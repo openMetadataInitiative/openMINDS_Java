@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology;
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.SEMANTIC_NAME;
 /**
  * 
  *

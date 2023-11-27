@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.*;
+import static org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.SEMANTIC_NAME;
 /**
  * Structured information about the launch of a computational process.
  *

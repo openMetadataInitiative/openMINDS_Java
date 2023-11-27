@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSamp
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionSpecies;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.SEMANTIC_NAME;
 /**
  * 
  *

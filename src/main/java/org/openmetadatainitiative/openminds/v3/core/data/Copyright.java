@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.core.data.intf.CopyrightHolder;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.data.Copyright.*;
+import static org.openmetadatainitiative.openminds.v3.core.data.Copyright.SEMANTIC_NAME;
 /**
  * Structured information on the copyright.
  *

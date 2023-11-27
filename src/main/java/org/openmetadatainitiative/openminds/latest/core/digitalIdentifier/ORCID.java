@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.*;
+import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.SEMANTIC_NAME;
 /**
  * A persistent identifier for a researcher provided by Open Researcher and Contributor ID, Inc.
  *

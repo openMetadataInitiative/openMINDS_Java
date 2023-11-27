@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty
 import org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.*;
+import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME;
 /**
  * A representation of an array of quantitative values, optionally with uncertainties.
  *

@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.core.actors.intf.AffiliationMemberOf;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.*;
+import static org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.SEMANTIC_NAME;
 /**
  * Structured information about a relationship between two entities, such as a person and their employer.
  *

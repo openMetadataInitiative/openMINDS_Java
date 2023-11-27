@@ -21,7 +21,7 @@ import org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.Stimula
 import org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.StimulationActivityStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.*;
+import static org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.SEMANTIC_NAME;
 /**
  * 
  *

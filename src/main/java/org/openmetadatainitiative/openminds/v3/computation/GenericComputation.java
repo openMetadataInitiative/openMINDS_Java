@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique
 import org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.GenericComputation.*;
+import static org.openmetadatainitiative.openminds.v3.computation.GenericComputation.SEMANTIC_NAME;
 /**
  * Structured information about a computation whose type is unknown or unspecified.
  *

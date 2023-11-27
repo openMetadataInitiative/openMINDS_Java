@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.*;
+import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.SEMANTIC_NAME;
 /**
  * 
  *

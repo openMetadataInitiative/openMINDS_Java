@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.data.License.*;
+import static org.openmetadatainitiative.openminds.latest.core.data.License.SEMANTIC_NAME;
 /**
  * Structured information on a used license.
  *

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.SEMANTIC_NAME;
 /**
  * 
  *

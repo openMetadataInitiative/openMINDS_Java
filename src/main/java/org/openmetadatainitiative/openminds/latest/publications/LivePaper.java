@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperAu
 import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperCustodian;
 
 
-import static org.openmetadatainitiative.openminds.latest.publications.LivePaper.*;
+import static org.openmetadatainitiative.openminds.latest.publications.LivePaper.SEMANTIC_NAME;
 /**
  * 
  *

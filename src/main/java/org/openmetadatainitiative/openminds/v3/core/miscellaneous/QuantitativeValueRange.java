@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.*;
+import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.SEMANTIC_NAME;
 /**
  * A representation of a range of quantitative values.
  *

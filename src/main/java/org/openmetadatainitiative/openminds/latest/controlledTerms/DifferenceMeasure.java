@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.SEMANTIC_NAME;
 /**
  * 
  *

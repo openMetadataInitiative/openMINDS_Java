@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion;
 import org.openmetadatainitiative.openminds.v3.core.research.Configuration;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.Environment.*;
+import static org.openmetadatainitiative.openminds.v3.computation.Environment.SEMANTIC_NAME;
 /**
  * Structured information on the computer system or set of systems in which a computation is deployed and executed.
  *

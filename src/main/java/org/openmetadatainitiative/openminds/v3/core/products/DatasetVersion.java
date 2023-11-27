@@ -35,7 +35,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol;
 import org.openmetadatainitiative.openminds.v3.core.research.Protocol;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.SEMANTIC_NAME;
 /**
  * Structured information on data originating from human/animal studies or simulations (version level).
  *

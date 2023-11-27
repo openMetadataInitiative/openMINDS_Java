@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeDe
 import org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.*;
+import static org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.SEMANTIC_NAME;
 /**
  * Structured information about the description of a prospective workflow.
  *

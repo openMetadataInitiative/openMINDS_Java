@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPa
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SetupManufacturer;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.products.Setup.*;
+import static org.openmetadatainitiative.openminds.latest.core.products.Setup.SEMANTIC_NAME;
 /**
  * 
  *

@@ -23,7 +23,7 @@ import org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticl
 import org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticlePublisher;
 
 
-import static org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.*;
+import static org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.SEMANTIC_NAME;
 /**
  * 
  *

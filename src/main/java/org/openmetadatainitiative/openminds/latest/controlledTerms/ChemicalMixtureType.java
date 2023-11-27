@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.SEMANTIC_NAME;
 /**
  * 
  *

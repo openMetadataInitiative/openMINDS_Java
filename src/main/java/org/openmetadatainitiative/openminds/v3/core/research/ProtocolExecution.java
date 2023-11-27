@@ -21,7 +21,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolExecut
 import org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolExecutionStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.SEMANTIC_NAME;
 /**
  * Structured information on a protocol execution.
  *

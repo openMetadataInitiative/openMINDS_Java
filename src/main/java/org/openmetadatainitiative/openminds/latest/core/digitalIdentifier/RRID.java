@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.*;
+import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.SEMANTIC_NAME;
 /**
  * A persistent identifier for a research resource provided by the Resource Identification Initiative.
  *

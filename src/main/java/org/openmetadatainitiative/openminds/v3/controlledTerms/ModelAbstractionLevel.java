@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.SEMANTIC_NAME;
 /**
  * Structured information on abstraction level of the computational model.
  *

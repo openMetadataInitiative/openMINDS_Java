@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.SEMANTIC_NAME;
 /**
  * 
  *

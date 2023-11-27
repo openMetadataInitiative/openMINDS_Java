@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.SEMANTIC_NAME;
 /**
  * Structured information about the status of an action.
  *

@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechn
 import org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.Simulation.*;
+import static org.openmetadatainitiative.openminds.latest.computation.Simulation.SEMANTIC_NAME;
 /**
  * Structured information about a process of running simulations of a computational model.
  *

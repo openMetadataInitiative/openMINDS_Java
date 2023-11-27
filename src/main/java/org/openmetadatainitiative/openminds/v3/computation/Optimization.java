@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique
 import org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.v3.computation.Optimization.*;
+import static org.openmetadatainitiative.openminds.v3.computation.Optimization.SEMANTIC_NAME;
 /**
  * Structured information about a process of optimizing a model or a piece of code.
  *

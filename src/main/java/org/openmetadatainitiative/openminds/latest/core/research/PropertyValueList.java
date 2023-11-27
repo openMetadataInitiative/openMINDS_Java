@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.SEMANTIC_NAME;
 /**
  * An identifiable list of property-value pairs.
  *

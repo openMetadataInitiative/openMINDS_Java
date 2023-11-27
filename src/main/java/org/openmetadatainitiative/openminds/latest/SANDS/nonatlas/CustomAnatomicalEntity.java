@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAna
 import org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnatomicalEntityRelationAssessment;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME;
 /**
  * 
  *

@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.*;
+import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.SEMANTIC_NAME;
 /**
  * An International Standard Serial Number of the ISSN International Centre.
  *

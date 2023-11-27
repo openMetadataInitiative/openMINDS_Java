@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState;
 import org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.TissueCulturePreparationInput;
 
 
-import static org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.*;
+import static org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.SEMANTIC_NAME;
 /**
  * 
  *

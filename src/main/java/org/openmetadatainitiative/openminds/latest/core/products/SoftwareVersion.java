@@ -32,7 +32,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVe
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.*;
+import static org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.SEMANTIC_NAME;
 /**
  * 
  *

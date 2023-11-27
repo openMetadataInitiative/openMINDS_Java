@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumbe
 import org.openmetadatainitiative.openminds.v3.core.research.intf.StrainDiseaseModel;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.Strain.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.Strain.SEMANTIC_NAME;
 /**
  * 
  *

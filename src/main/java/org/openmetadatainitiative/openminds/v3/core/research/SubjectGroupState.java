@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupSt
 import org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateWeight;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.SEMANTIC_NAME;
 /**
  * 
  *

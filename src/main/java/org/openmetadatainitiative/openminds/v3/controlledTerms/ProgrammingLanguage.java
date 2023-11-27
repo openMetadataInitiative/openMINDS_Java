@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.*;
+import static org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.SEMANTIC_NAME;
 /**
  * Structured information on the programming language.
  *

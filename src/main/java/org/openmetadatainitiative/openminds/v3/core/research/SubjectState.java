@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateRe
 import org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateWeight;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.SubjectState.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.SubjectState.SEMANTIC_NAME;
 /**
  * Structured information on a temporary state of a subject.
  *

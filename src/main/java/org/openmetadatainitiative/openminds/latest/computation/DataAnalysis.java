@@ -25,7 +25,7 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechn
 import org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet;
 
 
-import static org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.*;
+import static org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.SEMANTIC_NAME;
 /**
  * Structured information on inspecting, cleansing, transforming, and modelling data.
  *

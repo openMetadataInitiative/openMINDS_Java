@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectCoo
 import org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.products.Project.*;
+import static org.openmetadatainitiative.openminds.latest.core.products.Project.SEMANTIC_NAME;
 /**
  * Structured information on a research project.
  *

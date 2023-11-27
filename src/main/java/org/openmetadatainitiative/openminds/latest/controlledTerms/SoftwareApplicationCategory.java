@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.SEMANTIC_NAME;
 /**
  * Structured information on the category of the software application.
  *

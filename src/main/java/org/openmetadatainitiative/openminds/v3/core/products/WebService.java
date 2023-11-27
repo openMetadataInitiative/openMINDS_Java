@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceCust
 import org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceDeveloper;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.WebService.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.WebService.SEMANTIC_NAME;
 /**
  * 
  *

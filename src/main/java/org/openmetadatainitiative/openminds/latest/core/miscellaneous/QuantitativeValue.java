@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncerta
 import org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.*;
+import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.SEMANTIC_NAME;
 /**
  * Structured information on a quantitative value.
  *

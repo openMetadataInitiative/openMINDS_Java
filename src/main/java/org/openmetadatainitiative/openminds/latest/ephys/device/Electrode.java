@@ -19,7 +19,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeMa
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeOwner;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.SEMANTIC_NAME;
 /**
  * 
  *

@@ -18,7 +18,7 @@ import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSamp
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateWeight;
 
 
-import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.*;
+import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.SEMANTIC_NAME;
 /**
  * 
  *

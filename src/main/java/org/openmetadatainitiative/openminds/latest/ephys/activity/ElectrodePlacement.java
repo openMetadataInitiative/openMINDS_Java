@@ -22,7 +22,7 @@ import org.openmetadatainitiative.openminds.latest.ephys.activity.intf.Electrode
 import org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementStudyTarget;
 
 
-import static org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.*;
+import static org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.SEMANTIC_NAME;
 /**
  * 
  *

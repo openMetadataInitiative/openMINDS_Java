@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.*;
+import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.SEMANTIC_NAME;
 /**
  * 
  *

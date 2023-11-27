@@ -15,7 +15,7 @@ import org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState;
 import org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupSpecies;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.*;
+import static org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.SEMANTIC_NAME;
 /**
  * 
  *

@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.v3.core.data.ContentType;
 import org.openmetadatainitiative.openminds.v3.core.data.File;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.data.FileArchive.*;
+import static org.openmetadatainitiative.openminds.v3.core.data.FileArchive.SEMANTIC_NAME;
 /**
  * 
  *

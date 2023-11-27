@@ -20,7 +20,7 @@ import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Quantitati
 import org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.SEMANTIC_NAME;
 /**
  * 
  *

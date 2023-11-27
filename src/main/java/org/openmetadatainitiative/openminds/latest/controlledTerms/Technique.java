@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.SEMANTIC_NAME;
 /**
  * Structured information on the technique.
  *

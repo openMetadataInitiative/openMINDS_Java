@@ -13,7 +13,7 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.v3.core.products.WebService;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.*;
+import static org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.SEMANTIC_NAME;
 /**
  * Structured information about a user account for a web service.
  *

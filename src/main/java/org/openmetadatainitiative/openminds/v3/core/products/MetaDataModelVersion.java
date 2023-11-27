@@ -27,7 +27,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelV
 import org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.SEMANTIC_NAME;
 /**
  * 
  *

@@ -16,7 +16,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelD
 import org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelDigitalIdentifier;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.SEMANTIC_NAME;
 /**
  * 
  *

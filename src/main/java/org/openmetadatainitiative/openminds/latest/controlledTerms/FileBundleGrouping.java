@@ -12,7 +12,7 @@ import java.util.UUID;
 
 
 
-import static org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.*;
+import static org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.SEMANTIC_NAME;
 /**
  * Structured information on the grouping mechanism of a file bundle.
  *

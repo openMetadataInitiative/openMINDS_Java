@@ -14,7 +14,7 @@ import org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.Coor
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
-import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.*;
+import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.SEMANTIC_NAME;
 /**
  * Structured information on a coordinate point.
  *

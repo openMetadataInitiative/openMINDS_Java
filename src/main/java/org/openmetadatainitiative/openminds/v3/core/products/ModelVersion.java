@@ -28,7 +28,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionOu
 import org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication;
 
 
-import static org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.*;
+import static org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.SEMANTIC_NAME;
 /**
  * Structured information on a computational model (version level).
  *
