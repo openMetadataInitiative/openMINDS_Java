@@ -16,37 +16,10 @@ import java.util.stream.Stream;
  */
 public class OpenMINDS {
 
-    private final OpenMINDSContext context;
+    private OpenMINDS(){}
 
-    private OpenMINDS(OpenMINDSContext context){
-        this.context = context;
-    }
-
-    private static void persist(String targetDirectory, Stream<Instance> instances){
-        File dir = new File(targetDirectory);
-        if(!dir.exists()){
-            dir.mkdirs();
-        }
-        instances.forEach(i -> {
-            File f = new File(targetDirectory+File.separator+i.getLocalId().id()+".jsonld");
-            try {
-                ParsingUtils.OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(f, i);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-    }
-
-    {% for version in relevant_versions %}public static OpenMINDS.{{version[0]|upper}}{{version[1:]}} {{version}}(){
-        return {{version}}(OpenMINDSContext.defaultContext());
-    }
-
-    public static OpenMINDS.{{version[0]|upper}}{{version[1:]}} {{version}}(String idPrefix){
-        return {{version}}(new OpenMINDSContext(idPrefix, true));
-    }
-
-    private static OpenMINDS.{{version[0]|upper}}{{version[1:]}} {{version}}(OpenMINDSContext context) {
-        return new OpenMINDS(context).new {{version[0]|upper}}{{version[1:]}}();
+    {% for version in relevant_versions %}public static OpenMINDS.{{version[0]|upper}}{{version[1:]}} {{version}}() {
+        return new OpenMINDS().new {{version[0]|upper}}{{version[1:]}}();
     }
 
     public final class {{version[0]|upper}}{{version[1:]}} {
