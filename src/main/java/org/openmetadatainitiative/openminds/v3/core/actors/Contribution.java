@@ -49,7 +49,7 @@ public class Contribution extends Instance {
             if (Contribution.this.id == null) {
                 Contribution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Contribution.this.type = SEMANTIC_NAME;
+            Contribution.this.atType = SEMANTIC_NAME;
             return Contribution.this;
         }
     }

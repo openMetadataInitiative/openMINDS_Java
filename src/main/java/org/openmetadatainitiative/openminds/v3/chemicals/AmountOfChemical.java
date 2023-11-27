@@ -49,7 +49,7 @@ public class AmountOfChemical extends Instance {
             if (AmountOfChemical.this.id == null) {
                 AmountOfChemical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AmountOfChemical.this.type = SEMANTIC_NAME;
+            AmountOfChemical.this.atType = SEMANTIC_NAME;
             return AmountOfChemical.this;
         }
     }

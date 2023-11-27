@@ -57,7 +57,7 @@ public class Handedness extends Instance implements org.openmetadatainitiative.o
             if (Handedness.this.id == null) {
                 Handedness.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Handedness.this.type = SEMANTIC_NAME;
+            Handedness.this.atType = SEMANTIC_NAME;
             return Handedness.this;
         }
     }

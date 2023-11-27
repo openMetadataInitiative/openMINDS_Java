@@ -48,7 +48,7 @@ public class FileRepositoryStructure extends Instance {
             if (FileRepositoryStructure.this.id == null) {
                 FileRepositoryStructure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FileRepositoryStructure.this.type = SEMANTIC_NAME;
+            FileRepositoryStructure.this.atType = SEMANTIC_NAME;
             return FileRepositoryStructure.this;
         }
     }

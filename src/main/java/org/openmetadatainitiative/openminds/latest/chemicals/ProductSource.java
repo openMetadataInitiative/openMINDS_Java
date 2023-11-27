@@ -56,7 +56,7 @@ public class ProductSource extends Instance {
             if (ProductSource.this.id == null) {
                 ProductSource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ProductSource.this.type = SEMANTIC_NAME;
+            ProductSource.this.atType = SEMANTIC_NAME;
             return ProductSource.this;
         }
     }

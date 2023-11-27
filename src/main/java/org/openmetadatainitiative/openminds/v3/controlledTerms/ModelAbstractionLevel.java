@@ -57,7 +57,7 @@ public class ModelAbstractionLevel extends Instance implements org.openmetadatai
             if (ModelAbstractionLevel.this.id == null) {
                 ModelAbstractionLevel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ModelAbstractionLevel.this.type = SEMANTIC_NAME;
+            ModelAbstractionLevel.this.atType = SEMANTIC_NAME;
             return ModelAbstractionLevel.this;
         }
     }

@@ -56,7 +56,7 @@ public class ChemicalMixture extends Instance implements org.openmetadatainitiat
             if (ChemicalMixture.this.id == null) {
                 ChemicalMixture.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ChemicalMixture.this.type = SEMANTIC_NAME;
+            ChemicalMixture.this.atType = SEMANTIC_NAME;
             return ChemicalMixture.this;
         }
     }

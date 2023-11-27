@@ -57,7 +57,7 @@ public class Service extends Instance implements org.openmetadatainitiative.open
             if (Service.this.id == null) {
                 Service.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Service.this.type = SEMANTIC_NAME;
+            Service.this.atType = SEMANTIC_NAME;
             return Service.this;
         }
     }

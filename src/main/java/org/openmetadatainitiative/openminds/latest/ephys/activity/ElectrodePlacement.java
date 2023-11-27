@@ -81,7 +81,7 @@ public class ElectrodePlacement extends Instance {
             if (ElectrodePlacement.this.id == null) {
                 ElectrodePlacement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ElectrodePlacement.this.type = SEMANTIC_NAME;
+            ElectrodePlacement.this.atType = SEMANTIC_NAME;
             return ElectrodePlacement.this;
         }
     }

@@ -57,7 +57,7 @@ public class OperatingSystem extends Instance implements org.openmetadatainitiat
             if (OperatingSystem.this.id == null) {
                 OperatingSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            OperatingSystem.this.type = SEMANTIC_NAME;
+            OperatingSystem.this.atType = SEMANTIC_NAME;
             return OperatingSystem.this;
         }
     }

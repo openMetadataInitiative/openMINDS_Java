@@ -45,7 +45,7 @@ public class IdentifiersDotOrgID extends Instance implements org.openmetadataini
             if (IdentifiersDotOrgID.this.id == null) {
                 IdentifiersDotOrgID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            IdentifiersDotOrgID.this.type = SEMANTIC_NAME;
+            IdentifiersDotOrgID.this.atType = SEMANTIC_NAME;
             return IdentifiersDotOrgID.this;
         }
     }

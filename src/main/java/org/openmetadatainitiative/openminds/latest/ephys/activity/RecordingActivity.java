@@ -80,7 +80,7 @@ public class RecordingActivity extends Instance {
             if (RecordingActivity.this.id == null) {
                 RecordingActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            RecordingActivity.this.type = SEMANTIC_NAME;
+            RecordingActivity.this.atType = SEMANTIC_NAME;
             return RecordingActivity.this;
         }
     }

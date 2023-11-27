@@ -57,7 +57,7 @@ public class ExperimentalApproach extends Instance implements org.openmetadatain
             if (ExperimentalApproach.this.id == null) {
                 ExperimentalApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ExperimentalApproach.this.type = SEMANTIC_NAME;
+            ExperimentalApproach.this.atType = SEMANTIC_NAME;
             return ExperimentalApproach.this;
         }
     }

@@ -50,7 +50,7 @@ public class ContentTypePattern extends Instance {
             if (ContentTypePattern.this.id == null) {
                 ContentTypePattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ContentTypePattern.this.type = SEMANTIC_NAME;
+            ContentTypePattern.this.atType = SEMANTIC_NAME;
             return ContentTypePattern.this;
         }
     }

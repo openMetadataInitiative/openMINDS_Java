@@ -132,7 +132,7 @@ public class DatasetVersion extends Instance implements org.openmetadatainitiati
             if (DatasetVersion.this.id == null) {
                 DatasetVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DatasetVersion.this.type = SEMANTIC_NAME;
+            DatasetVersion.this.atType = SEMANTIC_NAME;
             return DatasetVersion.this;
         }
     }

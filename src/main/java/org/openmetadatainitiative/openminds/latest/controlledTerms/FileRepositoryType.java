@@ -57,7 +57,7 @@ public class FileRepositoryType extends Instance implements org.openmetadatainit
             if (FileRepositoryType.this.id == null) {
                 FileRepositoryType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FileRepositoryType.this.type = SEMANTIC_NAME;
+            FileRepositoryType.this.atType = SEMANTIC_NAME;
             return FileRepositoryType.this;
         }
     }

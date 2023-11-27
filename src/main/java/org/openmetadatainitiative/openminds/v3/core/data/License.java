@@ -51,7 +51,7 @@ public class License extends Instance implements org.openmetadatainitiative.open
             if (License.this.id == null) {
                 License.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            License.this.type = SEMANTIC_NAME;
+            License.this.atType = SEMANTIC_NAME;
             return License.this;
         }
     }

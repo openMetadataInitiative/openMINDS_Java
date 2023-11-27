@@ -57,7 +57,7 @@ public class AgeCategory extends Instance implements org.openmetadatainitiative.
             if (AgeCategory.this.id == null) {
                 AgeCategory.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AgeCategory.this.type = SEMANTIC_NAME;
+            AgeCategory.this.atType = SEMANTIC_NAME;
             return AgeCategory.this;
         }
     }

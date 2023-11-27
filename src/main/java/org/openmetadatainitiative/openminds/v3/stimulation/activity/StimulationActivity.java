@@ -80,7 +80,7 @@ public class StimulationActivity extends Instance {
             if (StimulationActivity.this.id == null) {
                 StimulationActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            StimulationActivity.this.type = SEMANTIC_NAME;
+            StimulationActivity.this.atType = SEMANTIC_NAME;
             return StimulationActivity.this;
         }
     }

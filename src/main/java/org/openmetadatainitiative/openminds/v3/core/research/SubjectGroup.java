@@ -60,7 +60,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
             if (SubjectGroup.this.id == null) {
                 SubjectGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SubjectGroup.this.type = SEMANTIC_NAME;
+            SubjectGroup.this.atType = SEMANTIC_NAME;
             return SubjectGroup.this;
         }
     }

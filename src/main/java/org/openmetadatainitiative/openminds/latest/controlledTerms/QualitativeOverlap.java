@@ -57,7 +57,7 @@ public class QualitativeOverlap extends Instance implements org.openmetadatainit
             if (QualitativeOverlap.this.id == null) {
                 QualitativeOverlap.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            QualitativeOverlap.this.type = SEMANTIC_NAME;
+            QualitativeOverlap.this.atType = SEMANTIC_NAME;
             return QualitativeOverlap.this;
         }
     }

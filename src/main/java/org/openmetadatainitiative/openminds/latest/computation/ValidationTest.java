@@ -77,7 +77,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
             if (ValidationTest.this.id == null) {
                 ValidationTest.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ValidationTest.this.type = SEMANTIC_NAME;
+            ValidationTest.this.atType = SEMANTIC_NAME;
             return ValidationTest.this;
         }
     }

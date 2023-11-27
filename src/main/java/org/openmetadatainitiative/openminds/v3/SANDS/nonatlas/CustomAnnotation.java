@@ -75,7 +75,7 @@ public class CustomAnnotation extends Instance {
             if (CustomAnnotation.this.id == null) {
                 CustomAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CustomAnnotation.this.type = SEMANTIC_NAME;
+            CustomAnnotation.this.atType = SEMANTIC_NAME;
             return CustomAnnotation.this;
         }
     }

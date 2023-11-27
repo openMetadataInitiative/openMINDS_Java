@@ -57,7 +57,7 @@ public class OrganismSubstance extends Instance implements org.openmetadatainiti
             if (OrganismSubstance.this.id == null) {
                 OrganismSubstance.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            OrganismSubstance.this.type = SEMANTIC_NAME;
+            OrganismSubstance.this.atType = SEMANTIC_NAME;
             return OrganismSubstance.this;
         }
     }

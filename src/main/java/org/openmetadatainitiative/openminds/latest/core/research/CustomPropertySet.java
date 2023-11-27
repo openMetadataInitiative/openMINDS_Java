@@ -51,7 +51,7 @@ public class CustomPropertySet extends Instance {
             if (CustomPropertySet.this.id == null) {
                 CustomPropertySet.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CustomPropertySet.this.type = SEMANTIC_NAME;
+            CustomPropertySet.this.atType = SEMANTIC_NAME;
             return CustomPropertySet.this;
         }
     }

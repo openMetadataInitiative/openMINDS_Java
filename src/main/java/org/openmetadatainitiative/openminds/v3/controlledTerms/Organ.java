@@ -57,7 +57,7 @@ public class Organ extends Instance implements org.openmetadatainitiative.openmi
             if (Organ.this.id == null) {
                 Organ.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Organ.this.type = SEMANTIC_NAME;
+            Organ.this.atType = SEMANTIC_NAME;
             return Organ.this;
         }
     }

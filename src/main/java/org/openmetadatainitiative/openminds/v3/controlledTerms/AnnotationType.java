@@ -57,7 +57,7 @@ public class AnnotationType extends Instance implements org.openmetadatainitiati
             if (AnnotationType.this.id == null) {
                 AnnotationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AnnotationType.this.type = SEMANTIC_NAME;
+            AnnotationType.this.atType = SEMANTIC_NAME;
             return AnnotationType.this;
         }
     }

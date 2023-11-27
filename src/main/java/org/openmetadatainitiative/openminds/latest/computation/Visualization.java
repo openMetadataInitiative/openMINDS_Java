@@ -92,7 +92,7 @@ public class Visualization extends Instance implements org.openmetadatainitiativ
             if (Visualization.this.id == null) {
                 Visualization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Visualization.this.type = SEMANTIC_NAME;
+            Visualization.this.atType = SEMANTIC_NAME;
             return Visualization.this;
         }
     }

@@ -48,7 +48,7 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
             if (Ellipse.this.id == null) {
                 Ellipse.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Ellipse.this.type = SEMANTIC_NAME;
+            Ellipse.this.atType = SEMANTIC_NAME;
             return Ellipse.this;
         }
     }

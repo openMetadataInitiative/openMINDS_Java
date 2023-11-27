@@ -61,7 +61,7 @@ public class Person extends Instance implements org.openmetadatainitiative.openm
             if (Person.this.id == null) {
                 Person.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Person.this.type = SEMANTIC_NAME;
+            Person.this.atType = SEMANTIC_NAME;
             return Person.this;
         }
     }

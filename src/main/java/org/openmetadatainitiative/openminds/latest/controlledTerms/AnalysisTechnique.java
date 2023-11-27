@@ -57,7 +57,7 @@ public class AnalysisTechnique extends Instance implements org.openmetadatainiti
             if (AnalysisTechnique.this.id == null) {
                 AnalysisTechnique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AnalysisTechnique.this.type = SEMANTIC_NAME;
+            AnalysisTechnique.this.atType = SEMANTIC_NAME;
             return AnalysisTechnique.this;
         }
     }

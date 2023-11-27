@@ -120,7 +120,7 @@ public class BrainAtlasVersion extends Instance implements org.openmetadatainiti
             if (BrainAtlasVersion.this.id == null) {
                 BrainAtlasVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            BrainAtlasVersion.this.type = SEMANTIC_NAME;
+            BrainAtlasVersion.this.atType = SEMANTIC_NAME;
             return BrainAtlasVersion.this;
         }
     }

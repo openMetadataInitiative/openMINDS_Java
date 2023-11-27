@@ -57,7 +57,7 @@ public class SoftwareApplicationCategory extends Instance implements org.openmet
             if (SoftwareApplicationCategory.this.id == null) {
                 SoftwareApplicationCategory.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SoftwareApplicationCategory.this.type = SEMANTIC_NAME;
+            SoftwareApplicationCategory.this.atType = SEMANTIC_NAME;
             return SoftwareApplicationCategory.this;
         }
     }

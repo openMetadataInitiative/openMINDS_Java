@@ -57,7 +57,7 @@ public class AnatomicalAxesOrientation extends Instance implements org.openmetad
             if (AnatomicalAxesOrientation.this.id == null) {
                 AnatomicalAxesOrientation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AnatomicalAxesOrientation.this.type = SEMANTIC_NAME;
+            AnatomicalAxesOrientation.this.atType = SEMANTIC_NAME;
             return AnatomicalAxesOrientation.this;
         }
     }

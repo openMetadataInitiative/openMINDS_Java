@@ -70,7 +70,7 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
             if (ParcellationEntityVersion.this.id == null) {
                 ParcellationEntityVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ParcellationEntityVersion.this.type = SEMANTIC_NAME;
+            ParcellationEntityVersion.this.atType = SEMANTIC_NAME;
             return ParcellationEntityVersion.this;
         }
     }

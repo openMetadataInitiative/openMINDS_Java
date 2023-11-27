@@ -55,7 +55,7 @@ public class TissueCulturePreparation extends Instance {
             if (TissueCulturePreparation.this.id == null) {
                 TissueCulturePreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TissueCulturePreparation.this.type = SEMANTIC_NAME;
+            TissueCulturePreparation.this.atType = SEMANTIC_NAME;
             return TissueCulturePreparation.this;
         }
     }

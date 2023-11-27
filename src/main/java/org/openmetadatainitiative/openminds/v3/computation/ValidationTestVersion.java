@@ -113,7 +113,7 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
             if (ValidationTestVersion.this.id == null) {
                 ValidationTestVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ValidationTestVersion.this.type = SEMANTIC_NAME;
+            ValidationTestVersion.this.atType = SEMANTIC_NAME;
             return ValidationTestVersion.this;
         }
     }

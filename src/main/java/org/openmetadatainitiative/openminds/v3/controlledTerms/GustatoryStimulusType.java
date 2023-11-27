@@ -57,7 +57,7 @@ public class GustatoryStimulusType extends Instance implements org.openmetadatai
             if (GustatoryStimulusType.this.id == null) {
                 GustatoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            GustatoryStimulusType.this.type = SEMANTIC_NAME;
+            GustatoryStimulusType.this.atType = SEMANTIC_NAME;
             return GustatoryStimulusType.this;
         }
     }

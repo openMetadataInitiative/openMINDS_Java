@@ -57,7 +57,7 @@ public class BiologicalSex extends Instance implements org.openmetadatainitiativ
             if (BiologicalSex.this.id == null) {
                 BiologicalSex.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            BiologicalSex.this.type = SEMANTIC_NAME;
+            BiologicalSex.this.atType = SEMANTIC_NAME;
             return BiologicalSex.this;
         }
     }

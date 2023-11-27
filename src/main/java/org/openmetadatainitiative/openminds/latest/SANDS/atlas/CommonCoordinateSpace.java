@@ -72,7 +72,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
             if (CommonCoordinateSpace.this.id == null) {
                 CommonCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CommonCoordinateSpace.this.type = SEMANTIC_NAME;
+            CommonCoordinateSpace.this.atType = SEMANTIC_NAME;
             return CommonCoordinateSpace.this;
         }
     }

@@ -48,7 +48,7 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
             if (Rectangle.this.id == null) {
                 Rectangle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Rectangle.this.type = SEMANTIC_NAME;
+            Rectangle.this.atType = SEMANTIC_NAME;
             return Rectangle.this;
         }
     }

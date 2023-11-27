@@ -72,7 +72,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
             if (TissueSampleCollection.this.id == null) {
                 TissueSampleCollection.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TissueSampleCollection.this.type = SEMANTIC_NAME;
+            TissueSampleCollection.this.atType = SEMANTIC_NAME;
             return TissueSampleCollection.this;
         }
     }

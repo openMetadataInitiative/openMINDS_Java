@@ -52,7 +52,7 @@ public class Funding extends Instance {
             if (Funding.this.id == null) {
                 Funding.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Funding.this.type = SEMANTIC_NAME;
+            Funding.this.atType = SEMANTIC_NAME;
             return Funding.this;
         }
     }

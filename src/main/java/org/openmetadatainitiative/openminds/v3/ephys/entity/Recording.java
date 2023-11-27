@@ -63,7 +63,7 @@ public class Recording extends Instance {
             if (Recording.this.id == null) {
                 Recording.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Recording.this.type = SEMANTIC_NAME;
+            Recording.this.atType = SEMANTIC_NAME;
             return Recording.this;
         }
     }

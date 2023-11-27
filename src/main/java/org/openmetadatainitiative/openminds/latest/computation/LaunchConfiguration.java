@@ -54,7 +54,7 @@ public class LaunchConfiguration extends Instance {
             if (LaunchConfiguration.this.id == null) {
                 LaunchConfiguration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            LaunchConfiguration.this.type = SEMANTIC_NAME;
+            LaunchConfiguration.this.atType = SEMANTIC_NAME;
             return LaunchConfiguration.this;
         }
     }

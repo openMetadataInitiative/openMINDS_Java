@@ -57,7 +57,7 @@ public class Species extends Instance implements org.openmetadatainitiative.open
             if (Species.this.id == null) {
                 Species.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Species.this.type = SEMANTIC_NAME;
+            Species.this.atType = SEMANTIC_NAME;
             return Species.this;
         }
     }

@@ -50,7 +50,7 @@ public class Affiliation extends Instance {
             if (Affiliation.this.id == null) {
                 Affiliation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Affiliation.this.type = SEMANTIC_NAME;
+            Affiliation.this.atType = SEMANTIC_NAME;
             return Affiliation.this;
         }
     }

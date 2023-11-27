@@ -57,7 +57,7 @@ public class MeasuredSignalType extends Instance implements org.openmetadatainit
             if (MeasuredSignalType.this.id == null) {
                 MeasuredSignalType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            MeasuredSignalType.this.type = SEMANTIC_NAME;
+            MeasuredSignalType.this.atType = SEMANTIC_NAME;
             return MeasuredSignalType.this;
         }
     }

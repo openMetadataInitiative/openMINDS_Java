@@ -48,7 +48,7 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
             if (NumericalProperty.this.id == null) {
                 NumericalProperty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            NumericalProperty.this.type = SEMANTIC_NAME;
+            NumericalProperty.this.atType = SEMANTIC_NAME;
             return NumericalProperty.this;
         }
     }

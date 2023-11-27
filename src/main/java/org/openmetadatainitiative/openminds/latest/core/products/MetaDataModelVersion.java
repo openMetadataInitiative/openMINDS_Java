@@ -110,7 +110,7 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
             if (MetaDataModelVersion.this.id == null) {
                 MetaDataModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            MetaDataModelVersion.this.type = SEMANTIC_NAME;
+            MetaDataModelVersion.this.atType = SEMANTIC_NAME;
             return MetaDataModelVersion.this;
         }
     }

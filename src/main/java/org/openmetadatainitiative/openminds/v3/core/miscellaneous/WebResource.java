@@ -50,7 +50,7 @@ public class WebResource extends Instance implements org.openmetadatainitiative.
             if (WebResource.this.id == null) {
                 WebResource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            WebResource.this.type = SEMANTIC_NAME;
+            WebResource.this.atType = SEMANTIC_NAME;
             return WebResource.this;
         }
     }

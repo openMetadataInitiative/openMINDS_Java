@@ -63,7 +63,7 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
             if (ParcellationEntity.this.id == null) {
                 ParcellationEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ParcellationEntity.this.type = SEMANTIC_NAME;
+            ParcellationEntity.this.atType = SEMANTIC_NAME;
             return ParcellationEntity.this;
         }
     }

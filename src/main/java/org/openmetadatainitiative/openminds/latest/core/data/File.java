@@ -70,7 +70,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
             if (File.this.id == null) {
                 File.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            File.this.type = SEMANTIC_NAME;
+            File.this.atType = SEMANTIC_NAME;
             return File.this;
         }
     }

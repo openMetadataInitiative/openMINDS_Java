@@ -58,7 +58,7 @@ public class TissueSampleSlicing extends Instance {
             if (TissueSampleSlicing.this.id == null) {
                 TissueSampleSlicing.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TissueSampleSlicing.this.type = SEMANTIC_NAME;
+            TissueSampleSlicing.this.atType = SEMANTIC_NAME;
             return TissueSampleSlicing.this;
         }
     }

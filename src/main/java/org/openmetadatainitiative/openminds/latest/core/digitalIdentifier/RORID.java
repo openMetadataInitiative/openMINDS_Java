@@ -45,7 +45,7 @@ public class RORID extends Instance implements org.openmetadatainitiative.openmi
             if (RORID.this.id == null) {
                 RORID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            RORID.this.type = SEMANTIC_NAME;
+            RORID.this.atType = SEMANTIC_NAME;
             return RORID.this;
         }
     }

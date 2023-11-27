@@ -71,7 +71,7 @@ public class AtlasAnnotation extends Instance {
             if (AtlasAnnotation.this.id == null) {
                 AtlasAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AtlasAnnotation.this.type = SEMANTIC_NAME;
+            AtlasAnnotation.this.atType = SEMANTIC_NAME;
             return AtlasAnnotation.this;
         }
     }

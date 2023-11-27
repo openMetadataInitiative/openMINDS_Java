@@ -46,7 +46,7 @@ public class Circle extends Instance implements org.openmetadatainitiative.openm
             if (Circle.this.id == null) {
                 Circle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Circle.this.type = SEMANTIC_NAME;
+            Circle.this.atType = SEMANTIC_NAME;
             return Circle.this;
         }
     }

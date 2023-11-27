@@ -57,7 +57,7 @@ public class VisualStimulusType extends Instance implements org.openmetadatainit
             if (VisualStimulusType.this.id == null) {
                 VisualStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            VisualStimulusType.this.type = SEMANTIC_NAME;
+            VisualStimulusType.this.atType = SEMANTIC_NAME;
             return VisualStimulusType.this;
         }
     }

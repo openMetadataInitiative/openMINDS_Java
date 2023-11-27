@@ -57,7 +57,7 @@ public class Terminology extends Instance implements org.openmetadatainitiative.
             if (Terminology.this.id == null) {
                 Terminology.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Terminology.this.type = SEMANTIC_NAME;
+            Terminology.this.atType = SEMANTIC_NAME;
             return Terminology.this;
         }
     }

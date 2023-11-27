@@ -92,7 +92,7 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
             if (ScholarlyArticle.this.id == null) {
                 ScholarlyArticle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ScholarlyArticle.this.type = SEMANTIC_NAME;
+            ScholarlyArticle.this.atType = SEMANTIC_NAME;
             return ScholarlyArticle.this;
         }
     }

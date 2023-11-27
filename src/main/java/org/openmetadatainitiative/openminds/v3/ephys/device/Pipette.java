@@ -73,7 +73,7 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
             if (Pipette.this.id == null) {
                 Pipette.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Pipette.this.type = SEMANTIC_NAME;
+            Pipette.this.atType = SEMANTIC_NAME;
             return Pipette.this;
         }
     }

@@ -47,7 +47,7 @@ public class Hash extends Instance {
             if (Hash.this.id == null) {
                 Hash.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Hash.this.type = SEMANTIC_NAME;
+            Hash.this.atType = SEMANTIC_NAME;
             return Hash.this;
         }
     }

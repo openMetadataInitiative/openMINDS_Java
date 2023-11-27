@@ -58,7 +58,7 @@ public class Setup extends Instance implements org.openmetadatainitiative.openmi
             if (Setup.this.id == null) {
                 Setup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Setup.this.type = SEMANTIC_NAME;
+            Setup.this.atType = SEMANTIC_NAME;
             return Setup.this;
         }
     }

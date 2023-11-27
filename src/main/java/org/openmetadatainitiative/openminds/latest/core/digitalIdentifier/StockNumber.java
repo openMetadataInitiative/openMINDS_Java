@@ -48,7 +48,7 @@ public class StockNumber extends Instance {
             if (StockNumber.this.id == null) {
                 StockNumber.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            StockNumber.this.type = SEMANTIC_NAME;
+            StockNumber.this.atType = SEMANTIC_NAME;
             return StockNumber.this;
         }
     }

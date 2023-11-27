@@ -57,7 +57,7 @@ public class TypeOfUncertainty extends Instance implements org.openmetadatainiti
             if (TypeOfUncertainty.this.id == null) {
                 TypeOfUncertainty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TypeOfUncertainty.this.type = SEMANTIC_NAME;
+            TypeOfUncertainty.this.atType = SEMANTIC_NAME;
             return TypeOfUncertainty.this;
         }
     }

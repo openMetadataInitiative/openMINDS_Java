@@ -53,7 +53,7 @@ public class Comment extends Instance {
             if (Comment.this.id == null) {
                 Comment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Comment.this.type = SEMANTIC_NAME;
+            Comment.this.atType = SEMANTIC_NAME;
             return Comment.this;
         }
     }

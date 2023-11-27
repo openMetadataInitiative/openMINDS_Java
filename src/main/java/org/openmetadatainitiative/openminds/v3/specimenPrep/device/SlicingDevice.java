@@ -63,7 +63,7 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
             if (SlicingDevice.this.id == null) {
                 SlicingDevice.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SlicingDevice.this.type = SEMANTIC_NAME;
+            SlicingDevice.this.atType = SEMANTIC_NAME;
             return SlicingDevice.this;
         }
     }

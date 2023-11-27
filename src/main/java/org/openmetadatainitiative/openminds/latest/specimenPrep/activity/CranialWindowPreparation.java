@@ -83,7 +83,7 @@ public class CranialWindowPreparation extends Instance {
             if (CranialWindowPreparation.this.id == null) {
                 CranialWindowPreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CranialWindowPreparation.this.type = SEMANTIC_NAME;
+            CranialWindowPreparation.this.atType = SEMANTIC_NAME;
             return CranialWindowPreparation.this;
         }
     }

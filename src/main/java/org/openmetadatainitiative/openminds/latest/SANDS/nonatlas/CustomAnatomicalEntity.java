@@ -54,7 +54,7 @@ public class CustomAnatomicalEntity extends Instance implements org.openmetadata
             if (CustomAnatomicalEntity.this.id == null) {
                 CustomAnatomicalEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CustomAnatomicalEntity.this.type = SEMANTIC_NAME;
+            CustomAnatomicalEntity.this.atType = SEMANTIC_NAME;
             return CustomAnatomicalEntity.this;
         }
     }

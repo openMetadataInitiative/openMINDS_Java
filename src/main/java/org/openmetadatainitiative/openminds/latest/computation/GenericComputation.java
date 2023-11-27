@@ -92,7 +92,7 @@ public class GenericComputation extends Instance implements org.openmetadatainit
             if (GenericComputation.this.id == null) {
                 GenericComputation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            GenericComputation.this.type = SEMANTIC_NAME;
+            GenericComputation.this.atType = SEMANTIC_NAME;
             return GenericComputation.this;
         }
     }

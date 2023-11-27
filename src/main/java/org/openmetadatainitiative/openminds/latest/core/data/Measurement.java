@@ -56,7 +56,7 @@ public class Measurement extends Instance {
             if (Measurement.this.id == null) {
                 Measurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Measurement.this.type = SEMANTIC_NAME;
+            Measurement.this.atType = SEMANTIC_NAME;
             return Measurement.this;
         }
     }

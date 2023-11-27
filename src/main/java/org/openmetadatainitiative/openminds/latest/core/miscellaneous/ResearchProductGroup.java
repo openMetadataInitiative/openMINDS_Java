@@ -48,7 +48,7 @@ public class ResearchProductGroup extends Instance {
             if (ResearchProductGroup.this.id == null) {
                 ResearchProductGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ResearchProductGroup.this.type = SEMANTIC_NAME;
+            ResearchProductGroup.this.atType = SEMANTIC_NAME;
             return ResearchProductGroup.this;
         }
     }

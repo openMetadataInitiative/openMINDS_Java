@@ -58,7 +58,7 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
             if (BehavioralProtocol.this.id == null) {
                 BehavioralProtocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            BehavioralProtocol.this.type = SEMANTIC_NAME;
+            BehavioralProtocol.this.atType = SEMANTIC_NAME;
             return BehavioralProtocol.this;
         }
     }

@@ -57,7 +57,7 @@ public class Language extends Instance implements org.openmetadatainitiative.ope
             if (Language.this.id == null) {
                 Language.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Language.this.type = SEMANTIC_NAME;
+            Language.this.atType = SEMANTIC_NAME;
             return Language.this;
         }
     }

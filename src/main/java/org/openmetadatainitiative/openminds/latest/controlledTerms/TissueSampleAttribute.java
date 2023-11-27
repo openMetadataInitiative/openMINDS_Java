@@ -57,7 +57,7 @@ public class TissueSampleAttribute extends Instance implements org.openmetadatai
             if (TissueSampleAttribute.this.id == null) {
                 TissueSampleAttribute.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TissueSampleAttribute.this.type = SEMANTIC_NAME;
+            TissueSampleAttribute.this.atType = SEMANTIC_NAME;
             return TissueSampleAttribute.this;
         }
     }

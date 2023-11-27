@@ -57,7 +57,7 @@ public class BiologicalOrder extends Instance implements org.openmetadatainitiat
             if (BiologicalOrder.this.id == null) {
                 BiologicalOrder.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            BiologicalOrder.this.type = SEMANTIC_NAME;
+            BiologicalOrder.this.atType = SEMANTIC_NAME;
             return BiologicalOrder.this;
         }
     }

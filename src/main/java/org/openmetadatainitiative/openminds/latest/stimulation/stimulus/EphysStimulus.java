@@ -46,7 +46,7 @@ public class EphysStimulus extends Instance {
             if (EphysStimulus.this.id == null) {
                 EphysStimulus.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            EphysStimulus.this.type = SEMANTIC_NAME;
+            EphysStimulus.this.atType = SEMANTIC_NAME;
             return EphysStimulus.this;
         }
     }

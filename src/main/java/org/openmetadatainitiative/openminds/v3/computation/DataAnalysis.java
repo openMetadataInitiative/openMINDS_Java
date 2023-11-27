@@ -92,7 +92,7 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
             if (DataAnalysis.this.id == null) {
                 DataAnalysis.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DataAnalysis.this.type = SEMANTIC_NAME;
+            DataAnalysis.this.atType = SEMANTIC_NAME;
             return DataAnalysis.this;
         }
     }

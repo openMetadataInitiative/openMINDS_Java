@@ -121,7 +121,7 @@ public class CommonCoordinateSpaceVersion extends Instance implements org.openme
             if (CommonCoordinateSpaceVersion.this.id == null) {
                 CommonCoordinateSpaceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CommonCoordinateSpaceVersion.this.type = SEMANTIC_NAME;
+            CommonCoordinateSpaceVersion.this.atType = SEMANTIC_NAME;
             return CommonCoordinateSpaceVersion.this;
         }
     }

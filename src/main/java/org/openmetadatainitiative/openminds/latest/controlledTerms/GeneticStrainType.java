@@ -57,7 +57,7 @@ public class GeneticStrainType extends Instance implements org.openmetadatainiti
             if (GeneticStrainType.this.id == null) {
                 GeneticStrainType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            GeneticStrainType.this.type = SEMANTIC_NAME;
+            GeneticStrainType.this.atType = SEMANTIC_NAME;
             return GeneticStrainType.this;
         }
     }

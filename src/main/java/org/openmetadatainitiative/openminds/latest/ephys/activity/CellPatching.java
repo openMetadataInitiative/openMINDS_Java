@@ -90,7 +90,7 @@ public class CellPatching extends Instance {
             if (CellPatching.this.id == null) {
                 CellPatching.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CellPatching.this.type = SEMANTIC_NAME;
+            CellPatching.this.atType = SEMANTIC_NAME;
             return CellPatching.this;
         }
     }

@@ -94,7 +94,7 @@ public class ModelValidation extends Instance implements org.openmetadatainitiat
             if (ModelValidation.this.id == null) {
                 ModelValidation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ModelValidation.this.type = SEMANTIC_NAME;
+            ModelValidation.this.atType = SEMANTIC_NAME;
             return ModelValidation.this;
         }
     }

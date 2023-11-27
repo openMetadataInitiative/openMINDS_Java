@@ -50,7 +50,7 @@ public class Periodical extends Instance {
             if (Periodical.this.id == null) {
                 Periodical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Periodical.this.type = SEMANTIC_NAME;
+            Periodical.this.atType = SEMANTIC_NAME;
             return Periodical.this;
         }
     }

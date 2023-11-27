@@ -57,7 +57,7 @@ public class FileUsageRole extends Instance implements org.openmetadatainitiativ
             if (FileUsageRole.this.id == null) {
                 FileUsageRole.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FileUsageRole.this.type = SEMANTIC_NAME;
+            FileUsageRole.this.atType = SEMANTIC_NAME;
             return FileUsageRole.this;
         }
     }

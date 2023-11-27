@@ -57,7 +57,7 @@ public class BiologicalProcess extends Instance implements org.openmetadatainiti
             if (BiologicalProcess.this.id == null) {
                 BiologicalProcess.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            BiologicalProcess.this.type = SEMANTIC_NAME;
+            BiologicalProcess.this.atType = SEMANTIC_NAME;
             return BiologicalProcess.this;
         }
     }

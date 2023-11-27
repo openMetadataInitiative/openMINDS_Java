@@ -57,7 +57,7 @@ public class ProductAccessibility extends Instance implements org.openmetadatain
             if (ProductAccessibility.this.id == null) {
                 ProductAccessibility.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ProductAccessibility.this.type = SEMANTIC_NAME;
+            ProductAccessibility.this.atType = SEMANTIC_NAME;
             return ProductAccessibility.this;
         }
     }

@@ -57,7 +57,7 @@ public class Technique extends Instance implements org.openmetadatainitiative.op
             if (Technique.this.id == null) {
                 Technique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Technique.this.type = SEMANTIC_NAME;
+            Technique.this.atType = SEMANTIC_NAME;
             return Technique.this;
         }
     }

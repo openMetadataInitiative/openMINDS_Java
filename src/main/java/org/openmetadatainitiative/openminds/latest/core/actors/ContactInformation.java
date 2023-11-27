@@ -45,7 +45,7 @@ public class ContactInformation extends Instance {
             if (ContactInformation.this.id == null) {
                 ContactInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ContactInformation.this.type = SEMANTIC_NAME;
+            ContactInformation.this.atType = SEMANTIC_NAME;
             return ContactInformation.this;
         }
     }

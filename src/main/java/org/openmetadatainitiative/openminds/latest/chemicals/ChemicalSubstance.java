@@ -56,7 +56,7 @@ public class ChemicalSubstance extends Instance implements org.openmetadatainiti
             if (ChemicalSubstance.this.id == null) {
                 ChemicalSubstance.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ChemicalSubstance.this.type = SEMANTIC_NAME;
+            ChemicalSubstance.this.atType = SEMANTIC_NAME;
             return ChemicalSubstance.this;
         }
     }

@@ -56,7 +56,7 @@ public class ServiceLink extends Instance {
             if (ServiceLink.this.id == null) {
                 ServiceLink.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ServiceLink.this.type = SEMANTIC_NAME;
+            ServiceLink.this.atType = SEMANTIC_NAME;
             return ServiceLink.this;
         }
     }

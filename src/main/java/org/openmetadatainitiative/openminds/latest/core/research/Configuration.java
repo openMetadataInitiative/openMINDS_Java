@@ -50,7 +50,7 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
             if (Configuration.this.id == null) {
                 Configuration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Configuration.this.type = SEMANTIC_NAME;
+            Configuration.this.atType = SEMANTIC_NAME;
             return Configuration.this;
         }
     }

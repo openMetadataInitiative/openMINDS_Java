@@ -57,7 +57,7 @@ public class DeviceType extends Instance implements org.openmetadatainitiative.o
             if (DeviceType.this.id == null) {
                 DeviceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DeviceType.this.type = SEMANTIC_NAME;
+            DeviceType.this.atType = SEMANTIC_NAME;
             return DeviceType.this;
         }
     }

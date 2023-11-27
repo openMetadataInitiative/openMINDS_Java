@@ -57,7 +57,7 @@ public class DataType extends Instance implements org.openmetadatainitiative.ope
             if (DataType.this.id == null) {
                 DataType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DataType.this.type = SEMANTIC_NAME;
+            DataType.this.atType = SEMANTIC_NAME;
             return DataType.this;
         }
     }

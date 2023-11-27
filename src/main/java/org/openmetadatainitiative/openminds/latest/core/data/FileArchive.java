@@ -51,7 +51,7 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
             if (FileArchive.this.id == null) {
                 FileArchive.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FileArchive.this.type = SEMANTIC_NAME;
+            FileArchive.this.atType = SEMANTIC_NAME;
             return FileArchive.this;
         }
     }

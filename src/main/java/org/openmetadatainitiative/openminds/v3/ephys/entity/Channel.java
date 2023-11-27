@@ -48,7 +48,7 @@ public class Channel extends Instance {
             if (Channel.this.id == null) {
                 Channel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Channel.this.type = SEMANTIC_NAME;
+            Channel.this.atType = SEMANTIC_NAME;
             return Channel.this;
         }
     }

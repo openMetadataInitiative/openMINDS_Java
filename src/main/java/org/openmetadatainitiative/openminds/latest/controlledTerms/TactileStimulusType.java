@@ -57,7 +57,7 @@ public class TactileStimulusType extends Instance implements org.openmetadataini
             if (TactileStimulusType.this.id == null) {
                 TactileStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TactileStimulusType.this.type = SEMANTIC_NAME;
+            TactileStimulusType.this.atType = SEMANTIC_NAME;
             return TactileStimulusType.this;
         }
     }

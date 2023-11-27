@@ -52,7 +52,7 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
             if (QualitativeRelationAssessment.this.id == null) {
                 QualitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            QualitativeRelationAssessment.this.type = SEMANTIC_NAME;
+            QualitativeRelationAssessment.this.atType = SEMANTIC_NAME;
             return QualitativeRelationAssessment.this;
         }
     }

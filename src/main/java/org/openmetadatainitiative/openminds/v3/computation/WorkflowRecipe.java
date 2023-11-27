@@ -65,7 +65,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
             if (WorkflowRecipe.this.id == null) {
                 WorkflowRecipe.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            WorkflowRecipe.this.type = SEMANTIC_NAME;
+            WorkflowRecipe.this.atType = SEMANTIC_NAME;
             return WorkflowRecipe.this;
         }
     }

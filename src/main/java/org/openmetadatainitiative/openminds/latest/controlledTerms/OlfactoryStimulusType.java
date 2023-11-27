@@ -57,7 +57,7 @@ public class OlfactoryStimulusType extends Instance implements org.openmetadatai
             if (OlfactoryStimulusType.this.id == null) {
                 OlfactoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            OlfactoryStimulusType.this.type = SEMANTIC_NAME;
+            OlfactoryStimulusType.this.atType = SEMANTIC_NAME;
             return OlfactoryStimulusType.this;
         }
     }

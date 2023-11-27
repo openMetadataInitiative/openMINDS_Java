@@ -57,7 +57,7 @@ public class ContributionType extends Instance implements org.openmetadatainitia
             if (ContributionType.this.id == null) {
                 ContributionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ContributionType.this.type = SEMANTIC_NAME;
+            ContributionType.this.atType = SEMANTIC_NAME;
             return ContributionType.this;
         }
     }

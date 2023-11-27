@@ -54,7 +54,7 @@ public class LivePaperSection extends Instance {
             if (LivePaperSection.this.id == null) {
                 LivePaperSection.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            LivePaperSection.this.type = SEMANTIC_NAME;
+            LivePaperSection.this.atType = SEMANTIC_NAME;
             return LivePaperSection.this;
         }
     }

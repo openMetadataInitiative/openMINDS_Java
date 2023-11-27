@@ -57,7 +57,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
             if (CustomCoordinateSpace.this.id == null) {
                 CustomCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CustomCoordinateSpace.this.type = SEMANTIC_NAME;
+            CustomCoordinateSpace.this.atType = SEMANTIC_NAME;
             return CustomCoordinateSpace.this;
         }
     }

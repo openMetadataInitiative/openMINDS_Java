@@ -65,7 +65,7 @@ public class Dataset extends Instance implements org.openmetadatainitiative.open
             if (Dataset.this.id == null) {
                 Dataset.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Dataset.this.type = SEMANTIC_NAME;
+            Dataset.this.atType = SEMANTIC_NAME;
             return Dataset.this;
         }
     }

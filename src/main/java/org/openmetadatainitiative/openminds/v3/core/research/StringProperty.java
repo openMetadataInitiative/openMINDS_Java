@@ -47,7 +47,7 @@ public class StringProperty extends Instance implements org.openmetadatainitiati
             if (StringProperty.this.id == null) {
                 StringProperty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            StringProperty.this.type = SEMANTIC_NAME;
+            StringProperty.this.atType = SEMANTIC_NAME;
             return StringProperty.this;
         }
     }

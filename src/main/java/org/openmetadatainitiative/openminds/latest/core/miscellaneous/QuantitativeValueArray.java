@@ -55,7 +55,7 @@ public class QuantitativeValueArray extends Instance {
             if (QuantitativeValueArray.this.id == null) {
                 QuantitativeValueArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            QuantitativeValueArray.this.type = SEMANTIC_NAME;
+            QuantitativeValueArray.this.atType = SEMANTIC_NAME;
             return QuantitativeValueArray.this;
         }
     }

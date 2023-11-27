@@ -57,7 +57,7 @@ public class FileBundleGrouping extends Instance implements org.openmetadatainit
             if (FileBundleGrouping.this.id == null) {
                 FileBundleGrouping.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FileBundleGrouping.this.type = SEMANTIC_NAME;
+            FileBundleGrouping.this.atType = SEMANTIC_NAME;
             return FileBundleGrouping.this;
         }
     }

@@ -70,7 +70,7 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
             if (SlicingDeviceUsage.this.id == null) {
                 SlicingDeviceUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SlicingDeviceUsage.this.type = SEMANTIC_NAME;
+            SlicingDeviceUsage.this.atType = SEMANTIC_NAME;
             return SlicingDeviceUsage.this;
         }
     }

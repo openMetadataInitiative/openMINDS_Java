@@ -65,7 +65,7 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
             if (LivePaper.this.id == null) {
                 LivePaper.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            LivePaper.this.type = SEMANTIC_NAME;
+            LivePaper.this.atType = SEMANTIC_NAME;
             return LivePaper.this;
         }
     }

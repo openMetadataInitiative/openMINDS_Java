@@ -78,7 +78,7 @@ public class ProtocolExecution extends Instance {
             if (ProtocolExecution.this.id == null) {
                 ProtocolExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ProtocolExecution.this.type = SEMANTIC_NAME;
+            ProtocolExecution.this.atType = SEMANTIC_NAME;
             return ProtocolExecution.this;
         }
     }

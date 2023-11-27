@@ -57,7 +57,7 @@ public class DiseaseModel extends Instance implements org.openmetadatainitiative
             if (DiseaseModel.this.id == null) {
                 DiseaseModel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DiseaseModel.this.type = SEMANTIC_NAME;
+            DiseaseModel.this.atType = SEMANTIC_NAME;
             return DiseaseModel.this;
         }
     }

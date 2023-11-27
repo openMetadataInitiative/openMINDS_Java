@@ -88,7 +88,7 @@ public class PipetteUsage extends Instance implements org.openmetadatainitiative
             if (PipetteUsage.this.id == null) {
                 PipetteUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            PipetteUsage.this.type = SEMANTIC_NAME;
+            PipetteUsage.this.atType = SEMANTIC_NAME;
             return PipetteUsage.this;
         }
     }

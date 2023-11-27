@@ -56,7 +56,7 @@ public class Protocol extends Instance {
             if (Protocol.this.id == null) {
                 Protocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Protocol.this.type = SEMANTIC_NAME;
+            Protocol.this.atType = SEMANTIC_NAME;
             return Protocol.this;
         }
     }

@@ -57,7 +57,7 @@ public class AnnotationCriteriaType extends Instance implements org.openmetadata
             if (AnnotationCriteriaType.this.id == null) {
                 AnnotationCriteriaType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AnnotationCriteriaType.this.type = SEMANTIC_NAME;
+            AnnotationCriteriaType.this.atType = SEMANTIC_NAME;
             return AnnotationCriteriaType.this;
         }
     }

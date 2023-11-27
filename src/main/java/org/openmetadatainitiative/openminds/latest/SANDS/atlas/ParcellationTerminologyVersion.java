@@ -51,7 +51,7 @@ public class ParcellationTerminologyVersion extends Instance {
             if (ParcellationTerminologyVersion.this.id == null) {
                 ParcellationTerminologyVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ParcellationTerminologyVersion.this.type = SEMANTIC_NAME;
+            ParcellationTerminologyVersion.this.atType = SEMANTIC_NAME;
             return ParcellationTerminologyVersion.this;
         }
     }

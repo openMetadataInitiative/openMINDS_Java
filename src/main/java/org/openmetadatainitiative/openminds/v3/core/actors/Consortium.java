@@ -52,7 +52,7 @@ public class Consortium extends Instance implements org.openmetadatainitiative.o
             if (Consortium.this.id == null) {
                 Consortium.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Consortium.this.type = SEMANTIC_NAME;
+            Consortium.this.atType = SEMANTIC_NAME;
             return Consortium.this;
         }
     }

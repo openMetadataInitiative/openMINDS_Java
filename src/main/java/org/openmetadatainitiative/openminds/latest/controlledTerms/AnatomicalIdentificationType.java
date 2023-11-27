@@ -57,7 +57,7 @@ public class AnatomicalIdentificationType extends Instance implements org.openme
             if (AnatomicalIdentificationType.this.id == null) {
                 AnatomicalIdentificationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AnatomicalIdentificationType.this.type = SEMANTIC_NAME;
+            AnatomicalIdentificationType.this.atType = SEMANTIC_NAME;
             return AnatomicalIdentificationType.this;
         }
     }

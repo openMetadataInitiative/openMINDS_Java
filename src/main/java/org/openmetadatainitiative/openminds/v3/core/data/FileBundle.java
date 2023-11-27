@@ -65,7 +65,7 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
             if (FileBundle.this.id == null) {
                 FileBundle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FileBundle.this.type = SEMANTIC_NAME;
+            FileBundle.this.atType = SEMANTIC_NAME;
             return FileBundle.this;
         }
     }

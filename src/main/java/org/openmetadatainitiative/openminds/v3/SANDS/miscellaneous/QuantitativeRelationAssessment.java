@@ -52,7 +52,7 @@ public class QuantitativeRelationAssessment extends Instance implements org.open
             if (QuantitativeRelationAssessment.this.id == null) {
                 QuantitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            QuantitativeRelationAssessment.this.type = SEMANTIC_NAME;
+            QuantitativeRelationAssessment.this.atType = SEMANTIC_NAME;
             return QuantitativeRelationAssessment.this;
         }
     }

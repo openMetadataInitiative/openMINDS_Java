@@ -57,7 +57,7 @@ public class SoftwareFeature extends Instance implements org.openmetadatainitiat
             if (SoftwareFeature.this.id == null) {
                 SoftwareFeature.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SoftwareFeature.this.type = SEMANTIC_NAME;
+            SoftwareFeature.this.atType = SEMANTIC_NAME;
             return SoftwareFeature.this;
         }
     }

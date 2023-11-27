@@ -48,7 +48,7 @@ public class Copyright extends Instance {
             if (Copyright.this.id == null) {
                 Copyright.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Copyright.this.type = SEMANTIC_NAME;
+            Copyright.this.atType = SEMANTIC_NAME;
             return Copyright.this;
         }
     }

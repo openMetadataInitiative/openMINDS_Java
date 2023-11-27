@@ -74,7 +74,7 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
             if (Model.this.id == null) {
                 Model.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Model.this.type = SEMANTIC_NAME;
+            Model.this.atType = SEMANTIC_NAME;
             return Model.this;
         }
     }

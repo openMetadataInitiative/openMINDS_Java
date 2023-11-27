@@ -57,7 +57,7 @@ public class AuditoryStimulusType extends Instance implements org.openmetadatain
             if (AuditoryStimulusType.this.id == null) {
                 AuditoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AuditoryStimulusType.this.type = SEMANTIC_NAME;
+            AuditoryStimulusType.this.atType = SEMANTIC_NAME;
             return AuditoryStimulusType.this;
         }
     }

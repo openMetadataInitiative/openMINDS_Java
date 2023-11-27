@@ -57,7 +57,7 @@ public class Project extends Instance {
             if (Project.this.id == null) {
                 Project.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Project.this.type = SEMANTIC_NAME;
+            Project.this.atType = SEMANTIC_NAME;
             return Project.this;
         }
     }

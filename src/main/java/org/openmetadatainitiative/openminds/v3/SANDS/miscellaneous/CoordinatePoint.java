@@ -49,7 +49,7 @@ public class CoordinatePoint extends Instance {
             if (CoordinatePoint.this.id == null) {
                 CoordinatePoint.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CoordinatePoint.this.type = SEMANTIC_NAME;
+            CoordinatePoint.this.atType = SEMANTIC_NAME;
             return CoordinatePoint.this;
         }
     }

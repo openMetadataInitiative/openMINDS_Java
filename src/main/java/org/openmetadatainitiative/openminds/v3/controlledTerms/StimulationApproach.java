@@ -57,7 +57,7 @@ public class StimulationApproach extends Instance implements org.openmetadataini
             if (StimulationApproach.this.id == null) {
                 StimulationApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            StimulationApproach.this.type = SEMANTIC_NAME;
+            StimulationApproach.this.atType = SEMANTIC_NAME;
             return StimulationApproach.this;
         }
     }

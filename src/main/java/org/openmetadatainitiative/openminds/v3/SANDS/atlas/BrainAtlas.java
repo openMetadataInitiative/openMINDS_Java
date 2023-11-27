@@ -75,7 +75,7 @@ public class BrainAtlas extends Instance implements org.openmetadatainitiative.o
             if (BrainAtlas.this.id == null) {
                 BrainAtlas.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            BrainAtlas.this.type = SEMANTIC_NAME;
+            BrainAtlas.this.atType = SEMANTIC_NAME;
             return BrainAtlas.this;
         }
     }

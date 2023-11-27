@@ -48,7 +48,7 @@ public class PublicationIssue extends Instance implements org.openmetadatainitia
             if (PublicationIssue.this.id == null) {
                 PublicationIssue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            PublicationIssue.this.type = SEMANTIC_NAME;
+            PublicationIssue.this.atType = SEMANTIC_NAME;
             return PublicationIssue.this;
         }
     }

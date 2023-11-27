@@ -57,7 +57,7 @@ public class PreparationType extends Instance implements org.openmetadatainitiat
             if (PreparationType.this.id == null) {
                 PreparationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            PreparationType.this.type = SEMANTIC_NAME;
+            PreparationType.this.atType = SEMANTIC_NAME;
             return PreparationType.this;
         }
     }

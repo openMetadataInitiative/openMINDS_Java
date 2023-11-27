@@ -48,7 +48,7 @@ public class PublicationVolume extends Instance implements org.openmetadatainiti
             if (PublicationVolume.this.id == null) {
                 PublicationVolume.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            PublicationVolume.this.type = SEMANTIC_NAME;
+            PublicationVolume.this.atType = SEMANTIC_NAME;
             return PublicationVolume.this;
         }
     }

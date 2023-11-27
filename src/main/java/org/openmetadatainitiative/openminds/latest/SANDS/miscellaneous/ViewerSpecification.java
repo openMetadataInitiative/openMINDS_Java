@@ -54,7 +54,7 @@ public class ViewerSpecification extends Instance {
             if (ViewerSpecification.this.id == null) {
                 ViewerSpecification.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ViewerSpecification.this.type = SEMANTIC_NAME;
+            ViewerSpecification.this.atType = SEMANTIC_NAME;
             return ViewerSpecification.this;
         }
     }

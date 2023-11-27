@@ -51,7 +51,7 @@ public class SoftwareAgent extends Instance implements org.openmetadatainitiativ
             if (SoftwareAgent.this.id == null) {
                 SoftwareAgent.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SoftwareAgent.this.type = SEMANTIC_NAME;
+            SoftwareAgent.this.atType = SEMANTIC_NAME;
             return SoftwareAgent.this;
         }
     }

@@ -45,7 +45,7 @@ public class ORCID extends Instance {
             if (ORCID.this.id == null) {
                 ORCID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ORCID.this.type = SEMANTIC_NAME;
+            ORCID.this.atType = SEMANTIC_NAME;
             return ORCID.this;
         }
     }

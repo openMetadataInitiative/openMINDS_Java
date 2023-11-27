@@ -57,7 +57,7 @@ public class CranialWindowReinforcementType extends Instance implements org.open
             if (CranialWindowReinforcementType.this.id == null) {
                 CranialWindowReinforcementType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            CranialWindowReinforcementType.this.type = SEMANTIC_NAME;
+            CranialWindowReinforcementType.this.atType = SEMANTIC_NAME;
             return CranialWindowReinforcementType.this;
         }
     }

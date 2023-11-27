@@ -57,7 +57,7 @@ public class SubjectAttribute extends Instance implements org.openmetadatainitia
             if (SubjectAttribute.this.id == null) {
                 SubjectAttribute.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SubjectAttribute.this.type = SEMANTIC_NAME;
+            SubjectAttribute.this.atType = SEMANTIC_NAME;
             return SubjectAttribute.this;
         }
     }

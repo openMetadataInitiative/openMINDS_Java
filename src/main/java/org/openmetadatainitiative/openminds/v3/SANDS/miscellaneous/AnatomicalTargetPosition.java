@@ -54,7 +54,7 @@ public class AnatomicalTargetPosition extends Instance {
             if (AnatomicalTargetPosition.this.id == null) {
                 AnatomicalTargetPosition.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AnatomicalTargetPosition.this.type = SEMANTIC_NAME;
+            AnatomicalTargetPosition.this.atType = SEMANTIC_NAME;
             return AnatomicalTargetPosition.this;
         }
     }

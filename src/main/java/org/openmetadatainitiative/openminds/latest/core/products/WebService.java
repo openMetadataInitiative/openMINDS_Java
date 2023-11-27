@@ -62,7 +62,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
             if (WebService.this.id == null) {
                 WebService.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            WebService.this.type = SEMANTIC_NAME;
+            WebService.this.atType = SEMANTIC_NAME;
             return WebService.this;
         }
     }

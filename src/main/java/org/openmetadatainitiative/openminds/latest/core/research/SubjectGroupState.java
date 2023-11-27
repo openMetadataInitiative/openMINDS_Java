@@ -72,7 +72,7 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
             if (SubjectGroupState.this.id == null) {
                 SubjectGroupState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SubjectGroupState.this.type = SEMANTIC_NAME;
+            SubjectGroupState.this.atType = SEMANTIC_NAME;
             return SubjectGroupState.this;
         }
     }

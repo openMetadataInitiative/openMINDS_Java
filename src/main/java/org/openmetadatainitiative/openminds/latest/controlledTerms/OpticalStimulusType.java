@@ -57,7 +57,7 @@ public class OpticalStimulusType extends Instance implements org.openmetadataini
             if (OpticalStimulusType.this.id == null) {
                 OpticalStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            OpticalStimulusType.this.type = SEMANTIC_NAME;
+            OpticalStimulusType.this.atType = SEMANTIC_NAME;
             return OpticalStimulusType.this;
         }
     }

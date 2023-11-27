@@ -65,7 +65,7 @@ public class Software extends Instance implements org.openmetadatainitiative.ope
             if (Software.this.id == null) {
                 Software.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Software.this.type = SEMANTIC_NAME;
+            Software.this.atType = SEMANTIC_NAME;
             return Software.this;
         }
     }

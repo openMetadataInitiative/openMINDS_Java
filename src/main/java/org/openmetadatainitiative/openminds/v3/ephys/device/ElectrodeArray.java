@@ -78,7 +78,7 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
             if (ElectrodeArray.this.id == null) {
                 ElectrodeArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ElectrodeArray.this.type = SEMANTIC_NAME;
+            ElectrodeArray.this.atType = SEMANTIC_NAME;
             return ElectrodeArray.this;
         }
     }

@@ -48,7 +48,7 @@ public class FilePathPattern extends Instance {
             if (FilePathPattern.this.id == null) {
                 FilePathPattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            FilePathPattern.this.type = SEMANTIC_NAME;
+            FilePathPattern.this.atType = SEMANTIC_NAME;
             return FilePathPattern.this;
         }
     }

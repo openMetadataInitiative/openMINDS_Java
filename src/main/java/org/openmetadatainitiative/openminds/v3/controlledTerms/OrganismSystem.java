@@ -57,7 +57,7 @@ public class OrganismSystem extends Instance implements org.openmetadatainitiati
             if (OrganismSystem.this.id == null) {
                 OrganismSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            OrganismSystem.this.type = SEMANTIC_NAME;
+            OrganismSystem.this.atType = SEMANTIC_NAME;
             return OrganismSystem.this;
         }
     }

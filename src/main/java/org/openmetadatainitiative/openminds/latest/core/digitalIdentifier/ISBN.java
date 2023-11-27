@@ -45,7 +45,7 @@ public class ISBN extends Instance implements org.openmetadatainitiative.openmin
             if (ISBN.this.id == null) {
                 ISBN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ISBN.this.type = SEMANTIC_NAME;
+            ISBN.this.atType = SEMANTIC_NAME;
             return ISBN.this;
         }
     }

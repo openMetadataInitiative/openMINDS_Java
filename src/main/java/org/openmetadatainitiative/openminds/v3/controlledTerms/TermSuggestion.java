@@ -62,7 +62,7 @@ public class TermSuggestion extends Instance implements org.openmetadatainitiati
             if (TermSuggestion.this.id == null) {
                 TermSuggestion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            TermSuggestion.this.type = SEMANTIC_NAME;
+            TermSuggestion.this.atType = SEMANTIC_NAME;
             return TermSuggestion.this;
         }
     }

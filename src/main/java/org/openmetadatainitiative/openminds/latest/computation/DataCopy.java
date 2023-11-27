@@ -92,7 +92,7 @@ public class DataCopy extends Instance implements org.openmetadatainitiative.ope
             if (DataCopy.this.id == null) {
                 DataCopy.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DataCopy.this.type = SEMANTIC_NAME;
+            DataCopy.this.atType = SEMANTIC_NAME;
             return DataCopy.this;
         }
     }

@@ -92,7 +92,7 @@ public class Optimization extends Instance implements org.openmetadatainitiative
             if (Optimization.this.id == null) {
                 Optimization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            Optimization.this.type = SEMANTIC_NAME;
+            Optimization.this.atType = SEMANTIC_NAME;
             return Optimization.this;
         }
     }

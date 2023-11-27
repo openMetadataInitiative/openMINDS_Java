@@ -49,7 +49,7 @@ public class HardwareSystem extends Instance {
             if (HardwareSystem.this.id == null) {
                 HardwareSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            HardwareSystem.this.type = SEMANTIC_NAME;
+            HardwareSystem.this.atType = SEMANTIC_NAME;
             return HardwareSystem.this;
         }
     }

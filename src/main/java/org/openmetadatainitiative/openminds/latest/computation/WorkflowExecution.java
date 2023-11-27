@@ -55,7 +55,7 @@ public class WorkflowExecution extends Instance {
             if (WorkflowExecution.this.id == null) {
                 WorkflowExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            WorkflowExecution.this.type = SEMANTIC_NAME;
+            WorkflowExecution.this.atType = SEMANTIC_NAME;
             return WorkflowExecution.this;
         }
     }

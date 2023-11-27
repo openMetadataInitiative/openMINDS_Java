@@ -57,7 +57,7 @@ public class DifferenceMeasure extends Instance implements org.openmetadatainiti
             if (DifferenceMeasure.this.id == null) {
                 DifferenceMeasure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            DifferenceMeasure.this.type = SEMANTIC_NAME;
+            DifferenceMeasure.this.atType = SEMANTIC_NAME;
             return DifferenceMeasure.this;
         }
     }

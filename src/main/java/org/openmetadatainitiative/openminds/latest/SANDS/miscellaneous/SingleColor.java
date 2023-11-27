@@ -45,7 +45,7 @@ public class SingleColor extends Instance implements org.openmetadatainitiative.
             if (SingleColor.this.id == null) {
                 SingleColor.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            SingleColor.this.type = SEMANTIC_NAME;
+            SingleColor.this.atType = SEMANTIC_NAME;
             return SingleColor.this;
         }
     }

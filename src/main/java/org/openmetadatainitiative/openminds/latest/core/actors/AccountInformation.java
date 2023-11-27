@@ -48,7 +48,7 @@ public class AccountInformation extends Instance {
             if (AccountInformation.this.id == null) {
                 AccountInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            AccountInformation.this.type = SEMANTIC_NAME;
+            AccountInformation.this.atType = SEMANTIC_NAME;
             return AccountInformation.this;
         }
     }

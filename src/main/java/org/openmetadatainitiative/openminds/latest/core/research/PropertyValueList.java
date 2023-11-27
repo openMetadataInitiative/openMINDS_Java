@@ -48,7 +48,7 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
             if (PropertyValueList.this.id == null) {
                 PropertyValueList.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            PropertyValueList.this.type = SEMANTIC_NAME;
+            PropertyValueList.this.atType = SEMANTIC_NAME;
             return PropertyValueList.this;
         }
     }

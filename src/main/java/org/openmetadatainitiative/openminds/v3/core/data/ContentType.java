@@ -60,7 +60,7 @@ public class ContentType extends Instance {
             if (ContentType.this.id == null) {
                 ContentType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            ContentType.this.type = SEMANTIC_NAME;
+            ContentType.this.atType = SEMANTIC_NAME;
             return ContentType.this;
         }
     }
