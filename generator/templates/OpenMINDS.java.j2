@@ -4,6 +4,7 @@ import org.openmetadatainitiative.openminds.utils.Instance;
 import org.openmetadatainitiative.openminds.utils.OpenMINDSContext;
 import org.openmetadatainitiative.openminds.utils.ParsingUtils;
 import org.openmetadatainitiative.openminds.utils.LocalId;
+import org.openmetadatainitiative.openminds.utils.PostProcessor;
 
 import java.io.File;
 import java.io.IOException;
