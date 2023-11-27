@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class TissueSampleCollectionState extends Instance implements org.openmet
         return doGetReference();
     }
 
-    public static Reference<TissueSampleCollectionState> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TissueSampleCollectionState> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TissueSampleCollectionState(LocalId localId ) {
@@ -64,18 +63,11 @@ public class TissueSampleCollectionState extends Instance implements org.openmet
         public Builder weight(TissueSampleCollectionStateWeight weight) { TissueSampleCollectionState.this.weight = weight; return this; }
         
 
-        public TissueSampleCollectionState build() {
+        public TissueSampleCollectionState build(OpenMINDSContext context) {
             if (TissueSampleCollectionState.this.id == null) {
-                TissueSampleCollectionState.this.id = new InstanceId(UUID.randomUUID().toString());
+                TissueSampleCollectionState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TissueSampleCollectionState.this.types == null || TissueSampleCollectionState.this.types.isEmpty() || !TissueSampleCollectionState.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TissueSampleCollectionState.this.types;
-                TissueSampleCollectionState.this.types = new ArrayList<>();
-                TissueSampleCollectionState.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TissueSampleCollectionState.this.types.addAll(oldValues);
-                }
-            }
+            TissueSampleCollectionState.this.type = SEMANTIC_NAME;
             return TissueSampleCollectionState.this;
         }
     }

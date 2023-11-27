@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class AccountInformation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<AccountInformation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AccountInformation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AccountInformation(LocalId localId ) {
@@ -45,18 +44,11 @@ public class AccountInformation extends Instance {
         public Builder userName(String userName) { AccountInformation.this.userName = userName; return this; }
         
 
-        public AccountInformation build() {
+        public AccountInformation build(OpenMINDSContext context) {
             if (AccountInformation.this.id == null) {
-                AccountInformation.this.id = new InstanceId(UUID.randomUUID().toString());
+                AccountInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AccountInformation.this.types == null || AccountInformation.this.types.isEmpty() || !AccountInformation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AccountInformation.this.types;
-                AccountInformation.this.types = new ArrayList<>();
-                AccountInformation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AccountInformation.this.types.addAll(oldValues);
-                }
-            }
+            AccountInformation.this.type = SEMANTIC_NAME;
             return AccountInformation.this;
         }
     }

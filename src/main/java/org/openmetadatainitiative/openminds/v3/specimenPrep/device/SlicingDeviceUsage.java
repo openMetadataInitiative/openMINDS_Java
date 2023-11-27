@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.specimenPrep.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<SlicingDeviceUsage> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SlicingDeviceUsage> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SlicingDeviceUsage(LocalId localId ) {
@@ -67,18 +66,11 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
         public Builder vibrationFrequency(QuantitativeValue vibrationFrequency) { SlicingDeviceUsage.this.vibrationFrequency = vibrationFrequency; return this; }
         
 
-        public SlicingDeviceUsage build() {
+        public SlicingDeviceUsage build(OpenMINDSContext context) {
             if (SlicingDeviceUsage.this.id == null) {
-                SlicingDeviceUsage.this.id = new InstanceId(UUID.randomUUID().toString());
+                SlicingDeviceUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SlicingDeviceUsage.this.types == null || SlicingDeviceUsage.this.types.isEmpty() || !SlicingDeviceUsage.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SlicingDeviceUsage.this.types;
-                SlicingDeviceUsage.this.types = new ArrayList<>();
-                SlicingDeviceUsage.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SlicingDeviceUsage.this.types.addAll(oldValues);
-                }
-            }
+            SlicingDeviceUsage.this.type = SEMANTIC_NAME;
             return SlicingDeviceUsage.this;
         }
     }

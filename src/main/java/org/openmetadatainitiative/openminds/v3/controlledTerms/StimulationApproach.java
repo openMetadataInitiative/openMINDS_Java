@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class StimulationApproach extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<StimulationApproach> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<StimulationApproach> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private StimulationApproach(LocalId localId ) {
@@ -54,18 +53,11 @@ public class StimulationApproach extends Instance implements org.openmetadataini
         public Builder synonym(List<String> synonym) { StimulationApproach.this.synonym = synonym; return this; }
         
 
-        public StimulationApproach build() {
+        public StimulationApproach build(OpenMINDSContext context) {
             if (StimulationApproach.this.id == null) {
-                StimulationApproach.this.id = new InstanceId(UUID.randomUUID().toString());
+                StimulationApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(StimulationApproach.this.types == null || StimulationApproach.this.types.isEmpty() || !StimulationApproach.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = StimulationApproach.this.types;
-                StimulationApproach.this.types = new ArrayList<>();
-                StimulationApproach.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    StimulationApproach.this.types.addAll(oldValues);
-                }
-            }
+            StimulationApproach.this.type = SEMANTIC_NAME;
             return StimulationApproach.this;
         }
     }

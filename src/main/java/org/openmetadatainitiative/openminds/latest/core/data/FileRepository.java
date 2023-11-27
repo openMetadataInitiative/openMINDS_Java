@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<FileRepository> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FileRepository> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FileRepository(LocalId localId ) {
@@ -65,18 +64,11 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
         public Builder type(Reference<FileRepositoryType> type) { FileRepository.this.type = type; return this; }
         
 
-        public FileRepository build() {
+        public FileRepository build(OpenMINDSContext context) {
             if (FileRepository.this.id == null) {
-                FileRepository.this.id = new InstanceId(UUID.randomUUID().toString());
+                FileRepository.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FileRepository.this.types == null || FileRepository.this.types.isEmpty() || !FileRepository.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FileRepository.this.types;
-                FileRepository.this.types = new ArrayList<>();
-                FileRepository.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FileRepository.this.types.addAll(oldValues);
-                }
-            }
+            FileRepository.this.type = SEMANTIC_NAME;
             return FileRepository.this;
         }
     }

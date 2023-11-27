@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class Simulation extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<Simulation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Simulation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Simulation(LocalId localId ) {
@@ -89,18 +88,11 @@ public class Simulation extends Instance implements org.openmetadatainitiative.o
         public Builder wasInformedBy(Reference<? extends SimulationWasInformedBy> wasInformedBy) { Simulation.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public Simulation build() {
+        public Simulation build(OpenMINDSContext context) {
             if (Simulation.this.id == null) {
-                Simulation.this.id = new InstanceId(UUID.randomUUID().toString());
+                Simulation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Simulation.this.types == null || Simulation.this.types.isEmpty() || !Simulation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Simulation.this.types;
-                Simulation.this.types = new ArrayList<>();
-                Simulation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Simulation.this.types.addAll(oldValues);
-                }
-            }
+            Simulation.this.type = SEMANTIC_NAME;
             return Simulation.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Hash extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Hash> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Hash> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Hash(LocalId localId ) {
@@ -44,18 +43,11 @@ public class Hash extends Instance {
         public Builder digest(String digest) { Hash.this.digest = digest; return this; }
         
 
-        public Hash build() {
+        public Hash build(OpenMINDSContext context) {
             if (Hash.this.id == null) {
-                Hash.this.id = new InstanceId(UUID.randomUUID().toString());
+                Hash.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Hash.this.types == null || Hash.this.types.isEmpty() || !Hash.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Hash.this.types;
-                Hash.this.types = new ArrayList<>();
-                Hash.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Hash.this.types.addAll(oldValues);
-                }
-            }
+            Hash.this.type = SEMANTIC_NAME;
             return Hash.this;
         }
     }

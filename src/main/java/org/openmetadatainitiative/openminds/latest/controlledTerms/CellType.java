@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class CellType extends Instance implements org.openmetadatainitiative.ope
         return doGetReference();
     }
 
-    public static Reference<CellType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CellType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CellType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class CellType extends Instance implements org.openmetadatainitiative.ope
         public Builder synonym(List<String> synonym) { CellType.this.synonym = synonym; return this; }
         
 
-        public CellType build() {
+        public CellType build(OpenMINDSContext context) {
             if (CellType.this.id == null) {
-                CellType.this.id = new InstanceId(UUID.randomUUID().toString());
+                CellType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CellType.this.types == null || CellType.this.types.isEmpty() || !CellType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CellType.this.types;
-                CellType.this.types = new ArrayList<>();
-                CellType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CellType.this.types.addAll(oldValues);
-                }
-            }
+            CellType.this.type = SEMANTIC_NAME;
             return CellType.this;
         }
     }

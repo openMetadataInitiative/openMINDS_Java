@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -36,8 +35,8 @@ public class AtlasAnnotation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<AtlasAnnotation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AtlasAnnotation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AtlasAnnotation(LocalId localId ) {
@@ -68,18 +67,11 @@ public class AtlasAnnotation extends Instance {
         public Builder type(Reference<AnnotationType> type) { AtlasAnnotation.this.type = type; return this; }
         
 
-        public AtlasAnnotation build() {
+        public AtlasAnnotation build(OpenMINDSContext context) {
             if (AtlasAnnotation.this.id == null) {
-                AtlasAnnotation.this.id = new InstanceId(UUID.randomUUID().toString());
+                AtlasAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AtlasAnnotation.this.types == null || AtlasAnnotation.this.types.isEmpty() || !AtlasAnnotation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AtlasAnnotation.this.types;
-                AtlasAnnotation.this.types = new ArrayList<>();
-                AtlasAnnotation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AtlasAnnotation.this.types.addAll(oldValues);
-                }
-            }
+            AtlasAnnotation.this.type = SEMANTIC_NAME;
             return AtlasAnnotation.this;
         }
     }

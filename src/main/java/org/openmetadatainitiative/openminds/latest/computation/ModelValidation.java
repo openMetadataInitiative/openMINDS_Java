@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class ModelValidation extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<ModelValidation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ModelValidation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ModelValidation(LocalId localId ) {
@@ -91,18 +90,11 @@ public class ModelValidation extends Instance implements org.openmetadatainitiat
         public Builder wasInformedBy(Reference<? extends ModelValidationWasInformedBy> wasInformedBy) { ModelValidation.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public ModelValidation build() {
+        public ModelValidation build(OpenMINDSContext context) {
             if (ModelValidation.this.id == null) {
-                ModelValidation.this.id = new InstanceId(UUID.randomUUID().toString());
+                ModelValidation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ModelValidation.this.types == null || ModelValidation.this.types.isEmpty() || !ModelValidation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ModelValidation.this.types;
-                ModelValidation.this.types = new ArrayList<>();
-                ModelValidation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ModelValidation.this.types.addAll(oldValues);
-                }
-            }
+            ModelValidation.this.type = SEMANTIC_NAME;
             return ModelValidation.this;
         }
     }

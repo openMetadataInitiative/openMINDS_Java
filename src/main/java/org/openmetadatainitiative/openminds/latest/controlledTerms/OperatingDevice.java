@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class OperatingDevice extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<OperatingDevice> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<OperatingDevice> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private OperatingDevice(LocalId localId ) {
@@ -54,18 +53,11 @@ public class OperatingDevice extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { OperatingDevice.this.synonym = synonym; return this; }
         
 
-        public OperatingDevice build() {
+        public OperatingDevice build(OpenMINDSContext context) {
             if (OperatingDevice.this.id == null) {
-                OperatingDevice.this.id = new InstanceId(UUID.randomUUID().toString());
+                OperatingDevice.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(OperatingDevice.this.types == null || OperatingDevice.this.types.isEmpty() || !OperatingDevice.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = OperatingDevice.this.types;
-                OperatingDevice.this.types = new ArrayList<>();
-                OperatingDevice.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    OperatingDevice.this.types.addAll(oldValues);
-                }
-            }
+            OperatingDevice.this.type = SEMANTIC_NAME;
             return OperatingDevice.this;
         }
     }

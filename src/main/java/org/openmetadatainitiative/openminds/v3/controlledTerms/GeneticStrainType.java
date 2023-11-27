@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class GeneticStrainType extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<GeneticStrainType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<GeneticStrainType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private GeneticStrainType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class GeneticStrainType extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { GeneticStrainType.this.synonym = synonym; return this; }
         
 
-        public GeneticStrainType build() {
+        public GeneticStrainType build(OpenMINDSContext context) {
             if (GeneticStrainType.this.id == null) {
-                GeneticStrainType.this.id = new InstanceId(UUID.randomUUID().toString());
+                GeneticStrainType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(GeneticStrainType.this.types == null || GeneticStrainType.this.types.isEmpty() || !GeneticStrainType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = GeneticStrainType.this.types;
-                GeneticStrainType.this.types = new ArrayList<>();
-                GeneticStrainType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    GeneticStrainType.this.types.addAll(oldValues);
-                }
-            }
+            GeneticStrainType.this.type = SEMANTIC_NAME;
             return GeneticStrainType.this;
         }
     }

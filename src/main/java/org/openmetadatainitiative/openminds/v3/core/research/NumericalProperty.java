@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<NumericalProperty> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<NumericalProperty> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private NumericalProperty(LocalId localId ) {
@@ -45,18 +44,11 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
         public Builder value(List<? extends NumericalPropertyValue> value) { NumericalProperty.this.value = value; return this; }
         
 
-        public NumericalProperty build() {
+        public NumericalProperty build(OpenMINDSContext context) {
             if (NumericalProperty.this.id == null) {
-                NumericalProperty.this.id = new InstanceId(UUID.randomUUID().toString());
+                NumericalProperty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(NumericalProperty.this.types == null || NumericalProperty.this.types.isEmpty() || !NumericalProperty.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = NumericalProperty.this.types;
-                NumericalProperty.this.types = new ArrayList<>();
-                NumericalProperty.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    NumericalProperty.this.types.addAll(oldValues);
-                }
-            }
+            NumericalProperty.this.type = SEMANTIC_NAME;
             return NumericalProperty.this;
         }
     }

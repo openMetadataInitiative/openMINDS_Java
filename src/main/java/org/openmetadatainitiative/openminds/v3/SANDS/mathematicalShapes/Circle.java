@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Circle extends Instance implements org.openmetadatainitiative.openm
         return doGetReference();
     }
 
-    public static Reference<Circle> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Circle> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Circle(LocalId localId ) {
@@ -43,18 +42,11 @@ public class Circle extends Instance implements org.openmetadatainitiative.openm
         public Builder radius(QuantitativeValue radius) { Circle.this.radius = radius; return this; }
         
 
-        public Circle build() {
+        public Circle build(OpenMINDSContext context) {
             if (Circle.this.id == null) {
-                Circle.this.id = new InstanceId(UUID.randomUUID().toString());
+                Circle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Circle.this.types == null || Circle.this.types.isEmpty() || !Circle.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Circle.this.types;
-                Circle.this.types = new ArrayList<>();
-                Circle.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Circle.this.types.addAll(oldValues);
-                }
-            }
+            Circle.this.type = SEMANTIC_NAME;
             return Circle.this;
         }
     }

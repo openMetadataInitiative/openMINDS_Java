@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class FileRepositoryStructure extends Instance {
         return doGetReference();
     }
 
-    public static Reference<FileRepositoryStructure> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FileRepositoryStructure> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FileRepositoryStructure(LocalId localId ) {
@@ -45,18 +44,11 @@ public class FileRepositoryStructure extends Instance {
         public Builder lookupLabel(String lookupLabel) { FileRepositoryStructure.this.lookupLabel = lookupLabel; return this; }
         
 
-        public FileRepositoryStructure build() {
+        public FileRepositoryStructure build(OpenMINDSContext context) {
             if (FileRepositoryStructure.this.id == null) {
-                FileRepositoryStructure.this.id = new InstanceId(UUID.randomUUID().toString());
+                FileRepositoryStructure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FileRepositoryStructure.this.types == null || FileRepositoryStructure.this.types.isEmpty() || !FileRepositoryStructure.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FileRepositoryStructure.this.types;
-                FileRepositoryStructure.this.types = new ArrayList<>();
-                FileRepositoryStructure.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FileRepositoryStructure.this.types.addAll(oldValues);
-                }
-            }
+            FileRepositoryStructure.this.type = SEMANTIC_NAME;
             return FileRepositoryStructure.this;
         }
     }

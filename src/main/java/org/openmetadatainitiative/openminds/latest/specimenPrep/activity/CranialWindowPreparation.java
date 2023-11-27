@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.specimenPrep.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class CranialWindowPreparation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<CranialWindowPreparation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CranialWindowPreparation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CranialWindowPreparation(LocalId localId ) {
@@ -80,18 +79,11 @@ public class CranialWindowPreparation extends Instance {
         public Builder studyTarget(List<Reference<? extends CranialWindowPreparationStudyTarget>> studyTarget) { CranialWindowPreparation.this.studyTarget = studyTarget; return this; }
         
 
-        public CranialWindowPreparation build() {
+        public CranialWindowPreparation build(OpenMINDSContext context) {
             if (CranialWindowPreparation.this.id == null) {
-                CranialWindowPreparation.this.id = new InstanceId(UUID.randomUUID().toString());
+                CranialWindowPreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CranialWindowPreparation.this.types == null || CranialWindowPreparation.this.types.isEmpty() || !CranialWindowPreparation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CranialWindowPreparation.this.types;
-                CranialWindowPreparation.this.types = new ArrayList<>();
-                CranialWindowPreparation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CranialWindowPreparation.this.types.addAll(oldValues);
-                }
-            }
+            CranialWindowPreparation.this.type = SEMANTIC_NAME;
             return CranialWindowPreparation.this;
         }
     }

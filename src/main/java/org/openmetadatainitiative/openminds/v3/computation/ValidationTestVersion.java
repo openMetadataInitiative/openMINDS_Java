@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -44,8 +43,8 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<ValidationTestVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ValidationTestVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ValidationTestVersion(LocalId localId ) {
@@ -110,18 +109,11 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
         public Builder versionInnovation(String versionInnovation) { ValidationTestVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public ValidationTestVersion build() {
+        public ValidationTestVersion build(OpenMINDSContext context) {
             if (ValidationTestVersion.this.id == null) {
-                ValidationTestVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                ValidationTestVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ValidationTestVersion.this.types == null || ValidationTestVersion.this.types.isEmpty() || !ValidationTestVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ValidationTestVersion.this.types;
-                ValidationTestVersion.this.types = new ArrayList<>();
-                ValidationTestVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ValidationTestVersion.this.types.addAll(oldValues);
-                }
-            }
+            ValidationTestVersion.this.type = SEMANTIC_NAME;
             return ValidationTestVersion.this;
         }
     }

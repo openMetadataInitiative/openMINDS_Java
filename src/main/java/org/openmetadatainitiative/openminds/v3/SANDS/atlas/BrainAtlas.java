@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class BrainAtlas extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<BrainAtlas> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BrainAtlas> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BrainAtlas(LocalId localId ) {
@@ -72,18 +71,11 @@ public class BrainAtlas extends Instance implements org.openmetadatainitiative.o
         public Builder usedSpecies(Reference<Species> usedSpecies) { BrainAtlas.this.usedSpecies = usedSpecies; return this; }
         
 
-        public BrainAtlas build() {
+        public BrainAtlas build(OpenMINDSContext context) {
             if (BrainAtlas.this.id == null) {
-                BrainAtlas.this.id = new InstanceId(UUID.randomUUID().toString());
+                BrainAtlas.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BrainAtlas.this.types == null || BrainAtlas.this.types.isEmpty() || !BrainAtlas.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BrainAtlas.this.types;
-                BrainAtlas.this.types = new ArrayList<>();
-                BrainAtlas.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BrainAtlas.this.types.addAll(oldValues);
-                }
-            }
+            BrainAtlas.this.type = SEMANTIC_NAME;
             return BrainAtlas.this;
         }
     }

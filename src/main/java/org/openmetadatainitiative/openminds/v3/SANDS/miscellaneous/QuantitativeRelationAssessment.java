@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class QuantitativeRelationAssessment extends Instance implements org.open
         return doGetReference();
     }
 
-    public static Reference<QuantitativeRelationAssessment> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<QuantitativeRelationAssessment> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private QuantitativeRelationAssessment(LocalId localId ) {
@@ -49,18 +48,11 @@ public class QuantitativeRelationAssessment extends Instance implements org.open
         public Builder quantitativeOverlap(QuantitativeRelationAssessmentQuantitativeOverlap quantitativeOverlap) { QuantitativeRelationAssessment.this.quantitativeOverlap = quantitativeOverlap; return this; }
         
 
-        public QuantitativeRelationAssessment build() {
+        public QuantitativeRelationAssessment build(OpenMINDSContext context) {
             if (QuantitativeRelationAssessment.this.id == null) {
-                QuantitativeRelationAssessment.this.id = new InstanceId(UUID.randomUUID().toString());
+                QuantitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(QuantitativeRelationAssessment.this.types == null || QuantitativeRelationAssessment.this.types.isEmpty() || !QuantitativeRelationAssessment.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = QuantitativeRelationAssessment.this.types;
-                QuantitativeRelationAssessment.this.types = new ArrayList<>();
-                QuantitativeRelationAssessment.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    QuantitativeRelationAssessment.this.types.addAll(oldValues);
-                }
-            }
+            QuantitativeRelationAssessment.this.type = SEMANTIC_NAME;
             return QuantitativeRelationAssessment.this;
         }
     }

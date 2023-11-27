@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class DOI extends Instance implements org.openmetadatainitiative.openmind
         return doGetReference();
     }
 
-    public static Reference<DOI> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DOI> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DOI(LocalId localId ) {
@@ -42,18 +41,11 @@ public class DOI extends Instance implements org.openmetadatainitiative.openmind
         public Builder identifier(String identifier) { DOI.this.identifier = identifier; return this; }
         
 
-        public DOI build() {
+        public DOI build(OpenMINDSContext context) {
             if (DOI.this.id == null) {
-                DOI.this.id = new InstanceId(UUID.randomUUID().toString());
+                DOI.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DOI.this.types == null || DOI.this.types.isEmpty() || !DOI.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DOI.this.types;
-                DOI.this.types = new ArrayList<>();
-                DOI.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DOI.this.types.addAll(oldValues);
-                }
-            }
+            DOI.this.type = SEMANTIC_NAME;
             return DOI.this;
         }
     }

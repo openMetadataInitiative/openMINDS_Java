@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class ViewerSpecification extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ViewerSpecification> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ViewerSpecification> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ViewerSpecification(LocalId localId ) {
@@ -51,18 +50,11 @@ public class ViewerSpecification extends Instance {
         public Builder preferredDisplayColor(Reference<? extends ViewerSpecificationPreferredDisplayColor> preferredDisplayColor) { ViewerSpecification.this.preferredDisplayColor = preferredDisplayColor; return this; }
         
 
-        public ViewerSpecification build() {
+        public ViewerSpecification build(OpenMINDSContext context) {
             if (ViewerSpecification.this.id == null) {
-                ViewerSpecification.this.id = new InstanceId(UUID.randomUUID().toString());
+                ViewerSpecification.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ViewerSpecification.this.types == null || ViewerSpecification.this.types.isEmpty() || !ViewerSpecification.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ViewerSpecification.this.types;
-                ViewerSpecification.this.types = new ArrayList<>();
-                ViewerSpecification.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ViewerSpecification.this.types.addAll(oldValues);
-                }
-            }
+            ViewerSpecification.this.type = SEMANTIC_NAME;
             return ViewerSpecification.this;
         }
     }

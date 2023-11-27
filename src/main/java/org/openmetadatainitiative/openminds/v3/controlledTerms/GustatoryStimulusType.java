@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class GustatoryStimulusType extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<GustatoryStimulusType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<GustatoryStimulusType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private GustatoryStimulusType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class GustatoryStimulusType extends Instance implements org.openmetadatai
         public Builder synonym(List<String> synonym) { GustatoryStimulusType.this.synonym = synonym; return this; }
         
 
-        public GustatoryStimulusType build() {
+        public GustatoryStimulusType build(OpenMINDSContext context) {
             if (GustatoryStimulusType.this.id == null) {
-                GustatoryStimulusType.this.id = new InstanceId(UUID.randomUUID().toString());
+                GustatoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(GustatoryStimulusType.this.types == null || GustatoryStimulusType.this.types.isEmpty() || !GustatoryStimulusType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = GustatoryStimulusType.this.types;
-                GustatoryStimulusType.this.types = new ArrayList<>();
-                GustatoryStimulusType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    GustatoryStimulusType.this.types.addAll(oldValues);
-                }
-            }
+            GustatoryStimulusType.this.type = SEMANTIC_NAME;
             return GustatoryStimulusType.this;
         }
     }

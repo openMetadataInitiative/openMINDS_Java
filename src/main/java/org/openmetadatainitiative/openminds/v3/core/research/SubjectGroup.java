@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<SubjectGroup> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SubjectGroup> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SubjectGroup(LocalId localId ) {
@@ -57,18 +56,11 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
         public Builder studiedState(List<Reference<SubjectGroupState>> studiedState) { SubjectGroup.this.studiedState = studiedState; return this; }
         
 
-        public SubjectGroup build() {
+        public SubjectGroup build(OpenMINDSContext context) {
             if (SubjectGroup.this.id == null) {
-                SubjectGroup.this.id = new InstanceId(UUID.randomUUID().toString());
+                SubjectGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SubjectGroup.this.types == null || SubjectGroup.this.types.isEmpty() || !SubjectGroup.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SubjectGroup.this.types;
-                SubjectGroup.this.types = new ArrayList<>();
-                SubjectGroup.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SubjectGroup.this.types.addAll(oldValues);
-                }
-            }
+            SubjectGroup.this.type = SEMANTIC_NAME;
             return SubjectGroup.this;
         }
     }

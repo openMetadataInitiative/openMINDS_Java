@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ContributionType extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<ContributionType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ContributionType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ContributionType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class ContributionType extends Instance implements org.openmetadatainitia
         public Builder synonym(List<String> synonym) { ContributionType.this.synonym = synonym; return this; }
         
 
-        public ContributionType build() {
+        public ContributionType build(OpenMINDSContext context) {
             if (ContributionType.this.id == null) {
-                ContributionType.this.id = new InstanceId(UUID.randomUUID().toString());
+                ContributionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ContributionType.this.types == null || ContributionType.this.types.isEmpty() || !ContributionType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ContributionType.this.types;
-                ContributionType.this.types = new ArrayList<>();
-                ContributionType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ContributionType.this.types.addAll(oldValues);
-                }
-            }
+            ContributionType.this.type = SEMANTIC_NAME;
             return ContributionType.this;
         }
     }

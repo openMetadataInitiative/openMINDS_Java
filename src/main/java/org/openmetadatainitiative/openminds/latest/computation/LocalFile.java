@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<LocalFile> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<LocalFile> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private LocalFile(LocalId localId ) {
@@ -64,18 +63,11 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
         public Builder storageSize(QuantitativeValue storageSize) { LocalFile.this.storageSize = storageSize; return this; }
         
 
-        public LocalFile build() {
+        public LocalFile build(OpenMINDSContext context) {
             if (LocalFile.this.id == null) {
-                LocalFile.this.id = new InstanceId(UUID.randomUUID().toString());
+                LocalFile.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(LocalFile.this.types == null || LocalFile.this.types.isEmpty() || !LocalFile.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = LocalFile.this.types;
-                LocalFile.this.types = new ArrayList<>();
-                LocalFile.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    LocalFile.this.types.addAll(oldValues);
-                }
-            }
+            LocalFile.this.type = SEMANTIC_NAME;
             return LocalFile.this;
         }
     }

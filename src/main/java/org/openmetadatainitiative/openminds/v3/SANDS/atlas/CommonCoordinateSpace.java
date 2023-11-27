@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<CommonCoordinateSpace> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CommonCoordinateSpace> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CommonCoordinateSpace(LocalId localId ) {
@@ -69,18 +68,11 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
         public Builder usedSpecies(Reference<Species> usedSpecies) { CommonCoordinateSpace.this.usedSpecies = usedSpecies; return this; }
         
 
-        public CommonCoordinateSpace build() {
+        public CommonCoordinateSpace build(OpenMINDSContext context) {
             if (CommonCoordinateSpace.this.id == null) {
-                CommonCoordinateSpace.this.id = new InstanceId(UUID.randomUUID().toString());
+                CommonCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CommonCoordinateSpace.this.types == null || CommonCoordinateSpace.this.types.isEmpty() || !CommonCoordinateSpace.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CommonCoordinateSpace.this.types;
-                CommonCoordinateSpace.this.types = new ArrayList<>();
-                CommonCoordinateSpace.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CommonCoordinateSpace.this.types.addAll(oldValues);
-                }
-            }
+            CommonCoordinateSpace.this.type = SEMANTIC_NAME;
             return CommonCoordinateSpace.this;
         }
     }

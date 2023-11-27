@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class ElectrodeArrayUsage extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<ElectrodeArrayUsage> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ElectrodeArrayUsage> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ElectrodeArrayUsage(LocalId localId ) {
@@ -65,18 +64,11 @@ public class ElectrodeArrayUsage extends Instance implements org.openmetadataini
         public Builder usedSpecimen(Reference<? extends ElectrodeArrayUsageUsedSpecimen> usedSpecimen) { ElectrodeArrayUsage.this.usedSpecimen = usedSpecimen; return this; }
         
 
-        public ElectrodeArrayUsage build() {
+        public ElectrodeArrayUsage build(OpenMINDSContext context) {
             if (ElectrodeArrayUsage.this.id == null) {
-                ElectrodeArrayUsage.this.id = new InstanceId(UUID.randomUUID().toString());
+                ElectrodeArrayUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ElectrodeArrayUsage.this.types == null || ElectrodeArrayUsage.this.types.isEmpty() || !ElectrodeArrayUsage.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ElectrodeArrayUsage.this.types;
-                ElectrodeArrayUsage.this.types = new ArrayList<>();
-                ElectrodeArrayUsage.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ElectrodeArrayUsage.this.types.addAll(oldValues);
-                }
-            }
+            ElectrodeArrayUsage.this.type = SEMANTIC_NAME;
             return ElectrodeArrayUsage.this;
         }
     }

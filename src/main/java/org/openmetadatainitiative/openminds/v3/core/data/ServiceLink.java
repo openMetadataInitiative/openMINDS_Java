@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class ServiceLink extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ServiceLink> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ServiceLink> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ServiceLink(LocalId localId ) {
@@ -53,18 +52,11 @@ public class ServiceLink extends Instance {
         public Builder service(Reference<Service> service) { ServiceLink.this.service = service; return this; }
         
 
-        public ServiceLink build() {
+        public ServiceLink build(OpenMINDSContext context) {
             if (ServiceLink.this.id == null) {
-                ServiceLink.this.id = new InstanceId(UUID.randomUUID().toString());
+                ServiceLink.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ServiceLink.this.types == null || ServiceLink.this.types.isEmpty() || !ServiceLink.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ServiceLink.this.types;
-                ServiceLink.this.types = new ArrayList<>();
-                ServiceLink.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ServiceLink.this.types.addAll(oldValues);
-                }
-            }
+            ServiceLink.this.type = SEMANTIC_NAME;
             return ServiceLink.this;
         }
     }

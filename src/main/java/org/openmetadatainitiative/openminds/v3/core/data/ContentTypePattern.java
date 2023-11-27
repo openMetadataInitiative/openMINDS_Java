@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class ContentTypePattern extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ContentTypePattern> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ContentTypePattern> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ContentTypePattern(LocalId localId ) {
@@ -47,18 +46,11 @@ public class ContentTypePattern extends Instance {
         public Builder regex(String regex) { ContentTypePattern.this.regex = regex; return this; }
         
 
-        public ContentTypePattern build() {
+        public ContentTypePattern build(OpenMINDSContext context) {
             if (ContentTypePattern.this.id == null) {
-                ContentTypePattern.this.id = new InstanceId(UUID.randomUUID().toString());
+                ContentTypePattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ContentTypePattern.this.types == null || ContentTypePattern.this.types.isEmpty() || !ContentTypePattern.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ContentTypePattern.this.types;
-                ContentTypePattern.this.types = new ArrayList<>();
-                ContentTypePattern.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ContentTypePattern.this.types.addAll(oldValues);
-                }
-            }
+            ContentTypePattern.this.type = SEMANTIC_NAME;
             return ContentTypePattern.this;
         }
     }

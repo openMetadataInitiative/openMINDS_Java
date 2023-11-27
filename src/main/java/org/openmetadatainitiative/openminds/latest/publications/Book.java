@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
         return doGetReference();
     }
 
-    public static Reference<Book> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Book> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Book(LocalId localId ) {
@@ -84,18 +83,11 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
         public Builder versionIdentifier(String versionIdentifier) { Book.this.versionIdentifier = versionIdentifier; return this; }
         
 
-        public Book build() {
+        public Book build(OpenMINDSContext context) {
             if (Book.this.id == null) {
-                Book.this.id = new InstanceId(UUID.randomUUID().toString());
+                Book.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Book.this.types == null || Book.this.types.isEmpty() || !Book.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Book.this.types;
-                Book.this.types = new ArrayList<>();
-                Book.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Book.this.types.addAll(oldValues);
-                }
-            }
+            Book.this.type = SEMANTIC_NAME;
             return Book.this;
         }
     }

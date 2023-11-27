@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class TissueSampleState extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<TissueSampleState> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TissueSampleState> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TissueSampleState(LocalId localId ) {
@@ -64,18 +63,11 @@ public class TissueSampleState extends Instance implements org.openmetadatainiti
         public Builder weight(TissueSampleStateWeight weight) { TissueSampleState.this.weight = weight; return this; }
         
 
-        public TissueSampleState build() {
+        public TissueSampleState build(OpenMINDSContext context) {
             if (TissueSampleState.this.id == null) {
-                TissueSampleState.this.id = new InstanceId(UUID.randomUUID().toString());
+                TissueSampleState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TissueSampleState.this.types == null || TissueSampleState.this.types.isEmpty() || !TissueSampleState.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TissueSampleState.this.types;
-                TissueSampleState.this.types = new ArrayList<>();
-                TissueSampleState.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TissueSampleState.this.types.addAll(oldValues);
-                }
-            }
+            TissueSampleState.this.type = SEMANTIC_NAME;
             return TissueSampleState.this;
         }
     }

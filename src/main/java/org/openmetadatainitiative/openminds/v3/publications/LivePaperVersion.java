@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -42,8 +41,8 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<LivePaperVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<LivePaperVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private LivePaperVersion(LocalId localId ) {
@@ -104,18 +103,11 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
         public Builder versionInnovation(String versionInnovation) { LivePaperVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public LivePaperVersion build() {
+        public LivePaperVersion build(OpenMINDSContext context) {
             if (LivePaperVersion.this.id == null) {
-                LivePaperVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                LivePaperVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(LivePaperVersion.this.types == null || LivePaperVersion.this.types.isEmpty() || !LivePaperVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = LivePaperVersion.this.types;
-                LivePaperVersion.this.types = new ArrayList<>();
-                LivePaperVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    LivePaperVersion.this.types.addAll(oldValues);
-                }
-            }
+            LivePaperVersion.this.type = SEMANTIC_NAME;
             return LivePaperVersion.this;
         }
     }

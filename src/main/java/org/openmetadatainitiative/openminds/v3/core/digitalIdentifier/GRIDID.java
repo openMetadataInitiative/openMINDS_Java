@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class GRIDID extends Instance implements org.openmetadatainitiative.openm
         return doGetReference();
     }
 
-    public static Reference<GRIDID> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<GRIDID> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private GRIDID(LocalId localId ) {
@@ -42,18 +41,11 @@ public class GRIDID extends Instance implements org.openmetadatainitiative.openm
         public Builder identifier(String identifier) { GRIDID.this.identifier = identifier; return this; }
         
 
-        public GRIDID build() {
+        public GRIDID build(OpenMINDSContext context) {
             if (GRIDID.this.id == null) {
-                GRIDID.this.id = new InstanceId(UUID.randomUUID().toString());
+                GRIDID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(GRIDID.this.types == null || GRIDID.this.types.isEmpty() || !GRIDID.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = GRIDID.this.types;
-                GRIDID.this.types = new ArrayList<>();
-                GRIDID.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    GRIDID.this.types.addAll(oldValues);
-                }
-            }
+            GRIDID.this.type = SEMANTIC_NAME;
             return GRIDID.this;
         }
     }

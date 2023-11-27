@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class OlfactoryStimulusType extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<OlfactoryStimulusType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<OlfactoryStimulusType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private OlfactoryStimulusType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class OlfactoryStimulusType extends Instance implements org.openmetadatai
         public Builder synonym(List<String> synonym) { OlfactoryStimulusType.this.synonym = synonym; return this; }
         
 
-        public OlfactoryStimulusType build() {
+        public OlfactoryStimulusType build(OpenMINDSContext context) {
             if (OlfactoryStimulusType.this.id == null) {
-                OlfactoryStimulusType.this.id = new InstanceId(UUID.randomUUID().toString());
+                OlfactoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(OlfactoryStimulusType.this.types == null || OlfactoryStimulusType.this.types.isEmpty() || !OlfactoryStimulusType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = OlfactoryStimulusType.this.types;
-                OlfactoryStimulusType.this.types = new ArrayList<>();
-                OlfactoryStimulusType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    OlfactoryStimulusType.this.types.addAll(oldValues);
-                }
-            }
+            OlfactoryStimulusType.this.type = SEMANTIC_NAME;
             return OlfactoryStimulusType.this;
         }
     }

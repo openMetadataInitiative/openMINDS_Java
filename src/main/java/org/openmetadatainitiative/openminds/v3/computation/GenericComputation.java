@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class GenericComputation extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<GenericComputation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<GenericComputation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private GenericComputation(LocalId localId ) {
@@ -89,18 +88,11 @@ public class GenericComputation extends Instance implements org.openmetadatainit
         public Builder wasInformedBy(Reference<? extends GenericComputationWasInformedBy> wasInformedBy) { GenericComputation.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public GenericComputation build() {
+        public GenericComputation build(OpenMINDSContext context) {
             if (GenericComputation.this.id == null) {
-                GenericComputation.this.id = new InstanceId(UUID.randomUUID().toString());
+                GenericComputation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(GenericComputation.this.types == null || GenericComputation.this.types.isEmpty() || !GenericComputation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = GenericComputation.this.types;
-                GenericComputation.this.types = new ArrayList<>();
-                GenericComputation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    GenericComputation.this.types.addAll(oldValues);
-                }
-            }
+            GenericComputation.this.type = SEMANTIC_NAME;
             return GenericComputation.this;
         }
     }

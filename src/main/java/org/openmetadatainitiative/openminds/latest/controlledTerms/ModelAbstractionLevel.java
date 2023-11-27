@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ModelAbstractionLevel extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<ModelAbstractionLevel> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ModelAbstractionLevel> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ModelAbstractionLevel(LocalId localId ) {
@@ -54,18 +53,11 @@ public class ModelAbstractionLevel extends Instance implements org.openmetadatai
         public Builder synonym(List<String> synonym) { ModelAbstractionLevel.this.synonym = synonym; return this; }
         
 
-        public ModelAbstractionLevel build() {
+        public ModelAbstractionLevel build(OpenMINDSContext context) {
             if (ModelAbstractionLevel.this.id == null) {
-                ModelAbstractionLevel.this.id = new InstanceId(UUID.randomUUID().toString());
+                ModelAbstractionLevel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ModelAbstractionLevel.this.types == null || ModelAbstractionLevel.this.types.isEmpty() || !ModelAbstractionLevel.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ModelAbstractionLevel.this.types;
-                ModelAbstractionLevel.this.types = new ArrayList<>();
-                ModelAbstractionLevel.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ModelAbstractionLevel.this.types.addAll(oldValues);
-                }
-            }
+            ModelAbstractionLevel.this.type = SEMANTIC_NAME;
             return ModelAbstractionLevel.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ORCID extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ORCID> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ORCID> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ORCID(LocalId localId ) {
@@ -42,18 +41,11 @@ public class ORCID extends Instance {
         public Builder identifier(String identifier) { ORCID.this.identifier = identifier; return this; }
         
 
-        public ORCID build() {
+        public ORCID build(OpenMINDSContext context) {
             if (ORCID.this.id == null) {
-                ORCID.this.id = new InstanceId(UUID.randomUUID().toString());
+                ORCID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ORCID.this.types == null || ORCID.this.types.isEmpty() || !ORCID.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ORCID.this.types;
-                ORCID.this.types = new ArrayList<>();
-                ORCID.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ORCID.this.types.addAll(oldValues);
-                }
-            }
+            ORCID.this.type = SEMANTIC_NAME;
             return ORCID.this;
         }
     }

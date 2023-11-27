@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.ephys.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class CellPatching extends Instance {
         return doGetReference();
     }
 
-    public static Reference<CellPatching> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CellPatching> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CellPatching(LocalId localId ) {
@@ -87,18 +86,11 @@ public class CellPatching extends Instance {
         public Builder variation(Reference<PatchClampVariation> variation) { CellPatching.this.variation = variation; return this; }
         
 
-        public CellPatching build() {
+        public CellPatching build(OpenMINDSContext context) {
             if (CellPatching.this.id == null) {
-                CellPatching.this.id = new InstanceId(UUID.randomUUID().toString());
+                CellPatching.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CellPatching.this.types == null || CellPatching.this.types.isEmpty() || !CellPatching.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CellPatching.this.types;
-                CellPatching.this.types = new ArrayList<>();
-                CellPatching.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CellPatching.this.types.addAll(oldValues);
-                }
-            }
+            CellPatching.this.type = SEMANTIC_NAME;
             return CellPatching.this;
         }
     }

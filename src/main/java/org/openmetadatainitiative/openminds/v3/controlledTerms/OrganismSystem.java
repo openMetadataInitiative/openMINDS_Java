@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class OrganismSystem extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<OrganismSystem> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<OrganismSystem> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private OrganismSystem(LocalId localId ) {
@@ -54,18 +53,11 @@ public class OrganismSystem extends Instance implements org.openmetadatainitiati
         public Builder synonym(List<String> synonym) { OrganismSystem.this.synonym = synonym; return this; }
         
 
-        public OrganismSystem build() {
+        public OrganismSystem build(OpenMINDSContext context) {
             if (OrganismSystem.this.id == null) {
-                OrganismSystem.this.id = new InstanceId(UUID.randomUUID().toString());
+                OrganismSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(OrganismSystem.this.types == null || OrganismSystem.this.types.isEmpty() || !OrganismSystem.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = OrganismSystem.this.types;
-                OrganismSystem.this.types = new ArrayList<>();
-                OrganismSystem.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    OrganismSystem.this.types.addAll(oldValues);
-                }
-            }
+            OrganismSystem.this.type = SEMANTIC_NAME;
             return OrganismSystem.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ISBN extends Instance implements org.openmetadatainitiative.openmin
         return doGetReference();
     }
 
-    public static Reference<ISBN> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ISBN> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ISBN(LocalId localId ) {
@@ -42,18 +41,11 @@ public class ISBN extends Instance implements org.openmetadatainitiative.openmin
         public Builder identifier(String identifier) { ISBN.this.identifier = identifier; return this; }
         
 
-        public ISBN build() {
+        public ISBN build(OpenMINDSContext context) {
             if (ISBN.this.id == null) {
-                ISBN.this.id = new InstanceId(UUID.randomUUID().toString());
+                ISBN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ISBN.this.types == null || ISBN.this.types.isEmpty() || !ISBN.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ISBN.this.types;
-                ISBN.this.types = new ArrayList<>();
-                ISBN.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ISBN.this.types.addAll(oldValues);
-                }
-            }
+            ISBN.this.type = SEMANTIC_NAME;
             return ISBN.this;
         }
     }

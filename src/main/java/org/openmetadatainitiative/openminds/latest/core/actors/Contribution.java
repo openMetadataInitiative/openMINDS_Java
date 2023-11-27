@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class Contribution extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Contribution> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Contribution> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Contribution(LocalId localId ) {
@@ -46,18 +45,11 @@ public class Contribution extends Instance {
         public Builder type(List<Reference<ContributionType>> type) { Contribution.this.type = type; return this; }
         
 
-        public Contribution build() {
+        public Contribution build(OpenMINDSContext context) {
             if (Contribution.this.id == null) {
-                Contribution.this.id = new InstanceId(UUID.randomUUID().toString());
+                Contribution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Contribution.this.types == null || Contribution.this.types.isEmpty() || !Contribution.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Contribution.this.types;
-                Contribution.this.types = new ArrayList<>();
-                Contribution.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Contribution.this.types.addAll(oldValues);
-                }
-            }
+            Contribution.this.type = SEMANTIC_NAME;
             return Contribution.this;
         }
     }

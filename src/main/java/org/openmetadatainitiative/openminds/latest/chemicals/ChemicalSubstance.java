@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class ChemicalSubstance extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<ChemicalSubstance> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ChemicalSubstance> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ChemicalSubstance(LocalId localId ) {
@@ -53,18 +52,11 @@ public class ChemicalSubstance extends Instance implements org.openmetadatainiti
         public Builder purity(ChemicalSubstancePurity purity) { ChemicalSubstance.this.purity = purity; return this; }
         
 
-        public ChemicalSubstance build() {
+        public ChemicalSubstance build(OpenMINDSContext context) {
             if (ChemicalSubstance.this.id == null) {
-                ChemicalSubstance.this.id = new InstanceId(UUID.randomUUID().toString());
+                ChemicalSubstance.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ChemicalSubstance.this.types == null || ChemicalSubstance.this.types.isEmpty() || !ChemicalSubstance.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ChemicalSubstance.this.types;
-                ChemicalSubstance.this.types = new ArrayList<>();
-                ChemicalSubstance.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ChemicalSubstance.this.types.addAll(oldValues);
-                }
-            }
+            ChemicalSubstance.this.type = SEMANTIC_NAME;
             return ChemicalSubstance.this;
         }
     }

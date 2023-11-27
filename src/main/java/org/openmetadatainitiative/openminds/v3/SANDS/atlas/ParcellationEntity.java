@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<ParcellationEntity> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ParcellationEntity> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ParcellationEntity(LocalId localId ) {
@@ -60,18 +59,11 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
         public Builder relatedUBERONTerm(Reference<? extends ParcellationEntityRelatedUBERONTerm> relatedUBERONTerm) { ParcellationEntity.this.relatedUBERONTerm = relatedUBERONTerm; return this; }
         
 
-        public ParcellationEntity build() {
+        public ParcellationEntity build(OpenMINDSContext context) {
             if (ParcellationEntity.this.id == null) {
-                ParcellationEntity.this.id = new InstanceId(UUID.randomUUID().toString());
+                ParcellationEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ParcellationEntity.this.types == null || ParcellationEntity.this.types.isEmpty() || !ParcellationEntity.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ParcellationEntity.this.types;
-                ParcellationEntity.this.types = new ArrayList<>();
-                ParcellationEntity.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ParcellationEntity.this.types.addAll(oldValues);
-                }
-            }
+            ParcellationEntity.this.type = SEMANTIC_NAME;
             return ParcellationEntity.this;
         }
     }

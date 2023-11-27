@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<LivePaper> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<LivePaper> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private LivePaper(LocalId localId ) {
@@ -62,18 +61,11 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
         public Builder shortName(String shortName) { LivePaper.this.shortName = shortName; return this; }
         
 
-        public LivePaper build() {
+        public LivePaper build(OpenMINDSContext context) {
             if (LivePaper.this.id == null) {
-                LivePaper.this.id = new InstanceId(UUID.randomUUID().toString());
+                LivePaper.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(LivePaper.this.types == null || LivePaper.this.types.isEmpty() || !LivePaper.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = LivePaper.this.types;
-                LivePaper.this.types = new ArrayList<>();
-                LivePaper.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    LivePaper.this.types.addAll(oldValues);
-                }
-            }
+            LivePaper.this.type = SEMANTIC_NAME;
             return LivePaper.this;
         }
     }

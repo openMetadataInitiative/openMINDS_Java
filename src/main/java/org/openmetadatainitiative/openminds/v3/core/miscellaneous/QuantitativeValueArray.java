@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class QuantitativeValueArray extends Instance {
         return doGetReference();
     }
 
-    public static Reference<QuantitativeValueArray> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<QuantitativeValueArray> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private QuantitativeValueArray(LocalId localId ) {
@@ -52,18 +51,11 @@ public class QuantitativeValueArray extends Instance {
         public Builder values(Object values) { QuantitativeValueArray.this.values = values; return this; }
         
 
-        public QuantitativeValueArray build() {
+        public QuantitativeValueArray build(OpenMINDSContext context) {
             if (QuantitativeValueArray.this.id == null) {
-                QuantitativeValueArray.this.id = new InstanceId(UUID.randomUUID().toString());
+                QuantitativeValueArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(QuantitativeValueArray.this.types == null || QuantitativeValueArray.this.types.isEmpty() || !QuantitativeValueArray.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = QuantitativeValueArray.this.types;
-                QuantitativeValueArray.this.types = new ArrayList<>();
-                QuantitativeValueArray.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    QuantitativeValueArray.this.types.addAll(oldValues);
-                }
-            }
+            QuantitativeValueArray.this.type = SEMANTIC_NAME;
             return QuantitativeValueArray.this;
         }
     }

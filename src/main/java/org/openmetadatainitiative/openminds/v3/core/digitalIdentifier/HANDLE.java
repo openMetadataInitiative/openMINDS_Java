@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class HANDLE extends Instance implements org.openmetadatainitiative.openm
         return doGetReference();
     }
 
-    public static Reference<HANDLE> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<HANDLE> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private HANDLE(LocalId localId ) {
@@ -42,18 +41,11 @@ public class HANDLE extends Instance implements org.openmetadatainitiative.openm
         public Builder identifier(String identifier) { HANDLE.this.identifier = identifier; return this; }
         
 
-        public HANDLE build() {
+        public HANDLE build(OpenMINDSContext context) {
             if (HANDLE.this.id == null) {
-                HANDLE.this.id = new InstanceId(UUID.randomUUID().toString());
+                HANDLE.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(HANDLE.this.types == null || HANDLE.this.types.isEmpty() || !HANDLE.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = HANDLE.this.types;
-                HANDLE.this.types = new ArrayList<>();
-                HANDLE.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    HANDLE.this.types.addAll(oldValues);
-                }
-            }
+            HANDLE.this.type = SEMANTIC_NAME;
             return HANDLE.this;
         }
     }

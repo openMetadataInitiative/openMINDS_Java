@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Periodical extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Periodical> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Periodical> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Periodical(LocalId localId ) {
@@ -47,18 +46,11 @@ public class Periodical extends Instance {
         public Builder name(String name) { Periodical.this.name = name; return this; }
         
 
-        public Periodical build() {
+        public Periodical build(OpenMINDSContext context) {
             if (Periodical.this.id == null) {
-                Periodical.this.id = new InstanceId(UUID.randomUUID().toString());
+                Periodical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Periodical.this.types == null || Periodical.this.types.isEmpty() || !Periodical.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Periodical.this.types;
-                Periodical.this.types = new ArrayList<>();
-                Periodical.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Periodical.this.types.addAll(oldValues);
-                }
-            }
+            Periodical.this.type = SEMANTIC_NAME;
             return Periodical.this;
         }
     }

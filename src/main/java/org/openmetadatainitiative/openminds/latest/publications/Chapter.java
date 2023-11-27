@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -39,8 +38,8 @@ public class Chapter extends Instance implements org.openmetadatainitiative.open
         return doGetReference();
     }
 
-    public static Reference<Chapter> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Chapter> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Chapter(LocalId localId ) {
@@ -89,18 +88,11 @@ public class Chapter extends Instance implements org.openmetadatainitiative.open
         public Builder versionIdentifier(String versionIdentifier) { Chapter.this.versionIdentifier = versionIdentifier; return this; }
         
 
-        public Chapter build() {
+        public Chapter build(OpenMINDSContext context) {
             if (Chapter.this.id == null) {
-                Chapter.this.id = new InstanceId(UUID.randomUUID().toString());
+                Chapter.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Chapter.this.types == null || Chapter.this.types.isEmpty() || !Chapter.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Chapter.this.types;
-                Chapter.this.types = new ArrayList<>();
-                Chapter.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Chapter.this.types.addAll(oldValues);
-                }
-            }
+            Chapter.this.type = SEMANTIC_NAME;
             return Chapter.this;
         }
     }

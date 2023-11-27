@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class ChemicalMixture extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<ChemicalMixture> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ChemicalMixture> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ChemicalMixture(LocalId localId ) {
@@ -53,18 +52,11 @@ public class ChemicalMixture extends Instance implements org.openmetadatainitiat
         public Builder type(Reference<ChemicalMixtureType> type) { ChemicalMixture.this.type = type; return this; }
         
 
-        public ChemicalMixture build() {
+        public ChemicalMixture build(OpenMINDSContext context) {
             if (ChemicalMixture.this.id == null) {
-                ChemicalMixture.this.id = new InstanceId(UUID.randomUUID().toString());
+                ChemicalMixture.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ChemicalMixture.this.types == null || ChemicalMixture.this.types.isEmpty() || !ChemicalMixture.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ChemicalMixture.this.types;
-                ChemicalMixture.this.types = new ArrayList<>();
-                ChemicalMixture.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ChemicalMixture.this.types.addAll(oldValues);
-                }
-            }
+            ChemicalMixture.this.type = SEMANTIC_NAME;
             return ChemicalMixture.this;
         }
     }

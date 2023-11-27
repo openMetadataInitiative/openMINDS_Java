@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.ephys.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class Recording extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Recording> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Recording> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Recording(LocalId localId ) {
@@ -60,18 +59,11 @@ public class Recording extends Instance {
         public Builder samplingFrequency(QuantitativeValue samplingFrequency) { Recording.this.samplingFrequency = samplingFrequency; return this; }
         
 
-        public Recording build() {
+        public Recording build(OpenMINDSContext context) {
             if (Recording.this.id == null) {
-                Recording.this.id = new InstanceId(UUID.randomUUID().toString());
+                Recording.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Recording.this.types == null || Recording.this.types.isEmpty() || !Recording.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Recording.this.types;
-                Recording.this.types = new ArrayList<>();
-                Recording.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Recording.this.types.addAll(oldValues);
-                }
-            }
+            Recording.this.type = SEMANTIC_NAME;
             return Recording.this;
         }
     }

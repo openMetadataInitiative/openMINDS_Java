@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -43,8 +42,8 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
         return doGetReference();
     }
 
-    public static Reference<MetaDataModelVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<MetaDataModelVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private MetaDataModelVersion(LocalId localId ) {
@@ -107,18 +106,11 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
         public Builder versionInnovation(String versionInnovation) { MetaDataModelVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public MetaDataModelVersion build() {
+        public MetaDataModelVersion build(OpenMINDSContext context) {
             if (MetaDataModelVersion.this.id == null) {
-                MetaDataModelVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                MetaDataModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(MetaDataModelVersion.this.types == null || MetaDataModelVersion.this.types.isEmpty() || !MetaDataModelVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = MetaDataModelVersion.this.types;
-                MetaDataModelVersion.this.types = new ArrayList<>();
-                MetaDataModelVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    MetaDataModelVersion.this.types.addAll(oldValues);
-                }
-            }
+            MetaDataModelVersion.this.type = SEMANTIC_NAME;
             return MetaDataModelVersion.this;
         }
     }

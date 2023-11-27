@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AuditoryStimulusType extends Instance implements org.openmetadatain
         return doGetReference();
     }
 
-    public static Reference<AuditoryStimulusType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AuditoryStimulusType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AuditoryStimulusType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AuditoryStimulusType extends Instance implements org.openmetadatain
         public Builder synonym(List<String> synonym) { AuditoryStimulusType.this.synonym = synonym; return this; }
         
 
-        public AuditoryStimulusType build() {
+        public AuditoryStimulusType build(OpenMINDSContext context) {
             if (AuditoryStimulusType.this.id == null) {
-                AuditoryStimulusType.this.id = new InstanceId(UUID.randomUUID().toString());
+                AuditoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AuditoryStimulusType.this.types == null || AuditoryStimulusType.this.types.isEmpty() || !AuditoryStimulusType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AuditoryStimulusType.this.types;
-                AuditoryStimulusType.this.types = new ArrayList<>();
-                AuditoryStimulusType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AuditoryStimulusType.this.types.addAll(oldValues);
-                }
-            }
+            AuditoryStimulusType.this.type = SEMANTIC_NAME;
             return AuditoryStimulusType.this;
         }
     }

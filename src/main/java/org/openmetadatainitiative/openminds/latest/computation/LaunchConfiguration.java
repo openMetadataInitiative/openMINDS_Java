@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class LaunchConfiguration extends Instance {
         return doGetReference();
     }
 
-    public static Reference<LaunchConfiguration> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<LaunchConfiguration> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private LaunchConfiguration(LocalId localId ) {
@@ -51,18 +50,11 @@ public class LaunchConfiguration extends Instance {
         public Builder name(String name) { LaunchConfiguration.this.name = name; return this; }
         
 
-        public LaunchConfiguration build() {
+        public LaunchConfiguration build(OpenMINDSContext context) {
             if (LaunchConfiguration.this.id == null) {
-                LaunchConfiguration.this.id = new InstanceId(UUID.randomUUID().toString());
+                LaunchConfiguration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(LaunchConfiguration.this.types == null || LaunchConfiguration.this.types.isEmpty() || !LaunchConfiguration.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = LaunchConfiguration.this.types;
-                LaunchConfiguration.this.types = new ArrayList<>();
-                LaunchConfiguration.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    LaunchConfiguration.this.types.addAll(oldValues);
-                }
-            }
+            LaunchConfiguration.this.type = SEMANTIC_NAME;
             return LaunchConfiguration.this;
         }
     }

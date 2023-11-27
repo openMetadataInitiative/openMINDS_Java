@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class CellCultureType extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<CellCultureType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CellCultureType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CellCultureType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class CellCultureType extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { CellCultureType.this.synonym = synonym; return this; }
         
 
-        public CellCultureType build() {
+        public CellCultureType build(OpenMINDSContext context) {
             if (CellCultureType.this.id == null) {
-                CellCultureType.this.id = new InstanceId(UUID.randomUUID().toString());
+                CellCultureType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CellCultureType.this.types == null || CellCultureType.this.types.isEmpty() || !CellCultureType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CellCultureType.this.types;
-                CellCultureType.this.types = new ArrayList<>();
-                CellCultureType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CellCultureType.this.types.addAll(oldValues);
-                }
-            }
+            CellCultureType.this.type = SEMANTIC_NAME;
             return CellCultureType.this;
         }
     }

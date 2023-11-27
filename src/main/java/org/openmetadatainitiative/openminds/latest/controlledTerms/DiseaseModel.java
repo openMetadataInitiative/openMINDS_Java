@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class DiseaseModel extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<DiseaseModel> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DiseaseModel> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DiseaseModel(LocalId localId ) {
@@ -54,18 +53,11 @@ public class DiseaseModel extends Instance implements org.openmetadatainitiative
         public Builder synonym(List<String> synonym) { DiseaseModel.this.synonym = synonym; return this; }
         
 
-        public DiseaseModel build() {
+        public DiseaseModel build(OpenMINDSContext context) {
             if (DiseaseModel.this.id == null) {
-                DiseaseModel.this.id = new InstanceId(UUID.randomUUID().toString());
+                DiseaseModel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DiseaseModel.this.types == null || DiseaseModel.this.types.isEmpty() || !DiseaseModel.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DiseaseModel.this.types;
-                DiseaseModel.this.types = new ArrayList<>();
-                DiseaseModel.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DiseaseModel.this.types.addAll(oldValues);
-                }
-            }
+            DiseaseModel.this.type = SEMANTIC_NAME;
             return DiseaseModel.this;
         }
     }

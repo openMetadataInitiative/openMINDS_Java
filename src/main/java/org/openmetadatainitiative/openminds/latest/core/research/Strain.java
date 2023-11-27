@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
         return doGetReference();
     }
 
-    public static Reference<Strain> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Strain> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Strain(LocalId localId ) {
@@ -74,18 +73,11 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
         public Builder synonym(List<String> synonym) { Strain.this.synonym = synonym; return this; }
         
 
-        public Strain build() {
+        public Strain build(OpenMINDSContext context) {
             if (Strain.this.id == null) {
-                Strain.this.id = new InstanceId(UUID.randomUUID().toString());
+                Strain.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Strain.this.types == null || Strain.this.types.isEmpty() || !Strain.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Strain.this.types;
-                Strain.this.types = new ArrayList<>();
-                Strain.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Strain.this.types.addAll(oldValues);
-                }
-            }
+            Strain.this.type = SEMANTIC_NAME;
             return Strain.this;
         }
     }

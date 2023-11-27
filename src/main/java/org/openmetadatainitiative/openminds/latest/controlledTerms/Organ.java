@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Organ extends Instance implements org.openmetadatainitiative.openmi
         return doGetReference();
     }
 
-    public static Reference<Organ> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Organ> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Organ(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Organ extends Instance implements org.openmetadatainitiative.openmi
         public Builder synonym(List<String> synonym) { Organ.this.synonym = synonym; return this; }
         
 
-        public Organ build() {
+        public Organ build(OpenMINDSContext context) {
             if (Organ.this.id == null) {
-                Organ.this.id = new InstanceId(UUID.randomUUID().toString());
+                Organ.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Organ.this.types == null || Organ.this.types.isEmpty() || !Organ.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Organ.this.types;
-                Organ.this.types = new ArrayList<>();
-                Organ.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Organ.this.types.addAll(oldValues);
-                }
-            }
+            Organ.this.type = SEMANTIC_NAME;
             return Organ.this;
         }
     }

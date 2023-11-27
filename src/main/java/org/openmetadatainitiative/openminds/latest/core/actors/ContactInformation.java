@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ContactInformation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ContactInformation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ContactInformation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ContactInformation(LocalId localId ) {
@@ -42,18 +41,11 @@ public class ContactInformation extends Instance {
         public Builder email(String email) { ContactInformation.this.email = email; return this; }
         
 
-        public ContactInformation build() {
+        public ContactInformation build(OpenMINDSContext context) {
             if (ContactInformation.this.id == null) {
-                ContactInformation.this.id = new InstanceId(UUID.randomUUID().toString());
+                ContactInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ContactInformation.this.types == null || ContactInformation.this.types.isEmpty() || !ContactInformation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ContactInformation.this.types;
-                ContactInformation.this.types = new ArrayList<>();
-                ContactInformation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ContactInformation.this.types.addAll(oldValues);
-                }
-            }
+            ContactInformation.this.type = SEMANTIC_NAME;
             return ContactInformation.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class TissueSampleAttribute extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<TissueSampleAttribute> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TissueSampleAttribute> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TissueSampleAttribute(LocalId localId ) {
@@ -54,18 +53,11 @@ public class TissueSampleAttribute extends Instance implements org.openmetadatai
         public Builder synonym(List<String> synonym) { TissueSampleAttribute.this.synonym = synonym; return this; }
         
 
-        public TissueSampleAttribute build() {
+        public TissueSampleAttribute build(OpenMINDSContext context) {
             if (TissueSampleAttribute.this.id == null) {
-                TissueSampleAttribute.this.id = new InstanceId(UUID.randomUUID().toString());
+                TissueSampleAttribute.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TissueSampleAttribute.this.types == null || TissueSampleAttribute.this.types.isEmpty() || !TissueSampleAttribute.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TissueSampleAttribute.this.types;
-                TissueSampleAttribute.this.types = new ArrayList<>();
-                TissueSampleAttribute.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TissueSampleAttribute.this.types.addAll(oldValues);
-                }
-            }
+            TissueSampleAttribute.this.type = SEMANTIC_NAME;
             return TissueSampleAttribute.this;
         }
     }

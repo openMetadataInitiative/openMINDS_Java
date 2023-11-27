@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ISSN extends Instance implements org.openmetadatainitiative.openmin
         return doGetReference();
     }
 
-    public static Reference<ISSN> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ISSN> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ISSN(LocalId localId ) {
@@ -42,18 +41,11 @@ public class ISSN extends Instance implements org.openmetadatainitiative.openmin
         public Builder identifier(String identifier) { ISSN.this.identifier = identifier; return this; }
         
 
-        public ISSN build() {
+        public ISSN build(OpenMINDSContext context) {
             if (ISSN.this.id == null) {
-                ISSN.this.id = new InstanceId(UUID.randomUUID().toString());
+                ISSN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ISSN.this.types == null || ISSN.this.types.isEmpty() || !ISSN.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ISSN.this.types;
-                ISSN.this.types = new ArrayList<>();
-                ISSN.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ISSN.this.types.addAll(oldValues);
-                }
-            }
+            ISSN.this.type = SEMANTIC_NAME;
             return ISSN.this;
         }
     }

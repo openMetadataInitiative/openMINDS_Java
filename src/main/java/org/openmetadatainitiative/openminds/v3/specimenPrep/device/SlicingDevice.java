@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.specimenPrep.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<SlicingDevice> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SlicingDevice> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SlicingDevice(LocalId localId ) {
@@ -60,18 +59,11 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
         public Builder serialNumber(String serialNumber) { SlicingDevice.this.serialNumber = serialNumber; return this; }
         
 
-        public SlicingDevice build() {
+        public SlicingDevice build(OpenMINDSContext context) {
             if (SlicingDevice.this.id == null) {
-                SlicingDevice.this.id = new InstanceId(UUID.randomUUID().toString());
+                SlicingDevice.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SlicingDevice.this.types == null || SlicingDevice.this.types.isEmpty() || !SlicingDevice.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SlicingDevice.this.types;
-                SlicingDevice.this.types = new ArrayList<>();
-                SlicingDevice.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SlicingDevice.this.types.addAll(oldValues);
-                }
-            }
+            SlicingDevice.this.type = SEMANTIC_NAME;
             return SlicingDevice.this;
         }
     }

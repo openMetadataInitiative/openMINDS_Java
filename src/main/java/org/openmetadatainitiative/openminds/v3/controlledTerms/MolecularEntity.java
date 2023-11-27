@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class MolecularEntity extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<MolecularEntity> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<MolecularEntity> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private MolecularEntity(LocalId localId ) {
@@ -54,18 +53,11 @@ public class MolecularEntity extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { MolecularEntity.this.synonym = synonym; return this; }
         
 
-        public MolecularEntity build() {
+        public MolecularEntity build(OpenMINDSContext context) {
             if (MolecularEntity.this.id == null) {
-                MolecularEntity.this.id = new InstanceId(UUID.randomUUID().toString());
+                MolecularEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(MolecularEntity.this.types == null || MolecularEntity.this.types.isEmpty() || !MolecularEntity.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = MolecularEntity.this.types;
-                MolecularEntity.this.types = new ArrayList<>();
-                MolecularEntity.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    MolecularEntity.this.types.addAll(oldValues);
-                }
-            }
+            MolecularEntity.this.type = SEMANTIC_NAME;
             return MolecularEntity.this;
         }
     }

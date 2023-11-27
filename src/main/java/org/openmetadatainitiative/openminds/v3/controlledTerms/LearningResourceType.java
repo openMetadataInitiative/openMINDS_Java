@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class LearningResourceType extends Instance implements org.openmetadatain
         return doGetReference();
     }
 
-    public static Reference<LearningResourceType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<LearningResourceType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private LearningResourceType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class LearningResourceType extends Instance implements org.openmetadatain
         public Builder synonym(List<String> synonym) { LearningResourceType.this.synonym = synonym; return this; }
         
 
-        public LearningResourceType build() {
+        public LearningResourceType build(OpenMINDSContext context) {
             if (LearningResourceType.this.id == null) {
-                LearningResourceType.this.id = new InstanceId(UUID.randomUUID().toString());
+                LearningResourceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(LearningResourceType.this.types == null || LearningResourceType.this.types.isEmpty() || !LearningResourceType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = LearningResourceType.this.types;
-                LearningResourceType.this.types = new ArrayList<>();
-                LearningResourceType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    LearningResourceType.this.types.addAll(oldValues);
-                }
-            }
+            LearningResourceType.this.type = SEMANTIC_NAME;
             return LearningResourceType.this;
         }
     }

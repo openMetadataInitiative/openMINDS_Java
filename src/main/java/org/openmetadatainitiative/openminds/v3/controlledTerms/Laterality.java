@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Laterality extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<Laterality> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Laterality> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Laterality(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Laterality extends Instance implements org.openmetadatainitiative.o
         public Builder synonym(List<String> synonym) { Laterality.this.synonym = synonym; return this; }
         
 
-        public Laterality build() {
+        public Laterality build(OpenMINDSContext context) {
             if (Laterality.this.id == null) {
-                Laterality.this.id = new InstanceId(UUID.randomUUID().toString());
+                Laterality.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Laterality.this.types == null || Laterality.this.types.isEmpty() || !Laterality.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Laterality.this.types;
-                Laterality.this.types = new ArrayList<>();
-                Laterality.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Laterality.this.types.addAll(oldValues);
-                }
-            }
+            Laterality.this.type = SEMANTIC_NAME;
             return Laterality.this;
         }
     }

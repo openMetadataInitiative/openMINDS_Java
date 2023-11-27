@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class SoftwareAgent extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<SoftwareAgent> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SoftwareAgent> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SoftwareAgent(LocalId localId ) {
@@ -48,18 +47,11 @@ public class SoftwareAgent extends Instance implements org.openmetadatainitiativ
         public Builder software(Reference<SoftwareVersion> software) { SoftwareAgent.this.software = software; return this; }
         
 
-        public SoftwareAgent build() {
+        public SoftwareAgent build(OpenMINDSContext context) {
             if (SoftwareAgent.this.id == null) {
-                SoftwareAgent.this.id = new InstanceId(UUID.randomUUID().toString());
+                SoftwareAgent.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SoftwareAgent.this.types == null || SoftwareAgent.this.types.isEmpty() || !SoftwareAgent.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SoftwareAgent.this.types;
-                SoftwareAgent.this.types = new ArrayList<>();
-                SoftwareAgent.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SoftwareAgent.this.types.addAll(oldValues);
-                }
-            }
+            SoftwareAgent.this.type = SEMANTIC_NAME;
             return SoftwareAgent.this;
         }
     }

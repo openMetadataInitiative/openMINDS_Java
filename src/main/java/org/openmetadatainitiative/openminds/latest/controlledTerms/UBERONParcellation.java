@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class UBERONParcellation extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<UBERONParcellation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<UBERONParcellation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private UBERONParcellation(LocalId localId ) {
@@ -54,18 +53,11 @@ public class UBERONParcellation extends Instance implements org.openmetadatainit
         public Builder synonym(List<String> synonym) { UBERONParcellation.this.synonym = synonym; return this; }
         
 
-        public UBERONParcellation build() {
+        public UBERONParcellation build(OpenMINDSContext context) {
             if (UBERONParcellation.this.id == null) {
-                UBERONParcellation.this.id = new InstanceId(UUID.randomUUID().toString());
+                UBERONParcellation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(UBERONParcellation.this.types == null || UBERONParcellation.this.types.isEmpty() || !UBERONParcellation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = UBERONParcellation.this.types;
-                UBERONParcellation.this.types = new ArrayList<>();
-                UBERONParcellation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    UBERONParcellation.this.types.addAll(oldValues);
-                }
-            }
+            UBERONParcellation.this.type = SEMANTIC_NAME;
             return UBERONParcellation.this;
         }
     }

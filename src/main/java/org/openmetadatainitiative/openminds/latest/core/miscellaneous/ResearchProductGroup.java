@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class ResearchProductGroup extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ResearchProductGroup> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ResearchProductGroup> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ResearchProductGroup(LocalId localId ) {
@@ -45,18 +44,11 @@ public class ResearchProductGroup extends Instance {
         public Builder hasPart(List<Reference<? extends ResearchProductGroupHasPart>> hasPart) { ResearchProductGroup.this.hasPart = hasPart; return this; }
         
 
-        public ResearchProductGroup build() {
+        public ResearchProductGroup build(OpenMINDSContext context) {
             if (ResearchProductGroup.this.id == null) {
-                ResearchProductGroup.this.id = new InstanceId(UUID.randomUUID().toString());
+                ResearchProductGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ResearchProductGroup.this.types == null || ResearchProductGroup.this.types.isEmpty() || !ResearchProductGroup.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ResearchProductGroup.this.types;
-                ResearchProductGroup.this.types = new ArrayList<>();
-                ResearchProductGroup.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ResearchProductGroup.this.types.addAll(oldValues);
-                }
-            }
+            ResearchProductGroup.this.type = SEMANTIC_NAME;
             return ResearchProductGroup.this;
         }
     }

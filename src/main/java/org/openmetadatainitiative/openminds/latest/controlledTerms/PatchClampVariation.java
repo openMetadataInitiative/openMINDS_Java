@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class PatchClampVariation extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<PatchClampVariation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<PatchClampVariation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private PatchClampVariation(LocalId localId ) {
@@ -54,18 +53,11 @@ public class PatchClampVariation extends Instance implements org.openmetadataini
         public Builder synonym(List<String> synonym) { PatchClampVariation.this.synonym = synonym; return this; }
         
 
-        public PatchClampVariation build() {
+        public PatchClampVariation build(OpenMINDSContext context) {
             if (PatchClampVariation.this.id == null) {
-                PatchClampVariation.this.id = new InstanceId(UUID.randomUUID().toString());
+                PatchClampVariation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(PatchClampVariation.this.types == null || PatchClampVariation.this.types.isEmpty() || !PatchClampVariation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = PatchClampVariation.this.types;
-                PatchClampVariation.this.types = new ArrayList<>();
-                PatchClampVariation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    PatchClampVariation.this.types.addAll(oldValues);
-                }
-            }
+            PatchClampVariation.this.type = SEMANTIC_NAME;
             return PatchClampVariation.this;
         }
     }

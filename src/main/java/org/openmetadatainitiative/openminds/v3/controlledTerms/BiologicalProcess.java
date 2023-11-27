@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class BiologicalProcess extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<BiologicalProcess> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BiologicalProcess> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BiologicalProcess(LocalId localId ) {
@@ -54,18 +53,11 @@ public class BiologicalProcess extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { BiologicalProcess.this.synonym = synonym; return this; }
         
 
-        public BiologicalProcess build() {
+        public BiologicalProcess build(OpenMINDSContext context) {
             if (BiologicalProcess.this.id == null) {
-                BiologicalProcess.this.id = new InstanceId(UUID.randomUUID().toString());
+                BiologicalProcess.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BiologicalProcess.this.types == null || BiologicalProcess.this.types.isEmpty() || !BiologicalProcess.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BiologicalProcess.this.types;
-                BiologicalProcess.this.types = new ArrayList<>();
-                BiologicalProcess.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BiologicalProcess.this.types.addAll(oldValues);
-                }
-            }
+            BiologicalProcess.this.type = SEMANTIC_NAME;
             return BiologicalProcess.this;
         }
     }

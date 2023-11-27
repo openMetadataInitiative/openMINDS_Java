@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class BreedingType extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<BreedingType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BreedingType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BreedingType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class BreedingType extends Instance implements org.openmetadatainitiative
         public Builder synonym(List<String> synonym) { BreedingType.this.synonym = synonym; return this; }
         
 
-        public BreedingType build() {
+        public BreedingType build(OpenMINDSContext context) {
             if (BreedingType.this.id == null) {
-                BreedingType.this.id = new InstanceId(UUID.randomUUID().toString());
+                BreedingType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BreedingType.this.types == null || BreedingType.this.types.isEmpty() || !BreedingType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BreedingType.this.types;
-                BreedingType.this.types = new ArrayList<>();
-                BreedingType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BreedingType.this.types.addAll(oldValues);
-                }
-            }
+            BreedingType.this.type = SEMANTIC_NAME;
             return BreedingType.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.stimulation.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class StimulationActivity extends Instance {
         return doGetReference();
     }
 
-    public static Reference<StimulationActivity> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<StimulationActivity> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private StimulationActivity(LocalId localId ) {
@@ -77,18 +76,11 @@ public class StimulationActivity extends Instance {
         public Builder studyTarget(List<Reference<? extends StimulationActivityStudyTarget>> studyTarget) { StimulationActivity.this.studyTarget = studyTarget; return this; }
         
 
-        public StimulationActivity build() {
+        public StimulationActivity build(OpenMINDSContext context) {
             if (StimulationActivity.this.id == null) {
-                StimulationActivity.this.id = new InstanceId(UUID.randomUUID().toString());
+                StimulationActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(StimulationActivity.this.types == null || StimulationActivity.this.types.isEmpty() || !StimulationActivity.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = StimulationActivity.this.types;
-                StimulationActivity.this.types = new ArrayList<>();
-                StimulationActivity.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    StimulationActivity.this.types.addAll(oldValues);
-                }
-            }
+            StimulationActivity.this.type = SEMANTIC_NAME;
             return StimulationActivity.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class Comment extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Comment> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Comment> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Comment(LocalId localId ) {
@@ -50,18 +49,11 @@ public class Comment extends Instance {
         public Builder timestamp(String timestamp) { Comment.this.timestamp = timestamp; return this; }
         
 
-        public Comment build() {
+        public Comment build(OpenMINDSContext context) {
             if (Comment.this.id == null) {
-                Comment.this.id = new InstanceId(UUID.randomUUID().toString());
+                Comment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Comment.this.types == null || Comment.this.types.isEmpty() || !Comment.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Comment.this.types;
-                Comment.this.types = new ArrayList<>();
-                Comment.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Comment.this.types.addAll(oldValues);
-                }
-            }
+            Comment.this.type = SEMANTIC_NAME;
             return Comment.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
         return doGetReference();
     }
 
-    public static Reference<ParcellationEntityVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ParcellationEntityVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ParcellationEntityVersion(LocalId localId ) {
@@ -67,18 +66,11 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
         public Builder versionInnovation(String versionInnovation) { ParcellationEntityVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public ParcellationEntityVersion build() {
+        public ParcellationEntityVersion build(OpenMINDSContext context) {
             if (ParcellationEntityVersion.this.id == null) {
-                ParcellationEntityVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                ParcellationEntityVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ParcellationEntityVersion.this.types == null || ParcellationEntityVersion.this.types.isEmpty() || !ParcellationEntityVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ParcellationEntityVersion.this.types;
-                ParcellationEntityVersion.this.types = new ArrayList<>();
-                ParcellationEntityVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ParcellationEntityVersion.this.types.addAll(oldValues);
-                }
-            }
+            ParcellationEntityVersion.this.type = SEMANTIC_NAME;
             return ParcellationEntityVersion.this;
         }
     }

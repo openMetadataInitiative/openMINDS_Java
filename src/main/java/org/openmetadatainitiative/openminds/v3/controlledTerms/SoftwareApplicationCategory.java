@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SoftwareApplicationCategory extends Instance implements org.openmet
         return doGetReference();
     }
 
-    public static Reference<SoftwareApplicationCategory> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SoftwareApplicationCategory> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SoftwareApplicationCategory(LocalId localId ) {
@@ -54,18 +53,11 @@ public class SoftwareApplicationCategory extends Instance implements org.openmet
         public Builder synonym(List<String> synonym) { SoftwareApplicationCategory.this.synonym = synonym; return this; }
         
 
-        public SoftwareApplicationCategory build() {
+        public SoftwareApplicationCategory build(OpenMINDSContext context) {
             if (SoftwareApplicationCategory.this.id == null) {
-                SoftwareApplicationCategory.this.id = new InstanceId(UUID.randomUUID().toString());
+                SoftwareApplicationCategory.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SoftwareApplicationCategory.this.types == null || SoftwareApplicationCategory.this.types.isEmpty() || !SoftwareApplicationCategory.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SoftwareApplicationCategory.this.types;
-                SoftwareApplicationCategory.this.types = new ArrayList<>();
-                SoftwareApplicationCategory.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SoftwareApplicationCategory.this.types.addAll(oldValues);
-                }
-            }
+            SoftwareApplicationCategory.this.type = SEMANTIC_NAME;
             return SoftwareApplicationCategory.this;
         }
     }

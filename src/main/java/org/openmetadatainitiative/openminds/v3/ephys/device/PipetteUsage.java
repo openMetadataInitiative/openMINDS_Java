@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class PipetteUsage extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<PipetteUsage> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<PipetteUsage> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private PipetteUsage(LocalId localId ) {
@@ -85,18 +84,11 @@ public class PipetteUsage extends Instance implements org.openmetadatainitiative
         public Builder usedSpecimen(Reference<? extends PipetteUsageUsedSpecimen> usedSpecimen) { PipetteUsage.this.usedSpecimen = usedSpecimen; return this; }
         
 
-        public PipetteUsage build() {
+        public PipetteUsage build(OpenMINDSContext context) {
             if (PipetteUsage.this.id == null) {
-                PipetteUsage.this.id = new InstanceId(UUID.randomUUID().toString());
+                PipetteUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(PipetteUsage.this.types == null || PipetteUsage.this.types.isEmpty() || !PipetteUsage.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = PipetteUsage.this.types;
-                PipetteUsage.this.types = new ArrayList<>();
-                PipetteUsage.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    PipetteUsage.this.types.addAll(oldValues);
-                }
-            }
+            PipetteUsage.this.type = SEMANTIC_NAME;
             return PipetteUsage.this;
         }
     }

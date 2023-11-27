@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.nonatlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<CustomCoordinateSpace> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CustomCoordinateSpace> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CustomCoordinateSpace(LocalId localId ) {
@@ -54,18 +53,11 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
         public Builder nativeUnit(Reference<UnitOfMeasurement> nativeUnit) { CustomCoordinateSpace.this.nativeUnit = nativeUnit; return this; }
         
 
-        public CustomCoordinateSpace build() {
+        public CustomCoordinateSpace build(OpenMINDSContext context) {
             if (CustomCoordinateSpace.this.id == null) {
-                CustomCoordinateSpace.this.id = new InstanceId(UUID.randomUUID().toString());
+                CustomCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CustomCoordinateSpace.this.types == null || CustomCoordinateSpace.this.types.isEmpty() || !CustomCoordinateSpace.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CustomCoordinateSpace.this.types;
-                CustomCoordinateSpace.this.types = new ArrayList<>();
-                CustomCoordinateSpace.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CustomCoordinateSpace.this.types.addAll(oldValues);
-                }
-            }
+            CustomCoordinateSpace.this.type = SEMANTIC_NAME;
             return CustomCoordinateSpace.this;
         }
     }

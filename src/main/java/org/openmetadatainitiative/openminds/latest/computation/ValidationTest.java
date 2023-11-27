@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -36,8 +35,8 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<ValidationTest> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ValidationTest> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ValidationTest(LocalId localId ) {
@@ -74,18 +73,11 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
         public Builder studyTarget(List<Reference<? extends ValidationTestStudyTarget>> studyTarget) { ValidationTest.this.studyTarget = studyTarget; return this; }
         
 
-        public ValidationTest build() {
+        public ValidationTest build(OpenMINDSContext context) {
             if (ValidationTest.this.id == null) {
-                ValidationTest.this.id = new InstanceId(UUID.randomUUID().toString());
+                ValidationTest.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ValidationTest.this.types == null || ValidationTest.this.types.isEmpty() || !ValidationTest.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ValidationTest.this.types;
-                ValidationTest.this.types = new ArrayList<>();
-                ValidationTest.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ValidationTest.this.types.addAll(oldValues);
-                }
-            }
+            ValidationTest.this.type = SEMANTIC_NAME;
             return ValidationTest.this;
         }
     }

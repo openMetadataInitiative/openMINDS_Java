@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SingleColor extends Instance implements org.openmetadatainitiative.
         return doGetReference();
     }
 
-    public static Reference<SingleColor> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SingleColor> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SingleColor(LocalId localId ) {
@@ -42,18 +41,11 @@ public class SingleColor extends Instance implements org.openmetadatainitiative.
         public Builder value(String value) { SingleColor.this.value = value; return this; }
         
 
-        public SingleColor build() {
+        public SingleColor build(OpenMINDSContext context) {
             if (SingleColor.this.id == null) {
-                SingleColor.this.id = new InstanceId(UUID.randomUUID().toString());
+                SingleColor.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SingleColor.this.types == null || SingleColor.this.types.isEmpty() || !SingleColor.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SingleColor.this.types;
-                SingleColor.this.types = new ArrayList<>();
-                SingleColor.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SingleColor.this.types.addAll(oldValues);
-                }
-            }
+            SingleColor.this.type = SEMANTIC_NAME;
             return SingleColor.this;
         }
     }

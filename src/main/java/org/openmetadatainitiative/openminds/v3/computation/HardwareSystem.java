@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class HardwareSystem extends Instance {
         return doGetReference();
     }
 
-    public static Reference<HardwareSystem> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<HardwareSystem> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private HardwareSystem(LocalId localId ) {
@@ -46,18 +45,11 @@ public class HardwareSystem extends Instance {
         public Builder versionIdentifier(String versionIdentifier) { HardwareSystem.this.versionIdentifier = versionIdentifier; return this; }
         
 
-        public HardwareSystem build() {
+        public HardwareSystem build(OpenMINDSContext context) {
             if (HardwareSystem.this.id == null) {
-                HardwareSystem.this.id = new InstanceId(UUID.randomUUID().toString());
+                HardwareSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(HardwareSystem.this.types == null || HardwareSystem.this.types.isEmpty() || !HardwareSystem.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = HardwareSystem.this.types;
-                HardwareSystem.this.types = new ArrayList<>();
-                HardwareSystem.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    HardwareSystem.this.types.addAll(oldValues);
-                }
-            }
+            HardwareSystem.this.type = SEMANTIC_NAME;
             return HardwareSystem.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<WorkflowRecipe> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<WorkflowRecipe> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private WorkflowRecipe(LocalId localId ) {
@@ -62,18 +61,11 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
         public Builder shortName(String shortName) { WorkflowRecipe.this.shortName = shortName; return this; }
         
 
-        public WorkflowRecipe build() {
+        public WorkflowRecipe build(OpenMINDSContext context) {
             if (WorkflowRecipe.this.id == null) {
-                WorkflowRecipe.this.id = new InstanceId(UUID.randomUUID().toString());
+                WorkflowRecipe.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(WorkflowRecipe.this.types == null || WorkflowRecipe.this.types.isEmpty() || !WorkflowRecipe.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = WorkflowRecipe.this.types;
-                WorkflowRecipe.this.types = new ArrayList<>();
-                WorkflowRecipe.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    WorkflowRecipe.this.types.addAll(oldValues);
-                }
-            }
+            WorkflowRecipe.this.type = SEMANTIC_NAME;
             return WorkflowRecipe.this;
         }
     }

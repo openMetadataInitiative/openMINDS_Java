@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SetupType extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<SetupType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SetupType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SetupType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class SetupType extends Instance implements org.openmetadatainitiative.op
         public Builder synonym(List<String> synonym) { SetupType.this.synonym = synonym; return this; }
         
 
-        public SetupType build() {
+        public SetupType build(OpenMINDSContext context) {
             if (SetupType.this.id == null) {
-                SetupType.this.id = new InstanceId(UUID.randomUUID().toString());
+                SetupType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SetupType.this.types == null || SetupType.this.types.isEmpty() || !SetupType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SetupType.this.types;
-                SetupType.this.types = new ArrayList<>();
-                SetupType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SetupType.this.types.addAll(oldValues);
-                }
-            }
+            SetupType.this.type = SEMANTIC_NAME;
             return SetupType.this;
         }
     }

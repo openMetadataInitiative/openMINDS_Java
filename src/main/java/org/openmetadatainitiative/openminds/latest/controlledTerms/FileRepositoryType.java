@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class FileRepositoryType extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<FileRepositoryType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FileRepositoryType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FileRepositoryType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class FileRepositoryType extends Instance implements org.openmetadatainit
         public Builder synonym(List<String> synonym) { FileRepositoryType.this.synonym = synonym; return this; }
         
 
-        public FileRepositoryType build() {
+        public FileRepositoryType build(OpenMINDSContext context) {
             if (FileRepositoryType.this.id == null) {
-                FileRepositoryType.this.id = new InstanceId(UUID.randomUUID().toString());
+                FileRepositoryType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FileRepositoryType.this.types == null || FileRepositoryType.this.types.isEmpty() || !FileRepositoryType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FileRepositoryType.this.types;
-                FileRepositoryType.this.types = new ArrayList<>();
-                FileRepositoryType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FileRepositoryType.this.types.addAll(oldValues);
-                }
-            }
+            FileRepositoryType.this.type = SEMANTIC_NAME;
             return FileRepositoryType.this;
         }
     }

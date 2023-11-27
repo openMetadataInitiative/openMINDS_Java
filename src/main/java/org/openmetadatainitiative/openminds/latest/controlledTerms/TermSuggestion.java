@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class TermSuggestion extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<TermSuggestion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TermSuggestion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TermSuggestion(LocalId localId ) {
@@ -59,18 +58,11 @@ public class TermSuggestion extends Instance implements org.openmetadatainitiati
         public Builder synonym(List<String> synonym) { TermSuggestion.this.synonym = synonym; return this; }
         
 
-        public TermSuggestion build() {
+        public TermSuggestion build(OpenMINDSContext context) {
             if (TermSuggestion.this.id == null) {
-                TermSuggestion.this.id = new InstanceId(UUID.randomUUID().toString());
+                TermSuggestion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TermSuggestion.this.types == null || TermSuggestion.this.types.isEmpty() || !TermSuggestion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TermSuggestion.this.types;
-                TermSuggestion.this.types = new ArrayList<>();
-                TermSuggestion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TermSuggestion.this.types.addAll(oldValues);
-                }
-            }
+            TermSuggestion.this.type = SEMANTIC_NAME;
             return TermSuggestion.this;
         }
     }

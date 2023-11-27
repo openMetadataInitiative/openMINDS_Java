@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class QuantitativeValueRange extends Instance implements org.openmetadata
         return doGetReference();
     }
 
-    public static Reference<QuantitativeValueRange> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<QuantitativeValueRange> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private QuantitativeValueRange(LocalId localId ) {
@@ -49,18 +48,11 @@ public class QuantitativeValueRange extends Instance implements org.openmetadata
         public Builder minValueUnit(Reference<UnitOfMeasurement> minValueUnit) { QuantitativeValueRange.this.minValueUnit = minValueUnit; return this; }
         
 
-        public QuantitativeValueRange build() {
+        public QuantitativeValueRange build(OpenMINDSContext context) {
             if (QuantitativeValueRange.this.id == null) {
-                QuantitativeValueRange.this.id = new InstanceId(UUID.randomUUID().toString());
+                QuantitativeValueRange.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(QuantitativeValueRange.this.types == null || QuantitativeValueRange.this.types.isEmpty() || !QuantitativeValueRange.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = QuantitativeValueRange.this.types;
-                QuantitativeValueRange.this.types = new ArrayList<>();
-                QuantitativeValueRange.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    QuantitativeValueRange.this.types.addAll(oldValues);
-                }
-            }
+            QuantitativeValueRange.this.type = SEMANTIC_NAME;
             return QuantitativeValueRange.this;
         }
     }

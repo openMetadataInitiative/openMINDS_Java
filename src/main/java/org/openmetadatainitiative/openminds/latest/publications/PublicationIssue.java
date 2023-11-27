@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class PublicationIssue extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<PublicationIssue> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<PublicationIssue> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private PublicationIssue(LocalId localId ) {
@@ -45,18 +44,11 @@ public class PublicationIssue extends Instance implements org.openmetadatainitia
         public Builder issueNumber(String issueNumber) { PublicationIssue.this.issueNumber = issueNumber; return this; }
         
 
-        public PublicationIssue build() {
+        public PublicationIssue build(OpenMINDSContext context) {
             if (PublicationIssue.this.id == null) {
-                PublicationIssue.this.id = new InstanceId(UUID.randomUUID().toString());
+                PublicationIssue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(PublicationIssue.this.types == null || PublicationIssue.this.types.isEmpty() || !PublicationIssue.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = PublicationIssue.this.types;
-                PublicationIssue.this.types = new ArrayList<>();
-                PublicationIssue.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    PublicationIssue.this.types.addAll(oldValues);
-                }
-            }
+            PublicationIssue.this.type = SEMANTIC_NAME;
             return PublicationIssue.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<Rectangle> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Rectangle> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Rectangle(LocalId localId ) {
@@ -45,18 +44,11 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
         public Builder width(QuantitativeValue width) { Rectangle.this.width = width; return this; }
         
 
-        public Rectangle build() {
+        public Rectangle build(OpenMINDSContext context) {
             if (Rectangle.this.id == null) {
-                Rectangle.this.id = new InstanceId(UUID.randomUUID().toString());
+                Rectangle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Rectangle.this.types == null || Rectangle.this.types.isEmpty() || !Rectangle.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Rectangle.this.types;
-                Rectangle.this.types = new ArrayList<>();
-                Rectangle.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Rectangle.this.types.addAll(oldValues);
-                }
-            }
+            Rectangle.this.type = SEMANTIC_NAME;
             return Rectangle.this;
         }
     }

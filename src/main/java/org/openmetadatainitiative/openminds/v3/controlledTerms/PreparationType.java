@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class PreparationType extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<PreparationType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<PreparationType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private PreparationType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class PreparationType extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { PreparationType.this.synonym = synonym; return this; }
         
 
-        public PreparationType build() {
+        public PreparationType build(OpenMINDSContext context) {
             if (PreparationType.this.id == null) {
-                PreparationType.this.id = new InstanceId(UUID.randomUUID().toString());
+                PreparationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(PreparationType.this.types == null || PreparationType.this.types.isEmpty() || !PreparationType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = PreparationType.this.types;
-                PreparationType.this.types = new ArrayList<>();
-                PreparationType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    PreparationType.this.types.addAll(oldValues);
-                }
-            }
+            PreparationType.this.type = SEMANTIC_NAME;
             return PreparationType.this;
         }
     }

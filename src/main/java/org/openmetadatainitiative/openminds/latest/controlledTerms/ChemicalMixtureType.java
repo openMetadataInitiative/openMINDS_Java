@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ChemicalMixtureType extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<ChemicalMixtureType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ChemicalMixtureType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ChemicalMixtureType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class ChemicalMixtureType extends Instance implements org.openmetadataini
         public Builder synonym(List<String> synonym) { ChemicalMixtureType.this.synonym = synonym; return this; }
         
 
-        public ChemicalMixtureType build() {
+        public ChemicalMixtureType build(OpenMINDSContext context) {
             if (ChemicalMixtureType.this.id == null) {
-                ChemicalMixtureType.this.id = new InstanceId(UUID.randomUUID().toString());
+                ChemicalMixtureType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ChemicalMixtureType.this.types == null || ChemicalMixtureType.this.types.isEmpty() || !ChemicalMixtureType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ChemicalMixtureType.this.types;
-                ChemicalMixtureType.this.types = new ArrayList<>();
-                ChemicalMixtureType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ChemicalMixtureType.this.types.addAll(oldValues);
-                }
-            }
+            ChemicalMixtureType.this.type = SEMANTIC_NAME;
             return ChemicalMixtureType.this;
         }
     }

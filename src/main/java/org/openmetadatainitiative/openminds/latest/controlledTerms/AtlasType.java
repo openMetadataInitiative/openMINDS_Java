@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AtlasType extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<AtlasType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AtlasType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AtlasType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AtlasType extends Instance implements org.openmetadatainitiative.op
         public Builder synonym(List<String> synonym) { AtlasType.this.synonym = synonym; return this; }
         
 
-        public AtlasType build() {
+        public AtlasType build(OpenMINDSContext context) {
             if (AtlasType.this.id == null) {
-                AtlasType.this.id = new InstanceId(UUID.randomUUID().toString());
+                AtlasType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AtlasType.this.types == null || AtlasType.this.types.isEmpty() || !AtlasType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AtlasType.this.types;
-                AtlasType.this.types = new ArrayList<>();
-                AtlasType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AtlasType.this.types.addAll(oldValues);
-                }
-            }
+            AtlasType.this.type = SEMANTIC_NAME;
             return AtlasType.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class AmountOfChemical extends Instance {
         return doGetReference();
     }
 
-    public static Reference<AmountOfChemical> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AmountOfChemical> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AmountOfChemical(LocalId localId ) {
@@ -46,18 +45,11 @@ public class AmountOfChemical extends Instance {
         public Builder chemicalProduct(Reference<? extends AmountOfChemicalChemicalProduct> chemicalProduct) { AmountOfChemical.this.chemicalProduct = chemicalProduct; return this; }
         
 
-        public AmountOfChemical build() {
+        public AmountOfChemical build(OpenMINDSContext context) {
             if (AmountOfChemical.this.id == null) {
-                AmountOfChemical.this.id = new InstanceId(UUID.randomUUID().toString());
+                AmountOfChemical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AmountOfChemical.this.types == null || AmountOfChemical.this.types.isEmpty() || !AmountOfChemical.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AmountOfChemical.this.types;
-                AmountOfChemical.this.types = new ArrayList<>();
-                AmountOfChemical.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AmountOfChemical.this.types.addAll(oldValues);
-                }
-            }
+            AmountOfChemical.this.type = SEMANTIC_NAME;
             return AmountOfChemical.this;
         }
     }

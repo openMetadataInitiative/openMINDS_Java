@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.specimenPrep.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ public class TissueSampleSlicing extends Instance {
         return doGetReference();
     }
 
-    public static Reference<TissueSampleSlicing> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TissueSampleSlicing> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TissueSampleSlicing(LocalId localId ) {
@@ -55,18 +54,11 @@ public class TissueSampleSlicing extends Instance {
         public Builder tissueBathSolution(Reference<ChemicalMixture> tissueBathSolution) { TissueSampleSlicing.this.tissueBathSolution = tissueBathSolution; return this; }
         
 
-        public TissueSampleSlicing build() {
+        public TissueSampleSlicing build(OpenMINDSContext context) {
             if (TissueSampleSlicing.this.id == null) {
-                TissueSampleSlicing.this.id = new InstanceId(UUID.randomUUID().toString());
+                TissueSampleSlicing.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TissueSampleSlicing.this.types == null || TissueSampleSlicing.this.types.isEmpty() || !TissueSampleSlicing.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TissueSampleSlicing.this.types;
-                TissueSampleSlicing.this.types = new ArrayList<>();
-                TissueSampleSlicing.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TissueSampleSlicing.this.types.addAll(oldValues);
-                }
-            }
+            TissueSampleSlicing.this.type = SEMANTIC_NAME;
             return TissueSampleSlicing.this;
         }
     }

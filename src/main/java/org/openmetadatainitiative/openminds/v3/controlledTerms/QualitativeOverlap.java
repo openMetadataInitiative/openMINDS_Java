@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class QualitativeOverlap extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<QualitativeOverlap> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<QualitativeOverlap> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private QualitativeOverlap(LocalId localId ) {
@@ -54,18 +53,11 @@ public class QualitativeOverlap extends Instance implements org.openmetadatainit
         public Builder synonym(List<String> synonym) { QualitativeOverlap.this.synonym = synonym; return this; }
         
 
-        public QualitativeOverlap build() {
+        public QualitativeOverlap build(OpenMINDSContext context) {
             if (QualitativeOverlap.this.id == null) {
-                QualitativeOverlap.this.id = new InstanceId(UUID.randomUUID().toString());
+                QualitativeOverlap.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(QualitativeOverlap.this.types == null || QualitativeOverlap.this.types.isEmpty() || !QualitativeOverlap.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = QualitativeOverlap.this.types;
-                QualitativeOverlap.this.types = new ArrayList<>();
-                QualitativeOverlap.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    QualitativeOverlap.this.types.addAll(oldValues);
-                }
-            }
+            QualitativeOverlap.this.type = SEMANTIC_NAME;
             return QualitativeOverlap.this;
         }
     }

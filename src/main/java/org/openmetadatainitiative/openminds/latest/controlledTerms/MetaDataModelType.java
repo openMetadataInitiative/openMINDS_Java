@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class MetaDataModelType extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<MetaDataModelType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<MetaDataModelType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private MetaDataModelType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class MetaDataModelType extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { MetaDataModelType.this.synonym = synonym; return this; }
         
 
-        public MetaDataModelType build() {
+        public MetaDataModelType build(OpenMINDSContext context) {
             if (MetaDataModelType.this.id == null) {
-                MetaDataModelType.this.id = new InstanceId(UUID.randomUUID().toString());
+                MetaDataModelType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(MetaDataModelType.this.types == null || MetaDataModelType.this.types.isEmpty() || !MetaDataModelType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = MetaDataModelType.this.types;
-                MetaDataModelType.this.types = new ArrayList<>();
-                MetaDataModelType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    MetaDataModelType.this.types.addAll(oldValues);
-                }
-            }
+            MetaDataModelType.this.type = SEMANTIC_NAME;
             return MetaDataModelType.this;
         }
     }

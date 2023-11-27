@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class PublicationVolume extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<PublicationVolume> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<PublicationVolume> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private PublicationVolume(LocalId localId ) {
@@ -45,18 +44,11 @@ public class PublicationVolume extends Instance implements org.openmetadatainiti
         public Builder volumeNumber(String volumeNumber) { PublicationVolume.this.volumeNumber = volumeNumber; return this; }
         
 
-        public PublicationVolume build() {
+        public PublicationVolume build(OpenMINDSContext context) {
             if (PublicationVolume.this.id == null) {
-                PublicationVolume.this.id = new InstanceId(UUID.randomUUID().toString());
+                PublicationVolume.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(PublicationVolume.this.types == null || PublicationVolume.this.types.isEmpty() || !PublicationVolume.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = PublicationVolume.this.types;
-                PublicationVolume.this.types = new ArrayList<>();
-                PublicationVolume.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    PublicationVolume.this.types.addAll(oldValues);
-                }
-            }
+            PublicationVolume.this.type = SEMANTIC_NAME;
             return PublicationVolume.this;
         }
     }

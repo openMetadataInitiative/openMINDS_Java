@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class DataCopy extends Instance implements org.openmetadatainitiative.ope
         return doGetReference();
     }
 
-    public static Reference<DataCopy> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DataCopy> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DataCopy(LocalId localId ) {
@@ -89,18 +88,11 @@ public class DataCopy extends Instance implements org.openmetadatainitiative.ope
         public Builder wasInformedBy(Reference<? extends DataCopyWasInformedBy> wasInformedBy) { DataCopy.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public DataCopy build() {
+        public DataCopy build(OpenMINDSContext context) {
             if (DataCopy.this.id == null) {
-                DataCopy.this.id = new InstanceId(UUID.randomUUID().toString());
+                DataCopy.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DataCopy.this.types == null || DataCopy.this.types.isEmpty() || !DataCopy.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DataCopy.this.types;
-                DataCopy.this.types = new ArrayList<>();
-                DataCopy.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DataCopy.this.types.addAll(oldValues);
-                }
-            }
+            DataCopy.this.type = SEMANTIC_NAME;
             return DataCopy.this;
         }
     }

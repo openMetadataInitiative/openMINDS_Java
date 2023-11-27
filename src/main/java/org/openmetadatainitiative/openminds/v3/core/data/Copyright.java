@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Copyright extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Copyright> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Copyright> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Copyright(LocalId localId ) {
@@ -45,18 +44,11 @@ public class Copyright extends Instance {
         public Builder year(List<String> year) { Copyright.this.year = year; return this; }
         
 
-        public Copyright build() {
+        public Copyright build(OpenMINDSContext context) {
             if (Copyright.this.id == null) {
-                Copyright.this.id = new InstanceId(UUID.randomUUID().toString());
+                Copyright.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Copyright.this.types == null || Copyright.this.types.isEmpty() || !Copyright.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Copyright.this.types;
-                Copyright.this.types = new ArrayList<>();
-                Copyright.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Copyright.this.types.addAll(oldValues);
-                }
-            }
+            Copyright.this.type = SEMANTIC_NAME;
             return Copyright.this;
         }
     }

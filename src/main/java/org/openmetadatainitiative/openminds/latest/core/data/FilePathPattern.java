@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class FilePathPattern extends Instance {
         return doGetReference();
     }
 
-    public static Reference<FilePathPattern> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FilePathPattern> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FilePathPattern(LocalId localId ) {
@@ -45,18 +44,11 @@ public class FilePathPattern extends Instance {
         public Builder regex(String regex) { FilePathPattern.this.regex = regex; return this; }
         
 
-        public FilePathPattern build() {
+        public FilePathPattern build(OpenMINDSContext context) {
             if (FilePathPattern.this.id == null) {
-                FilePathPattern.this.id = new InstanceId(UUID.randomUUID().toString());
+                FilePathPattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FilePathPattern.this.types == null || FilePathPattern.this.types.isEmpty() || !FilePathPattern.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FilePathPattern.this.types;
-                FilePathPattern.this.types = new ArrayList<>();
-                FilePathPattern.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FilePathPattern.this.types.addAll(oldValues);
-                }
-            }
+            FilePathPattern.this.type = SEMANTIC_NAME;
             return FilePathPattern.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<MetaDataModel> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<MetaDataModel> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private MetaDataModel(LocalId localId ) {
@@ -62,18 +61,11 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
         public Builder shortName(String shortName) { MetaDataModel.this.shortName = shortName; return this; }
         
 
-        public MetaDataModel build() {
+        public MetaDataModel build(OpenMINDSContext context) {
             if (MetaDataModel.this.id == null) {
-                MetaDataModel.this.id = new InstanceId(UUID.randomUUID().toString());
+                MetaDataModel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(MetaDataModel.this.types == null || MetaDataModel.this.types.isEmpty() || !MetaDataModel.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = MetaDataModel.this.types;
-                MetaDataModel.this.types = new ArrayList<>();
-                MetaDataModel.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    MetaDataModel.this.types.addAll(oldValues);
-                }
-            }
+            MetaDataModel.this.type = SEMANTIC_NAME;
             return MetaDataModel.this;
         }
     }

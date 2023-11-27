@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class ParcellationTerminologyVersion extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ParcellationTerminologyVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ParcellationTerminologyVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ParcellationTerminologyVersion(LocalId localId ) {
@@ -48,18 +47,11 @@ public class ParcellationTerminologyVersion extends Instance {
         public Builder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationTerminologyVersion.this.ontologyIdentifier = ontologyIdentifier; return this; }
         
 
-        public ParcellationTerminologyVersion build() {
+        public ParcellationTerminologyVersion build(OpenMINDSContext context) {
             if (ParcellationTerminologyVersion.this.id == null) {
-                ParcellationTerminologyVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                ParcellationTerminologyVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ParcellationTerminologyVersion.this.types == null || ParcellationTerminologyVersion.this.types.isEmpty() || !ParcellationTerminologyVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ParcellationTerminologyVersion.this.types;
-                ParcellationTerminologyVersion.this.types = new ArrayList<>();
-                ParcellationTerminologyVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ParcellationTerminologyVersion.this.types.addAll(oldValues);
-                }
-            }
+            ParcellationTerminologyVersion.this.type = SEMANTIC_NAME;
             return ParcellationTerminologyVersion.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class Project extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Project> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Project> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Project(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Project extends Instance {
         public Builder shortName(String shortName) { Project.this.shortName = shortName; return this; }
         
 
-        public Project build() {
+        public Project build(OpenMINDSContext context) {
             if (Project.this.id == null) {
-                Project.this.id = new InstanceId(UUID.randomUUID().toString());
+                Project.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Project.this.types == null || Project.this.types.isEmpty() || !Project.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Project.this.types;
-                Project.this.types = new ArrayList<>();
-                Project.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Project.this.types.addAll(oldValues);
-                }
-            }
+            Project.this.type = SEMANTIC_NAME;
             return Project.this;
         }
     }

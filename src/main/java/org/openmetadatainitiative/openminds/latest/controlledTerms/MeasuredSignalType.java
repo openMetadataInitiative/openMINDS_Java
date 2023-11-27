@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class MeasuredSignalType extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<MeasuredSignalType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<MeasuredSignalType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private MeasuredSignalType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class MeasuredSignalType extends Instance implements org.openmetadatainit
         public Builder synonym(List<String> synonym) { MeasuredSignalType.this.synonym = synonym; return this; }
         
 
-        public MeasuredSignalType build() {
+        public MeasuredSignalType build(OpenMINDSContext context) {
             if (MeasuredSignalType.this.id == null) {
-                MeasuredSignalType.this.id = new InstanceId(UUID.randomUUID().toString());
+                MeasuredSignalType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(MeasuredSignalType.this.types == null || MeasuredSignalType.this.types.isEmpty() || !MeasuredSignalType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = MeasuredSignalType.this.types;
-                MeasuredSignalType.this.types = new ArrayList<>();
-                MeasuredSignalType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    MeasuredSignalType.this.types.addAll(oldValues);
-                }
-            }
+            MeasuredSignalType.this.type = SEMANTIC_NAME;
             return MeasuredSignalType.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Channel extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Channel> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Channel> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Channel(LocalId localId ) {
@@ -45,18 +44,11 @@ public class Channel extends Instance {
         public Builder unit(Reference<UnitOfMeasurement> unit) { Channel.this.unit = unit; return this; }
         
 
-        public Channel build() {
+        public Channel build(OpenMINDSContext context) {
             if (Channel.this.id == null) {
-                Channel.this.id = new InstanceId(UUID.randomUUID().toString());
+                Channel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Channel.this.types == null || Channel.this.types.isEmpty() || !Channel.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Channel.this.types;
-                Channel.this.types = new ArrayList<>();
-                Channel.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Channel.this.types.addAll(oldValues);
-                }
-            }
+            Channel.this.type = SEMANTIC_NAME;
             return Channel.this;
         }
     }

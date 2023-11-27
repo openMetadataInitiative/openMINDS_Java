@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ProgrammingLanguage extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<ProgrammingLanguage> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ProgrammingLanguage> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ProgrammingLanguage(LocalId localId ) {
@@ -54,18 +53,11 @@ public class ProgrammingLanguage extends Instance implements org.openmetadataini
         public Builder synonym(List<String> synonym) { ProgrammingLanguage.this.synonym = synonym; return this; }
         
 
-        public ProgrammingLanguage build() {
+        public ProgrammingLanguage build(OpenMINDSContext context) {
             if (ProgrammingLanguage.this.id == null) {
-                ProgrammingLanguage.this.id = new InstanceId(UUID.randomUUID().toString());
+                ProgrammingLanguage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ProgrammingLanguage.this.types == null || ProgrammingLanguage.this.types.isEmpty() || !ProgrammingLanguage.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ProgrammingLanguage.this.types;
-                ProgrammingLanguage.this.types = new ArrayList<>();
-                ProgrammingLanguage.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ProgrammingLanguage.this.types.addAll(oldValues);
-                }
-            }
+            ProgrammingLanguage.this.type = SEMANTIC_NAME;
             return ProgrammingLanguage.this;
         }
     }

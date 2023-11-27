@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class UnitOfMeasurement extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<UnitOfMeasurement> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<UnitOfMeasurement> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private UnitOfMeasurement(LocalId localId ) {
@@ -54,18 +53,11 @@ public class UnitOfMeasurement extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { UnitOfMeasurement.this.synonym = synonym; return this; }
         
 
-        public UnitOfMeasurement build() {
+        public UnitOfMeasurement build(OpenMINDSContext context) {
             if (UnitOfMeasurement.this.id == null) {
-                UnitOfMeasurement.this.id = new InstanceId(UUID.randomUUID().toString());
+                UnitOfMeasurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(UnitOfMeasurement.this.types == null || UnitOfMeasurement.this.types.isEmpty() || !UnitOfMeasurement.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = UnitOfMeasurement.this.types;
-                UnitOfMeasurement.this.types = new ArrayList<>();
-                UnitOfMeasurement.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    UnitOfMeasurement.this.types.addAll(oldValues);
-                }
-            }
+            UnitOfMeasurement.this.type = SEMANTIC_NAME;
             return UnitOfMeasurement.this;
         }
     }

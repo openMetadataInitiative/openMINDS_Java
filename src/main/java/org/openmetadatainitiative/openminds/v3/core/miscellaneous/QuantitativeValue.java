@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class QuantitativeValue extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<QuantitativeValue> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<QuantitativeValue> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private QuantitativeValue(LocalId localId ) {
@@ -50,18 +49,11 @@ public class QuantitativeValue extends Instance implements org.openmetadatainiti
         public Builder value(Object value) { QuantitativeValue.this.value = value; return this; }
         
 
-        public QuantitativeValue build() {
+        public QuantitativeValue build(OpenMINDSContext context) {
             if (QuantitativeValue.this.id == null) {
-                QuantitativeValue.this.id = new InstanceId(UUID.randomUUID().toString());
+                QuantitativeValue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(QuantitativeValue.this.types == null || QuantitativeValue.this.types.isEmpty() || !QuantitativeValue.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = QuantitativeValue.this.types;
-                QuantitativeValue.this.types = new ArrayList<>();
-                QuantitativeValue.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    QuantitativeValue.this.types.addAll(oldValues);
-                }
-            }
+            QuantitativeValue.this.type = SEMANTIC_NAME;
             return QuantitativeValue.this;
         }
     }

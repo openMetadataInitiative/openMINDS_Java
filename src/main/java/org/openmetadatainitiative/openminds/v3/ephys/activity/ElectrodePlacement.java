@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class ElectrodePlacement extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ElectrodePlacement> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ElectrodePlacement> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ElectrodePlacement(LocalId localId ) {
@@ -78,18 +77,11 @@ public class ElectrodePlacement extends Instance {
         public Builder targetPosition(AnatomicalTargetPosition targetPosition) { ElectrodePlacement.this.targetPosition = targetPosition; return this; }
         
 
-        public ElectrodePlacement build() {
+        public ElectrodePlacement build(OpenMINDSContext context) {
             if (ElectrodePlacement.this.id == null) {
-                ElectrodePlacement.this.id = new InstanceId(UUID.randomUUID().toString());
+                ElectrodePlacement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ElectrodePlacement.this.types == null || ElectrodePlacement.this.types.isEmpty() || !ElectrodePlacement.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ElectrodePlacement.this.types;
-                ElectrodePlacement.this.types = new ArrayList<>();
-                ElectrodePlacement.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ElectrodePlacement.this.types.addAll(oldValues);
-                }
-            }
+            ElectrodePlacement.this.type = SEMANTIC_NAME;
             return ElectrodePlacement.this;
         }
     }

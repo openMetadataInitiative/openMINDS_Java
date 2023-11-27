@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<FileBundle> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FileBundle> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FileBundle(LocalId localId ) {
@@ -62,18 +61,11 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
         public Builder storageSize(QuantitativeValue storageSize) { FileBundle.this.storageSize = storageSize; return this; }
         
 
-        public FileBundle build() {
+        public FileBundle build(OpenMINDSContext context) {
             if (FileBundle.this.id == null) {
-                FileBundle.this.id = new InstanceId(UUID.randomUUID().toString());
+                FileBundle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FileBundle.this.types == null || FileBundle.this.types.isEmpty() || !FileBundle.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FileBundle.this.types;
-                FileBundle.this.types = new ArrayList<>();
-                FileBundle.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FileBundle.this.types.addAll(oldValues);
-                }
-            }
+            FileBundle.this.type = SEMANTIC_NAME;
             return FileBundle.this;
         }
     }

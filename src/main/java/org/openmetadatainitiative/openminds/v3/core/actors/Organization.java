@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class Organization extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<Organization> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Organization> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Organization(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Organization extends Instance implements org.openmetadatainitiative
         public Builder shortName(String shortName) { Organization.this.shortName = shortName; return this; }
         
 
-        public Organization build() {
+        public Organization build(OpenMINDSContext context) {
             if (Organization.this.id == null) {
-                Organization.this.id = new InstanceId(UUID.randomUUID().toString());
+                Organization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Organization.this.types == null || Organization.this.types.isEmpty() || !Organization.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Organization.this.types;
-                Organization.this.types = new ArrayList<>();
-                Organization.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Organization.this.types.addAll(oldValues);
-                }
-            }
+            Organization.this.type = SEMANTIC_NAME;
             return Organization.this;
         }
     }

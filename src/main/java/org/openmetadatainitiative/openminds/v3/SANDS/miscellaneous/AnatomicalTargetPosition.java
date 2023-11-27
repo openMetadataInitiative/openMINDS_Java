@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class AnatomicalTargetPosition extends Instance {
         return doGetReference();
     }
 
-    public static Reference<AnatomicalTargetPosition> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnatomicalTargetPosition> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnatomicalTargetPosition(LocalId localId ) {
@@ -51,18 +50,11 @@ public class AnatomicalTargetPosition extends Instance {
         public Builder targetIdentificationType(Reference<AnatomicalIdentificationType> targetIdentificationType) { AnatomicalTargetPosition.this.targetIdentificationType = targetIdentificationType; return this; }
         
 
-        public AnatomicalTargetPosition build() {
+        public AnatomicalTargetPosition build(OpenMINDSContext context) {
             if (AnatomicalTargetPosition.this.id == null) {
-                AnatomicalTargetPosition.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnatomicalTargetPosition.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnatomicalTargetPosition.this.types == null || AnatomicalTargetPosition.this.types.isEmpty() || !AnatomicalTargetPosition.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnatomicalTargetPosition.this.types;
-                AnatomicalTargetPosition.this.types = new ArrayList<>();
-                AnatomicalTargetPosition.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnatomicalTargetPosition.this.types.addAll(oldValues);
-                }
-            }
+            AnatomicalTargetPosition.this.type = SEMANTIC_NAME;
             return AnatomicalTargetPosition.this;
         }
     }

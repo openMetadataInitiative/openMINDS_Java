@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class BiologicalOrder extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<BiologicalOrder> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BiologicalOrder> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BiologicalOrder(LocalId localId ) {
@@ -54,18 +53,11 @@ public class BiologicalOrder extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { BiologicalOrder.this.synonym = synonym; return this; }
         
 
-        public BiologicalOrder build() {
+        public BiologicalOrder build(OpenMINDSContext context) {
             if (BiologicalOrder.this.id == null) {
-                BiologicalOrder.this.id = new InstanceId(UUID.randomUUID().toString());
+                BiologicalOrder.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BiologicalOrder.this.types == null || BiologicalOrder.this.types.isEmpty() || !BiologicalOrder.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BiologicalOrder.this.types;
-                BiologicalOrder.this.types = new ArrayList<>();
-                BiologicalOrder.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BiologicalOrder.this.types.addAll(oldValues);
-                }
-            }
+            BiologicalOrder.this.type = SEMANTIC_NAME;
             return BiologicalOrder.this;
         }
     }

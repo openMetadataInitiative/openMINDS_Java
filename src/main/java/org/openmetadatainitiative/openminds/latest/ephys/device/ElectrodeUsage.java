@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class ElectrodeUsage extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<ElectrodeUsage> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ElectrodeUsage> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ElectrodeUsage(LocalId localId ) {
@@ -60,18 +59,11 @@ public class ElectrodeUsage extends Instance implements org.openmetadatainitiati
         public Builder usedSpecimen(Reference<? extends ElectrodeUsageUsedSpecimen> usedSpecimen) { ElectrodeUsage.this.usedSpecimen = usedSpecimen; return this; }
         
 
-        public ElectrodeUsage build() {
+        public ElectrodeUsage build(OpenMINDSContext context) {
             if (ElectrodeUsage.this.id == null) {
-                ElectrodeUsage.this.id = new InstanceId(UUID.randomUUID().toString());
+                ElectrodeUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ElectrodeUsage.this.types == null || ElectrodeUsage.this.types.isEmpty() || !ElectrodeUsage.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ElectrodeUsage.this.types;
-                ElectrodeUsage.this.types = new ArrayList<>();
-                ElectrodeUsage.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ElectrodeUsage.this.types.addAll(oldValues);
-                }
-            }
+            ElectrodeUsage.this.type = SEMANTIC_NAME;
             return ElectrodeUsage.this;
         }
     }

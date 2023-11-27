@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SubjectAttribute extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<SubjectAttribute> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SubjectAttribute> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SubjectAttribute(LocalId localId ) {
@@ -54,18 +53,11 @@ public class SubjectAttribute extends Instance implements org.openmetadatainitia
         public Builder synonym(List<String> synonym) { SubjectAttribute.this.synonym = synonym; return this; }
         
 
-        public SubjectAttribute build() {
+        public SubjectAttribute build(OpenMINDSContext context) {
             if (SubjectAttribute.this.id == null) {
-                SubjectAttribute.this.id = new InstanceId(UUID.randomUUID().toString());
+                SubjectAttribute.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SubjectAttribute.this.types == null || SubjectAttribute.this.types.isEmpty() || !SubjectAttribute.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SubjectAttribute.this.types;
-                SubjectAttribute.this.types = new ArrayList<>();
-                SubjectAttribute.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SubjectAttribute.this.types.addAll(oldValues);
-                }
-            }
+            SubjectAttribute.this.type = SEMANTIC_NAME;
             return SubjectAttribute.this;
         }
     }

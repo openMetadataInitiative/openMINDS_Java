@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class DeviceType extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<DeviceType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DeviceType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DeviceType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class DeviceType extends Instance implements org.openmetadatainitiative.o
         public Builder synonym(List<String> synonym) { DeviceType.this.synonym = synonym; return this; }
         
 
-        public DeviceType build() {
+        public DeviceType build(OpenMINDSContext context) {
             if (DeviceType.this.id == null) {
-                DeviceType.this.id = new InstanceId(UUID.randomUUID().toString());
+                DeviceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DeviceType.this.types == null || DeviceType.this.types.isEmpty() || !DeviceType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DeviceType.this.types;
-                DeviceType.this.types = new ArrayList<>();
-                DeviceType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DeviceType.this.types.addAll(oldValues);
-                }
-            }
+            DeviceType.this.type = SEMANTIC_NAME;
             return DeviceType.this;
         }
     }

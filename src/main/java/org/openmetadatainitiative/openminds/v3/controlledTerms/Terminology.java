@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Terminology extends Instance implements org.openmetadatainitiative.
         return doGetReference();
     }
 
-    public static Reference<Terminology> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Terminology> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Terminology(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Terminology extends Instance implements org.openmetadatainitiative.
         public Builder synonym(List<String> synonym) { Terminology.this.synonym = synonym; return this; }
         
 
-        public Terminology build() {
+        public Terminology build(OpenMINDSContext context) {
             if (Terminology.this.id == null) {
-                Terminology.this.id = new InstanceId(UUID.randomUUID().toString());
+                Terminology.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Terminology.this.types == null || Terminology.this.types.isEmpty() || !Terminology.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Terminology.this.types;
-                Terminology.this.types = new ArrayList<>();
-                Terminology.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Terminology.this.types.addAll(oldValues);
-                }
-            }
+            Terminology.this.type = SEMANTIC_NAME;
             return Terminology.this;
         }
     }

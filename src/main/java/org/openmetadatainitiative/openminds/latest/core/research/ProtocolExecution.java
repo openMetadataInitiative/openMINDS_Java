@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class ProtocolExecution extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ProtocolExecution> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ProtocolExecution> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ProtocolExecution(LocalId localId ) {
@@ -75,18 +74,11 @@ public class ProtocolExecution extends Instance {
         public Builder studyTarget(List<Reference<? extends ProtocolExecutionStudyTarget>> studyTarget) { ProtocolExecution.this.studyTarget = studyTarget; return this; }
         
 
-        public ProtocolExecution build() {
+        public ProtocolExecution build(OpenMINDSContext context) {
             if (ProtocolExecution.this.id == null) {
-                ProtocolExecution.this.id = new InstanceId(UUID.randomUUID().toString());
+                ProtocolExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ProtocolExecution.this.types == null || ProtocolExecution.this.types.isEmpty() || !ProtocolExecution.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ProtocolExecution.this.types;
-                ProtocolExecution.this.types = new ArrayList<>();
-                ProtocolExecution.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ProtocolExecution.this.types.addAll(oldValues);
-                }
-            }
+            ProtocolExecution.this.type = SEMANTIC_NAME;
             return ProtocolExecution.this;
         }
     }

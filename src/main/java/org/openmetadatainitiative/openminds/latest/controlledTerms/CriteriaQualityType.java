@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class CriteriaQualityType extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<CriteriaQualityType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CriteriaQualityType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CriteriaQualityType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class CriteriaQualityType extends Instance implements org.openmetadataini
         public Builder synonym(List<String> synonym) { CriteriaQualityType.this.synonym = synonym; return this; }
         
 
-        public CriteriaQualityType build() {
+        public CriteriaQualityType build(OpenMINDSContext context) {
             if (CriteriaQualityType.this.id == null) {
-                CriteriaQualityType.this.id = new InstanceId(UUID.randomUUID().toString());
+                CriteriaQualityType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CriteriaQualityType.this.types == null || CriteriaQualityType.this.types.isEmpty() || !CriteriaQualityType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CriteriaQualityType.this.types;
-                CriteriaQualityType.this.types = new ArrayList<>();
-                CriteriaQualityType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CriteriaQualityType.this.types.addAll(oldValues);
-                }
-            }
+            CriteriaQualityType.this.type = SEMANTIC_NAME;
             return CriteriaQualityType.this;
         }
     }

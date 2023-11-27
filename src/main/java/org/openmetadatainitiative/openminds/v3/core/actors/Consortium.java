@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Consortium extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<Consortium> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Consortium> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Consortium(LocalId localId ) {
@@ -49,18 +48,11 @@ public class Consortium extends Instance implements org.openmetadatainitiative.o
         public Builder shortName(String shortName) { Consortium.this.shortName = shortName; return this; }
         
 
-        public Consortium build() {
+        public Consortium build(OpenMINDSContext context) {
             if (Consortium.this.id == null) {
-                Consortium.this.id = new InstanceId(UUID.randomUUID().toString());
+                Consortium.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Consortium.this.types == null || Consortium.this.types.isEmpty() || !Consortium.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Consortium.this.types;
-                Consortium.this.types = new ArrayList<>();
-                Consortium.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Consortium.this.types.addAll(oldValues);
-                }
-            }
+            Consortium.this.type = SEMANTIC_NAME;
             return Consortium.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
         return doGetReference();
     }
 
-    public static Reference<Pipette> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Pipette> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Pipette(LocalId localId ) {
@@ -70,18 +69,11 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
         public Builder serialNumber(String serialNumber) { Pipette.this.serialNumber = serialNumber; return this; }
         
 
-        public Pipette build() {
+        public Pipette build(OpenMINDSContext context) {
             if (Pipette.this.id == null) {
-                Pipette.this.id = new InstanceId(UUID.randomUUID().toString());
+                Pipette.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Pipette.this.types == null || Pipette.this.types.isEmpty() || !Pipette.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Pipette.this.types;
-                Pipette.this.types = new ArrayList<>();
-                Pipette.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Pipette.this.types.addAll(oldValues);
-                }
-            }
+            Pipette.this.type = SEMANTIC_NAME;
             return Pipette.this;
         }
     }

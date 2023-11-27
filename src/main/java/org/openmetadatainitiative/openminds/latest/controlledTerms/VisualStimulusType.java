@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class VisualStimulusType extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<VisualStimulusType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<VisualStimulusType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private VisualStimulusType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class VisualStimulusType extends Instance implements org.openmetadatainit
         public Builder synonym(List<String> synonym) { VisualStimulusType.this.synonym = synonym; return this; }
         
 
-        public VisualStimulusType build() {
+        public VisualStimulusType build(OpenMINDSContext context) {
             if (VisualStimulusType.this.id == null) {
-                VisualStimulusType.this.id = new InstanceId(UUID.randomUUID().toString());
+                VisualStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(VisualStimulusType.this.types == null || VisualStimulusType.this.types.isEmpty() || !VisualStimulusType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = VisualStimulusType.this.types;
-                VisualStimulusType.this.types = new ArrayList<>();
-                VisualStimulusType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    VisualStimulusType.this.types.addAll(oldValues);
-                }
-            }
+            VisualStimulusType.this.type = SEMANTIC_NAME;
             return VisualStimulusType.this;
         }
     }

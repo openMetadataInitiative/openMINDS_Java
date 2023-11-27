@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Colormap extends Instance implements org.openmetadatainitiative.ope
         return doGetReference();
     }
 
-    public static Reference<Colormap> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Colormap> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Colormap(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Colormap extends Instance implements org.openmetadatainitiative.ope
         public Builder synonym(List<String> synonym) { Colormap.this.synonym = synonym; return this; }
         
 
-        public Colormap build() {
+        public Colormap build(OpenMINDSContext context) {
             if (Colormap.this.id == null) {
-                Colormap.this.id = new InstanceId(UUID.randomUUID().toString());
+                Colormap.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Colormap.this.types == null || Colormap.this.types.isEmpty() || !Colormap.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Colormap.this.types;
-                Colormap.this.types = new ArrayList<>();
-                Colormap.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Colormap.this.types.addAll(oldValues);
-                }
-            }
+            Colormap.this.type = SEMANTIC_NAME;
             return Colormap.this;
         }
     }

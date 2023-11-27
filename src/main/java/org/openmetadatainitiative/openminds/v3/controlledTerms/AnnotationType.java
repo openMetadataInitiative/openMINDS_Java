@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AnnotationType extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<AnnotationType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnnotationType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnnotationType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AnnotationType extends Instance implements org.openmetadatainitiati
         public Builder synonym(List<String> synonym) { AnnotationType.this.synonym = synonym; return this; }
         
 
-        public AnnotationType build() {
+        public AnnotationType build(OpenMINDSContext context) {
             if (AnnotationType.this.id == null) {
-                AnnotationType.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnnotationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnnotationType.this.types == null || AnnotationType.this.types.isEmpty() || !AnnotationType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnnotationType.this.types;
-                AnnotationType.this.types = new ArrayList<>();
-                AnnotationType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnnotationType.this.types.addAll(oldValues);
-                }
-            }
+            AnnotationType.this.type = SEMANTIC_NAME;
             return AnnotationType.this;
         }
     }

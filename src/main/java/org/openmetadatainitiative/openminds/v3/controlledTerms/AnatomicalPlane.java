@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AnatomicalPlane extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<AnatomicalPlane> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnatomicalPlane> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnatomicalPlane(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AnatomicalPlane extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { AnatomicalPlane.this.synonym = synonym; return this; }
         
 
-        public AnatomicalPlane build() {
+        public AnatomicalPlane build(OpenMINDSContext context) {
             if (AnatomicalPlane.this.id == null) {
-                AnatomicalPlane.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnatomicalPlane.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnatomicalPlane.this.types == null || AnatomicalPlane.this.types.isEmpty() || !AnatomicalPlane.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnatomicalPlane.this.types;
-                AnatomicalPlane.this.types = new ArrayList<>();
-                AnatomicalPlane.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnatomicalPlane.this.types.addAll(oldValues);
-                }
-            }
+            AnatomicalPlane.this.type = SEMANTIC_NAME;
             return AnatomicalPlane.this;
         }
     }

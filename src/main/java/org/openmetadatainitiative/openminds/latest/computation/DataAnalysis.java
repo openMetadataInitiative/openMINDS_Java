@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<DataAnalysis> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DataAnalysis> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DataAnalysis(LocalId localId ) {
@@ -89,18 +88,11 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
         public Builder wasInformedBy(Reference<? extends DataAnalysisWasInformedBy> wasInformedBy) { DataAnalysis.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public DataAnalysis build() {
+        public DataAnalysis build(OpenMINDSContext context) {
             if (DataAnalysis.this.id == null) {
-                DataAnalysis.this.id = new InstanceId(UUID.randomUUID().toString());
+                DataAnalysis.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DataAnalysis.this.types == null || DataAnalysis.this.types.isEmpty() || !DataAnalysis.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DataAnalysis.this.types;
-                DataAnalysis.this.types = new ArrayList<>();
-                DataAnalysis.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DataAnalysis.this.types.addAll(oldValues);
-                }
-            }
+            DataAnalysis.this.type = SEMANTIC_NAME;
             return DataAnalysis.this;
         }
     }

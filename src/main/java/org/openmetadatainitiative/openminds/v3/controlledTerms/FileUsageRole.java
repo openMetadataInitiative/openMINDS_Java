@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class FileUsageRole extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<FileUsageRole> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FileUsageRole> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FileUsageRole(LocalId localId ) {
@@ -54,18 +53,11 @@ public class FileUsageRole extends Instance implements org.openmetadatainitiativ
         public Builder synonym(List<String> synonym) { FileUsageRole.this.synonym = synonym; return this; }
         
 
-        public FileUsageRole build() {
+        public FileUsageRole build(OpenMINDSContext context) {
             if (FileUsageRole.this.id == null) {
-                FileUsageRole.this.id = new InstanceId(UUID.randomUUID().toString());
+                FileUsageRole.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FileUsageRole.this.types == null || FileUsageRole.this.types.isEmpty() || !FileUsageRole.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FileUsageRole.this.types;
-                FileUsageRole.this.types = new ArrayList<>();
-                FileUsageRole.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FileUsageRole.this.types.addAll(oldValues);
-                }
-            }
+            FileUsageRole.this.type = SEMANTIC_NAME;
             return FileUsageRole.this;
         }
     }

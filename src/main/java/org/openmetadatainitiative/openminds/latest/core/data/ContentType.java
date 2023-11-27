@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class ContentType extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ContentType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ContentType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ContentType(LocalId localId ) {
@@ -57,18 +56,11 @@ public class ContentType extends Instance {
         public Builder synonym(List<String> synonym) { ContentType.this.synonym = synonym; return this; }
         
 
-        public ContentType build() {
+        public ContentType build(OpenMINDSContext context) {
             if (ContentType.this.id == null) {
-                ContentType.this.id = new InstanceId(UUID.randomUUID().toString());
+                ContentType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ContentType.this.types == null || ContentType.this.types.isEmpty() || !ContentType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ContentType.this.types;
-                ContentType.this.types = new ArrayList<>();
-                ContentType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ContentType.this.types.addAll(oldValues);
-                }
-            }
+            ContentType.this.type = SEMANTIC_NAME;
             return ContentType.this;
         }
     }

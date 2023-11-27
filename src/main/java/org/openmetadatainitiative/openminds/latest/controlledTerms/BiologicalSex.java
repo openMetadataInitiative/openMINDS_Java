@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class BiologicalSex extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<BiologicalSex> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BiologicalSex> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BiologicalSex(LocalId localId ) {
@@ -54,18 +53,11 @@ public class BiologicalSex extends Instance implements org.openmetadatainitiativ
         public Builder synonym(List<String> synonym) { BiologicalSex.this.synonym = synonym; return this; }
         
 
-        public BiologicalSex build() {
+        public BiologicalSex build(OpenMINDSContext context) {
             if (BiologicalSex.this.id == null) {
-                BiologicalSex.this.id = new InstanceId(UUID.randomUUID().toString());
+                BiologicalSex.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BiologicalSex.this.types == null || BiologicalSex.this.types.isEmpty() || !BiologicalSex.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BiologicalSex.this.types;
-                BiologicalSex.this.types = new ArrayList<>();
-                BiologicalSex.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BiologicalSex.this.types.addAll(oldValues);
-                }
-            }
+            BiologicalSex.this.type = SEMANTIC_NAME;
             return BiologicalSex.this;
         }
     }

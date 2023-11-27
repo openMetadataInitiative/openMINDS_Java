@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -46,8 +45,8 @@ public class CommonCoordinateSpaceVersion extends Instance implements org.openme
         return doGetReference();
     }
 
-    public static Reference<CommonCoordinateSpaceVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CommonCoordinateSpaceVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CommonCoordinateSpaceVersion(LocalId localId ) {
@@ -118,18 +117,11 @@ public class CommonCoordinateSpaceVersion extends Instance implements org.openme
         public Builder versionInnovation(String versionInnovation) { CommonCoordinateSpaceVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public CommonCoordinateSpaceVersion build() {
+        public CommonCoordinateSpaceVersion build(OpenMINDSContext context) {
             if (CommonCoordinateSpaceVersion.this.id == null) {
-                CommonCoordinateSpaceVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                CommonCoordinateSpaceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CommonCoordinateSpaceVersion.this.types == null || CommonCoordinateSpaceVersion.this.types.isEmpty() || !CommonCoordinateSpaceVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CommonCoordinateSpaceVersion.this.types;
-                CommonCoordinateSpaceVersion.this.types = new ArrayList<>();
-                CommonCoordinateSpaceVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CommonCoordinateSpaceVersion.this.types.addAll(oldValues);
-                }
-            }
+            CommonCoordinateSpaceVersion.this.type = SEMANTIC_NAME;
             return CommonCoordinateSpaceVersion.this;
         }
     }

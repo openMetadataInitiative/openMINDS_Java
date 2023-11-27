@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -51,8 +50,8 @@ public class DatasetVersion extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<DatasetVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DatasetVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DatasetVersion(LocalId localId ) {
@@ -129,18 +128,11 @@ public class DatasetVersion extends Instance implements org.openmetadatainitiati
         public Builder versionInnovation(String versionInnovation) { DatasetVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public DatasetVersion build() {
+        public DatasetVersion build(OpenMINDSContext context) {
             if (DatasetVersion.this.id == null) {
-                DatasetVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                DatasetVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DatasetVersion.this.types == null || DatasetVersion.this.types.isEmpty() || !DatasetVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DatasetVersion.this.types;
-                DatasetVersion.this.types = new ArrayList<>();
-                DatasetVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DatasetVersion.this.types.addAll(oldValues);
-                }
-            }
+            DatasetVersion.this.type = SEMANTIC_NAME;
             return DatasetVersion.this;
         }
     }

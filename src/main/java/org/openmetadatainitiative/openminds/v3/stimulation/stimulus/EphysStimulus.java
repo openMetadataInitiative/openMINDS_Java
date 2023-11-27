@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.stimulation.stimulus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class EphysStimulus extends Instance {
         return doGetReference();
     }
 
-    public static Reference<EphysStimulus> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<EphysStimulus> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private EphysStimulus(LocalId localId ) {
@@ -43,18 +42,11 @@ public class EphysStimulus extends Instance {
         public Builder type(Reference<ElectricalStimulusType> type) { EphysStimulus.this.type = type; return this; }
         
 
-        public EphysStimulus build() {
+        public EphysStimulus build(OpenMINDSContext context) {
             if (EphysStimulus.this.id == null) {
-                EphysStimulus.this.id = new InstanceId(UUID.randomUUID().toString());
+                EphysStimulus.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(EphysStimulus.this.types == null || EphysStimulus.this.types.isEmpty() || !EphysStimulus.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = EphysStimulus.this.types;
-                EphysStimulus.this.types = new ArrayList<>();
-                EphysStimulus.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    EphysStimulus.this.types.addAll(oldValues);
-                }
-            }
+            EphysStimulus.this.type = SEMANTIC_NAME;
             return EphysStimulus.this;
         }
     }

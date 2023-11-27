@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SWHID extends Instance implements org.openmetadatainitiative.openmi
         return doGetReference();
     }
 
-    public static Reference<SWHID> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SWHID> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SWHID(LocalId localId ) {
@@ -42,18 +41,11 @@ public class SWHID extends Instance implements org.openmetadatainitiative.openmi
         public Builder identifier(String identifier) { SWHID.this.identifier = identifier; return this; }
         
 
-        public SWHID build() {
+        public SWHID build(OpenMINDSContext context) {
             if (SWHID.this.id == null) {
-                SWHID.this.id = new InstanceId(UUID.randomUUID().toString());
+                SWHID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SWHID.this.types == null || SWHID.this.types.isEmpty() || !SWHID.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SWHID.this.types;
-                SWHID.this.types = new ArrayList<>();
-                SWHID.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SWHID.this.types.addAll(oldValues);
-                }
-            }
+            SWHID.this.type = SEMANTIC_NAME;
             return SWHID.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
         return doGetReference();
     }
 
-    public static Reference<ElectrodeArray> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ElectrodeArray> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ElectrodeArray(LocalId localId ) {
@@ -75,18 +74,11 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
         public Builder serialNumber(String serialNumber) { ElectrodeArray.this.serialNumber = serialNumber; return this; }
         
 
-        public ElectrodeArray build() {
+        public ElectrodeArray build(OpenMINDSContext context) {
             if (ElectrodeArray.this.id == null) {
-                ElectrodeArray.this.id = new InstanceId(UUID.randomUUID().toString());
+                ElectrodeArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ElectrodeArray.this.types == null || ElectrodeArray.this.types.isEmpty() || !ElectrodeArray.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ElectrodeArray.this.types;
-                ElectrodeArray.this.types = new ArrayList<>();
-                ElectrodeArray.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ElectrodeArray.this.types.addAll(oldValues);
-                }
-            }
+            ElectrodeArray.this.type = SEMANTIC_NAME;
             return ElectrodeArray.this;
         }
     }

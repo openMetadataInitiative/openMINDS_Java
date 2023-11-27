@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -48,8 +47,8 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<SoftwareVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SoftwareVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SoftwareVersion(LocalId localId ) {
@@ -126,18 +125,11 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
         public Builder versionInnovation(String versionInnovation) { SoftwareVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public SoftwareVersion build() {
+        public SoftwareVersion build(OpenMINDSContext context) {
             if (SoftwareVersion.this.id == null) {
-                SoftwareVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                SoftwareVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SoftwareVersion.this.types == null || SoftwareVersion.this.types.isEmpty() || !SoftwareVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SoftwareVersion.this.types;
-                SoftwareVersion.this.types = new ArrayList<>();
-                SoftwareVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SoftwareVersion.this.types.addAll(oldValues);
-                }
-            }
+            SoftwareVersion.this.type = SEMANTIC_NAME;
             return SoftwareVersion.this;
         }
     }

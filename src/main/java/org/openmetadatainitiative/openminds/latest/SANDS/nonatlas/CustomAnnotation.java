@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.nonatlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class CustomAnnotation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<CustomAnnotation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CustomAnnotation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CustomAnnotation(LocalId localId ) {
@@ -72,18 +71,11 @@ public class CustomAnnotation extends Instance {
         public Builder type(Reference<AnnotationType> type) { CustomAnnotation.this.type = type; return this; }
         
 
-        public CustomAnnotation build() {
+        public CustomAnnotation build(OpenMINDSContext context) {
             if (CustomAnnotation.this.id == null) {
-                CustomAnnotation.this.id = new InstanceId(UUID.randomUUID().toString());
+                CustomAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CustomAnnotation.this.types == null || CustomAnnotation.this.types.isEmpty() || !CustomAnnotation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CustomAnnotation.this.types;
-                CustomAnnotation.this.types = new ArrayList<>();
-                CustomAnnotation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CustomAnnotation.this.types.addAll(oldValues);
-                }
-            }
+            CustomAnnotation.this.type = SEMANTIC_NAME;
             return CustomAnnotation.this;
         }
     }

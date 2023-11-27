@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class WebServiceVersion extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<WebServiceVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<WebServiceVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private WebServiceVersion(LocalId localId ) {
@@ -101,18 +100,11 @@ public class WebServiceVersion extends Instance implements org.openmetadatainiti
         public Builder versionInnovation(String versionInnovation) { WebServiceVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public WebServiceVersion build() {
+        public WebServiceVersion build(OpenMINDSContext context) {
             if (WebServiceVersion.this.id == null) {
-                WebServiceVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                WebServiceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(WebServiceVersion.this.types == null || WebServiceVersion.this.types.isEmpty() || !WebServiceVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = WebServiceVersion.this.types;
-                WebServiceVersion.this.types = new ArrayList<>();
-                WebServiceVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    WebServiceVersion.this.types.addAll(oldValues);
-                }
-            }
+            WebServiceVersion.this.type = SEMANTIC_NAME;
             return WebServiceVersion.this;
         }
     }

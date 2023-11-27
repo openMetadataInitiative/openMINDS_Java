@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class RORID extends Instance implements org.openmetadatainitiative.openmi
         return doGetReference();
     }
 
-    public static Reference<RORID> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<RORID> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private RORID(LocalId localId ) {
@@ -42,18 +41,11 @@ public class RORID extends Instance implements org.openmetadatainitiative.openmi
         public Builder identifier(String identifier) { RORID.this.identifier = identifier; return this; }
         
 
-        public RORID build() {
+        public RORID build(OpenMINDSContext context) {
             if (RORID.this.id == null) {
-                RORID.this.id = new InstanceId(UUID.randomUUID().toString());
+                RORID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(RORID.this.types == null || RORID.this.types.isEmpty() || !RORID.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = RORID.this.types;
-                RORID.this.types = new ArrayList<>();
-                RORID.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    RORID.this.types.addAll(oldValues);
-                }
-            }
+            RORID.this.type = SEMANTIC_NAME;
             return RORID.this;
         }
     }

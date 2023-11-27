@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class WorkflowExecution extends Instance {
         return doGetReference();
     }
 
-    public static Reference<WorkflowExecution> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<WorkflowExecution> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private WorkflowExecution(LocalId localId ) {
@@ -52,18 +51,11 @@ public class WorkflowExecution extends Instance {
         public Builder startedBy(Reference<? extends WorkflowExecutionStartedBy> startedBy) { WorkflowExecution.this.startedBy = startedBy; return this; }
         
 
-        public WorkflowExecution build() {
+        public WorkflowExecution build(OpenMINDSContext context) {
             if (WorkflowExecution.this.id == null) {
-                WorkflowExecution.this.id = new InstanceId(UUID.randomUUID().toString());
+                WorkflowExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(WorkflowExecution.this.types == null || WorkflowExecution.this.types.isEmpty() || !WorkflowExecution.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = WorkflowExecution.this.types;
-                WorkflowExecution.this.types = new ArrayList<>();
-                WorkflowExecution.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    WorkflowExecution.this.types.addAll(oldValues);
-                }
-            }
+            WorkflowExecution.this.type = SEMANTIC_NAME;
             return WorkflowExecution.this;
         }
     }

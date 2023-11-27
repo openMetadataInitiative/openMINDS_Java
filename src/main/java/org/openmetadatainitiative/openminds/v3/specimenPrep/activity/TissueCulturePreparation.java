@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.specimenPrep.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class TissueCulturePreparation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<TissueCulturePreparation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TissueCulturePreparation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TissueCulturePreparation(LocalId localId ) {
@@ -52,18 +51,11 @@ public class TissueCulturePreparation extends Instance {
         public Builder output(Reference<TissueSampleState> output) { TissueCulturePreparation.this.output = output; return this; }
         
 
-        public TissueCulturePreparation build() {
+        public TissueCulturePreparation build(OpenMINDSContext context) {
             if (TissueCulturePreparation.this.id == null) {
-                TissueCulturePreparation.this.id = new InstanceId(UUID.randomUUID().toString());
+                TissueCulturePreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TissueCulturePreparation.this.types == null || TissueCulturePreparation.this.types.isEmpty() || !TissueCulturePreparation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TissueCulturePreparation.this.types;
-                TissueCulturePreparation.this.types = new ArrayList<>();
-                TissueCulturePreparation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TissueCulturePreparation.this.types.addAll(oldValues);
-                }
-            }
+            TissueCulturePreparation.this.type = SEMANTIC_NAME;
             return TissueCulturePreparation.this;
         }
     }

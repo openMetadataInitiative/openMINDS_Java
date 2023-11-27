@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.nonatlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class CustomAnatomicalEntity extends Instance implements org.openmetadata
         return doGetReference();
     }
 
-    public static Reference<CustomAnatomicalEntity> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CustomAnatomicalEntity> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CustomAnatomicalEntity(LocalId localId ) {
@@ -51,18 +50,11 @@ public class CustomAnatomicalEntity extends Instance implements org.openmetadata
         public Builder relationAssessment(List<? extends CustomAnatomicalEntityRelationAssessment> relationAssessment) { CustomAnatomicalEntity.this.relationAssessment = relationAssessment; return this; }
         
 
-        public CustomAnatomicalEntity build() {
+        public CustomAnatomicalEntity build(OpenMINDSContext context) {
             if (CustomAnatomicalEntity.this.id == null) {
-                CustomAnatomicalEntity.this.id = new InstanceId(UUID.randomUUID().toString());
+                CustomAnatomicalEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CustomAnatomicalEntity.this.types == null || CustomAnatomicalEntity.this.types.isEmpty() || !CustomAnatomicalEntity.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CustomAnatomicalEntity.this.types;
-                CustomAnatomicalEntity.this.types = new ArrayList<>();
-                CustomAnatomicalEntity.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CustomAnatomicalEntity.this.types.addAll(oldValues);
-                }
-            }
+            CustomAnatomicalEntity.this.type = SEMANTIC_NAME;
             return CustomAnatomicalEntity.this;
         }
     }

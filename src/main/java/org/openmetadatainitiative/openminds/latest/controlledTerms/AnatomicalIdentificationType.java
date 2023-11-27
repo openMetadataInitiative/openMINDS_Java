@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AnatomicalIdentificationType extends Instance implements org.openme
         return doGetReference();
     }
 
-    public static Reference<AnatomicalIdentificationType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnatomicalIdentificationType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnatomicalIdentificationType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AnatomicalIdentificationType extends Instance implements org.openme
         public Builder synonym(List<String> synonym) { AnatomicalIdentificationType.this.synonym = synonym; return this; }
         
 
-        public AnatomicalIdentificationType build() {
+        public AnatomicalIdentificationType build(OpenMINDSContext context) {
             if (AnatomicalIdentificationType.this.id == null) {
-                AnatomicalIdentificationType.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnatomicalIdentificationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnatomicalIdentificationType.this.types == null || AnatomicalIdentificationType.this.types.isEmpty() || !AnatomicalIdentificationType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnatomicalIdentificationType.this.types;
-                AnatomicalIdentificationType.this.types = new ArrayList<>();
-                AnatomicalIdentificationType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnatomicalIdentificationType.this.types.addAll(oldValues);
-                }
-            }
+            AnatomicalIdentificationType.this.type = SEMANTIC_NAME;
             return AnatomicalIdentificationType.this;
         }
     }

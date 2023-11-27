@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<Configuration> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Configuration> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Configuration(LocalId localId ) {
@@ -47,18 +46,11 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
         public Builder lookupLabel(String lookupLabel) { Configuration.this.lookupLabel = lookupLabel; return this; }
         
 
-        public Configuration build() {
+        public Configuration build(OpenMINDSContext context) {
             if (Configuration.this.id == null) {
-                Configuration.this.id = new InstanceId(UUID.randomUUID().toString());
+                Configuration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Configuration.this.types == null || Configuration.this.types.isEmpty() || !Configuration.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Configuration.this.types;
-                Configuration.this.types = new ArrayList<>();
-                Configuration.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Configuration.this.types.addAll(oldValues);
-                }
-            }
+            Configuration.this.type = SEMANTIC_NAME;
             return Configuration.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class RecordingActivity extends Instance {
         return doGetReference();
     }
 
-    public static Reference<RecordingActivity> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<RecordingActivity> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private RecordingActivity(LocalId localId ) {
@@ -77,18 +76,11 @@ public class RecordingActivity extends Instance {
         public Builder studyTarget(List<Reference<? extends RecordingActivityStudyTarget>> studyTarget) { RecordingActivity.this.studyTarget = studyTarget; return this; }
         
 
-        public RecordingActivity build() {
+        public RecordingActivity build(OpenMINDSContext context) {
             if (RecordingActivity.this.id == null) {
-                RecordingActivity.this.id = new InstanceId(UUID.randomUUID().toString());
+                RecordingActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(RecordingActivity.this.types == null || RecordingActivity.this.types.isEmpty() || !RecordingActivity.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = RecordingActivity.this.types;
-                RecordingActivity.this.types = new ArrayList<>();
-                RecordingActivity.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    RecordingActivity.this.types.addAll(oldValues);
-                }
-            }
+            RecordingActivity.this.type = SEMANTIC_NAME;
             return RecordingActivity.this;
         }
     }

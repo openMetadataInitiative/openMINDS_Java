@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class Visualization extends Instance implements org.openmetadatainitiativ
         return doGetReference();
     }
 
-    public static Reference<Visualization> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Visualization> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Visualization(LocalId localId ) {
@@ -89,18 +88,11 @@ public class Visualization extends Instance implements org.openmetadatainitiativ
         public Builder wasInformedBy(Reference<? extends VisualizationWasInformedBy> wasInformedBy) { Visualization.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public Visualization build() {
+        public Visualization build(OpenMINDSContext context) {
             if (Visualization.this.id == null) {
-                Visualization.this.id = new InstanceId(UUID.randomUUID().toString());
+                Visualization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Visualization.this.types == null || Visualization.this.types.isEmpty() || !Visualization.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Visualization.this.types;
-                Visualization.this.types = new ArrayList<>();
-                Visualization.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Visualization.this.types.addAll(oldValues);
-                }
-            }
+            Visualization.this.type = SEMANTIC_NAME;
             return Visualization.this;
         }
     }

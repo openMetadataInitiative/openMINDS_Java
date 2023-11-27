@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -39,8 +38,8 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<ScholarlyArticle> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ScholarlyArticle> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ScholarlyArticle(LocalId localId ) {
@@ -89,18 +88,11 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
         public Builder versionIdentifier(String versionIdentifier) { ScholarlyArticle.this.versionIdentifier = versionIdentifier; return this; }
         
 
-        public ScholarlyArticle build() {
+        public ScholarlyArticle build(OpenMINDSContext context) {
             if (ScholarlyArticle.this.id == null) {
-                ScholarlyArticle.this.id = new InstanceId(UUID.randomUUID().toString());
+                ScholarlyArticle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ScholarlyArticle.this.types == null || ScholarlyArticle.this.types.isEmpty() || !ScholarlyArticle.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ScholarlyArticle.this.types;
-                ScholarlyArticle.this.types = new ArrayList<>();
-                ScholarlyArticle.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ScholarlyArticle.this.types.addAll(oldValues);
-                }
-            }
+            ScholarlyArticle.this.type = SEMANTIC_NAME;
             return ScholarlyArticle.this;
         }
     }

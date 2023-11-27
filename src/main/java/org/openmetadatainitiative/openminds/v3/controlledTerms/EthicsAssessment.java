@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class EthicsAssessment extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<EthicsAssessment> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<EthicsAssessment> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private EthicsAssessment(LocalId localId ) {
@@ -54,18 +53,11 @@ public class EthicsAssessment extends Instance implements org.openmetadatainitia
         public Builder synonym(List<String> synonym) { EthicsAssessment.this.synonym = synonym; return this; }
         
 
-        public EthicsAssessment build() {
+        public EthicsAssessment build(OpenMINDSContext context) {
             if (EthicsAssessment.this.id == null) {
-                EthicsAssessment.this.id = new InstanceId(UUID.randomUUID().toString());
+                EthicsAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(EthicsAssessment.this.types == null || EthicsAssessment.this.types.isEmpty() || !EthicsAssessment.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = EthicsAssessment.this.types;
-                EthicsAssessment.this.types = new ArrayList<>();
-                EthicsAssessment.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    EthicsAssessment.this.types.addAll(oldValues);
-                }
-            }
+            EthicsAssessment.this.type = SEMANTIC_NAME;
             return EthicsAssessment.this;
         }
     }

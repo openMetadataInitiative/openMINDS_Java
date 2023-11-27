@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AnnotationCriteriaType extends Instance implements org.openmetadata
         return doGetReference();
     }
 
-    public static Reference<AnnotationCriteriaType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnnotationCriteriaType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnnotationCriteriaType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AnnotationCriteriaType extends Instance implements org.openmetadata
         public Builder synonym(List<String> synonym) { AnnotationCriteriaType.this.synonym = synonym; return this; }
         
 
-        public AnnotationCriteriaType build() {
+        public AnnotationCriteriaType build(OpenMINDSContext context) {
             if (AnnotationCriteriaType.this.id == null) {
-                AnnotationCriteriaType.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnnotationCriteriaType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnnotationCriteriaType.this.types == null || AnnotationCriteriaType.this.types.isEmpty() || !AnnotationCriteriaType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnnotationCriteriaType.this.types;
-                AnnotationCriteriaType.this.types = new ArrayList<>();
-                AnnotationCriteriaType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnnotationCriteriaType.this.types.addAll(oldValues);
-                }
-            }
+            AnnotationCriteriaType.this.type = SEMANTIC_NAME;
             return AnnotationCriteriaType.this;
         }
     }

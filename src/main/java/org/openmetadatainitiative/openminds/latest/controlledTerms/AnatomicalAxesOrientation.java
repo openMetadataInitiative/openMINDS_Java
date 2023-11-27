@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AnatomicalAxesOrientation extends Instance implements org.openmetad
         return doGetReference();
     }
 
-    public static Reference<AnatomicalAxesOrientation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnatomicalAxesOrientation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnatomicalAxesOrientation(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AnatomicalAxesOrientation extends Instance implements org.openmetad
         public Builder synonym(List<String> synonym) { AnatomicalAxesOrientation.this.synonym = synonym; return this; }
         
 
-        public AnatomicalAxesOrientation build() {
+        public AnatomicalAxesOrientation build(OpenMINDSContext context) {
             if (AnatomicalAxesOrientation.this.id == null) {
-                AnatomicalAxesOrientation.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnatomicalAxesOrientation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnatomicalAxesOrientation.this.types == null || AnatomicalAxesOrientation.this.types.isEmpty() || !AnatomicalAxesOrientation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnatomicalAxesOrientation.this.types;
-                AnatomicalAxesOrientation.this.types = new ArrayList<>();
-                AnatomicalAxesOrientation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnatomicalAxesOrientation.this.types.addAll(oldValues);
-                }
-            }
+            AnatomicalAxesOrientation.this.type = SEMANTIC_NAME;
             return AnatomicalAxesOrientation.this;
         }
     }

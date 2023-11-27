@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ElectricalStimulusType extends Instance implements org.openmetadata
         return doGetReference();
     }
 
-    public static Reference<ElectricalStimulusType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ElectricalStimulusType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ElectricalStimulusType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class ElectricalStimulusType extends Instance implements org.openmetadata
         public Builder synonym(List<String> synonym) { ElectricalStimulusType.this.synonym = synonym; return this; }
         
 
-        public ElectricalStimulusType build() {
+        public ElectricalStimulusType build(OpenMINDSContext context) {
             if (ElectricalStimulusType.this.id == null) {
-                ElectricalStimulusType.this.id = new InstanceId(UUID.randomUUID().toString());
+                ElectricalStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ElectricalStimulusType.this.types == null || ElectricalStimulusType.this.types.isEmpty() || !ElectricalStimulusType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ElectricalStimulusType.this.types;
-                ElectricalStimulusType.this.types = new ArrayList<>();
-                ElectricalStimulusType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ElectricalStimulusType.this.types.addAll(oldValues);
-                }
-            }
+            ElectricalStimulusType.this.type = SEMANTIC_NAME;
             return ElectricalStimulusType.this;
         }
     }

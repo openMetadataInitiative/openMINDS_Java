@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<SubjectState> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SubjectState> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SubjectState(LocalId localId ) {
@@ -69,18 +68,11 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
         public Builder weight(SubjectStateWeight weight) { SubjectState.this.weight = weight; return this; }
         
 
-        public SubjectState build() {
+        public SubjectState build(OpenMINDSContext context) {
             if (SubjectState.this.id == null) {
-                SubjectState.this.id = new InstanceId(UUID.randomUUID().toString());
+                SubjectState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SubjectState.this.types == null || SubjectState.this.types.isEmpty() || !SubjectState.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SubjectState.this.types;
-                SubjectState.this.types = new ArrayList<>();
-                SubjectState.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SubjectState.this.types.addAll(oldValues);
-                }
-            }
+            SubjectState.this.type = SEMANTIC_NAME;
             return SubjectState.this;
         }
     }

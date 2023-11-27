@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class TypeOfUncertainty extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<TypeOfUncertainty> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TypeOfUncertainty> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TypeOfUncertainty(LocalId localId ) {
@@ -54,18 +53,11 @@ public class TypeOfUncertainty extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { TypeOfUncertainty.this.synonym = synonym; return this; }
         
 
-        public TypeOfUncertainty build() {
+        public TypeOfUncertainty build(OpenMINDSContext context) {
             if (TypeOfUncertainty.this.id == null) {
-                TypeOfUncertainty.this.id = new InstanceId(UUID.randomUUID().toString());
+                TypeOfUncertainty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TypeOfUncertainty.this.types == null || TypeOfUncertainty.this.types.isEmpty() || !TypeOfUncertainty.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TypeOfUncertainty.this.types;
-                TypeOfUncertainty.this.types = new ArrayList<>();
-                TypeOfUncertainty.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TypeOfUncertainty.this.types.addAll(oldValues);
-                }
-            }
+            TypeOfUncertainty.this.type = SEMANTIC_NAME;
             return TypeOfUncertainty.this;
         }
     }

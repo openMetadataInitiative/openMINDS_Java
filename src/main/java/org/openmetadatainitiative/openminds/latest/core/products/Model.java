@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
         return doGetReference();
     }
 
-    public static Reference<Model> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Model> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Model(LocalId localId ) {
@@ -71,18 +70,11 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
         public Builder studyTarget(List<Reference<? extends ModelStudyTarget>> studyTarget) { Model.this.studyTarget = studyTarget; return this; }
         
 
-        public Model build() {
+        public Model build(OpenMINDSContext context) {
             if (Model.this.id == null) {
-                Model.this.id = new InstanceId(UUID.randomUUID().toString());
+                Model.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Model.this.types == null || Model.this.types.isEmpty() || !Model.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Model.this.types;
-                Model.this.types = new ArrayList<>();
-                Model.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Model.this.types.addAll(oldValues);
-                }
-            }
+            Model.this.type = SEMANTIC_NAME;
             return Model.this;
         }
     }

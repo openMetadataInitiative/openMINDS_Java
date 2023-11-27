@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class Dataset extends Instance implements org.openmetadatainitiative.open
         return doGetReference();
     }
 
-    public static Reference<Dataset> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Dataset> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Dataset(LocalId localId ) {
@@ -62,18 +61,11 @@ public class Dataset extends Instance implements org.openmetadatainitiative.open
         public Builder shortName(String shortName) { Dataset.this.shortName = shortName; return this; }
         
 
-        public Dataset build() {
+        public Dataset build(OpenMINDSContext context) {
             if (Dataset.this.id == null) {
-                Dataset.this.id = new InstanceId(UUID.randomUUID().toString());
+                Dataset.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Dataset.this.types == null || Dataset.this.types.isEmpty() || !Dataset.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Dataset.this.types;
-                Dataset.this.types = new ArrayList<>();
-                Dataset.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Dataset.this.types.addAll(oldValues);
-                }
-            }
+            Dataset.this.type = SEMANTIC_NAME;
             return Dataset.this;
         }
     }

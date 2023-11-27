@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ public class Software extends Instance implements org.openmetadatainitiative.ope
         return doGetReference();
     }
 
-    public static Reference<Software> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Software> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Software(LocalId localId ) {
@@ -62,18 +61,11 @@ public class Software extends Instance implements org.openmetadatainitiative.ope
         public Builder shortName(String shortName) { Software.this.shortName = shortName; return this; }
         
 
-        public Software build() {
+        public Software build(OpenMINDSContext context) {
             if (Software.this.id == null) {
-                Software.this.id = new InstanceId(UUID.randomUUID().toString());
+                Software.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Software.this.types == null || Software.this.types.isEmpty() || !Software.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Software.this.types;
-                Software.this.types = new ArrayList<>();
-                Software.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Software.this.types.addAll(oldValues);
-                }
-            }
+            Software.this.type = SEMANTIC_NAME;
             return Software.this;
         }
     }

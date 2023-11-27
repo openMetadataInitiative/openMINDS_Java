@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -43,8 +42,8 @@ public class WorkflowRecipeVersion extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<WorkflowRecipeVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<WorkflowRecipeVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private WorkflowRecipeVersion(LocalId localId ) {
@@ -105,18 +104,11 @@ public class WorkflowRecipeVersion extends Instance implements org.openmetadatai
         public Builder versionInnovation(String versionInnovation) { WorkflowRecipeVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public WorkflowRecipeVersion build() {
+        public WorkflowRecipeVersion build(OpenMINDSContext context) {
             if (WorkflowRecipeVersion.this.id == null) {
-                WorkflowRecipeVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                WorkflowRecipeVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(WorkflowRecipeVersion.this.types == null || WorkflowRecipeVersion.this.types.isEmpty() || !WorkflowRecipeVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = WorkflowRecipeVersion.this.types;
-                WorkflowRecipeVersion.this.types = new ArrayList<>();
-                WorkflowRecipeVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    WorkflowRecipeVersion.this.types.addAll(oldValues);
-                }
-            }
+            WorkflowRecipeVersion.this.type = SEMANTIC_NAME;
             return WorkflowRecipeVersion.this;
         }
     }

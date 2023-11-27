@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class OpticalStimulusType extends Instance implements org.openmetadataini
         return doGetReference();
     }
 
-    public static Reference<OpticalStimulusType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<OpticalStimulusType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private OpticalStimulusType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class OpticalStimulusType extends Instance implements org.openmetadataini
         public Builder synonym(List<String> synonym) { OpticalStimulusType.this.synonym = synonym; return this; }
         
 
-        public OpticalStimulusType build() {
+        public OpticalStimulusType build(OpenMINDSContext context) {
             if (OpticalStimulusType.this.id == null) {
-                OpticalStimulusType.this.id = new InstanceId(UUID.randomUUID().toString());
+                OpticalStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(OpticalStimulusType.this.types == null || OpticalStimulusType.this.types.isEmpty() || !OpticalStimulusType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = OpticalStimulusType.this.types;
-                OpticalStimulusType.this.types = new ArrayList<>();
-                OpticalStimulusType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    OpticalStimulusType.this.types.addAll(oldValues);
-                }
-            }
+            OpticalStimulusType.this.type = SEMANTIC_NAME;
             return OpticalStimulusType.this;
         }
     }

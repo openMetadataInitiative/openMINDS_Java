@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class FileBundleGrouping extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<FileBundleGrouping> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<FileBundleGrouping> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private FileBundleGrouping(LocalId localId ) {
@@ -54,18 +53,11 @@ public class FileBundleGrouping extends Instance implements org.openmetadatainit
         public Builder synonym(List<String> synonym) { FileBundleGrouping.this.synonym = synonym; return this; }
         
 
-        public FileBundleGrouping build() {
+        public FileBundleGrouping build(OpenMINDSContext context) {
             if (FileBundleGrouping.this.id == null) {
-                FileBundleGrouping.this.id = new InstanceId(UUID.randomUUID().toString());
+                FileBundleGrouping.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(FileBundleGrouping.this.types == null || FileBundleGrouping.this.types.isEmpty() || !FileBundleGrouping.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = FileBundleGrouping.this.types;
-                FileBundleGrouping.this.types = new ArrayList<>();
-                FileBundleGrouping.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    FileBundleGrouping.this.types.addAll(oldValues);
-                }
-            }
+            FileBundleGrouping.this.type = SEMANTIC_NAME;
             return FileBundleGrouping.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class AnalysisTechnique extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<AnalysisTechnique> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<AnalysisTechnique> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private AnalysisTechnique(LocalId localId ) {
@@ -54,18 +53,11 @@ public class AnalysisTechnique extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { AnalysisTechnique.this.synonym = synonym; return this; }
         
 
-        public AnalysisTechnique build() {
+        public AnalysisTechnique build(OpenMINDSContext context) {
             if (AnalysisTechnique.this.id == null) {
-                AnalysisTechnique.this.id = new InstanceId(UUID.randomUUID().toString());
+                AnalysisTechnique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(AnalysisTechnique.this.types == null || AnalysisTechnique.this.types.isEmpty() || !AnalysisTechnique.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = AnalysisTechnique.this.types;
-                AnalysisTechnique.this.types = new ArrayList<>();
-                AnalysisTechnique.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    AnalysisTechnique.this.types.addAll(oldValues);
-                }
-            }
+            AnalysisTechnique.this.type = SEMANTIC_NAME;
             return AnalysisTechnique.this;
         }
     }

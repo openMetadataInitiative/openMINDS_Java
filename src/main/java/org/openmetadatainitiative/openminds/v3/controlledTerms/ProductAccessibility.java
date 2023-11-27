@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class ProductAccessibility extends Instance implements org.openmetadatain
         return doGetReference();
     }
 
-    public static Reference<ProductAccessibility> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ProductAccessibility> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ProductAccessibility(LocalId localId ) {
@@ -54,18 +53,11 @@ public class ProductAccessibility extends Instance implements org.openmetadatain
         public Builder synonym(List<String> synonym) { ProductAccessibility.this.synonym = synonym; return this; }
         
 
-        public ProductAccessibility build() {
+        public ProductAccessibility build(OpenMINDSContext context) {
             if (ProductAccessibility.this.id == null) {
-                ProductAccessibility.this.id = new InstanceId(UUID.randomUUID().toString());
+                ProductAccessibility.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ProductAccessibility.this.types == null || ProductAccessibility.this.types.isEmpty() || !ProductAccessibility.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ProductAccessibility.this.types;
-                ProductAccessibility.this.types = new ArrayList<>();
-                ProductAccessibility.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ProductAccessibility.this.types.addAll(oldValues);
-                }
-            }
+            ProductAccessibility.this.type = SEMANTIC_NAME;
             return ProductAccessibility.this;
         }
     }

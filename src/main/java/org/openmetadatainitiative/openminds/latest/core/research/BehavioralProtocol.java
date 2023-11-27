@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
         return doGetReference();
     }
 
-    public static Reference<BehavioralProtocol> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BehavioralProtocol> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BehavioralProtocol(LocalId localId ) {
@@ -55,18 +54,11 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
         public Builder stimulusType(List<Reference<? extends BehavioralProtocolStimulusType>> stimulusType) { BehavioralProtocol.this.stimulusType = stimulusType; return this; }
         
 
-        public BehavioralProtocol build() {
+        public BehavioralProtocol build(OpenMINDSContext context) {
             if (BehavioralProtocol.this.id == null) {
-                BehavioralProtocol.this.id = new InstanceId(UUID.randomUUID().toString());
+                BehavioralProtocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BehavioralProtocol.this.types == null || BehavioralProtocol.this.types.isEmpty() || !BehavioralProtocol.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BehavioralProtocol.this.types;
-                BehavioralProtocol.this.types = new ArrayList<>();
-                BehavioralProtocol.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BehavioralProtocol.this.types.addAll(oldValues);
-                }
-            }
+            BehavioralProtocol.this.type = SEMANTIC_NAME;
             return BehavioralProtocol.this;
         }
     }

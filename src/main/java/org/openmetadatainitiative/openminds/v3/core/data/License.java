@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class License extends Instance implements org.openmetadatainitiative.open
         return doGetReference();
     }
 
-    public static Reference<License> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<License> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private License(LocalId localId ) {
@@ -48,18 +47,11 @@ public class License extends Instance implements org.openmetadatainitiative.open
         public Builder webpage(List<String> webpage) { License.this.webpage = webpage; return this; }
         
 
-        public License build() {
+        public License build(OpenMINDSContext context) {
             if (License.this.id == null) {
-                License.this.id = new InstanceId(UUID.randomUUID().toString());
+                License.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(License.this.types == null || License.this.types.isEmpty() || !License.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = License.this.types;
-                License.this.types = new ArrayList<>();
-                License.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    License.this.types.addAll(oldValues);
-                }
-            }
+            License.this.type = SEMANTIC_NAME;
             return License.this;
         }
     }

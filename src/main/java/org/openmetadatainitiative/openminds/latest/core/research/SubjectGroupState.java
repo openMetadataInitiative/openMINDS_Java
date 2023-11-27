@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<SubjectGroupState> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SubjectGroupState> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SubjectGroupState(LocalId localId ) {
@@ -69,18 +68,11 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
         public Builder weight(SubjectGroupStateWeight weight) { SubjectGroupState.this.weight = weight; return this; }
         
 
-        public SubjectGroupState build() {
+        public SubjectGroupState build(OpenMINDSContext context) {
             if (SubjectGroupState.this.id == null) {
-                SubjectGroupState.this.id = new InstanceId(UUID.randomUUID().toString());
+                SubjectGroupState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SubjectGroupState.this.types == null || SubjectGroupState.this.types.isEmpty() || !SubjectGroupState.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SubjectGroupState.this.types;
-                SubjectGroupState.this.types = new ArrayList<>();
-                SubjectGroupState.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SubjectGroupState.this.types.addAll(oldValues);
-                }
-            }
+            SubjectGroupState.this.type = SEMANTIC_NAME;
             return SubjectGroupState.this;
         }
     }

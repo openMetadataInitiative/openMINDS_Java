@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class Protocol extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Protocol> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Protocol> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Protocol(LocalId localId ) {
@@ -53,18 +52,11 @@ public class Protocol extends Instance {
         public Builder technique(List<Reference<? extends ProtocolTechnique>> technique) { Protocol.this.technique = technique; return this; }
         
 
-        public Protocol build() {
+        public Protocol build(OpenMINDSContext context) {
             if (Protocol.this.id == null) {
-                Protocol.this.id = new InstanceId(UUID.randomUUID().toString());
+                Protocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Protocol.this.types == null || Protocol.this.types.isEmpty() || !Protocol.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Protocol.this.types;
-                Protocol.this.types = new ArrayList<>();
-                Protocol.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Protocol.this.types.addAll(oldValues);
-                }
-            }
+            Protocol.this.type = SEMANTIC_NAME;
             return Protocol.this;
         }
     }

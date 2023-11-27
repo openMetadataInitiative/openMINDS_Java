@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SemanticDataType extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<SemanticDataType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<SemanticDataType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private SemanticDataType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class SemanticDataType extends Instance implements org.openmetadatainitia
         public Builder synonym(List<String> synonym) { SemanticDataType.this.synonym = synonym; return this; }
         
 
-        public SemanticDataType build() {
+        public SemanticDataType build(OpenMINDSContext context) {
             if (SemanticDataType.this.id == null) {
-                SemanticDataType.this.id = new InstanceId(UUID.randomUUID().toString());
+                SemanticDataType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(SemanticDataType.this.types == null || SemanticDataType.this.types.isEmpty() || !SemanticDataType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = SemanticDataType.this.types;
-                SemanticDataType.this.types = new ArrayList<>();
-                SemanticDataType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    SemanticDataType.this.types.addAll(oldValues);
-                }
-            }
+            SemanticDataType.this.type = SEMANTIC_NAME;
             return SemanticDataType.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class CustomPropertySet extends Instance {
         return doGetReference();
     }
 
-    public static Reference<CustomPropertySet> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CustomPropertySet> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CustomPropertySet(LocalId localId ) {
@@ -48,18 +47,11 @@ public class CustomPropertySet extends Instance {
         public Builder relevantFor(Reference<? extends CustomPropertySetRelevantFor> relevantFor) { CustomPropertySet.this.relevantFor = relevantFor; return this; }
         
 
-        public CustomPropertySet build() {
+        public CustomPropertySet build(OpenMINDSContext context) {
             if (CustomPropertySet.this.id == null) {
-                CustomPropertySet.this.id = new InstanceId(UUID.randomUUID().toString());
+                CustomPropertySet.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CustomPropertySet.this.types == null || CustomPropertySet.this.types.isEmpty() || !CustomPropertySet.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CustomPropertySet.this.types;
-                CustomPropertySet.this.types = new ArrayList<>();
-                CustomPropertySet.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CustomPropertySet.this.types.addAll(oldValues);
-                }
-            }
+            CustomPropertySet.this.type = SEMANTIC_NAME;
             return CustomPropertySet.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class CoordinatePoint extends Instance {
         return doGetReference();
     }
 
-    public static Reference<CoordinatePoint> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CoordinatePoint> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CoordinatePoint(LocalId localId ) {
@@ -46,18 +45,11 @@ public class CoordinatePoint extends Instance {
         public Builder coordinates(List<QuantitativeValue> coordinates) { CoordinatePoint.this.coordinates = coordinates; return this; }
         
 
-        public CoordinatePoint build() {
+        public CoordinatePoint build(OpenMINDSContext context) {
             if (CoordinatePoint.this.id == null) {
-                CoordinatePoint.this.id = new InstanceId(UUID.randomUUID().toString());
+                CoordinatePoint.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CoordinatePoint.this.types == null || CoordinatePoint.this.types.isEmpty() || !CoordinatePoint.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CoordinatePoint.this.types;
-                CoordinatePoint.this.types = new ArrayList<>();
-                CoordinatePoint.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CoordinatePoint.this.types.addAll(oldValues);
-                }
-            }
+            CoordinatePoint.this.type = SEMANTIC_NAME;
             return CoordinatePoint.this;
         }
     }

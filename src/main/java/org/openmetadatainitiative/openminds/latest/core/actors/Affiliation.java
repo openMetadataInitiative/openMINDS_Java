@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Affiliation extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Affiliation> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Affiliation> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Affiliation(LocalId localId ) {
@@ -47,18 +46,11 @@ public class Affiliation extends Instance {
         public Builder startDate(String startDate) { Affiliation.this.startDate = startDate; return this; }
         
 
-        public Affiliation build() {
+        public Affiliation build(OpenMINDSContext context) {
             if (Affiliation.this.id == null) {
-                Affiliation.this.id = new InstanceId(UUID.randomUUID().toString());
+                Affiliation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Affiliation.this.types == null || Affiliation.this.types.isEmpty() || !Affiliation.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Affiliation.this.types;
-                Affiliation.this.types = new ArrayList<>();
-                Affiliation.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Affiliation.this.types.addAll(oldValues);
-                }
-            }
+            Affiliation.this.type = SEMANTIC_NAME;
             return Affiliation.this;
         }
     }

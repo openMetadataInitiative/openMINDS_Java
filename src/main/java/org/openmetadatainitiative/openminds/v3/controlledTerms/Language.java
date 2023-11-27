@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Language extends Instance implements org.openmetadatainitiative.ope
         return doGetReference();
     }
 
-    public static Reference<Language> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Language> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Language(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Language extends Instance implements org.openmetadatainitiative.ope
         public Builder synonym(List<String> synonym) { Language.this.synonym = synonym; return this; }
         
 
-        public Language build() {
+        public Language build(OpenMINDSContext context) {
             if (Language.this.id == null) {
-                Language.this.id = new InstanceId(UUID.randomUUID().toString());
+                Language.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Language.this.types == null || Language.this.types.isEmpty() || !Language.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Language.this.types;
-                Language.this.types = new ArrayList<>();
-                Language.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Language.this.types.addAll(oldValues);
-                }
-            }
+            Language.this.type = SEMANTIC_NAME;
             return Language.this;
         }
     }

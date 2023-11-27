@@ -37,7 +37,6 @@ public class OpenMINDS {
         });
     }
 
-    
     public static OpenMINDS.V3 v3(){
         return v3(OpenMINDSContext.defaultContext());
     }
@@ -50,2468 +49,1370 @@ public class OpenMINDS {
         return new OpenMINDS(context).new V3();
     }
 
-
-
-    public class V3 {
-
+    public final class V3 {
+        private V3(){}
         private final List<org.openmetadatainitiative.openminds.utils.Builder<?>> builders = new ArrayList<>();
 
-        
         public final OpenMINDS.V3.Computation computation = new Computation();
 
-
-        public class Computation{
-
+        public final class Computation{
+            private Computation(){}
             
-            public final OpenMINDS.V3.Computation.WorkflowRecipeVersion workflowRecipeVersion = new WorkflowRecipeVersion();
-
-            public class WorkflowRecipeVersion {
-
-                public org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipeVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipeVersion.Builder builder = org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipeVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipeVersion.Builder createWorkflowRecipeVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipeVersion.Builder builder = org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipeVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.ValidationTest validationTest = new ValidationTest();
-
-            public class ValidationTest {
-
-                public org.openmetadatainitiative.openminds.v3.computation.ValidationTest.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.ValidationTest.Builder builder = org.openmetadatainitiative.openminds.v3.computation.ValidationTest.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.ValidationTest.Builder createValidationTest(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.ValidationTest.Builder builder = org.openmetadatainitiative.openminds.v3.computation.ValidationTest.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.WorkflowRecipe workflowRecipe = new WorkflowRecipe();
-
-            public class WorkflowRecipe {
-
-                public org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.Builder builder = org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.Builder createWorkflowRecipe(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.Builder builder = org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.Optimization optimization = new Optimization();
-
-            public class Optimization {
-
-                public org.openmetadatainitiative.openminds.v3.computation.Optimization.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.Optimization.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Optimization.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.Optimization.Builder createOptimization(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.Optimization.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Optimization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.ModelValidation modelValidation = new ModelValidation();
-
-            public class ModelValidation {
-
-                public org.openmetadatainitiative.openminds.v3.computation.ModelValidation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.ModelValidation.Builder builder = org.openmetadatainitiative.openminds.v3.computation.ModelValidation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.ModelValidation.Builder createModelValidation(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.ModelValidation.Builder builder = org.openmetadatainitiative.openminds.v3.computation.ModelValidation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.HardwareSystem hardwareSystem = new HardwareSystem();
-
-            public class HardwareSystem {
-
-                public org.openmetadatainitiative.openminds.v3.computation.HardwareSystem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.HardwareSystem.Builder builder = org.openmetadatainitiative.openminds.v3.computation.HardwareSystem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.HardwareSystem.Builder createHardwareSystem(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.HardwareSystem.Builder builder = org.openmetadatainitiative.openminds.v3.computation.HardwareSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.LaunchConfiguration launchConfiguration = new LaunchConfiguration();
-
-            public class LaunchConfiguration {
-
-                public org.openmetadatainitiative.openminds.v3.computation.LaunchConfiguration.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.LaunchConfiguration.Builder builder = org.openmetadatainitiative.openminds.v3.computation.LaunchConfiguration.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.LaunchConfiguration.Builder createLaunchConfiguration(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.LaunchConfiguration.Builder builder = org.openmetadatainitiative.openminds.v3.computation.LaunchConfiguration.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.DataCopy dataCopy = new DataCopy();
-
-            public class DataCopy {
-
-                public org.openmetadatainitiative.openminds.v3.computation.DataCopy.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.DataCopy.Builder builder = org.openmetadatainitiative.openminds.v3.computation.DataCopy.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.DataCopy.Builder createDataCopy(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.DataCopy.Builder builder = org.openmetadatainitiative.openminds.v3.computation.DataCopy.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.SoftwareAgent softwareAgent = new SoftwareAgent();
-
-            public class SoftwareAgent {
-
-                public org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.Builder builder = org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.Builder createSoftwareAgent(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.Builder builder = org.openmetadatainitiative.openminds.v3.computation.SoftwareAgent.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.Simulation simulation = new Simulation();
-
-            public class Simulation {
-
-                public org.openmetadatainitiative.openminds.v3.computation.Simulation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.Simulation.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Simulation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.Simulation.Builder createSimulation(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.Simulation.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Simulation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.Visualization visualization = new Visualization();
-
-            public class Visualization {
-
-                public org.openmetadatainitiative.openminds.v3.computation.Visualization.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.Visualization.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Visualization.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.Visualization.Builder createVisualization(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.Visualization.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Visualization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.LocalFile localFile = new LocalFile();
-
-            public class LocalFile {
-
-                public org.openmetadatainitiative.openminds.v3.computation.LocalFile.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.LocalFile.Builder builder = org.openmetadatainitiative.openminds.v3.computation.LocalFile.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.LocalFile.Builder createLocalFile(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.LocalFile.Builder builder = org.openmetadatainitiative.openminds.v3.computation.LocalFile.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.Environment environment = new Environment();
-
-            public class Environment {
-
-                public org.openmetadatainitiative.openminds.v3.computation.Environment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.Environment.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Environment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.Environment.Builder createEnvironment(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.Environment.Builder builder = org.openmetadatainitiative.openminds.v3.computation.Environment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.WorkflowExecution workflowExecution = new WorkflowExecution();
-
-            public class WorkflowExecution {
-
-                public org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.Builder builder = org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.Builder createWorkflowExecution(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.Builder builder = org.openmetadatainitiative.openminds.v3.computation.WorkflowExecution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.ValidationTestVersion validationTestVersion = new ValidationTestVersion();
-
-            public class ValidationTestVersion {
-
-                public org.openmetadatainitiative.openminds.v3.computation.ValidationTestVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.ValidationTestVersion.Builder builder = org.openmetadatainitiative.openminds.v3.computation.ValidationTestVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.ValidationTestVersion.Builder createValidationTestVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.ValidationTestVersion.Builder builder = org.openmetadatainitiative.openminds.v3.computation.ValidationTestVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.DataAnalysis dataAnalysis = new DataAnalysis();
-
-            public class DataAnalysis {
-
-                public org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.Builder builder = org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.Builder createDataAnalysis(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.Builder builder = org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Computation.GenericComputation genericComputation = new GenericComputation();
-
-            public class GenericComputation {
-
-                public org.openmetadatainitiative.openminds.v3.computation.GenericComputation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.computation.GenericComputation.Builder builder = org.openmetadatainitiative.openminds.v3.computation.GenericComputation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.computation.GenericComputation.Builder createGenericComputation(String localId){
+                final org.openmetadatainitiative.openminds.v3.computation.GenericComputation.Builder builder = org.openmetadatainitiative.openminds.v3.computation.GenericComputation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.Publications publications = new Publications();
 
-
-        public class Publications{
-
+        public final class Publications{
+            private Publications(){}
             
-            public final OpenMINDS.V3.Publications.LivePaperSection livePaperSection = new LivePaperSection();
-
-            public class LivePaperSection {
-
-                public org.openmetadatainitiative.openminds.v3.publications.LivePaperSection.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.LivePaperSection.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaperSection.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.LivePaperSection.Builder createLivePaperSection(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.LivePaperSection.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaperSection.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.PublicationVolume publicationVolume = new PublicationVolume();
-
-            public class PublicationVolume {
-
-                public org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.Builder builder = org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.Builder createPublicationVolume(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.Builder builder = org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.LivePaper livePaper = new LivePaper();
-
-            public class LivePaper {
-
-                public org.openmetadatainitiative.openminds.v3.publications.LivePaper.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.LivePaper.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaper.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.LivePaper.Builder createLivePaper(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.LivePaper.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaper.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.LivePaperResourceItem livePaperResourceItem = new LivePaperResourceItem();
-
-            public class LivePaperResourceItem {
-
-                public org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.Builder createLivePaperResourceItem(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaperResourceItem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.LearningResource learningResource = new LearningResource();
-
-            public class LearningResource {
-
-                public org.openmetadatainitiative.openminds.v3.publications.LearningResource.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.LearningResource.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LearningResource.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.LearningResource.Builder createLearningResource(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.LearningResource.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LearningResource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.Chapter chapter = new Chapter();
-
-            public class Chapter {
-
-                public org.openmetadatainitiative.openminds.v3.publications.Chapter.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.Chapter.Builder builder = org.openmetadatainitiative.openminds.v3.publications.Chapter.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.Chapter.Builder createChapter(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.Chapter.Builder builder = org.openmetadatainitiative.openminds.v3.publications.Chapter.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.ScholarlyArticle scholarlyArticle = new ScholarlyArticle();
-
-            public class ScholarlyArticle {
-
-                public org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.Builder builder = org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.Builder createScholarlyArticle(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.Builder builder = org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.LivePaperVersion livePaperVersion = new LivePaperVersion();
-
-            public class LivePaperVersion {
-
-                public org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.Builder createLivePaperVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.Builder builder = org.openmetadatainitiative.openminds.v3.publications.LivePaperVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.PublicationIssue publicationIssue = new PublicationIssue();
-
-            public class PublicationIssue {
-
-                public org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.Builder builder = org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.Builder createPublicationIssue(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.Builder builder = org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.Periodical periodical = new Periodical();
-
-            public class Periodical {
-
-                public org.openmetadatainitiative.openminds.v3.publications.Periodical.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.Periodical.Builder builder = org.openmetadatainitiative.openminds.v3.publications.Periodical.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.Periodical.Builder createPeriodical(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.Periodical.Builder builder = org.openmetadatainitiative.openminds.v3.publications.Periodical.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Publications.Book book = new Book();
-
-            public class Book {
-
-                public org.openmetadatainitiative.openminds.v3.publications.Book.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.publications.Book.Builder builder = org.openmetadatainitiative.openminds.v3.publications.Book.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.publications.Book.Builder createBook(String localId){
+                final org.openmetadatainitiative.openminds.v3.publications.Book.Builder builder = org.openmetadatainitiative.openminds.v3.publications.Book.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.Chemicals chemicals = new Chemicals();
 
-
-        public class Chemicals{
-
+        public final class Chemicals{
+            private Chemicals(){}
             
-            public final OpenMINDS.V3.Chemicals.ChemicalMixture chemicalMixture = new ChemicalMixture();
-
-            public class ChemicalMixture {
-
-                public org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
+                final org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Chemicals.ChemicalSubstance chemicalSubstance = new ChemicalSubstance();
-
-            public class ChemicalSubstance {
-
-                public org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.Builder createChemicalSubstance(String localId){
+                final org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Chemicals.ProductSource productSource = new ProductSource();
-
-            public class ProductSource {
-
-                public org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.Builder createProductSource(String localId){
+                final org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Chemicals.AmountOfChemical amountOfChemical = new AmountOfChemical();
-
-            public class AmountOfChemical {
-
-                public org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.Builder createAmountOfChemical(String localId){
+                final org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.ControlledTerms controlledTerms = new ControlledTerms();
 
-
-        public class ControlledTerms{
-
-            
-            public final OpenMINDS.V3.ControlledTerms.OperatingSystem operatingSystem = new OperatingSystem();
-
-            public class OperatingSystem {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingSystem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingSystem.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingSystem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.QualitativeOverlap qualitativeOverlap = new QualitativeOverlap();
-
-            public class QualitativeOverlap {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.QualitativeOverlap.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.QualitativeOverlap.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.QualitativeOverlap.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.GustatoryStimulusType gustatoryStimulusType = new GustatoryStimulusType();
-
-            public class GustatoryStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.GustatoryStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.GustatoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.GustatoryStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.MolecularEntity molecularEntity = new MolecularEntity();
-
-            public class MolecularEntity {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.MolecularEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.MolecularEntity.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MolecularEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Terminology terminology = new Terminology();
-
-            public class Terminology {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.CranialWindowConstructionType cranialWindowConstructionType = new CranialWindowConstructionType();
-
-            public class CranialWindowConstructionType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowConstructionType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowConstructionType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowConstructionType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Laterality laterality = new Laterality();
-
-            public class Laterality {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Laterality.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Laterality.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Laterality.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AnalysisTechnique analysisTechnique = new AnalysisTechnique();
-
-            public class AnalysisTechnique {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AnatomicalAxesOrientation anatomicalAxesOrientation = new AnatomicalAxesOrientation();
-
-            public class AnatomicalAxesOrientation {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalAxesOrientation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalAxesOrientation.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalAxesOrientation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.OpticalStimulusType opticalStimulusType = new OpticalStimulusType();
-
-            public class OpticalStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.OpticalStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.OpticalStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OpticalStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.MeasuredQuantity measuredQuantity = new MeasuredQuantity();
-
-            public class MeasuredQuantity {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredQuantity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredQuantity.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredQuantity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Disease disease = new Disease();
-
-            public class Disease {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Disease.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Disease.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Disease.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.DiseaseModel diseaseModel = new DiseaseModel();
-
-            public class DiseaseModel {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.DiseaseModel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.DiseaseModel.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DiseaseModel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AtlasType atlasType = new AtlasType();
-
-            public class AtlasType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AtlasType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AtlasType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AtlasType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.SoftwareApplicationCategory softwareApplicationCategory = new SoftwareApplicationCategory();
-
-            public class SoftwareApplicationCategory {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareApplicationCategory.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareApplicationCategory.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareApplicationCategory.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AuditoryStimulusType auditoryStimulusType = new AuditoryStimulusType();
-
-            public class AuditoryStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AuditoryStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AuditoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AuditoryStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.OperatingDevice operatingDevice = new OperatingDevice();
-
-            public class OperatingDevice {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ContributionType contributionType = new ContributionType();
-
-            public class ContributionType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Colormap colormap = new Colormap();
-
-            public class Colormap {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.TypeOfUncertainty typeOfUncertainty = new TypeOfUncertainty();
-
-            public class TypeOfUncertainty {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.StimulationTechnique stimulationTechnique = new StimulationTechnique();
-
-            public class StimulationTechnique {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationTechnique.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationTechnique.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationTechnique.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.UnitOfMeasurement unitOfMeasurement = new UnitOfMeasurement();
-
-            public class UnitOfMeasurement {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Language language = new Language();
-
-            public class Language {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Language.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Language.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Language.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Service service = new Service();
-
-            public class Service {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Service.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Service.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Service.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.DifferenceMeasure differenceMeasure = new DifferenceMeasure();
-
-            public class DifferenceMeasure {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.DifferenceMeasure.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.DifferenceMeasure.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DifferenceMeasure.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.DataType dataType = new DataType();
-
-            public class DataType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.DataType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.DataType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DataType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.CriteriaQualityType criteriaQualityType = new CriteriaQualityType();
-
-            public class CriteriaQualityType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ElectricalStimulusType electricalStimulusType = new ElectricalStimulusType();
-
-            public class ElectricalStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ElectricalStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ElectricalStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ElectricalStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AnatomicalIdentificationType anatomicalIdentificationType = new AnatomicalIdentificationType();
-
-            public class AnatomicalIdentificationType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.LearningResourceType learningResourceType = new LearningResourceType();
-
-            public class LearningResourceType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.LearningResourceType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.LearningResourceType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.LearningResourceType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.SubcellularEntity subcellularEntity = new SubcellularEntity();
-
-            public class SubcellularEntity {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.SubcellularEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.SubcellularEntity.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SubcellularEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.PreparationType preparationType = new PreparationType();
-
-            public class PreparationType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.PreparationType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.PreparationType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.PreparationType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.VisualStimulusType visualStimulusType = new VisualStimulusType();
-
-            public class VisualStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.FileUsageRole fileUsageRole = new FileUsageRole();
-
-            public class FileUsageRole {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AnatomicalPlane anatomicalPlane = new AnatomicalPlane();
-
-            public class AnatomicalPlane {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalPlane.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalPlane.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalPlane.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.TissueSampleType tissueSampleType = new TissueSampleType();
-
-            public class TissueSampleType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.CellCultureType cellCultureType = new CellCultureType();
-
-            public class CellCultureType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.CellCultureType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.CellCultureType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CellCultureType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Handedness handedness = new Handedness();
-
-            public class Handedness {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Handedness.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Handedness.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Handedness.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Technique technique = new Technique();
-
-            public class Technique {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Technique.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Technique.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Technique.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ChemicalMixtureType chemicalMixtureType = new ChemicalMixtureType();
-
-            public class ChemicalMixtureType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ChemicalMixtureType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ChemicalMixtureType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ChemicalMixtureType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.OrganismSystem organismSystem = new OrganismSystem();
-
-            public class OrganismSystem {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSystem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSystem.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSystem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ExperimentalApproach experimentalApproach = new ExperimentalApproach();
-
-            public class ExperimentalApproach {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ExperimentalApproach.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.TactileStimulusType tactileStimulusType = new TactileStimulusType();
-
-            public class TactileStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.TactileStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.TactileStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TactileStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Organ organ = new Organ();
-
-            public class Organ {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Organ.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Organ.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Organ.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ProductAccessibility productAccessibility = new ProductAccessibility();
-
-            public class ProductAccessibility {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAccessibility.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAccessibility.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAccessibility.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ModelScope modelScope = new ModelScope();
-
-            public class ModelScope {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.SubjectAttribute subjectAttribute = new SubjectAttribute();
-
-            public class SubjectAttribute {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.SubjectAttribute.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.SubjectAttribute.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SubjectAttribute.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.DeviceType deviceType = new DeviceType();
-
-            public class DeviceType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.DeviceType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.DeviceType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DeviceType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.CellType cellType = new CellType();
-
-            public class CellType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.CellType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.CellType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CellType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.MetaDataModelType metaDataModelType = new MetaDataModelType();
-
-            public class MetaDataModelType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.MetaDataModelType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.MetaDataModelType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MetaDataModelType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.MeasuredSignalType measuredSignalType = new MeasuredSignalType();
-
-            public class MeasuredSignalType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredSignalType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredSignalType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredSignalType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.BiologicalOrder biologicalOrder = new BiologicalOrder();
-
-            public class BiologicalOrder {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalOrder.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalOrder.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalOrder.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.OlfactoryStimulusType olfactoryStimulusType = new OlfactoryStimulusType();
-
-            public class OlfactoryStimulusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.OlfactoryStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.OlfactoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OlfactoryStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.SoftwareFeature softwareFeature = new SoftwareFeature();
-
-            public class SoftwareFeature {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareFeature.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareFeature.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareFeature.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.BreedingType breedingType = new BreedingType();
-
-            public class BreedingType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.BreedingType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.BreedingType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BreedingType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.Species species = new Species();
-
-            public class Species {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.Species.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.Species.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Species.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.TissueSampleAttribute tissueSampleAttribute = new TissueSampleAttribute();
-
-            public class TissueSampleAttribute {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleAttribute.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleAttribute.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleAttribute.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.OrganismSubstance organismSubstance = new OrganismSubstance();
-
-            public class OrganismSubstance {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSubstance.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSubstance.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSubstance.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.BiologicalProcess biologicalProcess = new BiologicalProcess();
-
-            public class BiologicalProcess {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AnnotationType annotationType = new AnnotationType();
-
-            public class AnnotationType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ModelAbstractionLevel modelAbstractionLevel = new ModelAbstractionLevel();
-
-            public class ModelAbstractionLevel {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.FileRepositoryType fileRepositoryType = new FileRepositoryType();
-
-            public class FileRepositoryType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.FileRepositoryType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.FileRepositoryType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.FileRepositoryType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.SemanticDataType semanticDataType = new SemanticDataType();
-
-            public class SemanticDataType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.SemanticDataType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.SemanticDataType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SemanticDataType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.FileBundleGrouping fileBundleGrouping = new FileBundleGrouping();
-
-            public class FileBundleGrouping {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.TermSuggestion termSuggestion = new TermSuggestion();
-
-            public class TermSuggestion {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.BiologicalSex biologicalSex = new BiologicalSex();
-
-            public class BiologicalSex {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalSex.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalSex.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalSex.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.EducationalLevel educationalLevel = new EducationalLevel();
-
-            public class EducationalLevel {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.EducationalLevel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.EducationalLevel.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.EducationalLevel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.EthicsAssessment ethicsAssessment = new EthicsAssessment();
-
-            public class EthicsAssessment {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.EthicsAssessment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.EthicsAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.EthicsAssessment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AnnotationCriteriaType annotationCriteriaType = new AnnotationCriteriaType();
-
-            public class AnnotationCriteriaType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationCriteriaType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationCriteriaType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationCriteriaType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.CranialWindowReinforcementType cranialWindowReinforcementType = new CranialWindowReinforcementType();
-
-            public class CranialWindowReinforcementType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowReinforcementType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowReinforcementType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowReinforcementType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.PatchClampVariation patchClampVariation = new PatchClampVariation();
-
-            public class PatchClampVariation {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClampVariation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClampVariation.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClampVariation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.GeneticStrainType geneticStrainType = new GeneticStrainType();
-
-            public class GeneticStrainType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.GeneticStrainType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.GeneticStrainType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.GeneticStrainType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.AgeCategory ageCategory = new AgeCategory();
-
-            public class AgeCategory {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.UBERONParcellation uBERONParcellation = new UBERONParcellation();
-
-            public class UBERONParcellation {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.UBERONParcellation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.UBERONParcellation.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.UBERONParcellation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.SetupType setupType = new SetupType();
-
-            public class SetupType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.SetupType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SetupType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.StimulationApproach stimulationApproach = new StimulationApproach();
-
-            public class StimulationApproach {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationApproach.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationApproach.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationApproach.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ActionStatusType actionStatusType = new ActionStatusType();
-
-            public class ActionStatusType {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ActionStatusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ActionStatusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ActionStatusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.ControlledTerms.ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
-
-            public class ProgrammingLanguage {
-
-                public org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+        public final class ControlledTerms{
+            private ControlledTerms(){}
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingSystem.Builder createOperatingSystem(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingSystem.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.QualitativeOverlap.Builder createQualitativeOverlap(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.QualitativeOverlap.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.QualitativeOverlap.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.GustatoryStimulusType.Builder createGustatoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.GustatoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.GustatoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.MolecularEntity.Builder createMolecularEntity(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.MolecularEntity.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MolecularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology.Builder createTerminology(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Terminology.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowConstructionType.Builder createCranialWindowConstructionType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowConstructionType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowConstructionType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Laterality.Builder createLaterality(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Laterality.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Laterality.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique.Builder createAnalysisTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnalysisTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalAxesOrientation.Builder createAnatomicalAxesOrientation(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalAxesOrientation.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalAxesOrientation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.OpticalStimulusType.Builder createOpticalStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.OpticalStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OpticalStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredQuantity.Builder createMeasuredQuantity(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredQuantity.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredQuantity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Disease.Builder createDisease(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Disease.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Disease.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.DiseaseModel.Builder createDiseaseModel(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.DiseaseModel.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DiseaseModel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AtlasType.Builder createAtlasType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AtlasType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AtlasType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareApplicationCategory.Builder createSoftwareApplicationCategory(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareApplicationCategory.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareApplicationCategory.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AuditoryStimulusType.Builder createAuditoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AuditoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AuditoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.Builder createOperatingDevice(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OperatingDevice.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.Builder createContributionType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ContributionType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.Builder createColormap(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Colormap.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty.Builder createTypeOfUncertainty(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationTechnique.Builder createStimulationTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationTechnique.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.Builder createUnitOfMeasurement(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Language.Builder createLanguage(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Language.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Language.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Service.Builder createService(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Service.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Service.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.DifferenceMeasure.Builder createDifferenceMeasure(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.DifferenceMeasure.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DifferenceMeasure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.DataType.Builder createDataType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.DataType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.Builder createCriteriaQualityType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CriteriaQualityType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ElectricalStimulusType.Builder createElectricalStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ElectricalStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ElectricalStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType.Builder createAnatomicalIdentificationType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalIdentificationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.LearningResourceType.Builder createLearningResourceType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.LearningResourceType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.LearningResourceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.SubcellularEntity.Builder createSubcellularEntity(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.SubcellularEntity.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SubcellularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.PreparationType.Builder createPreparationType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.PreparationType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.PreparationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.Builder createVisualStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.Builder createFileUsageRole(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.FileUsageRole.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalPlane.Builder createAnatomicalPlane(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalPlane.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnatomicalPlane.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleType.Builder createTissueSampleType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.CellCultureType.Builder createCellCultureType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.CellCultureType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CellCultureType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Handedness.Builder createHandedness(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Handedness.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Handedness.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Technique.Builder createTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Technique.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Technique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ChemicalMixtureType.Builder createChemicalMixtureType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ChemicalMixtureType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ChemicalMixtureType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSystem.Builder createOrganismSystem(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSystem.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ExperimentalApproach.Builder createExperimentalApproach(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.TactileStimulusType.Builder createTactileStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.TactileStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TactileStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Organ.Builder createOrgan(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Organ.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Organ.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAccessibility.Builder createProductAccessibility(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAccessibility.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAccessibility.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.Builder createModelScope(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ModelScope.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.SubjectAttribute.Builder createSubjectAttribute(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.SubjectAttribute.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SubjectAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.DeviceType.Builder createDeviceType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.DeviceType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.DeviceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.CellType.Builder createCellType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.CellType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CellType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.MetaDataModelType.Builder createMetaDataModelType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.MetaDataModelType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MetaDataModelType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredSignalType.Builder createMeasuredSignalType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredSignalType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.MeasuredSignalType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalOrder.Builder createBiologicalOrder(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalOrder.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalOrder.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.OlfactoryStimulusType.Builder createOlfactoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.OlfactoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OlfactoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareFeature.Builder createSoftwareFeature(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareFeature.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SoftwareFeature.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.BreedingType.Builder createBreedingType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.BreedingType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BreedingType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.Species.Builder createSpecies(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.Species.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.Species.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleAttribute.Builder createTissueSampleAttribute(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleAttribute.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TissueSampleAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSubstance.Builder createOrganismSubstance(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSubstance.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.OrganismSubstance.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.Builder createBiologicalProcess(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalProcess.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationType.Builder createAnnotationType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.Builder createModelAbstractionLevel(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ModelAbstractionLevel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.FileRepositoryType.Builder createFileRepositoryType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.FileRepositoryType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.FileRepositoryType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.SemanticDataType.Builder createSemanticDataType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.SemanticDataType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SemanticDataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping.Builder createFileBundleGrouping(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.FileBundleGrouping.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.Builder createTermSuggestion(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.TermSuggestion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalSex.Builder createBiologicalSex(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalSex.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.BiologicalSex.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.EducationalLevel.Builder createEducationalLevel(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.EducationalLevel.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.EducationalLevel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.EthicsAssessment.Builder createEthicsAssessment(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.EthicsAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.EthicsAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationCriteriaType.Builder createAnnotationCriteriaType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationCriteriaType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AnnotationCriteriaType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowReinforcementType.Builder createCranialWindowReinforcementType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowReinforcementType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.CranialWindowReinforcementType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClampVariation.Builder createPatchClampVariation(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClampVariation.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClampVariation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.GeneticStrainType.Builder createGeneticStrainType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.GeneticStrainType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.GeneticStrainType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.Builder createAgeCategory(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.AgeCategory.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.UBERONParcellation.Builder createUBERONParcellation(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.UBERONParcellation.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.UBERONParcellation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.SetupType.Builder createSetupType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.SetupType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationApproach.Builder createStimulationApproach(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationApproach.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.StimulationApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ActionStatusType.Builder createActionStatusType(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ActionStatusType.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ActionStatusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.Builder createProgrammingLanguage(String localId){
+                final org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.v3.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.Ephys ephys = new Ephys();
 
-
-        public class Ephys{
-
+        public final class Ephys{
+            private Ephys(){}
             
-            public final OpenMINDS.V3.Ephys.ElectrodePlacement electrodePlacement = new ElectrodePlacement();
-
-            public class ElectrodePlacement {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePlacement.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePlacement.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePlacement.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePlacement.Builder createElectrodePlacement(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePlacement.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePlacement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.CellPatching cellPatching = new CellPatching();
-
-            public class CellPatching {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.Builder createCellPatching(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.RecordingActivity recordingActivity = new RecordingActivity();
-
-            public class RecordingActivity {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.Builder createRecordingActivity(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingActivity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.ElectrodeArrayUsage electrodeArrayUsage = new ElectrodeArrayUsage();
-
-            public class ElectrodeArrayUsage {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.Builder createElectrodeArrayUsage(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.ElectrodeUsage electrodeUsage = new ElectrodeUsage();
-
-            public class ElectrodeUsage {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeUsage.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeUsage.Builder createElectrodeUsage(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeUsage.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.Electrode electrode = new Electrode();
-
-            public class Electrode {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.Builder createElectrode(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.ElectrodeArray electrodeArray = new ElectrodeArray();
-
-            public class ElectrodeArray {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.Builder createElectrodeArray(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.PipetteUsage pipetteUsage = new PipetteUsage();
-
-            public class PipetteUsage {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.Builder createPipetteUsage(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.PipetteUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.Pipette pipette = new Pipette();
-
-            public class Pipette {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.device.Pipette.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.device.Pipette.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.Pipette.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.device.Pipette.Builder createPipette(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.device.Pipette.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.device.Pipette.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.Channel channel = new Channel();
-
-            public class Channel {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.Builder createChannel(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Ephys.Recording recording = new Recording();
-
-            public class Recording {
-
-                public org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.Builder createRecording(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.SANDS SANDS = new SANDS();
 
-
-        public class SANDS{
-
+        public final class SANDS{
+            private SANDS(){}
             
-            public final OpenMINDS.V3.SANDS.ParcellationEntity parcellationEntity = new ParcellationEntity();
-
-            public class ParcellationEntity {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.Builder createParcellationEntity(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.BrainAtlasVersion brainAtlasVersion = new BrainAtlasVersion();
-
-            public class BrainAtlasVersion {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.Builder createBrainAtlasVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.ParcellationTerminology parcellationTerminology = new ParcellationTerminology();
-
-            public class ParcellationTerminology {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.Builder createParcellationTerminology(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.ParcellationTerminologyVersion parcellationTerminologyVersion = new ParcellationTerminologyVersion();
-
-            public class ParcellationTerminologyVersion {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.Builder createParcellationTerminologyVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.BrainAtlas brainAtlas = new BrainAtlas();
-
-            public class BrainAtlas {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.Builder createBrainAtlas(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.CommonCoordinateSpace commonCoordinateSpace = new CommonCoordinateSpace();
-
-            public class CommonCoordinateSpace {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.Builder createCommonCoordinateSpace(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.ParcellationEntityVersion parcellationEntityVersion = new ParcellationEntityVersion();
-
-            public class ParcellationEntityVersion {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.Builder createParcellationEntityVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.AtlasAnnotation atlasAnnotation = new AtlasAnnotation();
-
-            public class AtlasAnnotation {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.Builder createAtlasAnnotation(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.CommonCoordinateSpaceVersion commonCoordinateSpaceVersion = new CommonCoordinateSpaceVersion();
-
-            public class CommonCoordinateSpaceVersion {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.Builder createCommonCoordinateSpaceVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.CustomAnnotation customAnnotation = new CustomAnnotation();
-
-            public class CustomAnnotation {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.Builder createCustomAnnotation(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.CustomCoordinateSpace customCoordinateSpace = new CustomCoordinateSpace();
-
-            public class CustomCoordinateSpace {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.Builder createCustomCoordinateSpace(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.CustomAnatomicalEntity customAnatomicalEntity = new CustomAnatomicalEntity();
-
-            public class CustomAnatomicalEntity {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.Builder createCustomAnatomicalEntity(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.QualitativeRelationAssessment qualitativeRelationAssessment = new QualitativeRelationAssessment();
-
-            public class QualitativeRelationAssessment {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.Builder createQualitativeRelationAssessment(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.CoordinatePoint coordinatePoint = new CoordinatePoint();
-
-            public class CoordinatePoint {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.Builder createCoordinatePoint(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.QuantitativeRelationAssessment quantitativeRelationAssessment = new QuantitativeRelationAssessment();
-
-            public class QuantitativeRelationAssessment {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder createQuantitativeRelationAssessment(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.SingleColor singleColor = new SingleColor();
-
-            public class SingleColor {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.Builder createSingleColor(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.AnatomicalTargetPosition anatomicalTargetPosition = new AnatomicalTargetPosition();
-
-            public class AnatomicalTargetPosition {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.Builder createAnatomicalTargetPosition(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.ViewerSpecification viewerSpecification = new ViewerSpecification();
-
-            public class ViewerSpecification {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.Builder createViewerSpecification(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.Rectangle rectangle = new Rectangle();
-
-            public class Rectangle {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.Builder createRectangle(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.Circle circle = new Circle();
-
-            public class Circle {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.Builder createCircle(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SANDS.Ellipse ellipse = new Ellipse();
-
-            public class Ellipse {
-
-                public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.Builder createEllipse(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.Core core = new Core();
 
-
-        public class Core{
-
-            
-            public final OpenMINDS.V3.Core.ProtocolExecution protocolExecution = new ProtocolExecution();
-
-            public class ProtocolExecution {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.SubjectState subjectState = new SubjectState();
-
-            public class SubjectState {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.SubjectState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.SubjectState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.SubjectState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.StringProperty stringProperty = new StringProperty();
-
-            public class StringProperty {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.StringProperty.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.StringProperty.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.PropertyValueList propertyValueList = new PropertyValueList();
-
-            public class PropertyValueList {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.TissueSample tissueSample = new TissueSample();
-
-            public class TissueSample {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.TissueSample.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.TissueSample.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSample.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.SubjectGroupState subjectGroupState = new SubjectGroupState();
-
-            public class SubjectGroupState {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.TissueSampleCollectionState tissueSampleCollectionState = new TissueSampleCollectionState();
-
-            public class TissueSampleCollectionState {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.TissueSampleCollection tissueSampleCollection = new TissueSampleCollection();
-
-            public class TissueSampleCollection {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollection.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollection.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollection.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.BehavioralProtocol behavioralProtocol = new BehavioralProtocol();
-
-            public class BehavioralProtocol {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Configuration configuration = new Configuration();
-
-            public class Configuration {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.Configuration.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.Configuration.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Configuration.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.NumericalProperty numericalProperty = new NumericalProperty();
-
-            public class NumericalProperty {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Protocol protocol = new Protocol();
-
-            public class Protocol {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.Protocol.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.Protocol.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Protocol.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Subject subject = new Subject();
-
-            public class Subject {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.Subject.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.Subject.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Subject.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Strain strain = new Strain();
-
-            public class Strain {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.Strain.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Strain.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.TissueSampleState tissueSampleState = new TissueSampleState();
-
-            public class TissueSampleState {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.CustomPropertySet customPropertySet = new CustomPropertySet();
-
-            public class CustomPropertySet {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.SubjectGroup subjectGroup = new SubjectGroup();
-
-            public class SubjectGroup {
-
-                public org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ContactInformation contactInformation = new ContactInformation();
-
-            public class ContactInformation {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Affiliation affiliation = new Affiliation();
-
-            public class Affiliation {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Organization organization = new Organization();
-
-            public class Organization {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.Organization.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.Organization.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Organization.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Contribution contribution = new Contribution();
-
-            public class Contribution {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.Contribution.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Contribution.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.AccountInformation accountInformation = new AccountInformation();
-
-            public class AccountInformation {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Consortium consortium = new Consortium();
-
-            public class Consortium {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.Consortium.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.Consortium.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Consortium.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Person person = new Person();
-
-            public class Person {
-
-                public org.openmetadatainitiative.openminds.v3.core.actors.Person.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.actors.Person.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Person.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Software software = new Software();
-
-            public class Software {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.Software.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.Software.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Software.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Model model = new Model();
-
-            public class Model {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.Model.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.Model.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Model.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.WebService webService = new WebService();
-
-            public class WebService {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.WebService.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.WebService.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.WebService.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Setup setup = new Setup();
-
-            public class Setup {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.Setup.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.Setup.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Setup.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.SoftwareVersion softwareVersion = new SoftwareVersion();
-
-            public class SoftwareVersion {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.MetaDataModel metaDataModel = new MetaDataModel();
-
-            public class MetaDataModel {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Project project = new Project();
-
-            public class Project {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.Project.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.Project.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Project.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.WebServiceVersion webServiceVersion = new WebServiceVersion();
-
-            public class WebServiceVersion {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ModelVersion modelVersion = new ModelVersion();
-
-            public class ModelVersion {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Dataset dataset = new Dataset();
-
-            public class Dataset {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.Dataset.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.Dataset.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Dataset.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.MetaDataModelVersion metaDataModelVersion = new MetaDataModelVersion();
-
-            public class MetaDataModelVersion {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.DatasetVersion datasetVersion = new DatasetVersion();
-
-            public class DatasetVersion {
-
-                public org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.WebResource webResource = new WebResource();
-
-            public class WebResource {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ResearchProductGroup researchProductGroup = new ResearchProductGroup();
-
-            public class ResearchProductGroup {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.QuantitativeValue quantitativeValue = new QuantitativeValue();
-
-            public class QuantitativeValue {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.QuantitativeValueRange quantitativeValueRange = new QuantitativeValueRange();
-
-            public class QuantitativeValueRange {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.QuantitativeValueArray quantitativeValueArray = new QuantitativeValueArray();
-
-            public class QuantitativeValueArray {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Comment comment = new Comment();
-
-            public class Comment {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Funding funding = new Funding();
-
-            public class Funding {
-
-                public org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.RRID rRID = new RRID();
-
-            public class RRID {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.GRIDID gRIDID = new GRIDID();
-
-            public class GRIDID {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ORCID oRCID = new ORCID();
-
-            public class ORCID {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.IdentifiersDotOrgID identifiersDotOrgID = new IdentifiersDotOrgID();
-
-            public class IdentifiersDotOrgID {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ISSN iSSN = new ISSN();
-
-            public class ISSN {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.StockNumber stockNumber = new StockNumber();
-
-            public class StockNumber {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ISBN iSBN = new ISBN();
-
-            public class ISBN {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.RORID rORID = new RORID();
-
-            public class RORID {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.SWHID sWHID = new SWHID();
-
-            public class SWHID {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWHID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWHID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWHID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.HANDLE hANDLE = new HANDLE();
-
-            public class HANDLE {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.DOI dOI = new DOI();
-
-            public class DOI {
-
-                public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Hash hash = new Hash();
-
-            public class Hash {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.Hash.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Hash.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Measurement measurement = new Measurement();
-
-            public class Measurement {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.Measurement.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Measurement.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.FileRepositoryStructure fileRepositoryStructure = new FileRepositoryStructure();
-
-            public class FileRepositoryStructure {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.FileArchive fileArchive = new FileArchive();
-
-            public class FileArchive {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.FileArchive.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.FileArchive.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileArchive.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.FileRepository fileRepository = new FileRepository();
-
-            public class FileRepository {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.FileRepository.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileRepository.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ContentType contentType = new ContentType();
-
-            public class ContentType {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.ContentType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.ContentType.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.ContentType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ServiceLink serviceLink = new ServiceLink();
-
-            public class ServiceLink {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.ServiceLink.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.ServiceLink.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.ServiceLink.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.File file = new File();
-
-            public class File {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.File.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.File.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.File.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.FileBundle fileBundle = new FileBundle();
-
-            public class FileBundle {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.FileBundle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.FileBundle.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileBundle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.ContentTypePattern contentTypePattern = new ContentTypePattern();
-
-            public class ContentTypePattern {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.Copyright copyright = new Copyright();
-
-            public class Copyright {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.Copyright.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Copyright.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.License license = new License();
-
-            public class License {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.License.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.License.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.License.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.V3.Core.FilePathPattern filePathPattern = new FilePathPattern();
-
-            public class FilePathPattern {
-
-                public org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+        public final class Core{
+            private Core(){}
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.Builder createProtocolExecution(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.SubjectState.Builder createSubjectState(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.SubjectState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.SubjectState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.StringProperty.Builder createStringProperty(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.StringProperty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.Builder createPropertyValueList(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.TissueSample.Builder createTissueSample(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.TissueSample.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSample.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.Builder createSubjectGroupState(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.Builder createTissueSampleCollectionState(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollection.Builder createTissueSampleCollection(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollection.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollection.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.Configuration.Builder createConfiguration(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.Configuration.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Configuration.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.Builder createNumericalProperty(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.Protocol.Builder createProtocol(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.Protocol.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Protocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.Subject.Builder createSubject(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.Subject.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Subject.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.Strain.Builder createStrain(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Strain.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.Builder createTissueSampleState(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.Builder createCustomPropertySet(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.Builder createSubjectGroup(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.Builder createContactInformation(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.Builder createAffiliation(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.Organization.Builder createOrganization(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Organization.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Organization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.Contribution.Builder createContribution(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Contribution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.Builder createAccountInformation(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.Consortium.Builder createConsortium(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Consortium.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Consortium.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.actors.Person.Builder createPerson(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Person.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Person.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.Software.Builder createSoftware(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.Software.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Software.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.Model.Builder createModel(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.Model.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Model.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.WebService.Builder createWebService(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.WebService.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.WebService.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.Setup.Builder createSetup(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.Setup.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Setup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.Builder createSoftwareVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.Builder createMetaDataModel(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.Project.Builder createProject(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.Project.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Project.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.Builder createWebServiceVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.Builder createModelVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.Dataset.Builder createDataset(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.Dataset.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.Dataset.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.Builder createMetaDataModelVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.Builder createDatasetVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.Builder createWebResource(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.Builder createResearchProductGroup(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.Builder createQuantitativeValue(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.Builder createQuantitativeValueRange(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.Builder createComment(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.Builder createFunding(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.Builder createRRID(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.Builder createGRIDID(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.Builder createORCID(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.Builder createIdentifiersDotOrgID(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.Builder createISSN(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.Builder createStockNumber(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.Builder createRORID(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWHID.Builder createSWHID(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWHID.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWHID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.Builder createHANDLE(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.Builder createDOI(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.Hash.Builder createHash(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Hash.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.Measurement.Builder createMeasurement(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Measurement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.Builder createFileRepositoryStructure(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.FileArchive.Builder createFileArchive(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.FileArchive.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileArchive.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.FileRepository.Builder createFileRepository(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileRepository.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.ContentType.Builder createContentType(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.ContentType.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.ContentType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.ServiceLink.Builder createServiceLink(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.ServiceLink.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.ServiceLink.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.File.Builder createFile(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.File.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.File.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.FileBundle.Builder createFileBundle(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.FileBundle.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileBundle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.Builder createContentTypePattern(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.Copyright.Builder createCopyright(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Copyright.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.License.Builder createLicense(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.License.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.License.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.Builder createFilePathPattern(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.SpecimenPrep specimenPrep = new SpecimenPrep();
 
-
-        public class SpecimenPrep{
-
+        public final class SpecimenPrep{
+            private SpecimenPrep(){}
             
-            public final OpenMINDS.V3.SpecimenPrep.TissueCulturePreparation tissueCulturePreparation = new TissueCulturePreparation();
-
-            public class TissueCulturePreparation {
-
-                public org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.Builder createTissueCulturePreparation(String localId){
+                final org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueCulturePreparation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SpecimenPrep.CranialWindowPreparation cranialWindowPreparation = new CranialWindowPreparation();
-
-            public class CranialWindowPreparation {
-
-                public org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.Builder createCranialWindowPreparation(String localId){
+                final org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SpecimenPrep.TissueSampleSlicing tissueSampleSlicing = new TissueSampleSlicing();
-
-            public class TissueSampleSlicing {
-
-                public org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueSampleSlicing.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueSampleSlicing.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueSampleSlicing.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueSampleSlicing.Builder createTissueSampleSlicing(String localId){
+                final org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueSampleSlicing.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.TissueSampleSlicing.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SpecimenPrep.SlicingDevice slicingDevice = new SlicingDevice();
-
-            public class SlicingDevice {
-
-                public org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.Builder createSlicingDevice(String localId){
+                final org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.SpecimenPrep.SlicingDeviceUsage slicingDeviceUsage = new SlicingDeviceUsage();
-
-            public class SlicingDeviceUsage {
-
-                public org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.Builder createSlicingDeviceUsage(String localId){
+                final org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.Builder builder = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.V3.Stimulation stimulation = new Stimulation();
 
-
-        public class Stimulation{
-
+        public final class Stimulation{
+            private Stimulation(){}
             
-            public final OpenMINDS.V3.Stimulation.StimulationActivity stimulationActivity = new StimulationActivity();
-
-            public class StimulationActivity {
-
-                public org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.Builder builder = org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.Builder createStimulationActivity(String localId){
+                final org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.Builder builder = org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.V3.Stimulation.EphysStimulus ephysStimulus = new EphysStimulus();
-
-            public class EphysStimulus {
-
-                public org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus.Builder builder = org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus.Builder createEphysStimulus(String localId){
+                final org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus.Builder builder = org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
         
 
-       public void persist(String targetDirectory) {
-            OpenMINDS.persist(targetDirectory, builders.stream().map(org.openmetadatainitiative.openminds.utils.Builder::build));
+        public void flush(PostProcessor postProcessor){
+            flush(OpenMINDSContext.defaultContext(), postProcessor);
+        }
+
+        public void flush(OpenMINDSContext context, PostProcessor postProcessor){
+            postProcessor.process(builders.stream().map(b -> b.build(context)));
         }
     }
-
-    
     public static OpenMINDS.Latest latest(){
         return latest(OpenMINDSContext.defaultContext());
     }
@@ -2524,2467 +1425,1369 @@ public class OpenMINDS {
         return new OpenMINDS(context).new Latest();
     }
 
-
-
-    public class Latest {
-
+    public final class Latest {
+        private Latest(){}
         private final List<org.openmetadatainitiative.openminds.utils.Builder<?>> builders = new ArrayList<>();
 
-        
         public final OpenMINDS.Latest.Computation computation = new Computation();
 
-
-        public class Computation{
-
+        public final class Computation{
+            private Computation(){}
             
-            public final OpenMINDS.Latest.Computation.WorkflowRecipeVersion workflowRecipeVersion = new WorkflowRecipeVersion();
-
-            public class WorkflowRecipeVersion {
-
-                public org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.Builder builder = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.Builder createWorkflowRecipeVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.Builder builder = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.ValidationTest validationTest = new ValidationTest();
-
-            public class ValidationTest {
-
-                public org.openmetadatainitiative.openminds.latest.computation.ValidationTest.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.ValidationTest.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ValidationTest.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.ValidationTest.Builder createValidationTest(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.ValidationTest.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ValidationTest.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.WorkflowRecipe workflowRecipe = new WorkflowRecipe();
-
-            public class WorkflowRecipe {
-
-                public org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.Builder builder = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.Builder createWorkflowRecipe(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.Builder builder = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.Optimization optimization = new Optimization();
-
-            public class Optimization {
-
-                public org.openmetadatainitiative.openminds.latest.computation.Optimization.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.Optimization.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Optimization.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.Optimization.Builder createOptimization(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.Optimization.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Optimization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.ModelValidation modelValidation = new ModelValidation();
-
-            public class ModelValidation {
-
-                public org.openmetadatainitiative.openminds.latest.computation.ModelValidation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.ModelValidation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ModelValidation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.ModelValidation.Builder createModelValidation(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.ModelValidation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ModelValidation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.HardwareSystem hardwareSystem = new HardwareSystem();
-
-            public class HardwareSystem {
-
-                public org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.Builder builder = org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.Builder createHardwareSystem(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.Builder builder = org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.LaunchConfiguration launchConfiguration = new LaunchConfiguration();
-
-            public class LaunchConfiguration {
-
-                public org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.Builder builder = org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.Builder createLaunchConfiguration(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.Builder builder = org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.DataCopy dataCopy = new DataCopy();
-
-            public class DataCopy {
-
-                public org.openmetadatainitiative.openminds.latest.computation.DataCopy.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.DataCopy.Builder builder = org.openmetadatainitiative.openminds.latest.computation.DataCopy.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.DataCopy.Builder createDataCopy(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.DataCopy.Builder builder = org.openmetadatainitiative.openminds.latest.computation.DataCopy.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.SoftwareAgent softwareAgent = new SoftwareAgent();
-
-            public class SoftwareAgent {
-
-                public org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.Builder builder = org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.Builder createSoftwareAgent(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.Builder builder = org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.Simulation simulation = new Simulation();
-
-            public class Simulation {
-
-                public org.openmetadatainitiative.openminds.latest.computation.Simulation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.Simulation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Simulation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.Simulation.Builder createSimulation(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.Simulation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Simulation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.Visualization visualization = new Visualization();
-
-            public class Visualization {
-
-                public org.openmetadatainitiative.openminds.latest.computation.Visualization.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.Visualization.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Visualization.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.Visualization.Builder createVisualization(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.Visualization.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Visualization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.LocalFile localFile = new LocalFile();
-
-            public class LocalFile {
-
-                public org.openmetadatainitiative.openminds.latest.computation.LocalFile.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.LocalFile.Builder builder = org.openmetadatainitiative.openminds.latest.computation.LocalFile.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.LocalFile.Builder createLocalFile(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.LocalFile.Builder builder = org.openmetadatainitiative.openminds.latest.computation.LocalFile.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.Environment environment = new Environment();
-
-            public class Environment {
-
-                public org.openmetadatainitiative.openminds.latest.computation.Environment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.Environment.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Environment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.Environment.Builder createEnvironment(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.Environment.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Environment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.WorkflowExecution workflowExecution = new WorkflowExecution();
-
-            public class WorkflowExecution {
-
-                public org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.Builder builder = org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.Builder createWorkflowExecution(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.Builder builder = org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.ValidationTestVersion validationTestVersion = new ValidationTestVersion();
-
-            public class ValidationTestVersion {
-
-                public org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.Builder createValidationTestVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.DataAnalysis dataAnalysis = new DataAnalysis();
-
-            public class DataAnalysis {
-
-                public org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.Builder builder = org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.Builder createDataAnalysis(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.Builder builder = org.openmetadatainitiative.openminds.latest.computation.DataAnalysis.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Computation.GenericComputation genericComputation = new GenericComputation();
-
-            public class GenericComputation {
-
-                public org.openmetadatainitiative.openminds.latest.computation.GenericComputation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.computation.GenericComputation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.GenericComputation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.computation.GenericComputation.Builder createGenericComputation(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.GenericComputation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.GenericComputation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.Publications publications = new Publications();
 
-
-        public class Publications{
-
+        public final class Publications{
+            private Publications(){}
             
-            public final OpenMINDS.Latest.Publications.LivePaperSection livePaperSection = new LivePaperSection();
-
-            public class LivePaperSection {
-
-                public org.openmetadatainitiative.openminds.latest.publications.LivePaperSection.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.LivePaperSection.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaperSection.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.LivePaperSection.Builder createLivePaperSection(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.LivePaperSection.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaperSection.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.PublicationVolume publicationVolume = new PublicationVolume();
-
-            public class PublicationVolume {
-
-                public org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.Builder builder = org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.Builder createPublicationVolume(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.Builder builder = org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.LivePaper livePaper = new LivePaper();
-
-            public class LivePaper {
-
-                public org.openmetadatainitiative.openminds.latest.publications.LivePaper.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.LivePaper.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaper.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.LivePaper.Builder createLivePaper(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.LivePaper.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaper.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.LivePaperResourceItem livePaperResourceItem = new LivePaperResourceItem();
-
-            public class LivePaperResourceItem {
-
-                public org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.Builder createLivePaperResourceItem(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.LearningResource learningResource = new LearningResource();
-
-            public class LearningResource {
-
-                public org.openmetadatainitiative.openminds.latest.publications.LearningResource.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.LearningResource.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LearningResource.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.LearningResource.Builder createLearningResource(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.LearningResource.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LearningResource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.Chapter chapter = new Chapter();
-
-            public class Chapter {
-
-                public org.openmetadatainitiative.openminds.latest.publications.Chapter.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.Chapter.Builder builder = org.openmetadatainitiative.openminds.latest.publications.Chapter.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.Chapter.Builder createChapter(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.Chapter.Builder builder = org.openmetadatainitiative.openminds.latest.publications.Chapter.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.ScholarlyArticle scholarlyArticle = new ScholarlyArticle();
-
-            public class ScholarlyArticle {
-
-                public org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.Builder builder = org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.Builder createScholarlyArticle(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.Builder builder = org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.LivePaperVersion livePaperVersion = new LivePaperVersion();
-
-            public class LivePaperVersion {
-
-                public org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.Builder createLivePaperVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.Builder builder = org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.PublicationIssue publicationIssue = new PublicationIssue();
-
-            public class PublicationIssue {
-
-                public org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.Builder builder = org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.Builder createPublicationIssue(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.Builder builder = org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.Periodical periodical = new Periodical();
-
-            public class Periodical {
-
-                public org.openmetadatainitiative.openminds.latest.publications.Periodical.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.Periodical.Builder builder = org.openmetadatainitiative.openminds.latest.publications.Periodical.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.Periodical.Builder createPeriodical(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.Periodical.Builder builder = org.openmetadatainitiative.openminds.latest.publications.Periodical.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Publications.Book book = new Book();
-
-            public class Book {
-
-                public org.openmetadatainitiative.openminds.latest.publications.Book.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.publications.Book.Builder builder = org.openmetadatainitiative.openminds.latest.publications.Book.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.publications.Book.Builder createBook(String localId){
+                final org.openmetadatainitiative.openminds.latest.publications.Book.Builder builder = org.openmetadatainitiative.openminds.latest.publications.Book.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.Chemicals chemicals = new Chemicals();
 
-
-        public class Chemicals{
-
+        public final class Chemicals{
+            private Chemicals(){}
             
-            public final OpenMINDS.Latest.Chemicals.ChemicalMixture chemicalMixture = new ChemicalMixture();
-
-            public class ChemicalMixture {
-
-                public org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
+                final org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Chemicals.ChemicalSubstance chemicalSubstance = new ChemicalSubstance();
-
-            public class ChemicalSubstance {
-
-                public org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.Builder createChemicalSubstance(String localId){
+                final org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Chemicals.ProductSource productSource = new ProductSource();
-
-            public class ProductSource {
-
-                public org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.Builder createProductSource(String localId){
+                final org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Chemicals.AmountOfChemical amountOfChemical = new AmountOfChemical();
-
-            public class AmountOfChemical {
-
-                public org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.Builder createAmountOfChemical(String localId){
+                final org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.ControlledTerms controlledTerms = new ControlledTerms();
 
-
-        public class ControlledTerms{
-
-            
-            public final OpenMINDS.Latest.ControlledTerms.OperatingSystem operatingSystem = new OperatingSystem();
-
-            public class OperatingSystem {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.QualitativeOverlap qualitativeOverlap = new QualitativeOverlap();
-
-            public class QualitativeOverlap {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.GustatoryStimulusType gustatoryStimulusType = new GustatoryStimulusType();
-
-            public class GustatoryStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.MolecularEntity molecularEntity = new MolecularEntity();
-
-            public class MolecularEntity {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Terminology terminology = new Terminology();
-
-            public class Terminology {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.CranialWindowConstructionType cranialWindowConstructionType = new CranialWindowConstructionType();
-
-            public class CranialWindowConstructionType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Laterality laterality = new Laterality();
-
-            public class Laterality {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AnalysisTechnique analysisTechnique = new AnalysisTechnique();
-
-            public class AnalysisTechnique {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AnatomicalAxesOrientation anatomicalAxesOrientation = new AnatomicalAxesOrientation();
-
-            public class AnatomicalAxesOrientation {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.OpticalStimulusType opticalStimulusType = new OpticalStimulusType();
-
-            public class OpticalStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.MeasuredQuantity measuredQuantity = new MeasuredQuantity();
-
-            public class MeasuredQuantity {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Disease disease = new Disease();
-
-            public class Disease {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.DiseaseModel diseaseModel = new DiseaseModel();
-
-            public class DiseaseModel {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AtlasType atlasType = new AtlasType();
-
-            public class AtlasType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.SoftwareApplicationCategory softwareApplicationCategory = new SoftwareApplicationCategory();
-
-            public class SoftwareApplicationCategory {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AuditoryStimulusType auditoryStimulusType = new AuditoryStimulusType();
-
-            public class AuditoryStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.OperatingDevice operatingDevice = new OperatingDevice();
-
-            public class OperatingDevice {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ContributionType contributionType = new ContributionType();
-
-            public class ContributionType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Colormap colormap = new Colormap();
-
-            public class Colormap {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.TypeOfUncertainty typeOfUncertainty = new TypeOfUncertainty();
-
-            public class TypeOfUncertainty {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.StimulationTechnique stimulationTechnique = new StimulationTechnique();
-
-            public class StimulationTechnique {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.UnitOfMeasurement unitOfMeasurement = new UnitOfMeasurement();
-
-            public class UnitOfMeasurement {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Language language = new Language();
-
-            public class Language {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Language.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Language.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Language.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Service service = new Service();
-
-            public class Service {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Service.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Service.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Service.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.DifferenceMeasure differenceMeasure = new DifferenceMeasure();
-
-            public class DifferenceMeasure {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.DataType dataType = new DataType();
-
-            public class DataType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.CriteriaQualityType criteriaQualityType = new CriteriaQualityType();
-
-            public class CriteriaQualityType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ElectricalStimulusType electricalStimulusType = new ElectricalStimulusType();
-
-            public class ElectricalStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AnatomicalIdentificationType anatomicalIdentificationType = new AnatomicalIdentificationType();
-
-            public class AnatomicalIdentificationType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.LearningResourceType learningResourceType = new LearningResourceType();
-
-            public class LearningResourceType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.SubcellularEntity subcellularEntity = new SubcellularEntity();
-
-            public class SubcellularEntity {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.PreparationType preparationType = new PreparationType();
-
-            public class PreparationType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.VisualStimulusType visualStimulusType = new VisualStimulusType();
-
-            public class VisualStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.FileUsageRole fileUsageRole = new FileUsageRole();
-
-            public class FileUsageRole {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AnatomicalPlane anatomicalPlane = new AnatomicalPlane();
-
-            public class AnatomicalPlane {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.TissueSampleType tissueSampleType = new TissueSampleType();
-
-            public class TissueSampleType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.CellCultureType cellCultureType = new CellCultureType();
-
-            public class CellCultureType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Handedness handedness = new Handedness();
-
-            public class Handedness {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Technique technique = new Technique();
-
-            public class Technique {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ChemicalMixtureType chemicalMixtureType = new ChemicalMixtureType();
-
-            public class ChemicalMixtureType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.OrganismSystem organismSystem = new OrganismSystem();
-
-            public class OrganismSystem {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ExperimentalApproach experimentalApproach = new ExperimentalApproach();
-
-            public class ExperimentalApproach {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.TactileStimulusType tactileStimulusType = new TactileStimulusType();
-
-            public class TactileStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Organ organ = new Organ();
-
-            public class Organ {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ProductAccessibility productAccessibility = new ProductAccessibility();
-
-            public class ProductAccessibility {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ModelScope modelScope = new ModelScope();
-
-            public class ModelScope {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.SubjectAttribute subjectAttribute = new SubjectAttribute();
-
-            public class SubjectAttribute {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.DeviceType deviceType = new DeviceType();
-
-            public class DeviceType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.CellType cellType = new CellType();
-
-            public class CellType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.MetaDataModelType metaDataModelType = new MetaDataModelType();
-
-            public class MetaDataModelType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.MeasuredSignalType measuredSignalType = new MeasuredSignalType();
-
-            public class MeasuredSignalType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.BiologicalOrder biologicalOrder = new BiologicalOrder();
-
-            public class BiologicalOrder {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalOrder.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalOrder.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalOrder.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.OlfactoryStimulusType olfactoryStimulusType = new OlfactoryStimulusType();
-
-            public class OlfactoryStimulusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.SoftwareFeature softwareFeature = new SoftwareFeature();
-
-            public class SoftwareFeature {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.BreedingType breedingType = new BreedingType();
-
-            public class BreedingType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.BreedingType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.BreedingType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BreedingType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.Species species = new Species();
-
-            public class Species {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.Species.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.Species.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Species.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.TissueSampleAttribute tissueSampleAttribute = new TissueSampleAttribute();
-
-            public class TissueSampleAttribute {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.OrganismSubstance organismSubstance = new OrganismSubstance();
-
-            public class OrganismSubstance {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.BiologicalProcess biologicalProcess = new BiologicalProcess();
-
-            public class BiologicalProcess {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalProcess.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalProcess.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalProcess.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AnnotationType annotationType = new AnnotationType();
-
-            public class AnnotationType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ModelAbstractionLevel modelAbstractionLevel = new ModelAbstractionLevel();
-
-            public class ModelAbstractionLevel {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.FileRepositoryType fileRepositoryType = new FileRepositoryType();
-
-            public class FileRepositoryType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.SemanticDataType semanticDataType = new SemanticDataType();
-
-            public class SemanticDataType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.FileBundleGrouping fileBundleGrouping = new FileBundleGrouping();
-
-            public class FileBundleGrouping {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.TermSuggestion termSuggestion = new TermSuggestion();
-
-            public class TermSuggestion {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.BiologicalSex biologicalSex = new BiologicalSex();
-
-            public class BiologicalSex {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.EducationalLevel educationalLevel = new EducationalLevel();
-
-            public class EducationalLevel {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.EthicsAssessment ethicsAssessment = new EthicsAssessment();
-
-            public class EthicsAssessment {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AnnotationCriteriaType annotationCriteriaType = new AnnotationCriteriaType();
-
-            public class AnnotationCriteriaType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.CranialWindowReinforcementType cranialWindowReinforcementType = new CranialWindowReinforcementType();
-
-            public class CranialWindowReinforcementType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.PatchClampVariation patchClampVariation = new PatchClampVariation();
-
-            public class PatchClampVariation {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.GeneticStrainType geneticStrainType = new GeneticStrainType();
-
-            public class GeneticStrainType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.AgeCategory ageCategory = new AgeCategory();
-
-            public class AgeCategory {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.UBERONParcellation uBERONParcellation = new UBERONParcellation();
-
-            public class UBERONParcellation {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.SetupType setupType = new SetupType();
-
-            public class SetupType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.StimulationApproach stimulationApproach = new StimulationApproach();
-
-            public class StimulationApproach {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ActionStatusType actionStatusType = new ActionStatusType();
-
-            public class ActionStatusType {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.ControlledTerms.ProgrammingLanguage programmingLanguage = new ProgrammingLanguage();
-
-            public class ProgrammingLanguage {
-
-                public org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+        public final class ControlledTerms{
+            private ControlledTerms(){}
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.Builder createOperatingSystem(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.Builder createQualitativeOverlap(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.Builder createGustatoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.GustatoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.Builder createMolecularEntity(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.Builder createTerminology(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.Builder createCranialWindowConstructionType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.Builder createLaterality(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.Builder createAnalysisTechnique(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.Builder createAnatomicalAxesOrientation(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.Builder createOpticalStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.Builder createMeasuredQuantity(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.Builder createDisease(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.Builder createDiseaseModel(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.Builder createAtlasType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AtlasType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.Builder createSoftwareApplicationCategory(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.Builder createAuditoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AuditoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.Builder createOperatingDevice(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.Builder createContributionType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.Builder createColormap(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder createTypeOfUncertainty(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.Builder createStimulationTechnique(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.Builder createUnitOfMeasurement(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Language.Builder createLanguage(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Language.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Language.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Service.Builder createService(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Service.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Service.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.Builder createDifferenceMeasure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.Builder createDataType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.Builder createCriteriaQualityType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.Builder createElectricalStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.Builder createAnatomicalIdentificationType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.Builder createLearningResourceType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.Builder createSubcellularEntity(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.Builder createPreparationType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.Builder createVisualStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.Builder createFileUsageRole(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.Builder createAnatomicalPlane(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.Builder createTissueSampleType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.Builder createCellCultureType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.Builder createHandedness(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.Builder createTechnique(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.Builder createChemicalMixtureType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.Builder createOrganismSystem(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder createExperimentalApproach(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.Builder createTactileStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.Builder createOrgan(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.Builder createProductAccessibility(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.Builder createModelScope(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.Builder createSubjectAttribute(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.Builder createDeviceType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.Builder createCellType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.Builder createMetaDataModelType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.Builder createMeasuredSignalType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalOrder.Builder createBiologicalOrder(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalOrder.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalOrder.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.Builder createOlfactoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.Builder createSoftwareFeature(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.BreedingType.Builder createBreedingType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.BreedingType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BreedingType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.Species.Builder createSpecies(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.Species.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Species.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.Builder createTissueSampleAttribute(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.Builder createOrganismSubstance(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalProcess.Builder createBiologicalProcess(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalProcess.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalProcess.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType.Builder createAnnotationType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.Builder createModelAbstractionLevel(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.Builder createFileRepositoryType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.Builder createSemanticDataType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.Builder createFileBundleGrouping(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.Builder createTermSuggestion(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.Builder createBiologicalSex(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.BiologicalSex.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.Builder createEducationalLevel(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.Builder createEthicsAssessment(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.Builder createAnnotationCriteriaType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.Builder createCranialWindowReinforcementType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.Builder createPatchClampVariation(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.Builder createGeneticStrainType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.GeneticStrainType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.Builder createAgeCategory(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.Builder createUBERONParcellation(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder createSetupType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.Builder createStimulationApproach(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.Builder createActionStatusType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder createProgrammingLanguage(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.Ephys ephys = new Ephys();
 
-
-        public class Ephys{
-
+        public final class Ephys{
+            private Ephys(){}
             
-            public final OpenMINDS.Latest.Ephys.ElectrodePlacement electrodePlacement = new ElectrodePlacement();
-
-            public class ElectrodePlacement {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.Builder createElectrodePlacement(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.ElectrodePlacement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.CellPatching cellPatching = new CellPatching();
-
-            public class CellPatching {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.Builder createCellPatching(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.RecordingActivity recordingActivity = new RecordingActivity();
-
-            public class RecordingActivity {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder createRecordingActivity(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.ElectrodeArrayUsage electrodeArrayUsage = new ElectrodeArrayUsage();
-
-            public class ElectrodeArrayUsage {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.Builder createElectrodeArrayUsage(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.ElectrodeUsage electrodeUsage = new ElectrodeUsage();
-
-            public class ElectrodeUsage {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.Builder createElectrodeUsage(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.Electrode electrode = new Electrode();
-
-            public class Electrode {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.Builder createElectrode(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.ElectrodeArray electrodeArray = new ElectrodeArray();
-
-            public class ElectrodeArray {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.Builder createElectrodeArray(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.PipetteUsage pipetteUsage = new PipetteUsage();
-
-            public class PipetteUsage {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.Builder createPipetteUsage(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.Pipette pipette = new Pipette();
-
-            public class Pipette {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.Builder createPipette(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.Channel channel = new Channel();
-
-            public class Channel {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.Builder createChannel(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Ephys.Recording recording = new Recording();
-
-            public class Recording {
-
-                public org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.Builder createRecording(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.SANDS SANDS = new SANDS();
 
-
-        public class SANDS{
-
+        public final class SANDS{
+            private SANDS(){}
             
-            public final OpenMINDS.Latest.SANDS.ParcellationEntity parcellationEntity = new ParcellationEntity();
-
-            public class ParcellationEntity {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.Builder createParcellationEntity(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.BrainAtlasVersion brainAtlasVersion = new BrainAtlasVersion();
-
-            public class BrainAtlasVersion {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.Builder createBrainAtlasVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.ParcellationTerminology parcellationTerminology = new ParcellationTerminology();
-
-            public class ParcellationTerminology {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.Builder createParcellationTerminology(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.ParcellationTerminologyVersion parcellationTerminologyVersion = new ParcellationTerminologyVersion();
-
-            public class ParcellationTerminologyVersion {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.Builder createParcellationTerminologyVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.BrainAtlas brainAtlas = new BrainAtlas();
-
-            public class BrainAtlas {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.Builder createBrainAtlas(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.CommonCoordinateSpace commonCoordinateSpace = new CommonCoordinateSpace();
-
-            public class CommonCoordinateSpace {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.Builder createCommonCoordinateSpace(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.ParcellationEntityVersion parcellationEntityVersion = new ParcellationEntityVersion();
-
-            public class ParcellationEntityVersion {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.Builder createParcellationEntityVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.AtlasAnnotation atlasAnnotation = new AtlasAnnotation();
-
-            public class AtlasAnnotation {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.Builder createAtlasAnnotation(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.CommonCoordinateSpaceVersion commonCoordinateSpaceVersion = new CommonCoordinateSpaceVersion();
-
-            public class CommonCoordinateSpaceVersion {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.Builder createCommonCoordinateSpaceVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.CustomAnnotation customAnnotation = new CustomAnnotation();
-
-            public class CustomAnnotation {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.Builder createCustomAnnotation(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.CustomCoordinateSpace customCoordinateSpace = new CustomCoordinateSpace();
-
-            public class CustomCoordinateSpace {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.Builder createCustomCoordinateSpace(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.CustomAnatomicalEntity customAnatomicalEntity = new CustomAnatomicalEntity();
-
-            public class CustomAnatomicalEntity {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.Builder createCustomAnatomicalEntity(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.QualitativeRelationAssessment qualitativeRelationAssessment = new QualitativeRelationAssessment();
-
-            public class QualitativeRelationAssessment {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.Builder createQualitativeRelationAssessment(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.CoordinatePoint coordinatePoint = new CoordinatePoint();
-
-            public class CoordinatePoint {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.Builder createCoordinatePoint(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.QuantitativeRelationAssessment quantitativeRelationAssessment = new QuantitativeRelationAssessment();
-
-            public class QuantitativeRelationAssessment {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder createQuantitativeRelationAssessment(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.SingleColor singleColor = new SingleColor();
-
-            public class SingleColor {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.Builder createSingleColor(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.AnatomicalTargetPosition anatomicalTargetPosition = new AnatomicalTargetPosition();
-
-            public class AnatomicalTargetPosition {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.Builder createAnatomicalTargetPosition(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.ViewerSpecification viewerSpecification = new ViewerSpecification();
-
-            public class ViewerSpecification {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.Builder createViewerSpecification(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.Rectangle rectangle = new Rectangle();
-
-            public class Rectangle {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.Builder createRectangle(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.Circle circle = new Circle();
-
-            public class Circle {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.Builder createCircle(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SANDS.Ellipse ellipse = new Ellipse();
-
-            public class Ellipse {
-
-                public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.Builder createEllipse(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.Core core = new Core();
 
-
-        public class Core{
-
-            
-            public final OpenMINDS.Latest.Core.ProtocolExecution protocolExecution = new ProtocolExecution();
-
-            public class ProtocolExecution {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.SubjectState subjectState = new SubjectState();
-
-            public class SubjectState {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.SubjectState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.SubjectState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.SubjectState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.StringProperty stringProperty = new StringProperty();
-
-            public class StringProperty {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.StringProperty.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.StringProperty.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.PropertyValueList propertyValueList = new PropertyValueList();
-
-            public class PropertyValueList {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.TissueSample tissueSample = new TissueSample();
-
-            public class TissueSample {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.TissueSample.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.TissueSample.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSample.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.SubjectGroupState subjectGroupState = new SubjectGroupState();
-
-            public class SubjectGroupState {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.TissueSampleCollectionState tissueSampleCollectionState = new TissueSampleCollectionState();
-
-            public class TissueSampleCollectionState {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.TissueSampleCollection tissueSampleCollection = new TissueSampleCollection();
-
-            public class TissueSampleCollection {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.BehavioralProtocol behavioralProtocol = new BehavioralProtocol();
-
-            public class BehavioralProtocol {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Configuration configuration = new Configuration();
-
-            public class Configuration {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.Configuration.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.Configuration.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Configuration.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.NumericalProperty numericalProperty = new NumericalProperty();
-
-            public class NumericalProperty {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Protocol protocol = new Protocol();
-
-            public class Protocol {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.Protocol.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.Protocol.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Protocol.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Subject subject = new Subject();
-
-            public class Subject {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.Subject.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.Subject.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Subject.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Strain strain = new Strain();
-
-            public class Strain {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.Strain.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Strain.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.TissueSampleState tissueSampleState = new TissueSampleState();
-
-            public class TissueSampleState {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.CustomPropertySet customPropertySet = new CustomPropertySet();
-
-            public class CustomPropertySet {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.SubjectGroup subjectGroup = new SubjectGroup();
-
-            public class SubjectGroup {
-
-                public org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ContactInformation contactInformation = new ContactInformation();
-
-            public class ContactInformation {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Affiliation affiliation = new Affiliation();
-
-            public class Affiliation {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Organization organization = new Organization();
-
-            public class Organization {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.Organization.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.Organization.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Organization.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Contribution contribution = new Contribution();
-
-            public class Contribution {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.Contribution.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Contribution.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.AccountInformation accountInformation = new AccountInformation();
-
-            public class AccountInformation {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Consortium consortium = new Consortium();
-
-            public class Consortium {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.Consortium.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.Consortium.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Consortium.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Person person = new Person();
-
-            public class Person {
-
-                public org.openmetadatainitiative.openminds.latest.core.actors.Person.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.actors.Person.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Person.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Software software = new Software();
-
-            public class Software {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.Software.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.Software.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Software.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Model model = new Model();
-
-            public class Model {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.Model.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.Model.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Model.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.WebService webService = new WebService();
-
-            public class WebService {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.WebService.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.WebService.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.WebService.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Setup setup = new Setup();
-
-            public class Setup {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.Setup.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.Setup.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Setup.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.SoftwareVersion softwareVersion = new SoftwareVersion();
-
-            public class SoftwareVersion {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.MetaDataModel metaDataModel = new MetaDataModel();
-
-            public class MetaDataModel {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Project project = new Project();
-
-            public class Project {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.Project.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.Project.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Project.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.WebServiceVersion webServiceVersion = new WebServiceVersion();
-
-            public class WebServiceVersion {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ModelVersion modelVersion = new ModelVersion();
-
-            public class ModelVersion {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Dataset dataset = new Dataset();
-
-            public class Dataset {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.Dataset.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.Dataset.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Dataset.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.MetaDataModelVersion metaDataModelVersion = new MetaDataModelVersion();
-
-            public class MetaDataModelVersion {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.DatasetVersion datasetVersion = new DatasetVersion();
-
-            public class DatasetVersion {
-
-                public org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.WebResource webResource = new WebResource();
-
-            public class WebResource {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ResearchProductGroup researchProductGroup = new ResearchProductGroup();
-
-            public class ResearchProductGroup {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.QuantitativeValue quantitativeValue = new QuantitativeValue();
-
-            public class QuantitativeValue {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.QuantitativeValueRange quantitativeValueRange = new QuantitativeValueRange();
-
-            public class QuantitativeValueRange {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.QuantitativeValueArray quantitativeValueArray = new QuantitativeValueArray();
-
-            public class QuantitativeValueArray {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Comment comment = new Comment();
-
-            public class Comment {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Funding funding = new Funding();
-
-            public class Funding {
-
-                public org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.RRID rRID = new RRID();
-
-            public class RRID {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.GRIDID gRIDID = new GRIDID();
-
-            public class GRIDID {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ORCID oRCID = new ORCID();
-
-            public class ORCID {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.IdentifiersDotOrgID identifiersDotOrgID = new IdentifiersDotOrgID();
-
-            public class IdentifiersDotOrgID {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ISSN iSSN = new ISSN();
-
-            public class ISSN {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.StockNumber stockNumber = new StockNumber();
-
-            public class StockNumber {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ISBN iSBN = new ISBN();
-
-            public class ISBN {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.RORID rORID = new RORID();
-
-            public class RORID {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.SWHID sWHID = new SWHID();
-
-            public class SWHID {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.HANDLE hANDLE = new HANDLE();
-
-            public class HANDLE {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.DOI dOI = new DOI();
-
-            public class DOI {
-
-                public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Hash hash = new Hash();
-
-            public class Hash {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.Hash.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Hash.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Measurement measurement = new Measurement();
-
-            public class Measurement {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.Measurement.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Measurement.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.FileRepositoryStructure fileRepositoryStructure = new FileRepositoryStructure();
-
-            public class FileRepositoryStructure {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.FileArchive fileArchive = new FileArchive();
-
-            public class FileArchive {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.FileArchive.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.FileArchive.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileArchive.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.FileRepository fileRepository = new FileRepository();
-
-            public class FileRepository {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.FileRepository.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ContentType contentType = new ContentType();
-
-            public class ContentType {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.ContentType.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.ContentType.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ContentType.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ServiceLink serviceLink = new ServiceLink();
-
-            public class ServiceLink {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.File file = new File();
-
-            public class File {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.File.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.File.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.File.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.FileBundle fileBundle = new FileBundle();
-
-            public class FileBundle {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.FileBundle.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.FileBundle.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileBundle.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.ContentTypePattern contentTypePattern = new ContentTypePattern();
-
-            public class ContentTypePattern {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.Copyright copyright = new Copyright();
-
-            public class Copyright {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.Copyright.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Copyright.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.License license = new License();
-
-            public class License {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.License.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.License.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.License.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
-            }
-            
-            public final OpenMINDS.Latest.Core.FilePathPattern filePathPattern = new FilePathPattern();
-
-            public class FilePathPattern {
-
-                public org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+        public final class Core{
+            private Core(){}
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.Builder createProtocolExecution(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.SubjectState.Builder createSubjectState(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.SubjectState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.SubjectState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.StringProperty.Builder createStringProperty(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.StringProperty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.Builder createPropertyValueList(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.TissueSample.Builder createTissueSample(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.TissueSample.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSample.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.Builder createSubjectGroupState(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.Builder createTissueSampleCollectionState(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.Builder createTissueSampleCollection(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.Configuration.Builder createConfiguration(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.Configuration.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Configuration.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.Builder createNumericalProperty(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.Protocol.Builder createProtocol(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.Protocol.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Protocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.Subject.Builder createSubject(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.Subject.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Subject.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.Strain.Builder createStrain(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Strain.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.Builder createTissueSampleState(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.Builder createCustomPropertySet(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.Builder createSubjectGroup(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.Builder createContactInformation(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.Builder createAffiliation(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.Organization.Builder createOrganization(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.Organization.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Organization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.Contribution.Builder createContribution(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Contribution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.Builder createAccountInformation(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.Consortium.Builder createConsortium(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.Consortium.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Consortium.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.actors.Person.Builder createPerson(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.actors.Person.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Person.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.Software.Builder createSoftware(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Software.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Software.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.Model.Builder createModel(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Model.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Model.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.WebService.Builder createWebService(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.WebService.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.WebService.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.Setup.Builder createSetup(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Setup.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Setup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.Builder createSoftwareVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.Builder createMetaDataModel(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.Project.Builder createProject(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Project.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Project.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.Builder createWebServiceVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.Builder createModelVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.Dataset.Builder createDataset(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Dataset.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Dataset.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.Builder createMetaDataModelVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.Builder createDatasetVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.Builder createWebResource(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.Builder createResearchProductGroup(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.Builder createQuantitativeValue(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.Builder createQuantitativeValueRange(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.Builder createComment(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.Builder createFunding(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.Builder createRRID(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.Builder createGRIDID(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.Builder createORCID(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.Builder createIdentifiersDotOrgID(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.Builder createISSN(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.Builder createStockNumber(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.Builder createRORID(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.Builder createSWHID(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.Builder createHANDLE(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.Builder createDOI(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.Hash.Builder createHash(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Hash.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.Measurement.Builder createMeasurement(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Measurement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.Builder createFileRepositoryStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.FileArchive.Builder createFileArchive(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.FileArchive.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileArchive.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.FileRepository.Builder createFileRepository(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.ContentType.Builder createContentType(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.ContentType.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ContentType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.Builder createServiceLink(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.File.Builder createFile(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.File.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.File.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.FileBundle.Builder createFileBundle(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.FileBundle.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileBundle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.Builder createContentTypePattern(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.Copyright.Builder createCopyright(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Copyright.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.License.Builder createLicense(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.License.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.License.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.Builder createFilePathPattern(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.SpecimenPrep specimenPrep = new SpecimenPrep();
 
-
-        public class SpecimenPrep{
-
+        public final class SpecimenPrep{
+            private SpecimenPrep(){}
             
-            public final OpenMINDS.Latest.SpecimenPrep.TissueCulturePreparation tissueCulturePreparation = new TissueCulturePreparation();
-
-            public class TissueCulturePreparation {
-
-                public org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.Builder createTissueCulturePreparation(String localId){
+                final org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SpecimenPrep.CranialWindowPreparation cranialWindowPreparation = new CranialWindowPreparation();
-
-            public class CranialWindowPreparation {
-
-                public org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.Builder createCranialWindowPreparation(String localId){
+                final org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SpecimenPrep.TissueSampleSlicing tissueSampleSlicing = new TissueSampleSlicing();
-
-            public class TissueSampleSlicing {
-
-                public org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.Builder createTissueSampleSlicing(String localId){
+                final org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueSampleSlicing.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SpecimenPrep.SlicingDevice slicingDevice = new SlicingDevice();
-
-            public class SlicingDevice {
-
-                public org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.Builder createSlicingDevice(String localId){
+                final org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.SpecimenPrep.SlicingDeviceUsage slicingDeviceUsage = new SlicingDeviceUsage();
-
-            public class SlicingDeviceUsage {
-
-                public org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.Builder createSlicingDeviceUsage(String localId){
+                final org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.Builder builder = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
-        
         public final OpenMINDS.Latest.Stimulation stimulation = new Stimulation();
 
-
-        public class Stimulation{
-
+        public final class Stimulation{
+            private Stimulation(){}
             
-            public final OpenMINDS.Latest.Stimulation.StimulationActivity stimulationActivity = new StimulationActivity();
-
-            public class StimulationActivity {
-
-                public org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.Builder builder = org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.Builder createStimulationActivity(String localId){
+                final org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.Builder builder = org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
-            public final OpenMINDS.Latest.Stimulation.EphysStimulus ephysStimulus = new EphysStimulus();
-
-            public class EphysStimulus {
-
-                public org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.Builder create(String localId){
-                    final org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.Builder builder = org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.create(new LocalId(localId));
-                    builders.add(builder);
-                    return builder;
-                }
+            public org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.Builder createEphysStimulus(String localId){
+                final org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.Builder builder = org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
             }
             
         }
         
 
-       public void persist(String targetDirectory) {
-            OpenMINDS.persist(targetDirectory, builders.stream().map(org.openmetadatainitiative.openminds.utils.Builder::build));
+        public void flush(PostProcessor postProcessor){
+            flush(OpenMINDSContext.defaultContext(), postProcessor);
+        }
+
+        public void flush(OpenMINDSContext context, PostProcessor postProcessor){
+            postProcessor.process(builders.stream().map(b -> b.build(context)));
         }
     }
-
     
-
 }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<PropertyValueList> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<PropertyValueList> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private PropertyValueList(LocalId localId ) {
@@ -45,18 +44,11 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
         public Builder propertyValuePair(List<? extends PropertyValueListPropertyValuePair> propertyValuePair) { PropertyValueList.this.propertyValuePair = propertyValuePair; return this; }
         
 
-        public PropertyValueList build() {
+        public PropertyValueList build(OpenMINDSContext context) {
             if (PropertyValueList.this.id == null) {
-                PropertyValueList.this.id = new InstanceId(UUID.randomUUID().toString());
+                PropertyValueList.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(PropertyValueList.this.types == null || PropertyValueList.this.types.isEmpty() || !PropertyValueList.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = PropertyValueList.this.types;
-                PropertyValueList.this.types = new ArrayList<>();
-                PropertyValueList.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    PropertyValueList.this.types.addAll(oldValues);
-                }
-            }
+            PropertyValueList.this.type = SEMANTIC_NAME;
             return PropertyValueList.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
         return doGetReference();
     }
 
-    public static Reference<LivePaperResourceItem> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<LivePaperResourceItem> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private LivePaperResourceItem(LocalId localId ) {
@@ -50,18 +49,11 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
         public Builder name(String name) { LivePaperResourceItem.this.name = name; return this; }
         
 
-        public LivePaperResourceItem build() {
+        public LivePaperResourceItem build(OpenMINDSContext context) {
             if (LivePaperResourceItem.this.id == null) {
-                LivePaperResourceItem.this.id = new InstanceId(UUID.randomUUID().toString());
+                LivePaperResourceItem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(LivePaperResourceItem.this.types == null || LivePaperResourceItem.this.types.isEmpty() || !LivePaperResourceItem.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = LivePaperResourceItem.this.types;
-                LivePaperResourceItem.this.types = new ArrayList<>();
-                LivePaperResourceItem.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    LivePaperResourceItem.this.types.addAll(oldValues);
-                }
-            }
+            LivePaperResourceItem.this.type = SEMANTIC_NAME;
             return LivePaperResourceItem.this;
         }
     }

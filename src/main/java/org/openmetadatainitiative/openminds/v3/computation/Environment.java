@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class Environment extends Instance implements org.openmetadatainitiative.
         return doGetReference();
     }
 
-    public static Reference<Environment> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Environment> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Environment(LocalId localId ) {
@@ -53,18 +52,11 @@ public class Environment extends Instance implements org.openmetadatainitiative.
         public Builder software(List<Reference<SoftwareVersion>> software) { Environment.this.software = software; return this; }
         
 
-        public Environment build() {
+        public Environment build(OpenMINDSContext context) {
             if (Environment.this.id == null) {
-                Environment.this.id = new InstanceId(UUID.randomUUID().toString());
+                Environment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Environment.this.types == null || Environment.this.types.isEmpty() || !Environment.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Environment.this.types;
-                Environment.this.types = new ArrayList<>();
-                Environment.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Environment.this.types.addAll(oldValues);
-                }
-            }
+            Environment.this.type = SEMANTIC_NAME;
             return Environment.this;
         }
     }

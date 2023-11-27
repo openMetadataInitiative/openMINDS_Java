@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
         return doGetReference();
     }
 
-    public static Reference<WebService> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<WebService> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private WebService(LocalId localId ) {
@@ -59,18 +58,11 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
         public Builder shortName(String shortName) { WebService.this.shortName = shortName; return this; }
         
 
-        public WebService build() {
+        public WebService build(OpenMINDSContext context) {
             if (WebService.this.id == null) {
-                WebService.this.id = new InstanceId(UUID.randomUUID().toString());
+                WebService.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(WebService.this.types == null || WebService.this.types.isEmpty() || !WebService.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = WebService.this.types;
-                WebService.this.types = new ArrayList<>();
-                WebService.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    WebService.this.types.addAll(oldValues);
-                }
-            }
+            WebService.this.type = SEMANTIC_NAME;
             return WebService.this;
         }
     }

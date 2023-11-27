@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class StockNumber extends Instance {
         return doGetReference();
     }
 
-    public static Reference<StockNumber> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<StockNumber> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private StockNumber(LocalId localId ) {
@@ -45,18 +44,11 @@ public class StockNumber extends Instance {
         public Builder vendor(Reference<Organization> vendor) { StockNumber.this.vendor = vendor; return this; }
         
 
-        public StockNumber build() {
+        public StockNumber build(OpenMINDSContext context) {
             if (StockNumber.this.id == null) {
-                StockNumber.this.id = new InstanceId(UUID.randomUUID().toString());
+                StockNumber.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(StockNumber.this.types == null || StockNumber.this.types.isEmpty() || !StockNumber.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = StockNumber.this.types;
-                StockNumber.this.types = new ArrayList<>();
-                StockNumber.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    StockNumber.this.types.addAll(oldValues);
-                }
-            }
+            StockNumber.this.type = SEMANTIC_NAME;
             return StockNumber.this;
         }
     }

@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class RRID extends Instance implements org.openmetadatainitiative.openmin
         return doGetReference();
     }
 
-    public static Reference<RRID> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<RRID> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private RRID(LocalId localId ) {
@@ -42,18 +41,11 @@ public class RRID extends Instance implements org.openmetadatainitiative.openmin
         public Builder identifier(String identifier) { RRID.this.identifier = identifier; return this; }
         
 
-        public RRID build() {
+        public RRID build(OpenMINDSContext context) {
             if (RRID.this.id == null) {
-                RRID.this.id = new InstanceId(UUID.randomUUID().toString());
+                RRID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(RRID.this.types == null || RRID.this.types.isEmpty() || !RRID.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = RRID.this.types;
-                RRID.this.types = new ArrayList<>();
-                RRID.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    RRID.this.types.addAll(oldValues);
-                }
-            }
+            RRID.this.type = SEMANTIC_NAME;
             return RRID.this;
         }
     }

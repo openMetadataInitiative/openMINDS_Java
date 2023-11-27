@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class TissueSampleType extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<TissueSampleType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<TissueSampleType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private TissueSampleType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class TissueSampleType extends Instance implements org.openmetadatainitia
         public Builder synonym(List<String> synonym) { TissueSampleType.this.synonym = synonym; return this; }
         
 
-        public TissueSampleType build() {
+        public TissueSampleType build(OpenMINDSContext context) {
             if (TissueSampleType.this.id == null) {
-                TissueSampleType.this.id = new InstanceId(UUID.randomUUID().toString());
+                TissueSampleType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(TissueSampleType.this.types == null || TissueSampleType.this.types.isEmpty() || !TissueSampleType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = TissueSampleType.this.types;
-                TissueSampleType.this.types = new ArrayList<>();
-                TissueSampleType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    TissueSampleType.this.types.addAll(oldValues);
-                }
-            }
+            TissueSampleType.this.type = SEMANTIC_NAME;
             return TissueSampleType.this;
         }
     }

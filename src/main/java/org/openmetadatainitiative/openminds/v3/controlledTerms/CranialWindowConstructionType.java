@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class CranialWindowConstructionType extends Instance implements org.openm
         return doGetReference();
     }
 
-    public static Reference<CranialWindowConstructionType> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<CranialWindowConstructionType> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private CranialWindowConstructionType(LocalId localId ) {
@@ -54,18 +53,11 @@ public class CranialWindowConstructionType extends Instance implements org.openm
         public Builder synonym(List<String> synonym) { CranialWindowConstructionType.this.synonym = synonym; return this; }
         
 
-        public CranialWindowConstructionType build() {
+        public CranialWindowConstructionType build(OpenMINDSContext context) {
             if (CranialWindowConstructionType.this.id == null) {
-                CranialWindowConstructionType.this.id = new InstanceId(UUID.randomUUID().toString());
+                CranialWindowConstructionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(CranialWindowConstructionType.this.types == null || CranialWindowConstructionType.this.types.isEmpty() || !CranialWindowConstructionType.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = CranialWindowConstructionType.this.types;
-                CranialWindowConstructionType.this.types = new ArrayList<>();
-                CranialWindowConstructionType.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    CranialWindowConstructionType.this.types.addAll(oldValues);
-                }
-            }
+            CranialWindowConstructionType.this.type = SEMANTIC_NAME;
             return CranialWindowConstructionType.this;
         }
     }

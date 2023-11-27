@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -41,8 +40,8 @@ public class Optimization extends Instance implements org.openmetadatainitiative
         return doGetReference();
     }
 
-    public static Reference<Optimization> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Optimization> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Optimization(LocalId localId ) {
@@ -89,18 +88,11 @@ public class Optimization extends Instance implements org.openmetadatainitiative
         public Builder wasInformedBy(Reference<? extends OptimizationWasInformedBy> wasInformedBy) { Optimization.this.wasInformedBy = wasInformedBy; return this; }
         
 
-        public Optimization build() {
+        public Optimization build(OpenMINDSContext context) {
             if (Optimization.this.id == null) {
-                Optimization.this.id = new InstanceId(UUID.randomUUID().toString());
+                Optimization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Optimization.this.types == null || Optimization.this.types.isEmpty() || !Optimization.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Optimization.this.types;
-                Optimization.this.types = new ArrayList<>();
-                Optimization.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Optimization.this.types.addAll(oldValues);
-                }
-            }
+            Optimization.this.type = SEMANTIC_NAME;
             return Optimization.this;
         }
     }

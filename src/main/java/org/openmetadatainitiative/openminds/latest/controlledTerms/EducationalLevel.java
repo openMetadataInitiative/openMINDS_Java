@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class EducationalLevel extends Instance implements org.openmetadatainitia
         return doGetReference();
     }
 
-    public static Reference<EducationalLevel> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<EducationalLevel> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private EducationalLevel(LocalId localId ) {
@@ -54,18 +53,11 @@ public class EducationalLevel extends Instance implements org.openmetadatainitia
         public Builder synonym(List<String> synonym) { EducationalLevel.this.synonym = synonym; return this; }
         
 
-        public EducationalLevel build() {
+        public EducationalLevel build(OpenMINDSContext context) {
             if (EducationalLevel.this.id == null) {
-                EducationalLevel.this.id = new InstanceId(UUID.randomUUID().toString());
+                EducationalLevel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(EducationalLevel.this.types == null || EducationalLevel.this.types.isEmpty() || !EducationalLevel.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = EducationalLevel.this.types;
-                EducationalLevel.this.types = new ArrayList<>();
-                EducationalLevel.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    EducationalLevel.this.types.addAll(oldValues);
-                }
-            }
+            EducationalLevel.this.type = SEMANTIC_NAME;
             return EducationalLevel.this;
         }
     }

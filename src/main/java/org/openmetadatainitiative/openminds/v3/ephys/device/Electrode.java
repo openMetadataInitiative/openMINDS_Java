@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ public class Electrode extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<Electrode> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Electrode> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Electrode(LocalId localId ) {
@@ -71,18 +70,11 @@ public class Electrode extends Instance implements org.openmetadatainitiative.op
         public Builder serialNumber(String serialNumber) { Electrode.this.serialNumber = serialNumber; return this; }
         
 
-        public Electrode build() {
+        public Electrode build(OpenMINDSContext context) {
             if (Electrode.this.id == null) {
-                Electrode.this.id = new InstanceId(UUID.randomUUID().toString());
+                Electrode.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Electrode.this.types == null || Electrode.this.types.isEmpty() || !Electrode.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Electrode.this.types;
-                Electrode.this.types = new ArrayList<>();
-                Electrode.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Electrode.this.types.addAll(oldValues);
-                }
-            }
+            Electrode.this.type = SEMANTIC_NAME;
             return Electrode.this;
         }
     }

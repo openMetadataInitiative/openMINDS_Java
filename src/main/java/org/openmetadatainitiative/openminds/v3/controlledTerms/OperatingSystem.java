@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class OperatingSystem extends Instance implements org.openmetadatainitiat
         return doGetReference();
     }
 
-    public static Reference<OperatingSystem> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<OperatingSystem> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private OperatingSystem(LocalId localId ) {
@@ -54,18 +53,11 @@ public class OperatingSystem extends Instance implements org.openmetadatainitiat
         public Builder synonym(List<String> synonym) { OperatingSystem.this.synonym = synonym; return this; }
         
 
-        public OperatingSystem build() {
+        public OperatingSystem build(OpenMINDSContext context) {
             if (OperatingSystem.this.id == null) {
-                OperatingSystem.this.id = new InstanceId(UUID.randomUUID().toString());
+                OperatingSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(OperatingSystem.this.types == null || OperatingSystem.this.types.isEmpty() || !OperatingSystem.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = OperatingSystem.this.types;
-                OperatingSystem.this.types = new ArrayList<>();
-                OperatingSystem.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    OperatingSystem.this.types.addAll(oldValues);
-                }
-            }
+            OperatingSystem.this.type = SEMANTIC_NAME;
             return OperatingSystem.this;
         }
     }

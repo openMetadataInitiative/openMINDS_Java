@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class ProductSource extends Instance {
         return doGetReference();
     }
 
-    public static Reference<ProductSource> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<ProductSource> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private ProductSource(LocalId localId ) {
@@ -53,18 +52,11 @@ public class ProductSource extends Instance {
         public Builder purity(ProductSourcePurity purity) { ProductSource.this.purity = purity; return this; }
         
 
-        public ProductSource build() {
+        public ProductSource build(OpenMINDSContext context) {
             if (ProductSource.this.id == null) {
-                ProductSource.this.id = new InstanceId(UUID.randomUUID().toString());
+                ProductSource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(ProductSource.this.types == null || ProductSource.this.types.isEmpty() || !ProductSource.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = ProductSource.this.types;
-                ProductSource.this.types = new ArrayList<>();
-                ProductSource.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    ProductSource.this.types.addAll(oldValues);
-                }
-            }
+            ProductSource.this.type = SEMANTIC_NAME;
             return ProductSource.this;
         }
     }

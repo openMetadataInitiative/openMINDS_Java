@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Funding extends Instance {
         return doGetReference();
     }
 
-    public static Reference<Funding> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Funding> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Funding(LocalId localId ) {
@@ -49,18 +48,11 @@ public class Funding extends Instance {
         public Builder funder(Reference<? extends FundingFunder> funder) { Funding.this.funder = funder; return this; }
         
 
-        public Funding build() {
+        public Funding build(OpenMINDSContext context) {
             if (Funding.this.id == null) {
-                Funding.this.id = new InstanceId(UUID.randomUUID().toString());
+                Funding.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Funding.this.types == null || Funding.this.types.isEmpty() || !Funding.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Funding.this.types;
-                Funding.this.types = new ArrayList<>();
-                Funding.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Funding.this.types.addAll(oldValues);
-                }
-            }
+            Funding.this.type = SEMANTIC_NAME;
             return Funding.this;
         }
     }

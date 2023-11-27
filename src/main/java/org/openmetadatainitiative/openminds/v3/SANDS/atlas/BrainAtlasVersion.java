@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -45,8 +44,8 @@ public class BrainAtlasVersion extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<BrainAtlasVersion> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<BrainAtlasVersion> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private BrainAtlasVersion(LocalId localId ) {
@@ -117,18 +116,11 @@ public class BrainAtlasVersion extends Instance implements org.openmetadatainiti
         public Builder versionInnovation(String versionInnovation) { BrainAtlasVersion.this.versionInnovation = versionInnovation; return this; }
         
 
-        public BrainAtlasVersion build() {
+        public BrainAtlasVersion build(OpenMINDSContext context) {
             if (BrainAtlasVersion.this.id == null) {
-                BrainAtlasVersion.this.id = new InstanceId(UUID.randomUUID().toString());
+                BrainAtlasVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(BrainAtlasVersion.this.types == null || BrainAtlasVersion.this.types.isEmpty() || !BrainAtlasVersion.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = BrainAtlasVersion.this.types;
-                BrainAtlasVersion.this.types = new ArrayList<>();
-                BrainAtlasVersion.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    BrainAtlasVersion.this.types.addAll(oldValues);
-                }
-            }
+            BrainAtlasVersion.this.type = SEMANTIC_NAME;
             return BrainAtlasVersion.this;
         }
     }

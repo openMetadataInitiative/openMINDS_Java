@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class DifferenceMeasure extends Instance implements org.openmetadatainiti
         return doGetReference();
     }
 
-    public static Reference<DifferenceMeasure> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<DifferenceMeasure> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private DifferenceMeasure(LocalId localId ) {
@@ -54,18 +53,11 @@ public class DifferenceMeasure extends Instance implements org.openmetadatainiti
         public Builder synonym(List<String> synonym) { DifferenceMeasure.this.synonym = synonym; return this; }
         
 
-        public DifferenceMeasure build() {
+        public DifferenceMeasure build(OpenMINDSContext context) {
             if (DifferenceMeasure.this.id == null) {
-                DifferenceMeasure.this.id = new InstanceId(UUID.randomUUID().toString());
+                DifferenceMeasure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(DifferenceMeasure.this.types == null || DifferenceMeasure.this.types.isEmpty() || !DifferenceMeasure.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = DifferenceMeasure.this.types;
-                DifferenceMeasure.this.types = new ArrayList<>();
-                DifferenceMeasure.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    DifferenceMeasure.this.types.addAll(oldValues);
-                }
-            }
+            DifferenceMeasure.this.type = SEMANTIC_NAME;
             return DifferenceMeasure.this;
         }
     }

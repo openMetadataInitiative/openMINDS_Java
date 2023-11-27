@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
         return doGetReference();
     }
 
-    public static Reference<Ellipse> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Ellipse> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Ellipse(LocalId localId ) {
@@ -45,18 +44,11 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
         public Builder semiMinorAxis(QuantitativeValue semiMinorAxis) { Ellipse.this.semiMinorAxis = semiMinorAxis; return this; }
         
 
-        public Ellipse build() {
+        public Ellipse build(OpenMINDSContext context) {
             if (Ellipse.this.id == null) {
-                Ellipse.this.id = new InstanceId(UUID.randomUUID().toString());
+                Ellipse.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Ellipse.this.types == null || Ellipse.this.types.isEmpty() || !Ellipse.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Ellipse.this.types;
-                Ellipse.this.types = new ArrayList<>();
-                Ellipse.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Ellipse.this.types.addAll(oldValues);
-                }
-            }
+            Ellipse.this.type = SEMANTIC_NAME;
             return Ellipse.this;
         }
     }

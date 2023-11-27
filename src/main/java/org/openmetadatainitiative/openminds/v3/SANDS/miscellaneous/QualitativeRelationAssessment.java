@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
         return doGetReference();
     }
 
-    public static Reference<QualitativeRelationAssessment> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<QualitativeRelationAssessment> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private QualitativeRelationAssessment(LocalId localId ) {
@@ -49,18 +48,11 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
         public Builder qualitativeOverlap(Reference<QualitativeOverlap> qualitativeOverlap) { QualitativeRelationAssessment.this.qualitativeOverlap = qualitativeOverlap; return this; }
         
 
-        public QualitativeRelationAssessment build() {
+        public QualitativeRelationAssessment build(OpenMINDSContext context) {
             if (QualitativeRelationAssessment.this.id == null) {
-                QualitativeRelationAssessment.this.id = new InstanceId(UUID.randomUUID().toString());
+                QualitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(QualitativeRelationAssessment.this.types == null || QualitativeRelationAssessment.this.types.isEmpty() || !QualitativeRelationAssessment.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = QualitativeRelationAssessment.this.types;
-                QualitativeRelationAssessment.this.types = new ArrayList<>();
-                QualitativeRelationAssessment.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    QualitativeRelationAssessment.this.types.addAll(oldValues);
-                }
-            }
+            QualitativeRelationAssessment.this.type = SEMANTIC_NAME;
             return QualitativeRelationAssessment.this;
         }
     }

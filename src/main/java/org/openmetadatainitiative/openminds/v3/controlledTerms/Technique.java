@@ -3,7 +3,6 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class Technique extends Instance implements org.openmetadatainitiative.op
         return doGetReference();
     }
 
-    public static Reference<Technique> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<Technique> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private Technique(LocalId localId ) {
@@ -54,18 +53,11 @@ public class Technique extends Instance implements org.openmetadatainitiative.op
         public Builder synonym(List<String> synonym) { Technique.this.synonym = synonym; return this; }
         
 
-        public Technique build() {
+        public Technique build(OpenMINDSContext context) {
             if (Technique.this.id == null) {
-                Technique.this.id = new InstanceId(UUID.randomUUID().toString());
+                Technique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if(Technique.this.types == null || Technique.this.types.isEmpty() || !Technique.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = Technique.this.types;
-                Technique.this.types = new ArrayList<>();
-                Technique.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    Technique.this.types.addAll(oldValues);
-                }
-            }
+            Technique.this.type = SEMANTIC_NAME;
             return Technique.this;
         }
     }
