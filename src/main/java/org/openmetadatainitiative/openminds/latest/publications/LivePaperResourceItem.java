@@ -51,7 +51,7 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
 
         public LivePaperResourceItem build(OpenMINDSContext context) {
             if (LivePaperResourceItem.this.id == null) {
-                LivePaperResourceItem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LivePaperResourceItem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LivePaperResourceItem.this.type = SEMANTIC_NAME;
             return LivePaperResourceItem.this;

@@ -53,7 +53,7 @@ public class QuantitativeValueArray extends Instance {
 
         public QuantitativeValueArray build(OpenMINDSContext context) {
             if (QuantitativeValueArray.this.id == null) {
-                QuantitativeValueArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                QuantitativeValueArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             QuantitativeValueArray.this.type = SEMANTIC_NAME;
             return QuantitativeValueArray.this;

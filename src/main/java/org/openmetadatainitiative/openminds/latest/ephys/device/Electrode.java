@@ -72,7 +72,7 @@ public class Electrode extends Instance implements org.openmetadatainitiative.op
 
         public Electrode build(OpenMINDSContext context) {
             if (Electrode.this.id == null) {
-                Electrode.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Electrode.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Electrode.this.type = SEMANTIC_NAME;
             return Electrode.this;

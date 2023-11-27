@@ -85,7 +85,7 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
 
         public Book build(OpenMINDSContext context) {
             if (Book.this.id == null) {
-                Book.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Book.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Book.this.type = SEMANTIC_NAME;
             return Book.this;

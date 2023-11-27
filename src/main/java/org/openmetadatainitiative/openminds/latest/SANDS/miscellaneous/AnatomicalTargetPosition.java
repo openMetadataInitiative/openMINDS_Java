@@ -52,7 +52,7 @@ public class AnatomicalTargetPosition extends Instance {
 
         public AnatomicalTargetPosition build(OpenMINDSContext context) {
             if (AnatomicalTargetPosition.this.id == null) {
-                AnatomicalTargetPosition.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AnatomicalTargetPosition.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AnatomicalTargetPosition.this.type = SEMANTIC_NAME;
             return AnatomicalTargetPosition.this;

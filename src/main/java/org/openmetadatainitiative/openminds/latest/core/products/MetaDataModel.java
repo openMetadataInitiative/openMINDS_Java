@@ -63,7 +63,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
 
         public MetaDataModel build(OpenMINDSContext context) {
             if (MetaDataModel.this.id == null) {
-                MetaDataModel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                MetaDataModel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             MetaDataModel.this.type = SEMANTIC_NAME;
             return MetaDataModel.this;

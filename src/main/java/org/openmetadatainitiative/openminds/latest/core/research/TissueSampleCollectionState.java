@@ -65,7 +65,7 @@ public class TissueSampleCollectionState extends Instance implements org.openmet
 
         public TissueSampleCollectionState build(OpenMINDSContext context) {
             if (TissueSampleCollectionState.this.id == null) {
-                TissueSampleCollectionState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                TissueSampleCollectionState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             TissueSampleCollectionState.this.type = SEMANTIC_NAME;
             return TissueSampleCollectionState.this;

@@ -79,7 +79,7 @@ public class ElectrodePlacement extends Instance {
 
         public ElectrodePlacement build(OpenMINDSContext context) {
             if (ElectrodePlacement.this.id == null) {
-                ElectrodePlacement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ElectrodePlacement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ElectrodePlacement.this.type = SEMANTIC_NAME;
             return ElectrodePlacement.this;

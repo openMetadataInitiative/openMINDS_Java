@@ -55,7 +55,7 @@ public class CriteriaQualityType extends Instance implements org.openmetadataini
 
         public CriteriaQualityType build(OpenMINDSContext context) {
             if (CriteriaQualityType.this.id == null) {
-                CriteriaQualityType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CriteriaQualityType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CriteriaQualityType.this.type = SEMANTIC_NAME;
             return CriteriaQualityType.this;

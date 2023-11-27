@@ -43,7 +43,7 @@ public class ISBN extends Instance implements org.openmetadatainitiative.openmin
 
         public ISBN build(OpenMINDSContext context) {
             if (ISBN.this.id == null) {
-                ISBN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ISBN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ISBN.this.type = SEMANTIC_NAME;
             return ISBN.this;

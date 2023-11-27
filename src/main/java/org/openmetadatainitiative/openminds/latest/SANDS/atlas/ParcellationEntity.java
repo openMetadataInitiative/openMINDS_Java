@@ -61,7 +61,7 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
 
         public ParcellationEntity build(OpenMINDSContext context) {
             if (ParcellationEntity.this.id == null) {
-                ParcellationEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ParcellationEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ParcellationEntity.this.type = SEMANTIC_NAME;
             return ParcellationEntity.this;

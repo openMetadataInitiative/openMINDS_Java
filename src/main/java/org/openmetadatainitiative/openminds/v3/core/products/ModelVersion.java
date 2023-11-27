@@ -109,7 +109,7 @@ public class ModelVersion extends Instance implements org.openmetadatainitiative
 
         public ModelVersion build(OpenMINDSContext context) {
             if (ModelVersion.this.id == null) {
-                ModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ModelVersion.this.type = SEMANTIC_NAME;
             return ModelVersion.this;

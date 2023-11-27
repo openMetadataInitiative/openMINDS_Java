@@ -55,7 +55,7 @@ public class CranialWindowConstructionType extends Instance implements org.openm
 
         public CranialWindowConstructionType build(OpenMINDSContext context) {
             if (CranialWindowConstructionType.this.id == null) {
-                CranialWindowConstructionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CranialWindowConstructionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CranialWindowConstructionType.this.type = SEMANTIC_NAME;
             return CranialWindowConstructionType.this;

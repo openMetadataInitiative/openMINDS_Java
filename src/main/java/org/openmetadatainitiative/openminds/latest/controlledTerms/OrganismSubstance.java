@@ -55,7 +55,7 @@ public class OrganismSubstance extends Instance implements org.openmetadatainiti
 
         public OrganismSubstance build(OpenMINDSContext context) {
             if (OrganismSubstance.this.id == null) {
-                OrganismSubstance.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                OrganismSubstance.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             OrganismSubstance.this.type = SEMANTIC_NAME;
             return OrganismSubstance.this;

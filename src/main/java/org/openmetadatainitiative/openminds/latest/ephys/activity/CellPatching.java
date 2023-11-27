@@ -88,7 +88,7 @@ public class CellPatching extends Instance {
 
         public CellPatching build(OpenMINDSContext context) {
             if (CellPatching.this.id == null) {
-                CellPatching.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CellPatching.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CellPatching.this.type = SEMANTIC_NAME;
             return CellPatching.this;

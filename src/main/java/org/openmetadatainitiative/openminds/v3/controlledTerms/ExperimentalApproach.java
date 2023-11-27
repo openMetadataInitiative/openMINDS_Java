@@ -55,7 +55,7 @@ public class ExperimentalApproach extends Instance implements org.openmetadatain
 
         public ExperimentalApproach build(OpenMINDSContext context) {
             if (ExperimentalApproach.this.id == null) {
-                ExperimentalApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ExperimentalApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ExperimentalApproach.this.type = SEMANTIC_NAME;
             return ExperimentalApproach.this;

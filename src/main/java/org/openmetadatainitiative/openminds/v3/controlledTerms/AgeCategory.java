@@ -55,7 +55,7 @@ public class AgeCategory extends Instance implements org.openmetadatainitiative.
 
         public AgeCategory build(OpenMINDSContext context) {
             if (AgeCategory.this.id == null) {
-                AgeCategory.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AgeCategory.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AgeCategory.this.type = SEMANTIC_NAME;
             return AgeCategory.this;

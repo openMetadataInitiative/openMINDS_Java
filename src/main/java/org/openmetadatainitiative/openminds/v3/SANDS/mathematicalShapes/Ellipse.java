@@ -46,7 +46,7 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
 
         public Ellipse build(OpenMINDSContext context) {
             if (Ellipse.this.id == null) {
-                Ellipse.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Ellipse.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Ellipse.this.type = SEMANTIC_NAME;
             return Ellipse.this;

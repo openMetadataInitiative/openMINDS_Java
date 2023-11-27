@@ -43,7 +43,7 @@ public class ISSN extends Instance implements org.openmetadatainitiative.openmin
 
         public ISSN build(OpenMINDSContext context) {
             if (ISSN.this.id == null) {
-                ISSN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ISSN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ISSN.this.type = SEMANTIC_NAME;
             return ISSN.this;

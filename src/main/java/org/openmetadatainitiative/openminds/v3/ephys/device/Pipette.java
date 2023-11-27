@@ -71,7 +71,7 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
 
         public Pipette build(OpenMINDSContext context) {
             if (Pipette.this.id == null) {
-                Pipette.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Pipette.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Pipette.this.type = SEMANTIC_NAME;
             return Pipette.this;

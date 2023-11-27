@@ -63,7 +63,7 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
 
         public FileBundle build(OpenMINDSContext context) {
             if (FileBundle.this.id == null) {
-                FileBundle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                FileBundle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             FileBundle.this.type = SEMANTIC_NAME;
             return FileBundle.this;

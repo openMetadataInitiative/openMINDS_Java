@@ -55,7 +55,7 @@ public class MeasuredSignalType extends Instance implements org.openmetadatainit
 
         public MeasuredSignalType build(OpenMINDSContext context) {
             if (MeasuredSignalType.this.id == null) {
-                MeasuredSignalType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                MeasuredSignalType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             MeasuredSignalType.this.type = SEMANTIC_NAME;
             return MeasuredSignalType.this;

@@ -46,7 +46,7 @@ public class PublicationVolume extends Instance implements org.openmetadatainiti
 
         public PublicationVolume build(OpenMINDSContext context) {
             if (PublicationVolume.this.id == null) {
-                PublicationVolume.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                PublicationVolume.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             PublicationVolume.this.type = SEMANTIC_NAME;
             return PublicationVolume.this;

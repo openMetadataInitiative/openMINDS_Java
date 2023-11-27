@@ -63,7 +63,7 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
 
         public LivePaper build(OpenMINDSContext context) {
             if (LivePaper.this.id == null) {
-                LivePaper.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LivePaper.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LivePaper.this.type = SEMANTIC_NAME;
             return LivePaper.this;

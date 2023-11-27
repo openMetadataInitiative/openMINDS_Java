@@ -127,7 +127,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
 
         public SoftwareVersion build(OpenMINDSContext context) {
             if (SoftwareVersion.this.id == null) {
-                SoftwareVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SoftwareVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SoftwareVersion.this.type = SEMANTIC_NAME;
             return SoftwareVersion.this;

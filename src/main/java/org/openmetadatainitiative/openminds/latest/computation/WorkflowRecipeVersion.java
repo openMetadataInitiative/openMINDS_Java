@@ -106,7 +106,7 @@ public class WorkflowRecipeVersion extends Instance implements org.openmetadatai
 
         public WorkflowRecipeVersion build(OpenMINDSContext context) {
             if (WorkflowRecipeVersion.this.id == null) {
-                WorkflowRecipeVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                WorkflowRecipeVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             WorkflowRecipeVersion.this.type = SEMANTIC_NAME;
             return WorkflowRecipeVersion.this;

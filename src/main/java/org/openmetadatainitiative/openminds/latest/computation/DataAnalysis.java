@@ -90,7 +90,7 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
 
         public DataAnalysis build(OpenMINDSContext context) {
             if (DataAnalysis.this.id == null) {
-                DataAnalysis.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                DataAnalysis.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             DataAnalysis.this.type = SEMANTIC_NAME;
             return DataAnalysis.this;

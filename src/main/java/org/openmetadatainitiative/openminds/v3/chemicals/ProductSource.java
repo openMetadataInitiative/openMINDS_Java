@@ -54,7 +54,7 @@ public class ProductSource extends Instance {
 
         public ProductSource build(OpenMINDSContext context) {
             if (ProductSource.this.id == null) {
-                ProductSource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ProductSource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ProductSource.this.type = SEMANTIC_NAME;
             return ProductSource.this;

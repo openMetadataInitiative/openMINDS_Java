@@ -55,7 +55,7 @@ public class ProgrammingLanguage extends Instance implements org.openmetadataini
 
         public ProgrammingLanguage build(OpenMINDSContext context) {
             if (ProgrammingLanguage.this.id == null) {
-                ProgrammingLanguage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ProgrammingLanguage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ProgrammingLanguage.this.type = SEMANTIC_NAME;
             return ProgrammingLanguage.this;

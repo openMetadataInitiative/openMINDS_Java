@@ -55,7 +55,7 @@ public class AnnotationCriteriaType extends Instance implements org.openmetadata
 
         public AnnotationCriteriaType build(OpenMINDSContext context) {
             if (AnnotationCriteriaType.this.id == null) {
-                AnnotationCriteriaType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AnnotationCriteriaType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AnnotationCriteriaType.this.type = SEMANTIC_NAME;
             return AnnotationCriteriaType.this;

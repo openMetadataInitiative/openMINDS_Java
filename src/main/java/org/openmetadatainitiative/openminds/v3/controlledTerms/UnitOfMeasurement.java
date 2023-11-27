@@ -55,7 +55,7 @@ public class UnitOfMeasurement extends Instance implements org.openmetadatainiti
 
         public UnitOfMeasurement build(OpenMINDSContext context) {
             if (UnitOfMeasurement.this.id == null) {
-                UnitOfMeasurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                UnitOfMeasurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             UnitOfMeasurement.this.type = SEMANTIC_NAME;
             return UnitOfMeasurement.this;

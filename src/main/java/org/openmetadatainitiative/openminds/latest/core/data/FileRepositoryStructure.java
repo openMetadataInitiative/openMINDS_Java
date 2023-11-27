@@ -46,7 +46,7 @@ public class FileRepositoryStructure extends Instance {
 
         public FileRepositoryStructure build(OpenMINDSContext context) {
             if (FileRepositoryStructure.this.id == null) {
-                FileRepositoryStructure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                FileRepositoryStructure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             FileRepositoryStructure.this.type = SEMANTIC_NAME;
             return FileRepositoryStructure.this;

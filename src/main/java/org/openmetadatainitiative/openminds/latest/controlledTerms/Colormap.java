@@ -55,7 +55,7 @@ public class Colormap extends Instance implements org.openmetadatainitiative.ope
 
         public Colormap build(OpenMINDSContext context) {
             if (Colormap.this.id == null) {
-                Colormap.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Colormap.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Colormap.this.type = SEMANTIC_NAME;
             return Colormap.this;

@@ -55,7 +55,7 @@ public class CellCultureType extends Instance implements org.openmetadatainitiat
 
         public CellCultureType build(OpenMINDSContext context) {
             if (CellCultureType.this.id == null) {
-                CellCultureType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CellCultureType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CellCultureType.this.type = SEMANTIC_NAME;
             return CellCultureType.this;

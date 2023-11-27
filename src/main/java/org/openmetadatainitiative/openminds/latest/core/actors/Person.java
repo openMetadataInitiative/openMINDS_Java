@@ -59,7 +59,7 @@ public class Person extends Instance implements org.openmetadatainitiative.openm
 
         public Person build(OpenMINDSContext context) {
             if (Person.this.id == null) {
-                Person.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Person.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Person.this.type = SEMANTIC_NAME;
             return Person.this;

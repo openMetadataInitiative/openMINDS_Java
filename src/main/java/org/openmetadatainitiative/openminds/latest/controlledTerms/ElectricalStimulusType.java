@@ -55,7 +55,7 @@ public class ElectricalStimulusType extends Instance implements org.openmetadata
 
         public ElectricalStimulusType build(OpenMINDSContext context) {
             if (ElectricalStimulusType.this.id == null) {
-                ElectricalStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ElectricalStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ElectricalStimulusType.this.type = SEMANTIC_NAME;
             return ElectricalStimulusType.this;

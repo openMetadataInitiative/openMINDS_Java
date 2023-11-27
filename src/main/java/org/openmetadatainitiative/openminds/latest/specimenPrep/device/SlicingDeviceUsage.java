@@ -68,7 +68,7 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
 
         public SlicingDeviceUsage build(OpenMINDSContext context) {
             if (SlicingDeviceUsage.this.id == null) {
-                SlicingDeviceUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SlicingDeviceUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SlicingDeviceUsage.this.type = SEMANTIC_NAME;
             return SlicingDeviceUsage.this;

@@ -51,7 +51,7 @@ public class Comment extends Instance {
 
         public Comment build(OpenMINDSContext context) {
             if (Comment.this.id == null) {
-                Comment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Comment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Comment.this.type = SEMANTIC_NAME;
             return Comment.this;

@@ -119,7 +119,7 @@ public class CommonCoordinateSpaceVersion extends Instance implements org.openme
 
         public CommonCoordinateSpaceVersion build(OpenMINDSContext context) {
             if (CommonCoordinateSpaceVersion.this.id == null) {
-                CommonCoordinateSpaceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CommonCoordinateSpaceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CommonCoordinateSpaceVersion.this.type = SEMANTIC_NAME;
             return CommonCoordinateSpaceVersion.this;

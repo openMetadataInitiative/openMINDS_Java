@@ -50,7 +50,7 @@ public class QuantitativeRelationAssessment extends Instance implements org.open
 
         public QuantitativeRelationAssessment build(OpenMINDSContext context) {
             if (QuantitativeRelationAssessment.this.id == null) {
-                QuantitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                QuantitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             QuantitativeRelationAssessment.this.type = SEMANTIC_NAME;
             return QuantitativeRelationAssessment.this;

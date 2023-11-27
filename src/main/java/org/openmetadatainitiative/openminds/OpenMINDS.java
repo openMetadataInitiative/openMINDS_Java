@@ -16,37 +16,10 @@ import java.util.stream.Stream;
  */
 public class OpenMINDS {
 
-    private final OpenMINDSContext context;
+    private OpenMINDS(){}
 
-    private OpenMINDS(OpenMINDSContext context){
-        this.context = context;
-    }
-
-    private static void persist(String targetDirectory, Stream<Instance> instances){
-        File dir = new File(targetDirectory);
-        if(!dir.exists()){
-            dir.mkdirs();
-        }
-        instances.forEach(i -> {
-            File f = new File(targetDirectory+File.separator+i.getLocalId().id()+".jsonld");
-            try {
-                ParsingUtils.OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValue(f, i);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-    }
-
-    public static OpenMINDS.V3 v3(){
-        return v3(OpenMINDSContext.defaultContext());
-    }
-
-    public static OpenMINDS.V3 v3(String idPrefix){
-        return v3(new OpenMINDSContext(idPrefix, true));
-    }
-
-    private static OpenMINDS.V3 v3(OpenMINDSContext context) {
-        return new OpenMINDS(context).new V3();
+    public static OpenMINDS.V3 v3() {
+        return new OpenMINDS().new V3();
     }
 
     public final class V3 {
@@ -1413,16 +1386,8 @@ public class OpenMINDS {
             postProcessor.process(builders.stream().map(b -> b.build(context)));
         }
     }
-    public static OpenMINDS.Latest latest(){
-        return latest(OpenMINDSContext.defaultContext());
-    }
-
-    public static OpenMINDS.Latest latest(String idPrefix){
-        return latest(new OpenMINDSContext(idPrefix, true));
-    }
-
-    private static OpenMINDS.Latest latest(OpenMINDSContext context) {
-        return new OpenMINDS(context).new Latest();
+    public static OpenMINDS.Latest latest() {
+        return new OpenMINDS().new Latest();
     }
 
     public final class Latest {

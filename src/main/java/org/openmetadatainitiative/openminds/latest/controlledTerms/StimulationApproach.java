@@ -55,7 +55,7 @@ public class StimulationApproach extends Instance implements org.openmetadataini
 
         public StimulationApproach build(OpenMINDSContext context) {
             if (StimulationApproach.this.id == null) {
-                StimulationApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                StimulationApproach.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             StimulationApproach.this.type = SEMANTIC_NAME;
             return StimulationApproach.this;

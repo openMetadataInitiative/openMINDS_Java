@@ -46,7 +46,7 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
 
         public Rectangle build(OpenMINDSContext context) {
             if (Rectangle.this.id == null) {
-                Rectangle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Rectangle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Rectangle.this.type = SEMANTIC_NAME;
             return Rectangle.this;

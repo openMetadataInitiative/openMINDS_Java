@@ -43,7 +43,7 @@ public class GRIDID extends Instance implements org.openmetadatainitiative.openm
 
         public GRIDID build(OpenMINDSContext context) {
             if (GRIDID.this.id == null) {
-                GRIDID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                GRIDID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             GRIDID.this.type = SEMANTIC_NAME;
             return GRIDID.this;

@@ -68,7 +68,7 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
 
         public ParcellationEntityVersion build(OpenMINDSContext context) {
             if (ParcellationEntityVersion.this.id == null) {
-                ParcellationEntityVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ParcellationEntityVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ParcellationEntityVersion.this.type = SEMANTIC_NAME;
             return ParcellationEntityVersion.this;

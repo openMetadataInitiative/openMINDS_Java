@@ -43,7 +43,7 @@ public class DOI extends Instance implements org.openmetadatainitiative.openmind
 
         public DOI build(OpenMINDSContext context) {
             if (DOI.this.id == null) {
-                DOI.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                DOI.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             DOI.this.type = SEMANTIC_NAME;
             return DOI.this;

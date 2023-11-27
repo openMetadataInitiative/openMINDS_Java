@@ -90,7 +90,7 @@ public class Visualization extends Instance implements org.openmetadatainitiativ
 
         public Visualization build(OpenMINDSContext context) {
             if (Visualization.this.id == null) {
-                Visualization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Visualization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Visualization.this.type = SEMANTIC_NAME;
             return Visualization.this;

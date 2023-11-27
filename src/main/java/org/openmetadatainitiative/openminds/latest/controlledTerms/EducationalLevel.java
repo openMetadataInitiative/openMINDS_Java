@@ -55,7 +55,7 @@ public class EducationalLevel extends Instance implements org.openmetadatainitia
 
         public EducationalLevel build(OpenMINDSContext context) {
             if (EducationalLevel.this.id == null) {
-                EducationalLevel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                EducationalLevel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             EducationalLevel.this.type = SEMANTIC_NAME;
             return EducationalLevel.this;

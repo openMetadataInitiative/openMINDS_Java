@@ -111,7 +111,7 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
 
         public ValidationTestVersion build(OpenMINDSContext context) {
             if (ValidationTestVersion.this.id == null) {
-                ValidationTestVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ValidationTestVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ValidationTestVersion.this.type = SEMANTIC_NAME;
             return ValidationTestVersion.this;

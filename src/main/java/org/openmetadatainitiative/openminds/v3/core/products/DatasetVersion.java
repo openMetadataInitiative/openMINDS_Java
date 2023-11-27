@@ -130,7 +130,7 @@ public class DatasetVersion extends Instance implements org.openmetadatainitiati
 
         public DatasetVersion build(OpenMINDSContext context) {
             if (DatasetVersion.this.id == null) {
-                DatasetVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                DatasetVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             DatasetVersion.this.type = SEMANTIC_NAME;
             return DatasetVersion.this;

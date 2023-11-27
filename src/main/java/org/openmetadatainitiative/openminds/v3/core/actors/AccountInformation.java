@@ -46,7 +46,7 @@ public class AccountInformation extends Instance {
 
         public AccountInformation build(OpenMINDSContext context) {
             if (AccountInformation.this.id == null) {
-                AccountInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AccountInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AccountInformation.this.type = SEMANTIC_NAME;
             return AccountInformation.this;

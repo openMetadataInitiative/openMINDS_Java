@@ -55,7 +55,7 @@ public class MolecularEntity extends Instance implements org.openmetadatainitiat
 
         public MolecularEntity build(OpenMINDSContext context) {
             if (MolecularEntity.this.id == null) {
-                MolecularEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                MolecularEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             MolecularEntity.this.type = SEMANTIC_NAME;
             return MolecularEntity.this;

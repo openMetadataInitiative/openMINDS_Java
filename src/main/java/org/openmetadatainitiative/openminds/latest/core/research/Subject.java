@@ -57,7 +57,7 @@ public class Subject extends Instance implements org.openmetadatainitiative.open
 
         public Subject build(OpenMINDSContext context) {
             if (Subject.this.id == null) {
-                Subject.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Subject.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Subject.this.type = SEMANTIC_NAME;
             return Subject.this;

@@ -54,7 +54,7 @@ public class Protocol extends Instance {
 
         public Protocol build(OpenMINDSContext context) {
             if (Protocol.this.id == null) {
-                Protocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Protocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Protocol.this.type = SEMANTIC_NAME;
             return Protocol.this;

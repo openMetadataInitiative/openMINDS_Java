@@ -55,7 +55,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
 
         public CustomCoordinateSpace build(OpenMINDSContext context) {
             if (CustomCoordinateSpace.this.id == null) {
-                CustomCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CustomCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CustomCoordinateSpace.this.type = SEMANTIC_NAME;
             return CustomCoordinateSpace.this;

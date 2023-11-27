@@ -47,7 +47,7 @@ public class Contribution extends Instance {
 
         public Contribution build(OpenMINDSContext context) {
             if (Contribution.this.id == null) {
-                Contribution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Contribution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Contribution.this.type = SEMANTIC_NAME;
             return Contribution.this;

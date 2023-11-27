@@ -55,7 +55,7 @@ public class AnatomicalIdentificationType extends Instance implements org.openme
 
         public AnatomicalIdentificationType build(OpenMINDSContext context) {
             if (AnatomicalIdentificationType.this.id == null) {
-                AnatomicalIdentificationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AnatomicalIdentificationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AnatomicalIdentificationType.this.type = SEMANTIC_NAME;
             return AnatomicalIdentificationType.this;

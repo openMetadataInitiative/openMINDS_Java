@@ -49,7 +49,7 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
 
         public FileArchive build(OpenMINDSContext context) {
             if (FileArchive.this.id == null) {
-                FileArchive.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                FileArchive.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             FileArchive.this.type = SEMANTIC_NAME;
             return FileArchive.this;

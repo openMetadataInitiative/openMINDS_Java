@@ -47,7 +47,7 @@ public class AmountOfChemical extends Instance {
 
         public AmountOfChemical build(OpenMINDSContext context) {
             if (AmountOfChemical.this.id == null) {
-                AmountOfChemical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AmountOfChemical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AmountOfChemical.this.type = SEMANTIC_NAME;
             return AmountOfChemical.this;

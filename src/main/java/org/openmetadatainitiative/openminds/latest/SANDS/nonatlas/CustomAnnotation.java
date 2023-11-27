@@ -73,7 +73,7 @@ public class CustomAnnotation extends Instance {
 
         public CustomAnnotation build(OpenMINDSContext context) {
             if (CustomAnnotation.this.id == null) {
-                CustomAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CustomAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CustomAnnotation.this.type = SEMANTIC_NAME;
             return CustomAnnotation.this;

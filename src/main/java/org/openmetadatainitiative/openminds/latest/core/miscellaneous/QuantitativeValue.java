@@ -51,7 +51,7 @@ public class QuantitativeValue extends Instance implements org.openmetadatainiti
 
         public QuantitativeValue build(OpenMINDSContext context) {
             if (QuantitativeValue.this.id == null) {
-                QuantitativeValue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                QuantitativeValue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             QuantitativeValue.this.type = SEMANTIC_NAME;
             return QuantitativeValue.this;

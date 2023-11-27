@@ -78,7 +78,7 @@ public class StimulationActivity extends Instance {
 
         public StimulationActivity build(OpenMINDSContext context) {
             if (StimulationActivity.this.id == null) {
-                StimulationActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                StimulationActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             StimulationActivity.this.type = SEMANTIC_NAME;
             return StimulationActivity.this;

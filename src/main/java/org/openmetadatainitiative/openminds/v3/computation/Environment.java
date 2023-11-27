@@ -54,7 +54,7 @@ public class Environment extends Instance implements org.openmetadatainitiative.
 
         public Environment build(OpenMINDSContext context) {
             if (Environment.this.id == null) {
-                Environment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Environment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Environment.this.type = SEMANTIC_NAME;
             return Environment.this;

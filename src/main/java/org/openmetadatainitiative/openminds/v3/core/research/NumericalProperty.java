@@ -46,7 +46,7 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
 
         public NumericalProperty build(OpenMINDSContext context) {
             if (NumericalProperty.this.id == null) {
-                NumericalProperty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                NumericalProperty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             NumericalProperty.this.type = SEMANTIC_NAME;
             return NumericalProperty.this;

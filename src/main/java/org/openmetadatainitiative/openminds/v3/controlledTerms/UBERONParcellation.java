@@ -55,7 +55,7 @@ public class UBERONParcellation extends Instance implements org.openmetadatainit
 
         public UBERONParcellation build(OpenMINDSContext context) {
             if (UBERONParcellation.this.id == null) {
-                UBERONParcellation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                UBERONParcellation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             UBERONParcellation.this.type = SEMANTIC_NAME;
             return UBERONParcellation.this;

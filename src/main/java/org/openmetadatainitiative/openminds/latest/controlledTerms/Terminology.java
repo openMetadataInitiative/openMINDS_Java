@@ -55,7 +55,7 @@ public class Terminology extends Instance implements org.openmetadatainitiative.
 
         public Terminology build(OpenMINDSContext context) {
             if (Terminology.this.id == null) {
-                Terminology.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Terminology.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Terminology.this.type = SEMANTIC_NAME;
             return Terminology.this;

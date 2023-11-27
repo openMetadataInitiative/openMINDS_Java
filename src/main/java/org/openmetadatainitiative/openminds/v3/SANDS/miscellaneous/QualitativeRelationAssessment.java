@@ -50,7 +50,7 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
 
         public QualitativeRelationAssessment build(OpenMINDSContext context) {
             if (QualitativeRelationAssessment.this.id == null) {
-                QualitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                QualitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             QualitativeRelationAssessment.this.type = SEMANTIC_NAME;
             return QualitativeRelationAssessment.this;

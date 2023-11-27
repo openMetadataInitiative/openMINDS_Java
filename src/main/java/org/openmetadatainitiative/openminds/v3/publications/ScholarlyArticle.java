@@ -90,7 +90,7 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
 
         public ScholarlyArticle build(OpenMINDSContext context) {
             if (ScholarlyArticle.this.id == null) {
-                ScholarlyArticle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ScholarlyArticle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ScholarlyArticle.this.type = SEMANTIC_NAME;
             return ScholarlyArticle.this;

@@ -58,7 +58,7 @@ public class ContentType extends Instance {
 
         public ContentType build(OpenMINDSContext context) {
             if (ContentType.this.id == null) {
-                ContentType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ContentType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ContentType.this.type = SEMANTIC_NAME;
             return ContentType.this;

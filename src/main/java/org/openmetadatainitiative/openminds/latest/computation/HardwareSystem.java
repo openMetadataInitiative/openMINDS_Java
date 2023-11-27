@@ -47,7 +47,7 @@ public class HardwareSystem extends Instance {
 
         public HardwareSystem build(OpenMINDSContext context) {
             if (HardwareSystem.this.id == null) {
-                HardwareSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                HardwareSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             HardwareSystem.this.type = SEMANTIC_NAME;
             return HardwareSystem.this;

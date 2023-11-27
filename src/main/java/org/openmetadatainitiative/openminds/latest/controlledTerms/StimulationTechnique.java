@@ -55,7 +55,7 @@ public class StimulationTechnique extends Instance implements org.openmetadatain
 
         public StimulationTechnique build(OpenMINDSContext context) {
             if (StimulationTechnique.this.id == null) {
-                StimulationTechnique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                StimulationTechnique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             StimulationTechnique.this.type = SEMANTIC_NAME;
             return StimulationTechnique.this;

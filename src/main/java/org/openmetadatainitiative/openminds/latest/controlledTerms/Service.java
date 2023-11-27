@@ -55,7 +55,7 @@ public class Service extends Instance implements org.openmetadatainitiative.open
 
         public Service build(OpenMINDSContext context) {
             if (Service.this.id == null) {
-                Service.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Service.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Service.this.type = SEMANTIC_NAME;
             return Service.this;

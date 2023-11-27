@@ -43,7 +43,7 @@ public class ORCID extends Instance {
 
         public ORCID build(OpenMINDSContext context) {
             if (ORCID.this.id == null) {
-                ORCID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ORCID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ORCID.this.type = SEMANTIC_NAME;
             return ORCID.this;

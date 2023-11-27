@@ -55,7 +55,7 @@ public class OperatingDevice extends Instance implements org.openmetadatainitiat
 
         public OperatingDevice build(OpenMINDSContext context) {
             if (OperatingDevice.this.id == null) {
-                OperatingDevice.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                OperatingDevice.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             OperatingDevice.this.type = SEMANTIC_NAME;
             return OperatingDevice.this;

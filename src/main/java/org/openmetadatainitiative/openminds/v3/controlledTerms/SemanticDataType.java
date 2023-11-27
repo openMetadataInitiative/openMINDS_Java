@@ -55,7 +55,7 @@ public class SemanticDataType extends Instance implements org.openmetadatainitia
 
         public SemanticDataType build(OpenMINDSContext context) {
             if (SemanticDataType.this.id == null) {
-                SemanticDataType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SemanticDataType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SemanticDataType.this.type = SEMANTIC_NAME;
             return SemanticDataType.this;

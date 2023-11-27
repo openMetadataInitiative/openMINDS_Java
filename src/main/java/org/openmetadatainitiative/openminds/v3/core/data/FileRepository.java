@@ -66,7 +66,7 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
 
         public FileRepository build(OpenMINDSContext context) {
             if (FileRepository.this.id == null) {
-                FileRepository.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                FileRepository.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             FileRepository.this.type = SEMANTIC_NAME;
             return FileRepository.this;

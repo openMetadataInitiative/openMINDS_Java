@@ -55,7 +55,7 @@ public class DeviceType extends Instance implements org.openmetadatainitiative.o
 
         public DeviceType build(OpenMINDSContext context) {
             if (DeviceType.this.id == null) {
-                DeviceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                DeviceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             DeviceType.this.type = SEMANTIC_NAME;
             return DeviceType.this;

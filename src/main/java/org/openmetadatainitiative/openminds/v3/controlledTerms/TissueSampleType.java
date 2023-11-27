@@ -55,7 +55,7 @@ public class TissueSampleType extends Instance implements org.openmetadatainitia
 
         public TissueSampleType build(OpenMINDSContext context) {
             if (TissueSampleType.this.id == null) {
-                TissueSampleType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                TissueSampleType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             TissueSampleType.this.type = SEMANTIC_NAME;
             return TissueSampleType.this;

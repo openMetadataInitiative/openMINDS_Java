@@ -90,7 +90,7 @@ public class Simulation extends Instance implements org.openmetadatainitiative.o
 
         public Simulation build(OpenMINDSContext context) {
             if (Simulation.this.id == null) {
-                Simulation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Simulation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Simulation.this.type = SEMANTIC_NAME;
             return Simulation.this;

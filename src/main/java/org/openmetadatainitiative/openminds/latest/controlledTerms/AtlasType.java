@@ -55,7 +55,7 @@ public class AtlasType extends Instance implements org.openmetadatainitiative.op
 
         public AtlasType build(OpenMINDSContext context) {
             if (AtlasType.this.id == null) {
-                AtlasType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AtlasType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AtlasType.this.type = SEMANTIC_NAME;
             return AtlasType.this;

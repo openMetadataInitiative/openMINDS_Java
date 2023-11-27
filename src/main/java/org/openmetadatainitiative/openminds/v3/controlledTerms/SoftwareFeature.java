@@ -55,7 +55,7 @@ public class SoftwareFeature extends Instance implements org.openmetadatainitiat
 
         public SoftwareFeature build(OpenMINDSContext context) {
             if (SoftwareFeature.this.id == null) {
-                SoftwareFeature.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SoftwareFeature.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SoftwareFeature.this.type = SEMANTIC_NAME;
             return SoftwareFeature.this;

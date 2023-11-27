@@ -105,7 +105,7 @@ public class LearningResource extends Instance {
 
         public LearningResource build(OpenMINDSContext context) {
             if (LearningResource.this.id == null) {
-                LearningResource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LearningResource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LearningResource.this.type = SEMANTIC_NAME;
             return LearningResource.this;

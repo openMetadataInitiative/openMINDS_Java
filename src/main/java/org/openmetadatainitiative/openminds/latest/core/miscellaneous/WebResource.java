@@ -48,7 +48,7 @@ public class WebResource extends Instance implements org.openmetadatainitiative.
 
         public WebResource build(OpenMINDSContext context) {
             if (WebResource.this.id == null) {
-                WebResource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                WebResource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             WebResource.this.type = SEMANTIC_NAME;
             return WebResource.this;

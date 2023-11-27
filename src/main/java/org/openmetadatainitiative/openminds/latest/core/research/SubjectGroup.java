@@ -58,7 +58,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
 
         public SubjectGroup build(OpenMINDSContext context) {
             if (SubjectGroup.this.id == null) {
-                SubjectGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SubjectGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SubjectGroup.this.type = SEMANTIC_NAME;
             return SubjectGroup.this;

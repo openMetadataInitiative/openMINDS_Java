@@ -52,7 +52,7 @@ public class LivePaperSection extends Instance {
 
         public LivePaperSection build(OpenMINDSContext context) {
             if (LivePaperSection.this.id == null) {
-                LivePaperSection.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LivePaperSection.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LivePaperSection.this.type = SEMANTIC_NAME;
             return LivePaperSection.this;

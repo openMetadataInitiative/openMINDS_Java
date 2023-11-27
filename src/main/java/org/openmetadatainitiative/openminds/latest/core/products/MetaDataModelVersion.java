@@ -108,7 +108,7 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
 
         public MetaDataModelVersion build(OpenMINDSContext context) {
             if (MetaDataModelVersion.this.id == null) {
-                MetaDataModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                MetaDataModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             MetaDataModelVersion.this.type = SEMANTIC_NAME;
             return MetaDataModelVersion.this;

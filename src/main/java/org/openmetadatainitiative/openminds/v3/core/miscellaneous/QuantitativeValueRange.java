@@ -50,7 +50,7 @@ public class QuantitativeValueRange extends Instance implements org.openmetadata
 
         public QuantitativeValueRange build(OpenMINDSContext context) {
             if (QuantitativeValueRange.this.id == null) {
-                QuantitativeValueRange.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                QuantitativeValueRange.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             QuantitativeValueRange.this.type = SEMANTIC_NAME;
             return QuantitativeValueRange.this;

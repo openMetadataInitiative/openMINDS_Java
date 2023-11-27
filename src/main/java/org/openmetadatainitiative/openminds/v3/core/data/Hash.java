@@ -45,7 +45,7 @@ public class Hash extends Instance {
 
         public Hash build(OpenMINDSContext context) {
             if (Hash.this.id == null) {
-                Hash.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Hash.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Hash.this.type = SEMANTIC_NAME;
             return Hash.this;

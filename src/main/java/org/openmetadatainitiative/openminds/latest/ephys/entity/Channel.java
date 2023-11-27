@@ -46,7 +46,7 @@ public class Channel extends Instance {
 
         public Channel build(OpenMINDSContext context) {
             if (Channel.this.id == null) {
-                Channel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Channel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Channel.this.type = SEMANTIC_NAME;
             return Channel.this;

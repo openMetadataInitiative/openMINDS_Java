@@ -55,7 +55,7 @@ public class BreedingType extends Instance implements org.openmetadatainitiative
 
         public BreedingType build(OpenMINDSContext context) {
             if (BreedingType.this.id == null) {
-                BreedingType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                BreedingType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             BreedingType.this.type = SEMANTIC_NAME;
             return BreedingType.this;

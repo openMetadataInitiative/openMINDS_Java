@@ -55,7 +55,7 @@ public class Laterality extends Instance implements org.openmetadatainitiative.o
 
         public Laterality build(OpenMINDSContext context) {
             if (Laterality.this.id == null) {
-                Laterality.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Laterality.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Laterality.this.type = SEMANTIC_NAME;
             return Laterality.this;

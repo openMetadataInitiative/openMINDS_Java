@@ -55,7 +55,7 @@ public class EthicsAssessment extends Instance implements org.openmetadatainitia
 
         public EthicsAssessment build(OpenMINDSContext context) {
             if (EthicsAssessment.this.id == null) {
-                EthicsAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                EthicsAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             EthicsAssessment.this.type = SEMANTIC_NAME;
             return EthicsAssessment.this;

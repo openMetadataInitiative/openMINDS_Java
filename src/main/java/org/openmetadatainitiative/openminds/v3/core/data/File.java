@@ -68,7 +68,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
 
         public File build(OpenMINDSContext context) {
             if (File.this.id == null) {
-                File.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                File.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             File.this.type = SEMANTIC_NAME;
             return File.this;

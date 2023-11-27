@@ -69,7 +69,7 @@ public class AtlasAnnotation extends Instance {
 
         public AtlasAnnotation build(OpenMINDSContext context) {
             if (AtlasAnnotation.this.id == null) {
-                AtlasAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AtlasAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AtlasAnnotation.this.type = SEMANTIC_NAME;
             return AtlasAnnotation.this;

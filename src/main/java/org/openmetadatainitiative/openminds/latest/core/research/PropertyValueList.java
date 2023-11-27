@@ -46,7 +46,7 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
 
         public PropertyValueList build(OpenMINDSContext context) {
             if (PropertyValueList.this.id == null) {
-                PropertyValueList.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                PropertyValueList.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             PropertyValueList.this.type = SEMANTIC_NAME;
             return PropertyValueList.this;

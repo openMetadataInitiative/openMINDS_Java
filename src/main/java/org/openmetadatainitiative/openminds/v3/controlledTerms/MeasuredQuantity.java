@@ -55,7 +55,7 @@ public class MeasuredQuantity extends Instance implements org.openmetadatainitia
 
         public MeasuredQuantity build(OpenMINDSContext context) {
             if (MeasuredQuantity.this.id == null) {
-                MeasuredQuantity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                MeasuredQuantity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             MeasuredQuantity.this.type = SEMANTIC_NAME;
             return MeasuredQuantity.this;

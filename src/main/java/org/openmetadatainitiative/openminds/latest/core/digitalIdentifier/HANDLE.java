@@ -43,7 +43,7 @@ public class HANDLE extends Instance implements org.openmetadatainitiative.openm
 
         public HANDLE build(OpenMINDSContext context) {
             if (HANDLE.this.id == null) {
-                HANDLE.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                HANDLE.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             HANDLE.this.type = SEMANTIC_NAME;
             return HANDLE.this;

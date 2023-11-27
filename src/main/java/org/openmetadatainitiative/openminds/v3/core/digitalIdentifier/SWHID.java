@@ -43,7 +43,7 @@ public class SWHID extends Instance implements org.openmetadatainitiative.openmi
 
         public SWHID build(OpenMINDSContext context) {
             if (SWHID.this.id == null) {
-                SWHID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SWHID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SWHID.this.type = SEMANTIC_NAME;
             return SWHID.this;

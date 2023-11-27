@@ -55,7 +55,7 @@ public class BiologicalOrder extends Instance implements org.openmetadatainitiat
 
         public BiologicalOrder build(OpenMINDSContext context) {
             if (BiologicalOrder.this.id == null) {
-                BiologicalOrder.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                BiologicalOrder.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             BiologicalOrder.this.type = SEMANTIC_NAME;
             return BiologicalOrder.this;

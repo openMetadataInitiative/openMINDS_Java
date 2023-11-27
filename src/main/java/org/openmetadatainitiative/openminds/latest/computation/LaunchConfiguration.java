@@ -52,7 +52,7 @@ public class LaunchConfiguration extends Instance {
 
         public LaunchConfiguration build(OpenMINDSContext context) {
             if (LaunchConfiguration.this.id == null) {
-                LaunchConfiguration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LaunchConfiguration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LaunchConfiguration.this.type = SEMANTIC_NAME;
             return LaunchConfiguration.this;

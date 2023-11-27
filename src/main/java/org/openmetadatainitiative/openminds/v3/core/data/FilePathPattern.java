@@ -46,7 +46,7 @@ public class FilePathPattern extends Instance {
 
         public FilePathPattern build(OpenMINDSContext context) {
             if (FilePathPattern.this.id == null) {
-                FilePathPattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                FilePathPattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             FilePathPattern.this.type = SEMANTIC_NAME;
             return FilePathPattern.this;

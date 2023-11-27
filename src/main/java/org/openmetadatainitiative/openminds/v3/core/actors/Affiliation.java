@@ -48,7 +48,7 @@ public class Affiliation extends Instance {
 
         public Affiliation build(OpenMINDSContext context) {
             if (Affiliation.this.id == null) {
-                Affiliation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Affiliation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Affiliation.this.type = SEMANTIC_NAME;
             return Affiliation.this;

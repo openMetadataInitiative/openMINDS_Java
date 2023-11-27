@@ -55,7 +55,7 @@ public class Disease extends Instance implements org.openmetadatainitiative.open
 
         public Disease build(OpenMINDSContext context) {
             if (Disease.this.id == null) {
-                Disease.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Disease.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Disease.this.type = SEMANTIC_NAME;
             return Disease.this;

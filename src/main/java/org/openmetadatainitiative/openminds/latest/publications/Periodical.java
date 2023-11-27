@@ -48,7 +48,7 @@ public class Periodical extends Instance {
 
         public Periodical build(OpenMINDSContext context) {
             if (Periodical.this.id == null) {
-                Periodical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Periodical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Periodical.this.type = SEMANTIC_NAME;
             return Periodical.this;

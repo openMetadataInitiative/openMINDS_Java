@@ -70,7 +70,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
 
         public CommonCoordinateSpace build(OpenMINDSContext context) {
             if (CommonCoordinateSpace.this.id == null) {
-                CommonCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CommonCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CommonCoordinateSpace.this.type = SEMANTIC_NAME;
             return CommonCoordinateSpace.this;

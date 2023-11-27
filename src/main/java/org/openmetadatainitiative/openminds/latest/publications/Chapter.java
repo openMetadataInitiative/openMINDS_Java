@@ -90,7 +90,7 @@ public class Chapter extends Instance implements org.openmetadatainitiative.open
 
         public Chapter build(OpenMINDSContext context) {
             if (Chapter.this.id == null) {
-                Chapter.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Chapter.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Chapter.this.type = SEMANTIC_NAME;
             return Chapter.this;

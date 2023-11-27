@@ -81,7 +81,7 @@ public class CranialWindowPreparation extends Instance {
 
         public CranialWindowPreparation build(OpenMINDSContext context) {
             if (CranialWindowPreparation.this.id == null) {
-                CranialWindowPreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CranialWindowPreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CranialWindowPreparation.this.type = SEMANTIC_NAME;
             return CranialWindowPreparation.this;

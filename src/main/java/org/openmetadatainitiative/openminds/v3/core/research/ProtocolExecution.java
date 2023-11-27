@@ -76,7 +76,7 @@ public class ProtocolExecution extends Instance {
 
         public ProtocolExecution build(OpenMINDSContext context) {
             if (ProtocolExecution.this.id == null) {
-                ProtocolExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ProtocolExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ProtocolExecution.this.type = SEMANTIC_NAME;
             return ProtocolExecution.this;

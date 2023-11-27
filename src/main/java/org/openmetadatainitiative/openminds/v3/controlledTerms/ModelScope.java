@@ -55,7 +55,7 @@ public class ModelScope extends Instance implements org.openmetadatainitiative.o
 
         public ModelScope build(OpenMINDSContext context) {
             if (ModelScope.this.id == null) {
-                ModelScope.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ModelScope.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ModelScope.this.type = SEMANTIC_NAME;
             return ModelScope.this;

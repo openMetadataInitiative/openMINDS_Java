@@ -56,7 +56,7 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
 
         public BehavioralProtocol build(OpenMINDSContext context) {
             if (BehavioralProtocol.this.id == null) {
-                BehavioralProtocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                BehavioralProtocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             BehavioralProtocol.this.type = SEMANTIC_NAME;
             return BehavioralProtocol.this;

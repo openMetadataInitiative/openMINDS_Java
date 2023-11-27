@@ -49,7 +49,7 @@ public class ParcellationTerminologyVersion extends Instance {
 
         public ParcellationTerminologyVersion build(OpenMINDSContext context) {
             if (ParcellationTerminologyVersion.this.id == null) {
-                ParcellationTerminologyVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ParcellationTerminologyVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ParcellationTerminologyVersion.this.type = SEMANTIC_NAME;
             return ParcellationTerminologyVersion.this;

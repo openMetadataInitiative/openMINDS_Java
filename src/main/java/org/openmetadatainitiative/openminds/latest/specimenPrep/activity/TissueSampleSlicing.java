@@ -56,7 +56,7 @@ public class TissueSampleSlicing extends Instance {
 
         public TissueSampleSlicing build(OpenMINDSContext context) {
             if (TissueSampleSlicing.this.id == null) {
-                TissueSampleSlicing.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                TissueSampleSlicing.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             TissueSampleSlicing.this.type = SEMANTIC_NAME;
             return TissueSampleSlicing.this;

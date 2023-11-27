@@ -55,7 +55,7 @@ public class Species extends Instance implements org.openmetadatainitiative.open
 
         public Species build(OpenMINDSContext context) {
             if (Species.this.id == null) {
-                Species.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Species.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Species.this.type = SEMANTIC_NAME;
             return Species.this;

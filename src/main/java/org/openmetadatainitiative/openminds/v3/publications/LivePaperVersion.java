@@ -105,7 +105,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
 
         public LivePaperVersion build(OpenMINDSContext context) {
             if (LivePaperVersion.this.id == null) {
-                LivePaperVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LivePaperVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LivePaperVersion.this.type = SEMANTIC_NAME;
             return LivePaperVersion.this;

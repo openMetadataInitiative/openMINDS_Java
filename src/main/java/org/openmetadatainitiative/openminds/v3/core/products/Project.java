@@ -55,7 +55,7 @@ public class Project extends Instance {
 
         public Project build(OpenMINDSContext context) {
             if (Project.this.id == null) {
-                Project.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Project.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Project.this.type = SEMANTIC_NAME;
             return Project.this;

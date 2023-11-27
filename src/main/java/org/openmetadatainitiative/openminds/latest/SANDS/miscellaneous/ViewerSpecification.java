@@ -52,7 +52,7 @@ public class ViewerSpecification extends Instance {
 
         public ViewerSpecification build(OpenMINDSContext context) {
             if (ViewerSpecification.this.id == null) {
-                ViewerSpecification.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ViewerSpecification.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ViewerSpecification.this.type = SEMANTIC_NAME;
             return ViewerSpecification.this;

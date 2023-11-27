@@ -65,7 +65,7 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
 
         public LocalFile build(OpenMINDSContext context) {
             if (LocalFile.this.id == null) {
-                LocalFile.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LocalFile.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LocalFile.this.type = SEMANTIC_NAME;
             return LocalFile.this;

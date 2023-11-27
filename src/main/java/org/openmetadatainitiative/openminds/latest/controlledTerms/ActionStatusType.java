@@ -55,7 +55,7 @@ public class ActionStatusType extends Instance implements org.openmetadatainitia
 
         public ActionStatusType build(OpenMINDSContext context) {
             if (ActionStatusType.this.id == null) {
-                ActionStatusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ActionStatusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ActionStatusType.this.type = SEMANTIC_NAME;
             return ActionStatusType.this;

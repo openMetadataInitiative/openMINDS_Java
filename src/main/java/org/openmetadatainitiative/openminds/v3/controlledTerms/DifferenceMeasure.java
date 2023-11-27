@@ -55,7 +55,7 @@ public class DifferenceMeasure extends Instance implements org.openmetadatainiti
 
         public DifferenceMeasure build(OpenMINDSContext context) {
             if (DifferenceMeasure.this.id == null) {
-                DifferenceMeasure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                DifferenceMeasure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             DifferenceMeasure.this.type = SEMANTIC_NAME;
             return DifferenceMeasure.this;

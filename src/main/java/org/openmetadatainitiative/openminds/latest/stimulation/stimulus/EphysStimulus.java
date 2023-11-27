@@ -44,7 +44,7 @@ public class EphysStimulus extends Instance {
 
         public EphysStimulus build(OpenMINDSContext context) {
             if (EphysStimulus.this.id == null) {
-                EphysStimulus.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                EphysStimulus.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             EphysStimulus.this.type = SEMANTIC_NAME;
             return EphysStimulus.this;

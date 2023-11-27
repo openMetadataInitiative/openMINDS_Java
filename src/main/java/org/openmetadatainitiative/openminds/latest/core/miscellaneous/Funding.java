@@ -50,7 +50,7 @@ public class Funding extends Instance {
 
         public Funding build(OpenMINDSContext context) {
             if (Funding.this.id == null) {
-                Funding.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Funding.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Funding.this.type = SEMANTIC_NAME;
             return Funding.this;

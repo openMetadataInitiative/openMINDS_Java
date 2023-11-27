@@ -55,7 +55,7 @@ public class VisualStimulusType extends Instance implements org.openmetadatainit
 
         public VisualStimulusType build(OpenMINDSContext context) {
             if (VisualStimulusType.this.id == null) {
-                VisualStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                VisualStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             VisualStimulusType.this.type = SEMANTIC_NAME;
             return VisualStimulusType.this;

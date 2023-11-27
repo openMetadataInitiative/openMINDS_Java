@@ -55,7 +55,7 @@ public class Language extends Instance implements org.openmetadatainitiative.ope
 
         public Language build(OpenMINDSContext context) {
             if (Language.this.id == null) {
-                Language.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Language.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Language.this.type = SEMANTIC_NAME;
             return Language.this;

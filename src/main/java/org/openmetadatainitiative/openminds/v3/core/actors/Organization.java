@@ -55,7 +55,7 @@ public class Organization extends Instance implements org.openmetadatainitiative
 
         public Organization build(OpenMINDSContext context) {
             if (Organization.this.id == null) {
-                Organization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Organization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Organization.this.type = SEMANTIC_NAME;
             return Organization.this;

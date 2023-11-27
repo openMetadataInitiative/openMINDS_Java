@@ -55,7 +55,7 @@ public class PatchClampVariation extends Instance implements org.openmetadataini
 
         public PatchClampVariation build(OpenMINDSContext context) {
             if (PatchClampVariation.this.id == null) {
-                PatchClampVariation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                PatchClampVariation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             PatchClampVariation.this.type = SEMANTIC_NAME;
             return PatchClampVariation.this;

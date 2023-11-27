@@ -55,7 +55,7 @@ public class SubjectAttribute extends Instance implements org.openmetadatainitia
 
         public SubjectAttribute build(OpenMINDSContext context) {
             if (SubjectAttribute.this.id == null) {
-                SubjectAttribute.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SubjectAttribute.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SubjectAttribute.this.type = SEMANTIC_NAME;
             return SubjectAttribute.this;

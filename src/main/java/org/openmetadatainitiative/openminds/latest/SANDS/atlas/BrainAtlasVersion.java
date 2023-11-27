@@ -118,7 +118,7 @@ public class BrainAtlasVersion extends Instance implements org.openmetadatainiti
 
         public BrainAtlasVersion build(OpenMINDSContext context) {
             if (BrainAtlasVersion.this.id == null) {
-                BrainAtlasVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                BrainAtlasVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             BrainAtlasVersion.this.type = SEMANTIC_NAME;
             return BrainAtlasVersion.this;

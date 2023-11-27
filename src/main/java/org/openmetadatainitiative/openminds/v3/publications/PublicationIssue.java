@@ -46,7 +46,7 @@ public class PublicationIssue extends Instance implements org.openmetadatainitia
 
         public PublicationIssue build(OpenMINDSContext context) {
             if (PublicationIssue.this.id == null) {
-                PublicationIssue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                PublicationIssue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             PublicationIssue.this.type = SEMANTIC_NAME;
             return PublicationIssue.this;

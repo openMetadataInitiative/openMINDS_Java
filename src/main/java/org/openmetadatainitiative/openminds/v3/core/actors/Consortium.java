@@ -50,7 +50,7 @@ public class Consortium extends Instance implements org.openmetadatainitiative.o
 
         public Consortium build(OpenMINDSContext context) {
             if (Consortium.this.id == null) {
-                Consortium.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Consortium.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Consortium.this.type = SEMANTIC_NAME;
             return Consortium.this;

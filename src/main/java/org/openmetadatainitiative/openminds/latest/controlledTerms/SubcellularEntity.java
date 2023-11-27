@@ -55,7 +55,7 @@ public class SubcellularEntity extends Instance implements org.openmetadatainiti
 
         public SubcellularEntity build(OpenMINDSContext context) {
             if (SubcellularEntity.this.id == null) {
-                SubcellularEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                SubcellularEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             SubcellularEntity.this.type = SEMANTIC_NAME;
             return SubcellularEntity.this;

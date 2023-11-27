@@ -102,7 +102,7 @@ public class WebServiceVersion extends Instance implements org.openmetadatainiti
 
         public WebServiceVersion build(OpenMINDSContext context) {
             if (WebServiceVersion.this.id == null) {
-                WebServiceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                WebServiceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             WebServiceVersion.this.type = SEMANTIC_NAME;
             return WebServiceVersion.this;

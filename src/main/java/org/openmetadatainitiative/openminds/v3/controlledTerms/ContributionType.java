@@ -55,7 +55,7 @@ public class ContributionType extends Instance implements org.openmetadatainitia
 
         public ContributionType build(OpenMINDSContext context) {
             if (ContributionType.this.id == null) {
-                ContributionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ContributionType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ContributionType.this.type = SEMANTIC_NAME;
             return ContributionType.this;

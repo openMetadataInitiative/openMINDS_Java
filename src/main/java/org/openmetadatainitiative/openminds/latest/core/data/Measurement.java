@@ -54,7 +54,7 @@ public class Measurement extends Instance {
 
         public Measurement build(OpenMINDSContext context) {
             if (Measurement.this.id == null) {
-                Measurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Measurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Measurement.this.type = SEMANTIC_NAME;
             return Measurement.this;

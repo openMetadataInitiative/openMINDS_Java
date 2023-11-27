@@ -46,7 +46,7 @@ public class Copyright extends Instance {
 
         public Copyright build(OpenMINDSContext context) {
             if (Copyright.this.id == null) {
-                Copyright.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Copyright.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Copyright.this.type = SEMANTIC_NAME;
             return Copyright.this;

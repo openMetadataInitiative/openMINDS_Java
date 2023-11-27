@@ -55,7 +55,7 @@ public class ChemicalMixtureType extends Instance implements org.openmetadataini
 
         public ChemicalMixtureType build(OpenMINDSContext context) {
             if (ChemicalMixtureType.this.id == null) {
-                ChemicalMixtureType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ChemicalMixtureType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ChemicalMixtureType.this.type = SEMANTIC_NAME;
             return ChemicalMixtureType.this;

@@ -55,7 +55,7 @@ public class AnalysisTechnique extends Instance implements org.openmetadatainiti
 
         public AnalysisTechnique build(OpenMINDSContext context) {
             if (AnalysisTechnique.this.id == null) {
-                AnalysisTechnique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AnalysisTechnique.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AnalysisTechnique.this.type = SEMANTIC_NAME;
             return AnalysisTechnique.this;

@@ -48,7 +48,7 @@ public class ContentTypePattern extends Instance {
 
         public ContentTypePattern build(OpenMINDSContext context) {
             if (ContentTypePattern.this.id == null) {
-                ContentTypePattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ContentTypePattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ContentTypePattern.this.type = SEMANTIC_NAME;
             return ContentTypePattern.this;

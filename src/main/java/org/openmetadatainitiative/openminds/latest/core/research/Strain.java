@@ -75,7 +75,7 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
 
         public Strain build(OpenMINDSContext context) {
             if (Strain.this.id == null) {
-                Strain.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Strain.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Strain.this.type = SEMANTIC_NAME;
             return Strain.this;

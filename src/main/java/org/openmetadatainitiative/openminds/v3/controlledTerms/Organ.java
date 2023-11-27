@@ -55,7 +55,7 @@ public class Organ extends Instance implements org.openmetadatainitiative.openmi
 
         public Organ build(OpenMINDSContext context) {
             if (Organ.this.id == null) {
-                Organ.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Organ.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Organ.this.type = SEMANTIC_NAME;
             return Organ.this;

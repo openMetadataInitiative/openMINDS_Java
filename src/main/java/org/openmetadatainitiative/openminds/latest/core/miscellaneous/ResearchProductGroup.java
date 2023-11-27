@@ -46,7 +46,7 @@ public class ResearchProductGroup extends Instance {
 
         public ResearchProductGroup build(OpenMINDSContext context) {
             if (ResearchProductGroup.this.id == null) {
-                ResearchProductGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ResearchProductGroup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ResearchProductGroup.this.type = SEMANTIC_NAME;
             return ResearchProductGroup.this;

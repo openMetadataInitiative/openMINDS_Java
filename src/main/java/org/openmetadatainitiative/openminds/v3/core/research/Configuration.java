@@ -48,7 +48,7 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
 
         public Configuration build(OpenMINDSContext context) {
             if (Configuration.this.id == null) {
-                Configuration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Configuration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Configuration.this.type = SEMANTIC_NAME;
             return Configuration.this;

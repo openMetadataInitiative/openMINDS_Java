@@ -63,7 +63,7 @@ public class Software extends Instance implements org.openmetadatainitiative.ope
 
         public Software build(OpenMINDSContext context) {
             if (Software.this.id == null) {
-                Software.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Software.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Software.this.type = SEMANTIC_NAME;
             return Software.this;

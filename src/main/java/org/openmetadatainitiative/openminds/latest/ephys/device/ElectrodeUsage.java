@@ -61,7 +61,7 @@ public class ElectrodeUsage extends Instance implements org.openmetadatainitiati
 
         public ElectrodeUsage build(OpenMINDSContext context) {
             if (ElectrodeUsage.this.id == null) {
-                ElectrodeUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                ElectrodeUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             ElectrodeUsage.this.type = SEMANTIC_NAME;
             return ElectrodeUsage.this;

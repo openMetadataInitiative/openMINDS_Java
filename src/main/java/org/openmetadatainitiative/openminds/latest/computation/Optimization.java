@@ -90,7 +90,7 @@ public class Optimization extends Instance implements org.openmetadatainitiative
 
         public Optimization build(OpenMINDSContext context) {
             if (Optimization.this.id == null) {
-                Optimization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Optimization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Optimization.this.type = SEMANTIC_NAME;
             return Optimization.this;

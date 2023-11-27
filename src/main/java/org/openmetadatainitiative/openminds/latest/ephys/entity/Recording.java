@@ -61,7 +61,7 @@ public class Recording extends Instance {
 
         public Recording build(OpenMINDSContext context) {
             if (Recording.this.id == null) {
-                Recording.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Recording.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Recording.this.type = SEMANTIC_NAME;
             return Recording.this;

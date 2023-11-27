@@ -55,7 +55,7 @@ public class LearningResourceType extends Instance implements org.openmetadatain
 
         public LearningResourceType build(OpenMINDSContext context) {
             if (LearningResourceType.this.id == null) {
-                LearningResourceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                LearningResourceType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             LearningResourceType.this.type = SEMANTIC_NAME;
             return LearningResourceType.this;

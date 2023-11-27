@@ -55,7 +55,7 @@ public class CellType extends Instance implements org.openmetadatainitiative.ope
 
         public CellType build(OpenMINDSContext context) {
             if (CellType.this.id == null) {
-                CellType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CellType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CellType.this.type = SEMANTIC_NAME;
             return CellType.this;

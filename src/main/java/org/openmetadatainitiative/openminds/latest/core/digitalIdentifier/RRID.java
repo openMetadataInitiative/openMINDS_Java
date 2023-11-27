@@ -43,7 +43,7 @@ public class RRID extends Instance implements org.openmetadatainitiative.openmin
 
         public RRID build(OpenMINDSContext context) {
             if (RRID.this.id == null) {
-                RRID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                RRID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             RRID.this.type = SEMANTIC_NAME;
             return RRID.this;

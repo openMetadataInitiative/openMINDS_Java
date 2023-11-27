@@ -55,7 +55,7 @@ public class OrganismSystem extends Instance implements org.openmetadatainitiati
 
         public OrganismSystem build(OpenMINDSContext context) {
             if (OrganismSystem.this.id == null) {
-                OrganismSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                OrganismSystem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             OrganismSystem.this.type = SEMANTIC_NAME;
             return OrganismSystem.this;

@@ -46,7 +46,7 @@ public class StockNumber extends Instance {
 
         public StockNumber build(OpenMINDSContext context) {
             if (StockNumber.this.id == null) {
-                StockNumber.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                StockNumber.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             StockNumber.this.type = SEMANTIC_NAME;
             return StockNumber.this;

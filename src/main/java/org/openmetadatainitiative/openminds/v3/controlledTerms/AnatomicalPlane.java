@@ -55,7 +55,7 @@ public class AnatomicalPlane extends Instance implements org.openmetadatainitiat
 
         public AnatomicalPlane build(OpenMINDSContext context) {
             if (AnatomicalPlane.this.id == null) {
-                AnatomicalPlane.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AnatomicalPlane.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AnatomicalPlane.this.type = SEMANTIC_NAME;
             return AnatomicalPlane.this;

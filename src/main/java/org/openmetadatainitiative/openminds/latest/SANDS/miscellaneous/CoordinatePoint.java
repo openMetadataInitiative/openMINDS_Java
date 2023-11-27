@@ -47,7 +47,7 @@ public class CoordinatePoint extends Instance {
 
         public CoordinatePoint build(OpenMINDSContext context) {
             if (CoordinatePoint.this.id == null) {
-                CoordinatePoint.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                CoordinatePoint.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             CoordinatePoint.this.type = SEMANTIC_NAME;
             return CoordinatePoint.this;

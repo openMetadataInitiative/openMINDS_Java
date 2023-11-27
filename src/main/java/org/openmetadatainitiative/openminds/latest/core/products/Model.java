@@ -72,7 +72,7 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
 
         public Model build(OpenMINDSContext context) {
             if (Model.this.id == null) {
-                Model.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                Model.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             Model.this.type = SEMANTIC_NAME;
             return Model.this;

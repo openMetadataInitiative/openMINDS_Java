@@ -55,7 +55,7 @@ public class AuditoryStimulusType extends Instance implements org.openmetadatain
 
         public AuditoryStimulusType build(OpenMINDSContext context) {
             if (AuditoryStimulusType.this.id == null) {
-                AuditoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
+                AuditoryStimulusType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
             AuditoryStimulusType.this.type = SEMANTIC_NAME;
             return AuditoryStimulusType.this;
