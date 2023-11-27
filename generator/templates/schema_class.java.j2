@@ -3,7 +3,6 @@ package {{package_name}};
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.openmetadatainitiative.openminds.utils.*;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ public class {{ class_name }} extends Instance {% if implemented_interfaces %}im
         return doGetReference();
     }
 
-    public static Reference<{{ class_name }}> createReference(InstanceId instanceId) {
-        return new Reference<>(instanceId);
+    public static Reference<{{ class_name }}> reference(String instanceId) {
+        return new Reference<>(new InstanceId(instanceId));
     }
 
     private {{ class_name }}(LocalId localId ) {
@@ -43,18 +42,11 @@ public class {{ class_name }} extends Instance {% if implemented_interfaces %}im
         {{ line }}
         {% endfor %}{% endfor %}
 
-        public {{ class_name }} build() {
+        public {{ class_name }} build(OpenMINDSContext context) {
             if ({{ class_name }}.this.id == null) {
-                {{ class_name }}.this.id = new InstanceId(UUID.randomUUID().toString());
+                {{ class_name }}.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), openMINDSContext.idPrefix());
             }
-            if({{ class_name }}.this.types == null || {{ class_name }}.this.types.isEmpty() || !{{ class_name }}.this.types.contains(SEMANTIC_NAME)){
-                final List<String> oldValues = {{ class_name }}.this.types;
-                {{ class_name }}.this.types = new ArrayList<>();
-                {{ class_name }}.this.types.add(SEMANTIC_NAME);
-                if(oldValues != null){
-                    {{ class_name }}.this.types.addAll(oldValues);
-                }
-            }
+            {{ class_name }}.this.type = SEMANTIC_NAME;
             return {{ class_name }}.this;
         }
     }
