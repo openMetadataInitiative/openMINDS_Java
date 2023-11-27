@@ -46,7 +46,7 @@ public class {{ class_name }} extends Instance {% if implemented_interfaces %}im
             if ({{ class_name }}.this.id == null) {
                 {{ class_name }}.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
             }
-            {{ class_name }}.this.type = SEMANTIC_NAME;
+            {{ class_name }}.this.atType = SEMANTIC_NAME;
             return {{ class_name }}.this;
         }
     }
