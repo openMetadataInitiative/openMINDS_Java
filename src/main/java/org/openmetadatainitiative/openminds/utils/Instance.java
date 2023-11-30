@@ -2,29 +2,25 @@ package org.openmetadatainitiative.openminds.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.io.IOException;
+import java.util.UUID;
 
 public class Instance implements Entity{
 
     @JsonProperty("@id")
-    protected InstanceId id;
+    private InstanceId id;
 
     @JsonProperty("@type")
-    @JsonDeserialize(using = AtTypeDeserializer.class)
-    protected String atType;
+    private final String atType;
 
     @JsonIgnore
     private final LocalId localId;
 
-    public Instance(LocalId localId) {
+    public Instance(LocalId localId, String type) {
         this.localId = localId;
+        this.atType = type;
     }
+
 
     @JsonIgnore
     public LocalId getLocalId() {
@@ -38,31 +34,13 @@ public class Instance implements Entity{
         return new Reference<>(getId());
     }
 
-    class AtTypeDeserializer extends JsonDeserializer<String> {
-
-        @Override
-        public String deserialize(JsonParser jsonParser, DeserializationContext context) throws IOException {
-            JsonNode node = jsonParser.readValueAsTree();
-            if(node.isArray()){
-                JsonNode firstType = null;
-                for (JsonNode type : node) {
-                    if(firstType == null){
-                        firstType = type;
-                    }
-                    if(type.isTextual()){
-                        final String value = type.asText();
-                        if(value.startsWith("https://openminds.ebrains.eu/")){
-                            return value;
-                        }
-                    }
-                }
-                return firstType != null && firstType.isTextual() ? firstType.asText() : null;
-            } else if (node.isTextual()) {
-                return node.asText();
-            }
-            return null;
+    protected void build(OpenMINDSContext context){
+        if (this.id == null) {
+            this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
         }
-
     }
 
+    public String getAtType() {
+        return atType;
+    }
 }
