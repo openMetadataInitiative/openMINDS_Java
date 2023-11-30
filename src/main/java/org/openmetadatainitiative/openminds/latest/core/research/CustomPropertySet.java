@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.CustomPr
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomPropertySet extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/CustomPropertySet";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CustomPropertySet extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/CustomPropertySet";
 
     @JsonIgnore
     public Reference<CustomPropertySet> getReference() {
@@ -33,28 +37,34 @@ public class CustomPropertySet extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CustomPropertySet(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CustomPropertySet() {
+        this(null);
     }
 
+    private CustomPropertySet(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CustomPropertySet>{
-        
-        public Builder context(String context) { CustomPropertySet.this.context = context; return this; }
-        
-        public Builder dataLocation(Reference<? extends CustomPropertySetDataLocation> dataLocation) { CustomPropertySet.this.dataLocation = dataLocation; return this; }
-        
-        public Builder relevantFor(Reference<? extends CustomPropertySetRelevantFor> relevantFor) { CustomPropertySet.this.relevantFor = relevantFor; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder context(String context) { CustomPropertySet.this.context = context; return this; }
+        public EmbeddedBuilder dataLocation(Reference<? extends CustomPropertySetDataLocation> dataLocation) { CustomPropertySet.this.dataLocation = dataLocation; return this; }
+        public EmbeddedBuilder relevantFor(Reference<? extends CustomPropertySetRelevantFor> relevantFor) { CustomPropertySet.this.relevantFor = relevantFor; return this; }
         
 
-        public CustomPropertySet build(OpenMINDSContext context) {
-            if (CustomPropertySet.this.id == null) {
-                CustomPropertySet.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CustomPropertySet.this.atType = SEMANTIC_NAME;
+        public CustomPropertySet build(){
             return CustomPropertySet.this;
         }
     }
+
+    public static CustomPropertySet.EmbeddedBuilder createEmbedded(){
+        return new CustomPropertySet(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/context")
     private String context;
@@ -74,18 +84,12 @@ public class CustomPropertySet extends Instance {
     private Reference<? extends CustomPropertySetRelevantFor> relevantFor;
     
     /**
-    * Reference to what or whom something or someone bears siginificance.
+    * Reference to what or whom something or someone bears significance.
     */
     public Reference<? extends CustomPropertySetRelevantFor> getRelevantFor() {
        return this.relevantFor;
     }
 
  
-    public static CustomPropertySet.Builder create(LocalId localId){
-        return new CustomPropertySet(localId).new Builder();
-    }
 
-    public CustomPropertySet.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CustomPropertySet.class).new Builder();
-    }
 }

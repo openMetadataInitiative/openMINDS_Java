@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.Coordi
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CoordinatePoint extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CoordinatePoint";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CoordinatePoint extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CoordinatePoint";
 
     @JsonIgnore
     public Reference<CoordinatePoint> getReference() {
@@ -33,26 +37,33 @@ public class CoordinatePoint extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CoordinatePoint(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CoordinatePoint() {
+        this(null);
     }
 
+    private CoordinatePoint(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CoordinatePoint>{
-        
-        public Builder coordinateSpace(Reference<? extends CoordinatePointCoordinateSpace> coordinateSpace) { CoordinatePoint.this.coordinateSpace = coordinateSpace; return this; }
-        
-        public Builder coordinates(List<QuantitativeValue> coordinates) { CoordinatePoint.this.coordinates = coordinates; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder coordinateSpace(Reference<? extends CoordinatePointCoordinateSpace> coordinateSpace) { CoordinatePoint.this.coordinateSpace = coordinateSpace; return this; }
+        public EmbeddedBuilder coordinates(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> coordinates) { CoordinatePoint.this.coordinates = coordinates.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
         
 
-        public CoordinatePoint build(OpenMINDSContext context) {
-            if (CoordinatePoint.this.id == null) {
-                CoordinatePoint.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CoordinatePoint.this.atType = SEMANTIC_NAME;
+        public CoordinatePoint build(){
             return CoordinatePoint.this;
         }
     }
+
+    public static CoordinatePoint.EmbeddedBuilder createEmbedded(){
+        return new CoordinatePoint(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/coordinateSpace")
     private Reference<? extends CoordinatePointCoordinateSpace> coordinateSpace;
@@ -75,11 +86,5 @@ public class CoordinatePoint extends Instance {
     }
 
  
-    public static CoordinatePoint.Builder create(LocalId localId){
-        return new CoordinatePoint(localId).new Builder();
-    }
 
-    public CoordinatePoint.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CoordinatePoint.class).new Builder();
-    }
 }

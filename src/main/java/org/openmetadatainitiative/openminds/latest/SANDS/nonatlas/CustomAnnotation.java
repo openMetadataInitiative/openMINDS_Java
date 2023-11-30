@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.SANDS.nonatlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,10 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomA
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomAnnotation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomAnnotation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CustomAnnotation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomAnnotation";
 
     @JsonIgnore
     public Reference<CustomAnnotation> getReference() {
@@ -41,44 +45,42 @@ public class CustomAnnotation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CustomAnnotation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CustomAnnotation() {
+        this(null);
     }
 
+    private CustomAnnotation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CustomAnnotation>{
-        
-        public Builder anchorPoint(List<QuantitativeValue> anchorPoint) { CustomAnnotation.this.anchorPoint = anchorPoint; return this; }
-        
-        public Builder coordinateSpace(Reference<? extends CustomAnnotationCoordinateSpace> coordinateSpace) { CustomAnnotation.this.coordinateSpace = coordinateSpace; return this; }
-        
-        public Builder criteria(Reference<ProtocolExecution> criteria) { CustomAnnotation.this.criteria = criteria; return this; }
-        
-        public Builder criteriaQualityType(Reference<CriteriaQualityType> criteriaQualityType) { CustomAnnotation.this.criteriaQualityType = criteriaQualityType; return this; }
-        
-        public Builder criteriaType(Reference<AnnotationCriteriaType> criteriaType) { CustomAnnotation.this.criteriaType = criteriaType; return this; }
-        
-        public Builder inspiredBy(List<Reference<File>> inspiredBy) { CustomAnnotation.this.inspiredBy = inspiredBy; return this; }
-        
-        public Builder internalIdentifier(String internalIdentifier) { CustomAnnotation.this.internalIdentifier = internalIdentifier; return this; }
-        
-        public Builder laterality(List<Reference<Laterality>> laterality) { CustomAnnotation.this.laterality = laterality; return this; }
-        
-        public Builder preferredVisualization(ViewerSpecification preferredVisualization) { CustomAnnotation.this.preferredVisualization = preferredVisualization; return this; }
-        
-        public Builder specification(Reference<? extends CustomAnnotationSpecification> specification) { CustomAnnotation.this.specification = specification; return this; }
-        
-        public Builder type(Reference<AnnotationType> type) { CustomAnnotation.this.type = type; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder anchorPoint(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> anchorPoint) { CustomAnnotation.this.anchorPoint = anchorPoint.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
+        public EmbeddedBuilder coordinateSpace(Reference<? extends CustomAnnotationCoordinateSpace> coordinateSpace) { CustomAnnotation.this.coordinateSpace = coordinateSpace; return this; }
+        public EmbeddedBuilder criteria(Reference<ProtocolExecution> criteria) { CustomAnnotation.this.criteria = criteria; return this; }
+        public EmbeddedBuilder criteriaQualityType(Reference<CriteriaQualityType> criteriaQualityType) { CustomAnnotation.this.criteriaQualityType = criteriaQualityType; return this; }
+        public EmbeddedBuilder criteriaType(Reference<AnnotationCriteriaType> criteriaType) { CustomAnnotation.this.criteriaType = criteriaType; return this; }
+        public EmbeddedBuilder inspiredBy(List<Reference<File>> inspiredBy) { CustomAnnotation.this.inspiredBy = inspiredBy; return this; }
+        public EmbeddedBuilder internalIdentifier(String internalIdentifier) { CustomAnnotation.this.internalIdentifier = internalIdentifier; return this; }
+        public EmbeddedBuilder laterality(List<Reference<Laterality>> laterality) { CustomAnnotation.this.laterality = laterality; return this; }
+        public EmbeddedBuilder preferredVisualization(Function<ViewerSpecification.EmbeddedBuilder, ViewerSpecification> preferredVisualization) { CustomAnnotation.this.preferredVisualization = preferredVisualization.apply(ViewerSpecification.createEmbedded()); return this; }
+        public EmbeddedBuilder specification(Reference<? extends CustomAnnotationSpecification> specification) { CustomAnnotation.this.specification = specification; return this; }
+        public EmbeddedBuilder type(Reference<AnnotationType> type) { CustomAnnotation.this.type = type; return this; }
         
 
-        public CustomAnnotation build(OpenMINDSContext context) {
-            if (CustomAnnotation.this.id == null) {
-                CustomAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CustomAnnotation.this.atType = SEMANTIC_NAME;
+        public CustomAnnotation build(){
             return CustomAnnotation.this;
         }
     }
+
+    public static CustomAnnotation.EmbeddedBuilder createEmbedded(){
+        return new CustomAnnotation(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anchorPoint")
     private List<QuantitativeValue> anchorPoint;
@@ -182,11 +184,5 @@ public class CustomAnnotation extends Instance {
     }
 
  
-    public static CustomAnnotation.Builder create(LocalId localId){
-        return new CustomAnnotation(localId).new Builder();
-    }
 
-    public CustomAnnotation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CustomAnnotation.class).new Builder();
-    }
 }

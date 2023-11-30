@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.Quantit
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class QuantitativeValue extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationResourceUsage, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceRequiredTime, org.openmetadatainitiative.openminds.v3.chemicals.intf.ChemicalSubstancePurity, org.openmetadatainitiative.openminds.v3.chemicals.intf.ProductSourcePurity, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingBathTemperature, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayUsageContactResistances, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeUsageContactResistance, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeIntrinsicResistance, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayIntrinsicResistance, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsagePipetteResistance, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.QuantitativeRelationAssessmentQuantitativeOverlap, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateWeight, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateWeight, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionStateWeight, org.openmetadatainitiative.openminds.v3.core.research.intf.NumericalPropertyValue, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleStateWeight, org.openmetadatainitiative.openminds.v3.core.data.intf.MeasurementValue, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.TissueSampleSlicingTemperature, org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceUsageSliceThickness, org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/QuantitativeValue";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class QuantitativeValue extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisResourceUsage, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationResourceUsage, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceRequiredTime, org.openmetadatainitiative.openminds.v3.chemicals.intf.ChemicalSubstancePurity, org.openmetadatainitiative.openminds.v3.chemicals.intf.ProductSourcePurity, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingBathTemperature, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayUsageContactResistances, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeUsageContactResistance, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeIntrinsicResistance, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayIntrinsicResistance, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsagePipetteResistance, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.QuantitativeRelationAssessmentQuantitativeOverlap, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectStateWeight, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupStateWeight, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionStateWeight, org.openmetadatainitiative.openminds.v3.core.research.intf.NumericalPropertyValue, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleStateAge, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleStateRelativeTimeIndication, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleStateWeight, org.openmetadatainitiative.openminds.v3.core.data.intf.MeasurementValue, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.TissueSampleSlicingTemperature, org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceUsageSliceThickness, org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/QuantitativeValue";
 
     @JsonIgnore
     public Reference<QuantitativeValue> getReference() {
@@ -33,30 +37,35 @@ public class QuantitativeValue extends Instance implements org.openmetadatainiti
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private QuantitativeValue(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private QuantitativeValue() {
+        this(null);
     }
 
+    private QuantitativeValue(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<QuantitativeValue>{
-        
-        public Builder typeOfUncertainty(Reference<TypeOfUncertainty> typeOfUncertainty) { QuantitativeValue.this.typeOfUncertainty = typeOfUncertainty; return this; }
-        
-        public Builder uncertainty(Object uncertainty) { QuantitativeValue.this.uncertainty = uncertainty; return this; }
-        
-        public Builder unit(Reference<UnitOfMeasurement> unit) { QuantitativeValue.this.unit = unit; return this; }
-        
-        public Builder value(Object value) { QuantitativeValue.this.value = value; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder typeOfUncertainty(Reference<TypeOfUncertainty> typeOfUncertainty) { QuantitativeValue.this.typeOfUncertainty = typeOfUncertainty; return this; }
+        public EmbeddedBuilder uncertainty(List<Double> uncertainty) { QuantitativeValue.this.uncertainty = uncertainty; return this; }
+        public EmbeddedBuilder unit(Reference<UnitOfMeasurement> unit) { QuantitativeValue.this.unit = unit; return this; }
+        public EmbeddedBuilder value(Double value) { QuantitativeValue.this.value = value; return this; }
         
 
-        public QuantitativeValue build(OpenMINDSContext context) {
-            if (QuantitativeValue.this.id == null) {
-                QuantitativeValue.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            QuantitativeValue.this.atType = SEMANTIC_NAME;
+        public QuantitativeValue build(){
             return QuantitativeValue.this;
         }
     }
+
+    public static QuantitativeValue.EmbeddedBuilder createEmbedded(){
+        return new QuantitativeValue(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/typeOfUncertainty")
     private Reference<TypeOfUncertainty> typeOfUncertainty;
@@ -69,12 +78,12 @@ public class QuantitativeValue extends Instance implements org.openmetadatainiti
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/uncertainty")
-    private Object uncertainty;
+    private List<Double> uncertainty;
     
     /**
     * Quantitative value range defining the uncertainty of a measurement.
     */
-    public Object getUncertainty() {
+    public List<Double> getUncertainty() {
        return this.uncertainty;
     }
 
@@ -89,21 +98,15 @@ public class QuantitativeValue extends Instance implements org.openmetadatainiti
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/value")
-    private Object value;
+    private Double value;
     
     /**
     * Entry for a property.
     */
-    public Object getValue() {
+    public Double getValue() {
        return this.value;
     }
 
  
-    public static QuantitativeValue.Builder create(LocalId localId){
-        return new QuantitativeValue(localId).new Builder();
-    }
 
-    public QuantitativeValue.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, QuantitativeValue.class).new Builder();
-    }
 }

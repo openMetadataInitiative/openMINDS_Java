@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.Anatom
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AnatomicalTargetPosition extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/AnatomicalTargetPosition";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class AnatomicalTargetPosition extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/AnatomicalTargetPosition";
 
     @JsonIgnore
     public Reference<AnatomicalTargetPosition> getReference() {
@@ -34,30 +38,35 @@ public class AnatomicalTargetPosition extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private AnatomicalTargetPosition(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private AnatomicalTargetPosition() {
+        this(null);
     }
 
+    private AnatomicalTargetPosition(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AnatomicalTargetPosition>{
-        
-        public Builder additionalRemarks(String additionalRemarks) { AnatomicalTargetPosition.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder anatomicalTarget(List<Reference<? extends AnatomicalTargetPositionAnatomicalTarget>> anatomicalTarget) { AnatomicalTargetPosition.this.anatomicalTarget = anatomicalTarget; return this; }
-        
-        public Builder spatialLocation(List<CoordinatePoint> spatialLocation) { AnatomicalTargetPosition.this.spatialLocation = spatialLocation; return this; }
-        
-        public Builder targetIdentificationType(Reference<AnatomicalIdentificationType> targetIdentificationType) { AnatomicalTargetPosition.this.targetIdentificationType = targetIdentificationType; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder additionalRemarks(String additionalRemarks) { AnatomicalTargetPosition.this.additionalRemarks = additionalRemarks; return this; }
+        public EmbeddedBuilder anatomicalTarget(List<Reference<? extends AnatomicalTargetPositionAnatomicalTarget>> anatomicalTarget) { AnatomicalTargetPosition.this.anatomicalTarget = anatomicalTarget; return this; }
+        public EmbeddedBuilder spatialLocation(List<Function<CoordinatePoint.EmbeddedBuilder, CoordinatePoint>> spatialLocation) { AnatomicalTargetPosition.this.spatialLocation = spatialLocation.stream().map(b -> b.apply(CoordinatePoint.createEmbedded())).toList(); return this; }
+        public EmbeddedBuilder targetIdentificationType(Reference<AnatomicalIdentificationType> targetIdentificationType) { AnatomicalTargetPosition.this.targetIdentificationType = targetIdentificationType; return this; }
         
 
-        public AnatomicalTargetPosition build(OpenMINDSContext context) {
-            if (AnatomicalTargetPosition.this.id == null) {
-                AnatomicalTargetPosition.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            AnatomicalTargetPosition.this.atType = SEMANTIC_NAME;
+        public AnatomicalTargetPosition build(){
             return AnatomicalTargetPosition.this;
         }
     }
+
+    public static AnatomicalTargetPosition.EmbeddedBuilder createEmbedded(){
+        return new AnatomicalTargetPosition(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -91,11 +100,5 @@ public class AnatomicalTargetPosition extends Instance {
     }
 
  
-    public static AnatomicalTargetPosition.Builder create(LocalId localId){
-        return new AnatomicalTargetPosition(localId).new Builder();
-    }
 
-    public AnatomicalTargetPosition.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AnatomicalTargetPosition.class).new Builder();
-    }
 }

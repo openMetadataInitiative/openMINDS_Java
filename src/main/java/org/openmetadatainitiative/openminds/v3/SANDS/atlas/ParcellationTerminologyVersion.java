@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTe
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParcellationTerminologyVersion extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ParcellationTerminologyVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion";
 
     @JsonIgnore
     public Reference<ParcellationTerminologyVersion> getReference() {
@@ -33,28 +37,34 @@ public class ParcellationTerminologyVersion extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ParcellationTerminologyVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ParcellationTerminologyVersion() {
+        this(null);
     }
 
+    private ParcellationTerminologyVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ParcellationTerminologyVersion>{
-        
-        public Builder dataLocation(List<Reference<File>> dataLocation) { ParcellationTerminologyVersion.this.dataLocation = dataLocation; return this; }
-        
-        public Builder hasEntity(List<Reference<ParcellationEntityVersion>> hasEntity) { ParcellationTerminologyVersion.this.hasEntity = hasEntity; return this; }
-        
-        public Builder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationTerminologyVersion.this.ontologyIdentifier = ontologyIdentifier; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder dataLocation(List<Reference<File>> dataLocation) { ParcellationTerminologyVersion.this.dataLocation = dataLocation; return this; }
+        public EmbeddedBuilder hasEntity(List<Reference<ParcellationEntityVersion>> hasEntity) { ParcellationTerminologyVersion.this.hasEntity = hasEntity; return this; }
+        public EmbeddedBuilder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationTerminologyVersion.this.ontologyIdentifier = ontologyIdentifier; return this; }
         
 
-        public ParcellationTerminologyVersion build(OpenMINDSContext context) {
-            if (ParcellationTerminologyVersion.this.id == null) {
-                ParcellationTerminologyVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ParcellationTerminologyVersion.this.atType = SEMANTIC_NAME;
+        public ParcellationTerminologyVersion build(){
             return ParcellationTerminologyVersion.this;
         }
     }
+
+    public static ParcellationTerminologyVersion.EmbeddedBuilder createEmbedded(){
+        return new ParcellationTerminologyVersion(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
     private List<Reference<File>> dataLocation;
@@ -81,11 +91,5 @@ public class ParcellationTerminologyVersion extends Instance {
     }
 
  
-    public static ParcellationTerminologyVersion.Builder create(LocalId localId){
-        return new ParcellationTerminologyVersion(localId).new Builder();
-    }
 
-    public ParcellationTerminologyVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ParcellationTerminologyVersion.class).new Builder();
-    }
 }

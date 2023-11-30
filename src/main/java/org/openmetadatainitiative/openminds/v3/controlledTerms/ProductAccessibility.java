@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.controlledTerms.ProductAcc
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProductAccessibility extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/ProductAccessibility";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ProductAccessibility extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/ProductAccessibility";
 
     @JsonIgnore
     public Reference<ProductAccessibility> getReference() {
@@ -31,36 +35,42 @@ public class ProductAccessibility extends Instance implements org.openmetadatain
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ProductAccessibility(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ProductAccessibility() {
+        this(null);
     }
 
+    private ProductAccessibility(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ProductAccessibility>{
-        
         public Builder definition(String definition) { ProductAccessibility.this.definition = definition; return this; }
-        
         public Builder description(String description) { ProductAccessibility.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { ProductAccessibility.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { ProductAccessibility.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { ProductAccessibility.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { ProductAccessibility.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { ProductAccessibility.this.synonym = synonym; return this; }
         
 
         public ProductAccessibility build(OpenMINDSContext context) {
-            if (ProductAccessibility.this.id == null) {
-                ProductAccessibility.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ProductAccessibility.this.atType = SEMANTIC_NAME;
+            ProductAccessibility.super.build(context);
             return ProductAccessibility.this;
         }
     }
+
+    public static ProductAccessibility.Builder create(LocalId localId){
+        return new ProductAccessibility(localId).new Builder();
+    }
+
+    public ProductAccessibility.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ProductAccessibility.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class ProductAccessibility extends Instance implements org.openmetadatain
     }
 
  
-    public static ProductAccessibility.Builder create(LocalId localId){
-        return new ProductAccessibility(localId).new Builder();
-    }
 
-    public ProductAccessibility.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ProductAccessibility.class).new Builder();
-    }
 }

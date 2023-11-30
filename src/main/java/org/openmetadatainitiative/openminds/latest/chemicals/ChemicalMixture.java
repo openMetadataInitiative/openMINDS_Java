@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixt
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ChemicalMixture extends Instance implements org.openmetadatainitiative.openminds.latest.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteMaterial{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ChemicalMixture";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ChemicalMixture extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteMaterial{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ChemicalMixture";
 
     @JsonIgnore
     public Reference<ChemicalMixture> getReference() {
@@ -34,32 +38,40 @@ public class ChemicalMixture extends Instance implements org.openmetadatainitiat
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ChemicalMixture(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ChemicalMixture() {
+        this(null);
     }
 
+    private ChemicalMixture(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ChemicalMixture>{
-        
         public Builder additionalRemarks(String additionalRemarks) { ChemicalMixture.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder hasPart(List<AmountOfChemical> hasPart) { ChemicalMixture.this.hasPart = hasPart; return this; }
-        
+        public Builder hasPart(List<Function<AmountOfChemical.EmbeddedBuilder, AmountOfChemical>> hasPart) { ChemicalMixture.this.hasPart = hasPart.stream().map(b -> b.apply(AmountOfChemical.createEmbedded())).toList(); return this; }
         public Builder name(String name) { ChemicalMixture.this.name = name; return this; }
-        
         public Builder productSource(Reference<ProductSource> productSource) { ChemicalMixture.this.productSource = productSource; return this; }
-        
         public Builder type(Reference<ChemicalMixtureType> type) { ChemicalMixture.this.type = type; return this; }
         
 
         public ChemicalMixture build(OpenMINDSContext context) {
-            if (ChemicalMixture.this.id == null) {
-                ChemicalMixture.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ChemicalMixture.this.atType = SEMANTIC_NAME;
+            ChemicalMixture.super.build(context);
             return ChemicalMixture.this;
         }
     }
+
+    public static ChemicalMixture.Builder create(LocalId localId){
+        return new ChemicalMixture(localId).new Builder();
+    }
+
+    public ChemicalMixture.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ChemicalMixture.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -106,11 +118,5 @@ public class ChemicalMixture extends Instance implements org.openmetadatainitiat
     }
 
  
-    public static ChemicalMixture.Builder create(LocalId localId){
-        return new ChemicalMixture(localId).new Builder();
-    }
 
-    public ChemicalMixture.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ChemicalMixture.class).new Builder();
-    }
 }

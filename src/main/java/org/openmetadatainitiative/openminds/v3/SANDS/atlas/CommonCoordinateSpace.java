@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordina
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CommonCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CommonCoordinateSpace";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CommonCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CommonCoordinateSpace";
 
     @JsonIgnore
     public Reference<CommonCoordinateSpace> getReference() {
@@ -36,46 +40,47 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CommonCoordinateSpace(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CommonCoordinateSpace() {
+        this(null);
     }
 
+    private CommonCoordinateSpace(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CommonCoordinateSpace>{
-        
         public Builder abbreviation(String abbreviation) { CommonCoordinateSpace.this.abbreviation = abbreviation; return this; }
-        
         public Builder author(List<Reference<? extends CommonCoordinateSpaceAuthor>> author) { CommonCoordinateSpace.this.author = author; return this; }
-        
         public Builder custodian(List<Reference<? extends CommonCoordinateSpaceCustodian>> custodian) { CommonCoordinateSpace.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { CommonCoordinateSpace.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends CommonCoordinateSpaceDigitalIdentifier> digitalIdentifier) { CommonCoordinateSpace.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { CommonCoordinateSpace.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<CommonCoordinateSpaceVersion>> hasVersion) { CommonCoordinateSpace.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { CommonCoordinateSpace.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { CommonCoordinateSpace.this.howToCite = howToCite; return this; }
-        
         public Builder ontologyIdentifier(List<String> ontologyIdentifier) { CommonCoordinateSpace.this.ontologyIdentifier = ontologyIdentifier; return this; }
-        
         public Builder shortName(String shortName) { CommonCoordinateSpace.this.shortName = shortName; return this; }
-        
         public Builder usedSpecies(Reference<Species> usedSpecies) { CommonCoordinateSpace.this.usedSpecies = usedSpecies; return this; }
         
 
         public CommonCoordinateSpace build(OpenMINDSContext context) {
-            if (CommonCoordinateSpace.this.id == null) {
-                CommonCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CommonCoordinateSpace.this.atType = SEMANTIC_NAME;
+            CommonCoordinateSpace.super.build(context);
             return CommonCoordinateSpace.this;
         }
     }
+
+    public static CommonCoordinateSpace.Builder create(LocalId localId){
+        return new CommonCoordinateSpace(localId).new Builder();
+    }
+
+    public CommonCoordinateSpace.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CommonCoordinateSpace.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abbreviation")
     private String abbreviation;
@@ -192,11 +197,5 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
     }
 
  
-    public static CommonCoordinateSpace.Builder create(LocalId localId){
-        return new CommonCoordinateSpace(localId).new Builder();
-    }
 
-    public CommonCoordinateSpace.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CommonCoordinateSpace.class).new Builder();
-    }
 }

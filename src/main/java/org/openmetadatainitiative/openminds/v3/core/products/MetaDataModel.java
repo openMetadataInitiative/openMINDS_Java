@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.v3.core.products.MetaDataMode
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MetaDataModel extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/MetaDataModel";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class MetaDataModel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/MetaDataModel";
 
     @JsonIgnore
     public Reference<MetaDataModel> getReference() {
@@ -35,40 +39,44 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private MetaDataModel(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private MetaDataModel() {
+        this(null);
     }
 
+    private MetaDataModel(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<MetaDataModel>{
-        
         public Builder custodian(List<Reference<? extends MetaDataModelCustodian>> custodian) { MetaDataModel.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { MetaDataModel.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends MetaDataModelDeveloper>> developer) { MetaDataModel.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends MetaDataModelDigitalIdentifier> digitalIdentifier) { MetaDataModel.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { MetaDataModel.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<MetaDataModelVersion>> hasVersion) { MetaDataModel.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { MetaDataModel.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { MetaDataModel.this.howToCite = howToCite; return this; }
-        
         public Builder shortName(String shortName) { MetaDataModel.this.shortName = shortName; return this; }
         
 
         public MetaDataModel build(OpenMINDSContext context) {
-            if (MetaDataModel.this.id == null) {
-                MetaDataModel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            MetaDataModel.this.atType = SEMANTIC_NAME;
+            MetaDataModel.super.build(context);
             return MetaDataModel.this;
         }
     }
+
+    public static MetaDataModel.Builder create(LocalId localId){
+        return new MetaDataModel(localId).new Builder();
+    }
+
+    public MetaDataModel.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, MetaDataModel.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
     private List<Reference<? extends MetaDataModelCustodian>> custodian;
@@ -161,11 +169,5 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
     }
 
  
-    public static MetaDataModel.Builder create(LocalId localId){
-        return new MetaDataModel(localId).new Builder();
-    }
 
-    public MetaDataModel.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, MetaDataModel.class).new Builder();
-    }
 }

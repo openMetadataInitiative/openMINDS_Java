@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +29,10 @@ import static org.openmetadatainitiative.openminds.v3.core.research.TissueSample
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TissueSample extends Instance implements org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSample";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class TissueSample extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSample";
 
     @JsonIgnore
     public Reference<TissueSample> getReference() {
@@ -39,42 +43,45 @@ public class TissueSample extends Instance implements org.openmetadatainitiative
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private TissueSample(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private TissueSample() {
+        this(null);
     }
 
+    private TissueSample(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueSample>{
-        
         public Builder anatomicalLocation(List<Reference<? extends TissueSampleAnatomicalLocation>> anatomicalLocation) { TissueSample.this.anatomicalLocation = anatomicalLocation; return this; }
-        
         public Builder biologicalSex(Reference<BiologicalSex> biologicalSex) { TissueSample.this.biologicalSex = biologicalSex; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { TissueSample.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder isPartOf(List<Reference<TissueSampleCollection>> isPartOf) { TissueSample.this.isPartOf = isPartOf; return this; }
-        
         public Builder laterality(List<Reference<Laterality>> laterality) { TissueSample.this.laterality = laterality; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { TissueSample.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder origin(Reference<? extends TissueSampleOrigin> origin) { TissueSample.this.origin = origin; return this; }
-        
         public Builder species(Reference<? extends TissueSampleSpecies> species) { TissueSample.this.species = species; return this; }
-        
         public Builder studiedState(List<Reference<TissueSampleState>> studiedState) { TissueSample.this.studiedState = studiedState; return this; }
-        
         public Builder type(Reference<TissueSampleType> type) { TissueSample.this.type = type; return this; }
         
 
         public TissueSample build(OpenMINDSContext context) {
-            if (TissueSample.this.id == null) {
-                TissueSample.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            TissueSample.this.atType = SEMANTIC_NAME;
+            TissueSample.super.build(context);
             return TissueSample.this;
         }
     }
+
+    public static TissueSample.Builder create(LocalId localId){
+        return new TissueSample(localId).new Builder();
+    }
+
+    public TissueSample.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSample.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocation")
     private List<Reference<? extends TissueSampleAnatomicalLocation>> anatomicalLocation;
@@ -171,11 +178,5 @@ public class TissueSample extends Instance implements org.openmetadatainitiative
     }
 
  
-    public static TissueSample.Builder create(LocalId localId){
-        return new TissueSample(localId).new Builder();
-    }
 
-    public TissueSample.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSample.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.ContentType.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContentType extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContentType";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ContentType extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContentType";
 
     @JsonIgnore
     public Reference<ContentType> getReference() {
@@ -32,38 +36,43 @@ public class ContentType extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ContentType(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ContentType() {
+        this(null);
     }
 
+    private ContentType(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ContentType>{
-        
         public Builder dataType(List<Reference<DataType>> dataType) { ContentType.this.dataType = dataType; return this; }
-        
         public Builder description(String description) { ContentType.this.description = description; return this; }
-        
         public Builder displayLabel(String displayLabel) { ContentType.this.displayLabel = displayLabel; return this; }
-        
         public Builder fileExtension(List<String> fileExtension) { ContentType.this.fileExtension = fileExtension; return this; }
-        
         public Builder name(String name) { ContentType.this.name = name; return this; }
-        
         public Builder relatedMediaType(String relatedMediaType) { ContentType.this.relatedMediaType = relatedMediaType; return this; }
-        
         public Builder specification(String specification) { ContentType.this.specification = specification; return this; }
-        
         public Builder synonym(List<String> synonym) { ContentType.this.synonym = synonym; return this; }
         
 
         public ContentType build(OpenMINDSContext context) {
-            if (ContentType.this.id == null) {
-                ContentType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ContentType.this.atType = SEMANTIC_NAME;
+            ContentType.super.build(context);
             return ContentType.this;
         }
     }
+
+    public static ContentType.Builder create(LocalId localId){
+        return new ContentType(localId).new Builder();
+    }
+
+    public ContentType.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ContentType.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataType")
     private List<Reference<DataType>> dataType;
@@ -140,11 +149,5 @@ public class ContentType extends Instance {
     }
 
  
-    public static ContentType.Builder create(LocalId localId){
-        return new ContentType(localId).new Builder();
-    }
 
-    public ContentType.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ContentType.class).new Builder();
-    }
 }

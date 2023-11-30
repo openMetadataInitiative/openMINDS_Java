@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.Measurement.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Measurement extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Measurement";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Measurement extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Measurement";
 
     @JsonIgnore
     public Reference<Measurement> getReference() {
@@ -34,32 +38,36 @@ public class Measurement extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Measurement(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Measurement() {
+        this(null);
     }
 
+    private Measurement(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Measurement>{
-        
-        public Builder additionalRemarks(String additionalRemarks) { Measurement.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder measuredQuantity(Reference<MeasuredQuantity> measuredQuantity) { Measurement.this.measuredQuantity = measuredQuantity; return this; }
-        
-        public Builder measuredWith(Reference<? extends MeasurementMeasuredWith> measuredWith) { Measurement.this.measuredWith = measuredWith; return this; }
-        
-        public Builder timestamp(String timestamp) { Measurement.this.timestamp = timestamp; return this; }
-        
-        public Builder value(List<? extends MeasurementValue> value) { Measurement.this.value = value; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder additionalRemarks(String additionalRemarks) { Measurement.this.additionalRemarks = additionalRemarks; return this; }
+        public EmbeddedBuilder measuredQuantity(Reference<MeasuredQuantity> measuredQuantity) { Measurement.this.measuredQuantity = measuredQuantity; return this; }
+        public EmbeddedBuilder measuredWith(Reference<? extends MeasurementMeasuredWith> measuredWith) { Measurement.this.measuredWith = measuredWith; return this; }
+        public EmbeddedBuilder timestamp(String timestamp) { Measurement.this.timestamp = timestamp; return this; }
+        public EmbeddedBuilder value(List<Function<MeasurementValue.EmbeddedBuilder, MeasurementValue>> value) { Measurement.this.value = value.stream().map(b -> b.apply(MeasurementValue.createEmbedded())).toList(); return this; }
         
 
-        public Measurement build(OpenMINDSContext context) {
-            if (Measurement.this.id == null) {
-                Measurement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Measurement.this.atType = SEMANTIC_NAME;
+        public Measurement build(){
             return Measurement.this;
         }
     }
+
+    public static Measurement.EmbeddedBuilder createEmbedded(){
+        return new Measurement(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -103,11 +111,5 @@ public class Measurement extends Instance {
     }
 
  
-    public static Measurement.Builder create(LocalId localId){
-        return new Measurement(localId).new Builder();
-    }
 
-    public Measurement.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Measurement.class).new Builder();
-    }
 }

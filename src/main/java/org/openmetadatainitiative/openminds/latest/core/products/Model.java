@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Model.SE
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Model extends Instance implements org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Model";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Model extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Model";
 
     @JsonIgnore
     public Reference<Model> getReference() {
@@ -38,46 +42,47 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Model(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Model() {
+        this(null);
     }
 
+    private Model(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Model>{
-        
         public Builder abstractionLevel(Reference<ModelAbstractionLevel> abstractionLevel) { Model.this.abstractionLevel = abstractionLevel; return this; }
-        
         public Builder custodian(List<Reference<? extends ModelCustodian>> custodian) { Model.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { Model.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends ModelDeveloper>> developer) { Model.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends ModelDigitalIdentifier> digitalIdentifier) { Model.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { Model.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<ModelVersion>> hasVersion) { Model.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { Model.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { Model.this.howToCite = howToCite; return this; }
-        
         public Builder scope(Reference<ModelScope> scope) { Model.this.scope = scope; return this; }
-        
         public Builder shortName(String shortName) { Model.this.shortName = shortName; return this; }
-        
         public Builder studyTarget(List<Reference<? extends ModelStudyTarget>> studyTarget) { Model.this.studyTarget = studyTarget; return this; }
         
 
         public Model build(OpenMINDSContext context) {
-            if (Model.this.id == null) {
-                Model.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Model.this.atType = SEMANTIC_NAME;
+            Model.super.build(context);
             return Model.this;
         }
     }
+
+    public static Model.Builder create(LocalId localId){
+        return new Model(localId).new Builder();
+    }
+
+    public Model.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Model.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abstractionLevel")
     private Reference<ModelAbstractionLevel> abstractionLevel;
@@ -200,11 +205,5 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
     }
 
  
-    public static Model.Builder create(LocalId localId){
-        return new Model(localId).new Builder();
-    }
 
-    public Model.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Model.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.specimenPrep.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,10 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CranialWindowPreparation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/CranialWindowPreparation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CranialWindowPreparation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/CranialWindowPreparation";
 
     @JsonIgnore
     public Reference<CranialWindowPreparation> getReference() {
@@ -41,52 +45,50 @@ public class CranialWindowPreparation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CranialWindowPreparation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CranialWindowPreparation() {
+        this(null);
     }
 
+    private CranialWindowPreparation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CranialWindowPreparation>{
-        
         public Builder constructionType(Reference<CranialWindowConstructionType> constructionType) { CranialWindowPreparation.this.constructionType = constructionType; return this; }
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { CranialWindowPreparation.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { CranialWindowPreparation.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { CranialWindowPreparation.this.description = description; return this; }
-        
-        public Builder dimension(CranialWindowPreparationDimension dimension) { CranialWindowPreparation.this.dimension = dimension; return this; }
-        
+        public Builder dimension(Function<CranialWindowPreparationDimension.EmbeddedBuilder, CranialWindowPreparationDimension> dimension) { CranialWindowPreparation.this.dimension = dimension.apply(CranialWindowPreparationDimension.createEmbedded()); return this; }
         public Builder endTime(String endTime) { CranialWindowPreparation.this.endTime = endTime; return this; }
-        
         public Builder input(List<Reference<SubjectState>> input) { CranialWindowPreparation.this.input = input; return this; }
-        
         public Builder isPartOf(Reference<DatasetVersion> isPartOf) { CranialWindowPreparation.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { CranialWindowPreparation.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<SubjectState>> output) { CranialWindowPreparation.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends CranialWindowPreparationPerformedBy>> performedBy) { CranialWindowPreparation.this.performedBy = performedBy; return this; }
-        
         public Builder preparationDesign(Reference<PreparationType> preparationDesign) { CranialWindowPreparation.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { CranialWindowPreparation.this.protocol = protocol; return this; }
-        
         public Builder reinforcementType(Reference<CranialWindowReinforcementType> reinforcementType) { CranialWindowPreparation.this.reinforcementType = reinforcementType; return this; }
-        
         public Builder startTime(String startTime) { CranialWindowPreparation.this.startTime = startTime; return this; }
-        
         public Builder studyTarget(List<Reference<? extends CranialWindowPreparationStudyTarget>> studyTarget) { CranialWindowPreparation.this.studyTarget = studyTarget; return this; }
         
 
         public CranialWindowPreparation build(OpenMINDSContext context) {
-            if (CranialWindowPreparation.this.id == null) {
-                CranialWindowPreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CranialWindowPreparation.this.atType = SEMANTIC_NAME;
+            CranialWindowPreparation.super.build(context);
             return CranialWindowPreparation.this;
         }
     }
+
+    public static CranialWindowPreparation.Builder create(LocalId localId){
+        return new CranialWindowPreparation(localId).new Builder();
+    }
+
+    public CranialWindowPreparation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CranialWindowPreparation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/constructionType")
     private Reference<CranialWindowConstructionType> constructionType;
@@ -212,11 +214,5 @@ public class CranialWindowPreparation extends Instance {
     }
 
  
-    public static CranialWindowPreparation.Builder create(LocalId localId){
-        return new CranialWindowPreparation(localId).new Builder();
-    }
 
-    public CranialWindowPreparation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CranialWindowPreparation.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.DataAnalysis.S
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DataAnalysis extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationWasInformedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/DataAnalysis";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class DataAnalysis extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationWasInformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/DataAnalysis";
 
     @JsonIgnore
     public Reference<DataAnalysis> getReference() {
@@ -44,58 +48,53 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private DataAnalysis(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private DataAnalysis() {
+        this(null);
     }
 
+    private DataAnalysis(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<DataAnalysis>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { DataAnalysis.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { DataAnalysis.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { DataAnalysis.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { DataAnalysis.this.endTime = endTime; return this; }
-        
         public Builder environment(Reference<? extends DataAnalysisEnvironment> environment) { DataAnalysis.this.environment = environment; return this; }
-        
         public Builder input(List<Reference<? extends DataAnalysisInput>> input) { DataAnalysis.this.input = input; return this; }
-        
         public Builder launchConfiguration(Reference<LaunchConfiguration> launchConfiguration) { DataAnalysis.this.launchConfiguration = launchConfiguration; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { DataAnalysis.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends DataAnalysisOutput>> output) { DataAnalysis.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends DataAnalysisPerformedBy>> performedBy) { DataAnalysis.this.performedBy = performedBy; return this; }
-        
         public Builder recipe(Reference<WorkflowRecipeVersion> recipe) { DataAnalysis.this.recipe = recipe; return this; }
-        
-        public Builder resourceUsage(List<? extends DataAnalysisResourceUsage> resourceUsage) { DataAnalysis.this.resourceUsage = resourceUsage; return this; }
-        
+        public Builder resourceUsage(List<Function<DataAnalysisResourceUsage.EmbeddedBuilder, DataAnalysisResourceUsage>> resourceUsage) { DataAnalysis.this.resourceUsage = resourceUsage.stream().map(b -> b.apply(DataAnalysisResourceUsage.createEmbedded())).toList(); return this; }
         public Builder startTime(String startTime) { DataAnalysis.this.startTime = startTime; return this; }
-        
         public Builder startedBy(Reference<? extends DataAnalysisStartedBy> startedBy) { DataAnalysis.this.startedBy = startedBy; return this; }
-        
         public Builder status(Reference<ActionStatusType> status) { DataAnalysis.this.status = status; return this; }
-        
         public Builder studyTarget(List<Reference<? extends DataAnalysisStudyTarget>> studyTarget) { DataAnalysis.this.studyTarget = studyTarget; return this; }
-        
         public Builder tag(List<String> tag) { DataAnalysis.this.tag = tag; return this; }
-        
         public Builder technique(List<Reference<AnalysisTechnique>> technique) { DataAnalysis.this.technique = technique; return this; }
-        
         public Builder wasInformedBy(Reference<? extends DataAnalysisWasInformedBy> wasInformedBy) { DataAnalysis.this.wasInformedBy = wasInformedBy; return this; }
         
 
         public DataAnalysis build(OpenMINDSContext context) {
-            if (DataAnalysis.this.id == null) {
-                DataAnalysis.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            DataAnalysis.this.atType = SEMANTIC_NAME;
+            DataAnalysis.super.build(context);
             return DataAnalysis.this;
         }
     }
+
+    public static DataAnalysis.Builder create(LocalId localId){
+        return new DataAnalysis(localId).new Builder();
+    }
+
+    public DataAnalysis.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DataAnalysis.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -239,11 +238,5 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
     }
 
  
-    public static DataAnalysis.Builder create(LocalId localId){
-        return new DataAnalysis(localId).new Builder();
-    }
 
-    public DataAnalysis.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DataAnalysis.class).new Builder();
-    }
 }

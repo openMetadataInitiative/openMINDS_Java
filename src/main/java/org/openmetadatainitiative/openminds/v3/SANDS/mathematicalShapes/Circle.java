@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.C
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Circle extends Instance implements org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationDimension{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Circle";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Circle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationDimension{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Circle";
 
     @JsonIgnore
     public Reference<Circle> getReference() {
@@ -32,24 +36,32 @@ public class Circle extends Instance implements org.openmetadatainitiative.openm
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Circle(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Circle() {
+        this(null);
     }
 
+    private Circle(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Circle>{
-        
-        public Builder radius(QuantitativeValue radius) { Circle.this.radius = radius; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder radius(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> radius) { Circle.this.radius = radius.apply(QuantitativeValue.createEmbedded()); return this; }
         
 
-        public Circle build(OpenMINDSContext context) {
-            if (Circle.this.id == null) {
-                Circle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Circle.this.atType = SEMANTIC_NAME;
+        public Circle build(){
             return Circle.this;
         }
     }
+
+    public static Circle.EmbeddedBuilder createEmbedded(){
+        return new Circle(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/radius")
     private QuantitativeValue radius;
@@ -59,11 +71,5 @@ public class Circle extends Instance implements org.openmetadatainitiative.openm
     }
 
  
-    public static Circle.Builder create(LocalId localId){
-        return new Circle(localId).new Builder();
-    }
 
-    public Circle.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Circle.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +41,10 @@ import static org.openmetadatainitiative.openminds.v3.core.products.SoftwareVers
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SoftwareVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SoftwareVersion";
 
     @JsonIgnore
     public Reference<SoftwareVersion> getReference() {
@@ -51,88 +55,68 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private SoftwareVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private SoftwareVersion() {
+        this(null);
     }
 
+    private SoftwareVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<SoftwareVersion>{
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { SoftwareVersion.this.accessibility = accessibility; return this; }
-        
         public Builder applicationCategory(List<Reference<SoftwareApplicationCategory>> applicationCategory) { SoftwareVersion.this.applicationCategory = applicationCategory; return this; }
-        
-        public Builder copyright(Copyright copyright) { SoftwareVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { SoftwareVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends SoftwareVersionCustodian>> custodian) { SoftwareVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { SoftwareVersion.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends SoftwareVersionDeveloper>> developer) { SoftwareVersion.this.developer = developer; return this; }
-        
         public Builder device(List<Reference<OperatingDevice>> device) { SoftwareVersion.this.device = device; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends SoftwareVersionDigitalIdentifier> digitalIdentifier) { SoftwareVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder feature(List<Reference<SoftwareFeature>> feature) { SoftwareVersion.this.feature = feature; return this; }
-        
         public Builder fullDocumentation(Reference<? extends SoftwareVersionFullDocumentation> fullDocumentation) { SoftwareVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { SoftwareVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { SoftwareVersion.this.funding = funding; return this; }
-        
         public Builder hasPart(List<Reference<SoftwareVersion>> hasPart) { SoftwareVersion.this.hasPart = hasPart; return this; }
-        
         public Builder homepage(String homepage) { SoftwareVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { SoftwareVersion.this.howToCite = howToCite; return this; }
-        
         public Builder inputFormat(List<Reference<ContentType>> inputFormat) { SoftwareVersion.this.inputFormat = inputFormat; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<SoftwareVersion>> isAlternativeVersionOf) { SoftwareVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<SoftwareVersion> isNewVersionOf) { SoftwareVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends SoftwareVersionKeyword>> keyword) { SoftwareVersion.this.keyword = keyword; return this; }
-        
         public Builder language(List<Reference<Language>> language) { SoftwareVersion.this.language = language; return this; }
-        
         public Builder license(List<Reference<License>> license) { SoftwareVersion.this.license = license; return this; }
-        
         public Builder operatingSystem(List<Reference<OperatingSystem>> operatingSystem) { SoftwareVersion.this.operatingSystem = operatingSystem; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { SoftwareVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { SoftwareVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder outputFormat(List<Reference<ContentType>> outputFormat) { SoftwareVersion.this.outputFormat = outputFormat; return this; }
-        
         public Builder programmingLanguage(List<Reference<ProgrammingLanguage>> programmingLanguage) { SoftwareVersion.this.programmingLanguage = programmingLanguage; return this; }
-        
         public Builder relatedPublication(List<Reference<? extends SoftwareVersionRelatedPublication>> relatedPublication) { SoftwareVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { SoftwareVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { SoftwareVersion.this.repository = repository; return this; }
-        
         public Builder requirement(List<String> requirement) { SoftwareVersion.this.requirement = requirement; return this; }
-        
         public Builder shortName(String shortName) { SoftwareVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { SoftwareVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { SoftwareVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { SoftwareVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public SoftwareVersion build(OpenMINDSContext context) {
-            if (SoftwareVersion.this.id == null) {
-                SoftwareVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            SoftwareVersion.this.atType = SEMANTIC_NAME;
+            SoftwareVersion.super.build(context);
             return SoftwareVersion.this;
         }
     }
+
+    public static SoftwareVersion.Builder create(LocalId localId){
+        return new SoftwareVersion(localId).new Builder();
+    }
+
+    public SoftwareVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, SoftwareVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
     private Reference<ProductAccessibility> accessibility;
@@ -462,11 +446,5 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
     }
 
  
-    public static SoftwareVersion.Builder create(LocalId localId){
-        return new SoftwareVersion(localId).new Builder();
-    }
 
-    public SoftwareVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, SoftwareVersion.class).new Builder();
-    }
 }

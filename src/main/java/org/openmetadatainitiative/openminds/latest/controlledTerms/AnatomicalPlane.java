@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.latest.controlledTerms.Anatom
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AnatomicalPlane extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/AnatomicalPlane";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class AnatomicalPlane extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/AnatomicalPlane";
 
     @JsonIgnore
     public Reference<AnatomicalPlane> getReference() {
@@ -31,36 +35,42 @@ public class AnatomicalPlane extends Instance implements org.openmetadatainitiat
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private AnatomicalPlane(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private AnatomicalPlane() {
+        this(null);
     }
 
+    private AnatomicalPlane(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AnatomicalPlane>{
-        
         public Builder definition(String definition) { AnatomicalPlane.this.definition = definition; return this; }
-        
         public Builder description(String description) { AnatomicalPlane.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { AnatomicalPlane.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { AnatomicalPlane.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { AnatomicalPlane.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { AnatomicalPlane.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { AnatomicalPlane.this.synonym = synonym; return this; }
         
 
         public AnatomicalPlane build(OpenMINDSContext context) {
-            if (AnatomicalPlane.this.id == null) {
-                AnatomicalPlane.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            AnatomicalPlane.this.atType = SEMANTIC_NAME;
+            AnatomicalPlane.super.build(context);
             return AnatomicalPlane.this;
         }
     }
+
+    public static AnatomicalPlane.Builder create(LocalId localId){
+        return new AnatomicalPlane(localId).new Builder();
+    }
+
+    public AnatomicalPlane.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AnatomicalPlane.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class AnatomicalPlane extends Instance implements org.openmetadatainitiat
     }
 
  
-    public static AnatomicalPlane.Builder create(LocalId localId){
-        return new AnatomicalPlane(localId).new Builder();
-    }
 
-    public AnatomicalPlane.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AnatomicalPlane.class).new Builder();
-    }
 }

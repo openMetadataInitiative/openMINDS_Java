@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.computation.Environmen
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Environment extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationEnvironment{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Environment";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Environment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationEnvironment{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Environment";
 
     @JsonIgnore
     public Reference<Environment> getReference() {
@@ -34,32 +38,40 @@ public class Environment extends Instance implements org.openmetadatainitiative.
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Environment(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Environment() {
+        this(null);
     }
 
+    private Environment(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Environment>{
-        
         public Builder configuration(Reference<Configuration> configuration) { Environment.this.configuration = configuration; return this; }
-        
         public Builder description(String description) { Environment.this.description = description; return this; }
-        
         public Builder hardware(Reference<HardwareSystem> hardware) { Environment.this.hardware = hardware; return this; }
-        
         public Builder name(String name) { Environment.this.name = name; return this; }
-        
         public Builder software(List<Reference<SoftwareVersion>> software) { Environment.this.software = software; return this; }
         
 
         public Environment build(OpenMINDSContext context) {
-            if (Environment.this.id == null) {
-                Environment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Environment.this.atType = SEMANTIC_NAME;
+            Environment.super.build(context);
             return Environment.this;
         }
     }
+
+    public static Environment.Builder create(LocalId localId){
+        return new Environment(localId).new Builder();
+    }
+
+    public Environment.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Environment.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/configuration")
     private Reference<Configuration> configuration;
@@ -103,11 +115,5 @@ public class Environment extends Instance implements org.openmetadatainitiative.
     }
 
  
-    public static Environment.Builder create(LocalId localId){
-        return new Environment(localId).new Builder();
-    }
 
-    public Environment.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Environment.class).new Builder();
-    }
 }

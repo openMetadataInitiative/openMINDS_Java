@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.GenericComputa
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenericComputation extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationWasInformedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/GenericComputation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class GenericComputation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationWasInformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/GenericComputation";
 
     @JsonIgnore
     public Reference<GenericComputation> getReference() {
@@ -44,58 +48,53 @@ public class GenericComputation extends Instance implements org.openmetadatainit
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private GenericComputation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private GenericComputation() {
+        this(null);
     }
 
+    private GenericComputation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<GenericComputation>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { GenericComputation.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { GenericComputation.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { GenericComputation.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { GenericComputation.this.endTime = endTime; return this; }
-        
         public Builder environment(Reference<? extends GenericComputationEnvironment> environment) { GenericComputation.this.environment = environment; return this; }
-        
         public Builder input(List<Reference<? extends GenericComputationInput>> input) { GenericComputation.this.input = input; return this; }
-        
         public Builder launchConfiguration(Reference<LaunchConfiguration> launchConfiguration) { GenericComputation.this.launchConfiguration = launchConfiguration; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { GenericComputation.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends GenericComputationOutput>> output) { GenericComputation.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends GenericComputationPerformedBy>> performedBy) { GenericComputation.this.performedBy = performedBy; return this; }
-        
         public Builder recipe(Reference<WorkflowRecipeVersion> recipe) { GenericComputation.this.recipe = recipe; return this; }
-        
-        public Builder resourceUsage(List<? extends GenericComputationResourceUsage> resourceUsage) { GenericComputation.this.resourceUsage = resourceUsage; return this; }
-        
+        public Builder resourceUsage(List<Function<GenericComputationResourceUsage.EmbeddedBuilder, GenericComputationResourceUsage>> resourceUsage) { GenericComputation.this.resourceUsage = resourceUsage.stream().map(b -> b.apply(GenericComputationResourceUsage.createEmbedded())).toList(); return this; }
         public Builder startTime(String startTime) { GenericComputation.this.startTime = startTime; return this; }
-        
         public Builder startedBy(Reference<? extends GenericComputationStartedBy> startedBy) { GenericComputation.this.startedBy = startedBy; return this; }
-        
         public Builder status(Reference<ActionStatusType> status) { GenericComputation.this.status = status; return this; }
-        
         public Builder studyTarget(List<Reference<? extends GenericComputationStudyTarget>> studyTarget) { GenericComputation.this.studyTarget = studyTarget; return this; }
-        
         public Builder tag(List<String> tag) { GenericComputation.this.tag = tag; return this; }
-        
         public Builder technique(List<Reference<AnalysisTechnique>> technique) { GenericComputation.this.technique = technique; return this; }
-        
         public Builder wasInformedBy(Reference<? extends GenericComputationWasInformedBy> wasInformedBy) { GenericComputation.this.wasInformedBy = wasInformedBy; return this; }
         
 
         public GenericComputation build(OpenMINDSContext context) {
-            if (GenericComputation.this.id == null) {
-                GenericComputation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            GenericComputation.this.atType = SEMANTIC_NAME;
+            GenericComputation.super.build(context);
             return GenericComputation.this;
         }
     }
+
+    public static GenericComputation.Builder create(LocalId localId){
+        return new GenericComputation(localId).new Builder();
+    }
+
+    public GenericComputation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, GenericComputation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -239,11 +238,5 @@ public class GenericComputation extends Instance implements org.openmetadatainit
     }
 
  
-    public static GenericComputation.Builder create(LocalId localId){
-        return new GenericComputation(localId).new Builder();
-    }
 
-    public GenericComputation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, GenericComputation.class).new Builder();
-    }
 }

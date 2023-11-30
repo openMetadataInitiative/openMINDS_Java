@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.computation.LaunchConf
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LaunchConfiguration extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/LaunchConfiguration";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class LaunchConfiguration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/LaunchConfiguration";
 
     @JsonIgnore
     public Reference<LaunchConfiguration> getReference() {
@@ -32,32 +36,40 @@ public class LaunchConfiguration extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private LaunchConfiguration(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private LaunchConfiguration() {
+        this(null);
     }
 
+    private LaunchConfiguration(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LaunchConfiguration>{
-        
         public Builder argument(List<String> argument) { LaunchConfiguration.this.argument = argument; return this; }
-        
         public Builder description(String description) { LaunchConfiguration.this.description = description; return this; }
-        
         public Builder environmentVariable(Reference<PropertyValueList> environmentVariable) { LaunchConfiguration.this.environmentVariable = environmentVariable; return this; }
-        
         public Builder executable(String executable) { LaunchConfiguration.this.executable = executable; return this; }
-        
         public Builder name(String name) { LaunchConfiguration.this.name = name; return this; }
         
 
         public LaunchConfiguration build(OpenMINDSContext context) {
-            if (LaunchConfiguration.this.id == null) {
-                LaunchConfiguration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            LaunchConfiguration.this.atType = SEMANTIC_NAME;
+            LaunchConfiguration.super.build(context);
             return LaunchConfiguration.this;
         }
     }
+
+    public static LaunchConfiguration.Builder create(LocalId localId){
+        return new LaunchConfiguration(localId).new Builder();
+    }
+
+    public LaunchConfiguration.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LaunchConfiguration.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/argument")
     private List<String> argument;
@@ -101,11 +113,5 @@ public class LaunchConfiguration extends Instance {
     }
 
  
-    public static LaunchConfiguration.Builder create(LocalId localId){
-        return new LaunchConfiguration(localId).new Builder();
-    }
 
-    public LaunchConfiguration.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LaunchConfiguration.class).new Builder();
-    }
 }

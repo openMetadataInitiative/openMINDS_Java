@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Numerica
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NumericalProperty extends Instance implements org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/NumericalProperty";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class NumericalProperty extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/NumericalProperty";
 
     @JsonIgnore
     public Reference<NumericalProperty> getReference() {
@@ -32,26 +36,33 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private NumericalProperty(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private NumericalProperty() {
+        this(null);
     }
 
+    private NumericalProperty(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<NumericalProperty>{
-        
-        public Builder name(String name) { NumericalProperty.this.name = name; return this; }
-        
-        public Builder value(List<? extends NumericalPropertyValue> value) { NumericalProperty.this.value = value; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder name(String name) { NumericalProperty.this.name = name; return this; }
+        public EmbeddedBuilder value(List<Function<NumericalPropertyValue.EmbeddedBuilder, NumericalPropertyValue>> value) { NumericalProperty.this.value = value.stream().map(b -> b.apply(NumericalPropertyValue.createEmbedded())).toList(); return this; }
         
 
-        public NumericalProperty build(OpenMINDSContext context) {
-            if (NumericalProperty.this.id == null) {
-                NumericalProperty.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            NumericalProperty.this.atType = SEMANTIC_NAME;
+        public NumericalProperty build(){
             return NumericalProperty.this;
         }
     }
+
+    public static NumericalProperty.EmbeddedBuilder createEmbedded(){
+        return new NumericalProperty(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
     private String name;
@@ -74,11 +85,5 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
     }
 
  
-    public static NumericalProperty.Builder create(LocalId localId){
-        return new NumericalProperty(localId).new Builder();
-    }
 
-    public NumericalProperty.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, NumericalProperty.class).new Builder();
-    }
 }

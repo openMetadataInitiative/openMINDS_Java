@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.core.data.License.SEMANTIC
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class License extends Instance implements org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionLicense{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/License";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class License extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionLicense{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/License";
 
     @JsonIgnore
     public Reference<License> getReference() {
@@ -31,30 +35,39 @@ public class License extends Instance implements org.openmetadatainitiative.open
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private License(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private License() {
+        this(null);
     }
 
+    private License(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<License>{
-        
         public Builder fullName(String fullName) { License.this.fullName = fullName; return this; }
-        
         public Builder legalCode(String legalCode) { License.this.legalCode = legalCode; return this; }
-        
         public Builder shortName(String shortName) { License.this.shortName = shortName; return this; }
-        
         public Builder webpage(List<String> webpage) { License.this.webpage = webpage; return this; }
         
 
         public License build(OpenMINDSContext context) {
-            if (License.this.id == null) {
-                License.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            License.this.atType = SEMANTIC_NAME;
+            License.super.build(context);
             return License.this;
         }
     }
+
+    public static License.Builder create(LocalId localId){
+        return new License(localId).new Builder();
+    }
+
+    public License.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, License.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
     private String fullName;
@@ -97,11 +110,5 @@ public class License extends Instance implements org.openmetadatainitiative.open
     }
 
  
-    public static License.Builder create(LocalId localId){
-        return new License(localId).new Builder();
-    }
 
-    public License.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, License.class).new Builder();
-    }
 }

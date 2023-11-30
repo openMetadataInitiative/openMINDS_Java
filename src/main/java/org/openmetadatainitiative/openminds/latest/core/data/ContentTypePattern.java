@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.ContentTypeP
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContentTypePattern extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContentTypePattern";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ContentTypePattern extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContentTypePattern";
 
     @JsonIgnore
     public Reference<ContentTypePattern> getReference() {
@@ -32,28 +36,38 @@ public class ContentTypePattern extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ContentTypePattern(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ContentTypePattern() {
+        this(null);
     }
 
+    private ContentTypePattern(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ContentTypePattern>{
-        
         public Builder contentType(Reference<ContentType> contentType) { ContentTypePattern.this.contentType = contentType; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { ContentTypePattern.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder regex(String regex) { ContentTypePattern.this.regex = regex; return this; }
         
 
         public ContentTypePattern build(OpenMINDSContext context) {
-            if (ContentTypePattern.this.id == null) {
-                ContentTypePattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ContentTypePattern.this.atType = SEMANTIC_NAME;
+            ContentTypePattern.super.build(context);
             return ContentTypePattern.this;
         }
     }
+
+    public static ContentTypePattern.Builder create(LocalId localId){
+        return new ContentTypePattern(localId).new Builder();
+    }
+
+    public ContentTypePattern.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ContentTypePattern.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentType")
     private Reference<ContentType> contentType;
@@ -77,11 +91,5 @@ public class ContentTypePattern extends Instance {
     }
 
  
-    public static ContentTypePattern.Builder create(LocalId localId){
-        return new ContentTypePattern(localId).new Builder();
-    }
 
-    public ContentTypePattern.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ContentTypePattern.class).new Builder();
-    }
 }

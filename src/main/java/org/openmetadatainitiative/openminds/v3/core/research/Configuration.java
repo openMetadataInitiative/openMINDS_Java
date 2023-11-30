@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.core.research.Configuratio
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Configuration extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v3.core.research.intf.CustomPropertySetDataLocation{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Configuration";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v3.core.research.intf.CustomPropertySetDataLocation{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Configuration";
 
     @JsonIgnore
     public Reference<Configuration> getReference() {
@@ -32,28 +36,38 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Configuration(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Configuration() {
+        this(null);
     }
 
+    private Configuration(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Configuration>{
-        
         public Builder configuration(String configuration) { Configuration.this.configuration = configuration; return this; }
-        
         public Builder format(Reference<ContentType> format) { Configuration.this.format = format; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { Configuration.this.lookupLabel = lookupLabel; return this; }
         
 
         public Configuration build(OpenMINDSContext context) {
-            if (Configuration.this.id == null) {
-                Configuration.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Configuration.this.atType = SEMANTIC_NAME;
+            Configuration.super.build(context);
             return Configuration.this;
         }
     }
+
+    public static Configuration.Builder create(LocalId localId){
+        return new Configuration(localId).new Builder();
+    }
+
+    public Configuration.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Configuration.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/configuration")
     private String configuration;
@@ -80,11 +94,5 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
     }
 
  
-    public static Configuration.Builder create(LocalId localId){
-        return new Configuration(localId).new Builder();
-    }
 
-    public Configuration.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Configuration.class).new Builder();
-    }
 }

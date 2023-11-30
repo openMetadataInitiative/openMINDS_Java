@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.ephys.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.SEMAN
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Channel extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Channel";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Channel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Channel";
 
     @JsonIgnore
     public Reference<Channel> getReference() {
@@ -32,26 +36,33 @@ public class Channel extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Channel(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Channel() {
+        this(null);
     }
 
+    private Channel(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Channel>{
-        
-        public Builder internalIdentifier(String internalIdentifier) { Channel.this.internalIdentifier = internalIdentifier; return this; }
-        
-        public Builder unit(Reference<UnitOfMeasurement> unit) { Channel.this.unit = unit; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder internalIdentifier(String internalIdentifier) { Channel.this.internalIdentifier = internalIdentifier; return this; }
+        public EmbeddedBuilder unit(Reference<UnitOfMeasurement> unit) { Channel.this.unit = unit; return this; }
         
 
-        public Channel build(OpenMINDSContext context) {
-            if (Channel.this.id == null) {
-                Channel.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Channel.this.atType = SEMANTIC_NAME;
+        public Channel build(){
             return Channel.this;
         }
     }
+
+    public static Channel.EmbeddedBuilder createEmbedded(){
+        return new Channel(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
     private String internalIdentifier;
@@ -74,11 +85,5 @@ public class Channel extends Instance {
     }
 
  
-    public static Channel.Builder create(LocalId localId){
-        return new Channel(localId).new Builder();
-    }
 
-    public Channel.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Channel.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +37,10 @@ import static org.openmetadatainitiative.openminds.latest.core.products.ModelVer
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModelVersion extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ModelVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ModelVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ModelVersion";
 
     @JsonIgnore
     public Reference<ModelVersion> getReference() {
@@ -47,74 +51,61 @@ public class ModelVersion extends Instance implements org.openmetadatainitiative
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ModelVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ModelVersion() {
+        this(null);
     }
 
+    private ModelVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ModelVersion>{
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { ModelVersion.this.accessibility = accessibility; return this; }
-        
-        public Builder copyright(Copyright copyright) { ModelVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { ModelVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends ModelVersionCustodian>> custodian) { ModelVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { ModelVersion.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends ModelVersionDeveloper>> developer) { ModelVersion.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends ModelVersionDigitalIdentifier> digitalIdentifier) { ModelVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder format(List<Reference<ContentType>> format) { ModelVersion.this.format = format; return this; }
-        
         public Builder fullDocumentation(Reference<? extends ModelVersionFullDocumentation> fullDocumentation) { ModelVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { ModelVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { ModelVersion.this.funding = funding; return this; }
-        
         public Builder homepage(String homepage) { ModelVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { ModelVersion.this.howToCite = howToCite; return this; }
-        
         public Builder inputData(List<Reference<? extends ModelVersionInputData>> inputData) { ModelVersion.this.inputData = inputData; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<ModelVersion>> isAlternativeVersionOf) { ModelVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<ModelVersion> isNewVersionOf) { ModelVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends ModelVersionKeyword>> keyword) { ModelVersion.this.keyword = keyword; return this; }
-        
         public Builder license(List<Reference<License>> license) { ModelVersion.this.license = license; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { ModelVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { ModelVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder outputData(List<Reference<? extends ModelVersionOutputData>> outputData) { ModelVersion.this.outputData = outputData; return this; }
-        
         public Builder relatedPublication(List<Reference<? extends ModelVersionRelatedPublication>> relatedPublication) { ModelVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { ModelVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { ModelVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { ModelVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { ModelVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { ModelVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { ModelVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public ModelVersion build(OpenMINDSContext context) {
-            if (ModelVersion.this.id == null) {
-                ModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ModelVersion.this.atType = SEMANTIC_NAME;
+            ModelVersion.super.build(context);
             return ModelVersion.this;
         }
     }
+
+    public static ModelVersion.Builder create(LocalId localId){
+        return new ModelVersion(localId).new Builder();
+    }
+
+    public ModelVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ModelVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
     private Reference<ProductAccessibility> accessibility;
@@ -377,11 +368,5 @@ public class ModelVersion extends Instance implements org.openmetadatainitiative
     }
 
  
-    public static ModelVersion.Builder create(LocalId localId){
-        return new ModelVersion(localId).new Builder();
-    }
 
-    public ModelVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ModelVersion.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.controlledTerms.PatchClamp
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PatchClampVariation extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/PatchClampVariation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class PatchClampVariation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/PatchClampVariation";
 
     @JsonIgnore
     public Reference<PatchClampVariation> getReference() {
@@ -31,36 +35,42 @@ public class PatchClampVariation extends Instance implements org.openmetadataini
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private PatchClampVariation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private PatchClampVariation() {
+        this(null);
     }
 
+    private PatchClampVariation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<PatchClampVariation>{
-        
         public Builder definition(String definition) { PatchClampVariation.this.definition = definition; return this; }
-        
         public Builder description(String description) { PatchClampVariation.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { PatchClampVariation.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { PatchClampVariation.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { PatchClampVariation.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { PatchClampVariation.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { PatchClampVariation.this.synonym = synonym; return this; }
         
 
         public PatchClampVariation build(OpenMINDSContext context) {
-            if (PatchClampVariation.this.id == null) {
-                PatchClampVariation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            PatchClampVariation.this.atType = SEMANTIC_NAME;
+            PatchClampVariation.super.build(context);
             return PatchClampVariation.this;
         }
     }
+
+    public static PatchClampVariation.Builder create(LocalId localId){
+        return new PatchClampVariation(localId).new Builder();
+    }
+
+    public PatchClampVariation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, PatchClampVariation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class PatchClampVariation extends Instance implements org.openmetadataini
     }
 
  
-    public static PatchClampVariation.Builder create(LocalId localId){
-        return new PatchClampVariation(localId).new Builder();
-    }
 
-    public PatchClampVariation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, PatchClampVariation.class).new Builder();
-    }
 }

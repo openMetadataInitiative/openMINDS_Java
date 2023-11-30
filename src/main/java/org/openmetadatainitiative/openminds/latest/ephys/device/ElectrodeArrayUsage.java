@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.Electrode
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ElectrodeArrayUsage extends Instance implements org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ElectrodeArrayUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage";
 
     @JsonIgnore
     public Reference<ElectrodeArrayUsage> getReference() {
@@ -38,40 +42,44 @@ public class ElectrodeArrayUsage extends Instance implements org.openmetadataini
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ElectrodeArrayUsage(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ElectrodeArrayUsage() {
+        this(null);
     }
 
+    private ElectrodeArrayUsage(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ElectrodeArrayUsage>{
-        
         public Builder anatomicalLocationOfArray(List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfArray>> anatomicalLocationOfArray) { ElectrodeArrayUsage.this.anatomicalLocationOfArray = anatomicalLocationOfArray; return this; }
-        
         public Builder anatomicalLocationOfElectrodes(List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfElectrodes>> anatomicalLocationOfElectrodes) { ElectrodeArrayUsage.this.anatomicalLocationOfElectrodes = anatomicalLocationOfElectrodes; return this; }
-        
-        public Builder contactResistances(List<? extends ElectrodeArrayUsageContactResistances> contactResistances) { ElectrodeArrayUsage.this.contactResistances = contactResistances; return this; }
-        
+        public Builder contactResistances(List<Function<ElectrodeArrayUsageContactResistances.EmbeddedBuilder, ElectrodeArrayUsageContactResistances>> contactResistances) { ElectrodeArrayUsage.this.contactResistances = contactResistances.stream().map(b -> b.apply(ElectrodeArrayUsageContactResistances.createEmbedded())).toList(); return this; }
         public Builder device(Reference<ElectrodeArray> device) { ElectrodeArrayUsage.this.device = device; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { ElectrodeArrayUsage.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder metadataLocation(List<Reference<? extends ElectrodeArrayUsageMetadataLocation>> metadataLocation) { ElectrodeArrayUsage.this.metadataLocation = metadataLocation; return this; }
-        
-        public Builder spatialLocationOfElectrodes(List<CoordinatePoint> spatialLocationOfElectrodes) { ElectrodeArrayUsage.this.spatialLocationOfElectrodes = spatialLocationOfElectrodes; return this; }
-        
+        public Builder spatialLocationOfElectrodes(List<Function<CoordinatePoint.EmbeddedBuilder, CoordinatePoint>> spatialLocationOfElectrodes) { ElectrodeArrayUsage.this.spatialLocationOfElectrodes = spatialLocationOfElectrodes.stream().map(b -> b.apply(CoordinatePoint.createEmbedded())).toList(); return this; }
         public Builder usedElectrode(List<String> usedElectrode) { ElectrodeArrayUsage.this.usedElectrode = usedElectrode; return this; }
-        
         public Builder usedSpecimen(Reference<? extends ElectrodeArrayUsageUsedSpecimen> usedSpecimen) { ElectrodeArrayUsage.this.usedSpecimen = usedSpecimen; return this; }
         
 
         public ElectrodeArrayUsage build(OpenMINDSContext context) {
-            if (ElectrodeArrayUsage.this.id == null) {
-                ElectrodeArrayUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ElectrodeArrayUsage.this.atType = SEMANTIC_NAME;
+            ElectrodeArrayUsage.super.build(context);
             return ElectrodeArrayUsage.this;
         }
     }
+
+    public static ElectrodeArrayUsage.Builder create(LocalId localId){
+        return new ElectrodeArrayUsage(localId).new Builder();
+    }
+
+    public ElectrodeArrayUsage.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ElectrodeArrayUsage.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocationOfArray")
     private List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfArray>> anatomicalLocationOfArray;
@@ -140,11 +148,5 @@ public class ElectrodeArrayUsage extends Instance implements org.openmetadataini
     }
 
  
-    public static ElectrodeArrayUsage.Builder create(LocalId localId){
-        return new ElectrodeArrayUsage(localId).new Builder();
-    }
 
-    public ElectrodeArrayUsage.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ElectrodeArrayUsage.class).new Builder();
-    }
 }

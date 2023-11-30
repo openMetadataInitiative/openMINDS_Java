@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.ephys.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.latest.ephys.activity.CellPat
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CellPatching extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/CellPatching";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CellPatching extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/CellPatching";
 
     @JsonIgnore
     public Reference<CellPatching> getReference() {
@@ -44,56 +48,52 @@ public class CellPatching extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CellPatching(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CellPatching() {
+        this(null);
     }
 
+    private CellPatching(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CellPatching>{
-        
-        public Builder bathTemperature(CellPatchingBathTemperature bathTemperature) { CellPatching.this.bathTemperature = bathTemperature; return this; }
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { CellPatching.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder bathTemperature(Function<CellPatchingBathTemperature.EmbeddedBuilder, CellPatchingBathTemperature> bathTemperature) { CellPatching.this.bathTemperature = bathTemperature.apply(CellPatchingBathTemperature.createEmbedded()); return this; }
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { CellPatching.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { CellPatching.this.description = description; return this; }
-        
         public Builder device(List<Reference<? extends CellPatchingDevice>> device) { CellPatching.this.device = device; return this; }
-        
         public Builder endTime(String endTime) { CellPatching.this.endTime = endTime; return this; }
-        
         public Builder input(List<Reference<? extends CellPatchingInput>> input) { CellPatching.this.input = input; return this; }
-        
         public Builder isPartOf(Reference<DatasetVersion> isPartOf) { CellPatching.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { CellPatching.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends CellPatchingOutput>> output) { CellPatching.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends CellPatchingPerformedBy>> performedBy) { CellPatching.this.performedBy = performedBy; return this; }
-        
         public Builder preparationDesign(Reference<PreparationType> preparationDesign) { CellPatching.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { CellPatching.this.protocol = protocol; return this; }
-        
         public Builder startTime(String startTime) { CellPatching.this.startTime = startTime; return this; }
-        
         public Builder studyTarget(List<Reference<? extends CellPatchingStudyTarget>> studyTarget) { CellPatching.this.studyTarget = studyTarget; return this; }
-        
-        public Builder targetPosition(AnatomicalTargetPosition targetPosition) { CellPatching.this.targetPosition = targetPosition; return this; }
-        
+        public Builder targetPosition(Function<AnatomicalTargetPosition.EmbeddedBuilder, AnatomicalTargetPosition> targetPosition) { CellPatching.this.targetPosition = targetPosition.apply(AnatomicalTargetPosition.createEmbedded()); return this; }
         public Builder tissueBathSolution(Reference<ChemicalMixture> tissueBathSolution) { CellPatching.this.tissueBathSolution = tissueBathSolution; return this; }
-        
         public Builder variation(Reference<PatchClampVariation> variation) { CellPatching.this.variation = variation; return this; }
         
 
         public CellPatching build(OpenMINDSContext context) {
-            if (CellPatching.this.id == null) {
-                CellPatching.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CellPatching.this.atType = SEMANTIC_NAME;
+            CellPatching.super.build(context);
             return CellPatching.this;
         }
     }
+
+    public static CellPatching.Builder create(LocalId localId){
+        return new CellPatching(localId).new Builder();
+    }
+
+    public CellPatching.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CellPatching.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/bathTemperature")
     private CellPatchingBathTemperature bathTemperature;
@@ -236,11 +236,5 @@ public class CellPatching extends Instance {
     }
 
  
-    public static CellPatching.Builder create(LocalId localId){
-        return new CellPatching(localId).new Builder();
-    }
 
-    public CellPatching.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CellPatching.class).new Builder();
-    }
 }

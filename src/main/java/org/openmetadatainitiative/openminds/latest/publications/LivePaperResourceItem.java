@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.publications.LivePaper
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LivePaperResourceItem extends Instance implements org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperResourceItem";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class LivePaperResourceItem extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperResourceItem";
 
     @JsonIgnore
     public Reference<LivePaperResourceItem> getReference() {
@@ -33,30 +37,39 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private LivePaperResourceItem(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private LivePaperResourceItem() {
+        this(null);
     }
 
+    private LivePaperResourceItem(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaperResourceItem>{
-        
         public Builder IRI(String IRI) { LivePaperResourceItem.this.IRI = IRI; return this; }
-        
         public Builder hostedBy(Reference<? extends LivePaperResourceItemHostedBy> hostedBy) { LivePaperResourceItem.this.hostedBy = hostedBy; return this; }
-        
         public Builder isPartOf(Reference<LivePaperSection> isPartOf) { LivePaperResourceItem.this.isPartOf = isPartOf; return this; }
-        
         public Builder name(String name) { LivePaperResourceItem.this.name = name; return this; }
         
 
         public LivePaperResourceItem build(OpenMINDSContext context) {
-            if (LivePaperResourceItem.this.id == null) {
-                LivePaperResourceItem.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            LivePaperResourceItem.this.atType = SEMANTIC_NAME;
+            LivePaperResourceItem.super.build(context);
             return LivePaperResourceItem.this;
         }
     }
+
+    public static LivePaperResourceItem.Builder create(LocalId localId){
+        return new LivePaperResourceItem(localId).new Builder();
+    }
+
+    public LivePaperResourceItem.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LivePaperResourceItem.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -99,11 +112,5 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
     }
 
  
-    public static LivePaperResourceItem.Builder create(LocalId localId){
-        return new LivePaperResourceItem(localId).new Builder();
-    }
 
-    public LivePaperResourceItem.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LivePaperResourceItem.class).new Builder();
-    }
 }

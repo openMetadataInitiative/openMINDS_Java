@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.latest.computation.ModelValid
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModelValidation extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationWasInformedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/ModelValidation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ModelValidation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationWasInformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/ModelValidation";
 
     @JsonIgnore
     public Reference<ModelValidation> getReference() {
@@ -44,60 +48,54 @@ public class ModelValidation extends Instance implements org.openmetadatainitiat
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ModelValidation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ModelValidation() {
+        this(null);
     }
 
+    private ModelValidation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ModelValidation>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { ModelValidation.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { ModelValidation.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { ModelValidation.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { ModelValidation.this.endTime = endTime; return this; }
-        
         public Builder environment(Reference<? extends ModelValidationEnvironment> environment) { ModelValidation.this.environment = environment; return this; }
-        
         public Builder input(List<Reference<? extends ModelValidationInput>> input) { ModelValidation.this.input = input; return this; }
-        
         public Builder launchConfiguration(Reference<LaunchConfiguration> launchConfiguration) { ModelValidation.this.launchConfiguration = launchConfiguration; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { ModelValidation.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends ModelValidationOutput>> output) { ModelValidation.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends ModelValidationPerformedBy>> performedBy) { ModelValidation.this.performedBy = performedBy; return this; }
-        
         public Builder recipe(Reference<WorkflowRecipeVersion> recipe) { ModelValidation.this.recipe = recipe; return this; }
-        
-        public Builder resourceUsage(List<? extends ModelValidationResourceUsage> resourceUsage) { ModelValidation.this.resourceUsage = resourceUsage; return this; }
-        
-        public Builder score(Object score) { ModelValidation.this.score = score; return this; }
-        
+        public Builder resourceUsage(List<Function<ModelValidationResourceUsage.EmbeddedBuilder, ModelValidationResourceUsage>> resourceUsage) { ModelValidation.this.resourceUsage = resourceUsage.stream().map(b -> b.apply(ModelValidationResourceUsage.createEmbedded())).toList(); return this; }
+        public Builder score(Double score) { ModelValidation.this.score = score; return this; }
         public Builder startTime(String startTime) { ModelValidation.this.startTime = startTime; return this; }
-        
         public Builder startedBy(Reference<? extends ModelValidationStartedBy> startedBy) { ModelValidation.this.startedBy = startedBy; return this; }
-        
         public Builder status(Reference<ActionStatusType> status) { ModelValidation.this.status = status; return this; }
-        
         public Builder studyTarget(List<Reference<? extends ModelValidationStudyTarget>> studyTarget) { ModelValidation.this.studyTarget = studyTarget; return this; }
-        
         public Builder tag(List<String> tag) { ModelValidation.this.tag = tag; return this; }
-        
         public Builder technique(List<Reference<AnalysisTechnique>> technique) { ModelValidation.this.technique = technique; return this; }
-        
         public Builder wasInformedBy(Reference<? extends ModelValidationWasInformedBy> wasInformedBy) { ModelValidation.this.wasInformedBy = wasInformedBy; return this; }
         
 
         public ModelValidation build(OpenMINDSContext context) {
-            if (ModelValidation.this.id == null) {
-                ModelValidation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ModelValidation.this.atType = SEMANTIC_NAME;
+            ModelValidation.super.build(context);
             return ModelValidation.this;
         }
     }
+
+    public static ModelValidation.Builder create(LocalId localId){
+        return new ModelValidation(localId).new Builder();
+    }
+
+    public ModelValidation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ModelValidation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -186,9 +184,9 @@ public class ModelValidation extends Instance implements org.openmetadatainitiat
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/score")
-    private Object score;
+    private Double score;
     
-    public Object getScore() {
+    public Double getScore() {
        return this.score;
     }
 
@@ -248,11 +246,5 @@ public class ModelValidation extends Instance implements org.openmetadatainitiat
     }
 
  
-    public static ModelValidation.Builder create(LocalId localId){
-        return new ModelValidation(localId).new Builder();
-    }
 
-    public ModelValidation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ModelValidation.class).new Builder();
-    }
 }

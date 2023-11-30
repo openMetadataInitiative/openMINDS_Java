@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.controlledTerms.Language.S
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Language extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/Language";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Language extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/Language";
 
     @JsonIgnore
     public Reference<Language> getReference() {
@@ -31,36 +35,42 @@ public class Language extends Instance implements org.openmetadatainitiative.ope
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Language(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Language() {
+        this(null);
     }
 
+    private Language(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Language>{
-        
         public Builder definition(String definition) { Language.this.definition = definition; return this; }
-        
         public Builder description(String description) { Language.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { Language.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { Language.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { Language.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { Language.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { Language.this.synonym = synonym; return this; }
         
 
         public Language build(OpenMINDSContext context) {
-            if (Language.this.id == null) {
-                Language.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Language.this.atType = SEMANTIC_NAME;
+            Language.super.build(context);
             return Language.this;
         }
     }
+
+    public static Language.Builder create(LocalId localId){
+        return new Language(localId).new Builder();
+    }
+
+    public Language.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Language.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class Language extends Instance implements org.openmetadatainitiative.ope
     }
 
  
-    public static Language.Builder create(LocalId localId){
-        return new Language(localId).new Builder();
-    }
 
-    public Language.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Language.class).new Builder();
-    }
 }

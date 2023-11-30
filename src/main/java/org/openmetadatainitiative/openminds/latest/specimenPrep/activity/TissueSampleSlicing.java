@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.specimenPrep.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,10 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TissueSampleSlicing extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/TissueSampleSlicing";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class TissueSampleSlicing extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/TissueSampleSlicing";
 
     @JsonIgnore
     public Reference<TissueSampleSlicing> getReference() {
@@ -36,32 +40,40 @@ public class TissueSampleSlicing extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private TissueSampleSlicing(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private TissueSampleSlicing() {
+        this(null);
     }
 
+    private TissueSampleSlicing(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueSampleSlicing>{
-        
         public Builder device(Reference<SlicingDeviceUsage> device) { TissueSampleSlicing.this.device = device; return this; }
-        
         public Builder input(Reference<? extends TissueSampleSlicingInput> input) { TissueSampleSlicing.this.input = input; return this; }
-        
         public Builder output(List<Reference<? extends TissueSampleSlicingOutput>> output) { TissueSampleSlicing.this.output = output; return this; }
-        
-        public Builder temperature(TissueSampleSlicingTemperature temperature) { TissueSampleSlicing.this.temperature = temperature; return this; }
-        
+        public Builder temperature(Function<TissueSampleSlicingTemperature.EmbeddedBuilder, TissueSampleSlicingTemperature> temperature) { TissueSampleSlicing.this.temperature = temperature.apply(TissueSampleSlicingTemperature.createEmbedded()); return this; }
         public Builder tissueBathSolution(Reference<ChemicalMixture> tissueBathSolution) { TissueSampleSlicing.this.tissueBathSolution = tissueBathSolution; return this; }
         
 
         public TissueSampleSlicing build(OpenMINDSContext context) {
-            if (TissueSampleSlicing.this.id == null) {
-                TissueSampleSlicing.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            TissueSampleSlicing.this.atType = SEMANTIC_NAME;
+            TissueSampleSlicing.super.build(context);
             return TissueSampleSlicing.this;
         }
     }
+
+    public static TissueSampleSlicing.Builder create(LocalId localId){
+        return new TissueSampleSlicing(localId).new Builder();
+    }
+
+    public TissueSampleSlicing.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSampleSlicing.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
     private Reference<SlicingDeviceUsage> device;
@@ -108,11 +120,5 @@ public class TissueSampleSlicing extends Instance {
     }
 
  
-    public static TissueSampleSlicing.Builder create(LocalId localId){
-        return new TissueSampleSlicing(localId).new Builder();
-    }
 
-    public TissueSampleSlicing.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSampleSlicing.class).new Builder();
-    }
 }

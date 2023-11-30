@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.R
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Rectangle extends Instance implements org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationDimension{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Rectangle";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Rectangle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationDimension{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Rectangle";
 
     @JsonIgnore
     public Reference<Rectangle> getReference() {
@@ -32,26 +36,33 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Rectangle(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Rectangle() {
+        this(null);
     }
 
+    private Rectangle(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Rectangle>{
-        
-        public Builder length(QuantitativeValue length) { Rectangle.this.length = length; return this; }
-        
-        public Builder width(QuantitativeValue width) { Rectangle.this.width = width; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder length(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> length) { Rectangle.this.length = length.apply(QuantitativeValue.createEmbedded()); return this; }
+        public EmbeddedBuilder width(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> width) { Rectangle.this.width = width.apply(QuantitativeValue.createEmbedded()); return this; }
         
 
-        public Rectangle build(OpenMINDSContext context) {
-            if (Rectangle.this.id == null) {
-                Rectangle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Rectangle.this.atType = SEMANTIC_NAME;
+        public Rectangle build(){
             return Rectangle.this;
         }
     }
+
+    public static Rectangle.EmbeddedBuilder createEmbedded(){
+        return new Rectangle(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/length")
     private QuantitativeValue length;
@@ -68,11 +79,5 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
     }
 
  
-    public static Rectangle.Builder create(LocalId localId){
-        return new Rectangle(localId).new Builder();
-    }
 
-    public Rectangle.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Rectangle.class).new Builder();
-    }
 }

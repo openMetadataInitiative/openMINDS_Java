@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.Optimization.S
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Optimization extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationWasInformedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Optimization";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Optimization extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationWasInformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Optimization";
 
     @JsonIgnore
     public Reference<Optimization> getReference() {
@@ -44,58 +48,53 @@ public class Optimization extends Instance implements org.openmetadatainitiative
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Optimization(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Optimization() {
+        this(null);
     }
 
+    private Optimization(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Optimization>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { Optimization.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { Optimization.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { Optimization.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { Optimization.this.endTime = endTime; return this; }
-        
         public Builder environment(Reference<? extends OptimizationEnvironment> environment) { Optimization.this.environment = environment; return this; }
-        
         public Builder input(List<Reference<? extends OptimizationInput>> input) { Optimization.this.input = input; return this; }
-        
         public Builder launchConfiguration(Reference<LaunchConfiguration> launchConfiguration) { Optimization.this.launchConfiguration = launchConfiguration; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { Optimization.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends OptimizationOutput>> output) { Optimization.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends OptimizationPerformedBy>> performedBy) { Optimization.this.performedBy = performedBy; return this; }
-        
         public Builder recipe(Reference<WorkflowRecipeVersion> recipe) { Optimization.this.recipe = recipe; return this; }
-        
-        public Builder resourceUsage(List<? extends OptimizationResourceUsage> resourceUsage) { Optimization.this.resourceUsage = resourceUsage; return this; }
-        
+        public Builder resourceUsage(List<Function<OptimizationResourceUsage.EmbeddedBuilder, OptimizationResourceUsage>> resourceUsage) { Optimization.this.resourceUsage = resourceUsage.stream().map(b -> b.apply(OptimizationResourceUsage.createEmbedded())).toList(); return this; }
         public Builder startTime(String startTime) { Optimization.this.startTime = startTime; return this; }
-        
         public Builder startedBy(Reference<? extends OptimizationStartedBy> startedBy) { Optimization.this.startedBy = startedBy; return this; }
-        
         public Builder status(Reference<ActionStatusType> status) { Optimization.this.status = status; return this; }
-        
         public Builder studyTarget(List<Reference<? extends OptimizationStudyTarget>> studyTarget) { Optimization.this.studyTarget = studyTarget; return this; }
-        
         public Builder tag(List<String> tag) { Optimization.this.tag = tag; return this; }
-        
         public Builder technique(List<Reference<AnalysisTechnique>> technique) { Optimization.this.technique = technique; return this; }
-        
         public Builder wasInformedBy(Reference<? extends OptimizationWasInformedBy> wasInformedBy) { Optimization.this.wasInformedBy = wasInformedBy; return this; }
         
 
         public Optimization build(OpenMINDSContext context) {
-            if (Optimization.this.id == null) {
-                Optimization.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Optimization.this.atType = SEMANTIC_NAME;
+            Optimization.super.build(context);
             return Optimization.this;
         }
     }
+
+    public static Optimization.Builder create(LocalId localId){
+        return new Optimization(localId).new Builder();
+    }
+
+    public Optimization.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Optimization.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -239,11 +238,5 @@ public class Optimization extends Instance implements org.openmetadatainitiative
     }
 
  
-    public static Optimization.Builder create(LocalId localId){
-        return new Optimization(localId).new Builder();
-    }
 
-    public Optimization.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Optimization.class).new Builder();
-    }
 }

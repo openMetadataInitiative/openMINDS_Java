@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Protocol
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Protocol extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Protocol";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Protocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Protocol";
 
     @JsonIgnore
     public Reference<Protocol> getReference() {
@@ -34,32 +38,40 @@ public class Protocol extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Protocol(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Protocol() {
+        this(null);
     }
 
+    private Protocol(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Protocol>{
-        
         public Builder describedIn(Reference<? extends ProtocolDescribedIn> describedIn) { Protocol.this.describedIn = describedIn; return this; }
-        
         public Builder description(String description) { Protocol.this.description = description; return this; }
-        
         public Builder name(String name) { Protocol.this.name = name; return this; }
-        
         public Builder stimulusType(List<Reference<? extends ProtocolStimulusType>> stimulusType) { Protocol.this.stimulusType = stimulusType; return this; }
-        
         public Builder technique(List<Reference<? extends ProtocolTechnique>> technique) { Protocol.this.technique = technique; return this; }
         
 
         public Protocol build(OpenMINDSContext context) {
-            if (Protocol.this.id == null) {
-                Protocol.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Protocol.this.atType = SEMANTIC_NAME;
+            Protocol.super.build(context);
             return Protocol.this;
         }
     }
+
+    public static Protocol.Builder create(LocalId localId){
+        return new Protocol(localId).new Builder();
+    }
+
+    public Protocol.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Protocol.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/describedIn")
     private Reference<? extends ProtocolDescribedIn> describedIn;
@@ -106,11 +118,5 @@ public class Protocol extends Instance {
     }
 
  
-    public static Protocol.Builder create(LocalId localId){
-        return new Protocol(localId).new Builder();
-    }
 
-    public Protocol.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Protocol.class).new Builder();
-    }
 }

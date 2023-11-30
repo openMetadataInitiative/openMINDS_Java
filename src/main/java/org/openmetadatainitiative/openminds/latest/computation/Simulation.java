@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.latest.computation.Simulation
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Simulation extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationWasInformedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Simulation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Simulation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationWasInformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Simulation";
 
     @JsonIgnore
     public Reference<Simulation> getReference() {
@@ -44,58 +48,53 @@ public class Simulation extends Instance implements org.openmetadatainitiative.o
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Simulation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Simulation() {
+        this(null);
     }
 
+    private Simulation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Simulation>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { Simulation.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { Simulation.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { Simulation.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { Simulation.this.endTime = endTime; return this; }
-        
         public Builder environment(Reference<? extends SimulationEnvironment> environment) { Simulation.this.environment = environment; return this; }
-        
         public Builder input(List<Reference<? extends SimulationInput>> input) { Simulation.this.input = input; return this; }
-        
         public Builder launchConfiguration(Reference<LaunchConfiguration> launchConfiguration) { Simulation.this.launchConfiguration = launchConfiguration; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { Simulation.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends SimulationOutput>> output) { Simulation.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends SimulationPerformedBy>> performedBy) { Simulation.this.performedBy = performedBy; return this; }
-        
         public Builder recipe(Reference<WorkflowRecipeVersion> recipe) { Simulation.this.recipe = recipe; return this; }
-        
-        public Builder resourceUsage(List<? extends SimulationResourceUsage> resourceUsage) { Simulation.this.resourceUsage = resourceUsage; return this; }
-        
+        public Builder resourceUsage(List<Function<SimulationResourceUsage.EmbeddedBuilder, SimulationResourceUsage>> resourceUsage) { Simulation.this.resourceUsage = resourceUsage.stream().map(b -> b.apply(SimulationResourceUsage.createEmbedded())).toList(); return this; }
         public Builder startTime(String startTime) { Simulation.this.startTime = startTime; return this; }
-        
         public Builder startedBy(Reference<? extends SimulationStartedBy> startedBy) { Simulation.this.startedBy = startedBy; return this; }
-        
         public Builder status(Reference<ActionStatusType> status) { Simulation.this.status = status; return this; }
-        
         public Builder studyTarget(List<Reference<? extends SimulationStudyTarget>> studyTarget) { Simulation.this.studyTarget = studyTarget; return this; }
-        
         public Builder tag(List<String> tag) { Simulation.this.tag = tag; return this; }
-        
         public Builder technique(List<Reference<AnalysisTechnique>> technique) { Simulation.this.technique = technique; return this; }
-        
         public Builder wasInformedBy(Reference<? extends SimulationWasInformedBy> wasInformedBy) { Simulation.this.wasInformedBy = wasInformedBy; return this; }
         
 
         public Simulation build(OpenMINDSContext context) {
-            if (Simulation.this.id == null) {
-                Simulation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Simulation.this.atType = SEMANTIC_NAME;
+            Simulation.super.build(context);
             return Simulation.this;
         }
     }
+
+    public static Simulation.Builder create(LocalId localId){
+        return new Simulation(localId).new Builder();
+    }
+
+    public Simulation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Simulation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -239,11 +238,5 @@ public class Simulation extends Instance implements org.openmetadatainitiative.o
     }
 
  
-    public static Simulation.Builder create(LocalId localId){
-        return new Simulation(localId).new Builder();
-    }
 
-    public Simulation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Simulation.class).new Builder();
-    }
 }

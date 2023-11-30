@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +35,10 @@ import static org.openmetadatainitiative.openminds.v3.publications.LivePaperVers
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LivePaperVersion extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class LivePaperVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperVersion";
 
     @JsonIgnore
     public Reference<LivePaperVersion> getReference() {
@@ -45,72 +49,60 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private LivePaperVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private LivePaperVersion() {
+        this(null);
     }
 
+    private LivePaperVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaperVersion>{
-        
         public Builder about(List<Reference<? extends LivePaperVersionAbout>> about) { LivePaperVersion.this.about = about; return this; }
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { LivePaperVersion.this.accessibility = accessibility; return this; }
-        
         public Builder author(List<Reference<? extends LivePaperVersionAuthor>> author) { LivePaperVersion.this.author = author; return this; }
-        
-        public Builder copyright(Copyright copyright) { LivePaperVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { LivePaperVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends LivePaperVersionCustodian>> custodian) { LivePaperVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { LivePaperVersion.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { LivePaperVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullDocumentation(Reference<? extends LivePaperVersionFullDocumentation> fullDocumentation) { LivePaperVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { LivePaperVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { LivePaperVersion.this.funding = funding; return this; }
-        
         public Builder homepage(String homepage) { LivePaperVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { LivePaperVersion.this.howToCite = howToCite; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<LivePaperVersion>> isAlternativeVersionOf) { LivePaperVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<LivePaperVersion> isNewVersionOf) { LivePaperVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends LivePaperVersionKeyword>> keyword) { LivePaperVersion.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { LivePaperVersion.this.license = license; return this; }
-        
         public Builder modificationDate(String modificationDate) { LivePaperVersion.this.modificationDate = modificationDate; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { LivePaperVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { LivePaperVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder relatedPublication(List<Reference<? extends LivePaperVersionRelatedPublication>> relatedPublication) { LivePaperVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { LivePaperVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { LivePaperVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { LivePaperVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { LivePaperVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { LivePaperVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { LivePaperVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public LivePaperVersion build(OpenMINDSContext context) {
-            if (LivePaperVersion.this.id == null) {
-                LivePaperVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            LivePaperVersion.this.atType = SEMANTIC_NAME;
+            LivePaperVersion.super.build(context);
             return LivePaperVersion.this;
         }
     }
+
+    public static LivePaperVersion.Builder create(LocalId localId){
+        return new LivePaperVersion(localId).new Builder();
+    }
+
+    public LivePaperVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LivePaperVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/about")
     private List<Reference<? extends LivePaperVersionAbout>> about;
@@ -357,11 +349,5 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
     }
 
  
-    public static LivePaperVersion.Builder create(LocalId localId){
-        return new LivePaperVersion(localId).new Builder();
-    }
 
-    public LivePaperVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LivePaperVersion.class).new Builder();
-    }
 }

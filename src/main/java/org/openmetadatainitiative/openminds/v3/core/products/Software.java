@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.v3.core.products.Software.SEM
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Software extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Software";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Software extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Software";
 
     @JsonIgnore
     public Reference<Software> getReference() {
@@ -35,40 +39,44 @@ public class Software extends Instance implements org.openmetadatainitiative.ope
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Software(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Software() {
+        this(null);
     }
 
+    private Software(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Software>{
-        
         public Builder custodian(List<Reference<? extends SoftwareCustodian>> custodian) { Software.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { Software.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends SoftwareDeveloper>> developer) { Software.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends SoftwareDigitalIdentifier> digitalIdentifier) { Software.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { Software.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<SoftwareVersion>> hasVersion) { Software.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { Software.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { Software.this.howToCite = howToCite; return this; }
-        
         public Builder shortName(String shortName) { Software.this.shortName = shortName; return this; }
         
 
         public Software build(OpenMINDSContext context) {
-            if (Software.this.id == null) {
-                Software.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Software.this.atType = SEMANTIC_NAME;
+            Software.super.build(context);
             return Software.this;
         }
     }
+
+    public static Software.Builder create(LocalId localId){
+        return new Software(localId).new Builder();
+    }
+
+    public Software.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Software.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
     private List<Reference<? extends SoftwareCustodian>> custodian;
@@ -161,11 +169,5 @@ public class Software extends Instance implements org.openmetadatainitiative.ope
     }
 
  
-    public static Software.Builder create(LocalId localId){
-        return new Software(localId).new Builder();
-    }
 
-    public Software.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Software.class).new Builder();
-    }
 }

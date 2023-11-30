@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.latest.controlledTerms.DataTy
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DataType extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/DataType";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class DataType extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/DataType";
 
     @JsonIgnore
     public Reference<DataType> getReference() {
@@ -31,36 +35,42 @@ public class DataType extends Instance implements org.openmetadatainitiative.ope
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private DataType(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private DataType() {
+        this(null);
     }
 
+    private DataType(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<DataType>{
-        
         public Builder definition(String definition) { DataType.this.definition = definition; return this; }
-        
         public Builder description(String description) { DataType.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { DataType.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { DataType.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { DataType.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { DataType.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { DataType.this.synonym = synonym; return this; }
         
 
         public DataType build(OpenMINDSContext context) {
-            if (DataType.this.id == null) {
-                DataType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            DataType.this.atType = SEMANTIC_NAME;
+            DataType.super.build(context);
             return DataType.this;
         }
     }
+
+    public static DataType.Builder create(LocalId localId){
+        return new DataType(localId).new Builder();
+    }
+
+    public DataType.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DataType.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class DataType extends Instance implements org.openmetadatainitiative.ope
     }
 
  
-    public static DataType.Builder create(LocalId localId){
-        return new DataType(localId).new Builder();
-    }
 
-    public DataType.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DataType.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +35,10 @@ import static org.openmetadatainitiative.openminds.latest.publications.LearningR
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LearningResource extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LearningResource";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class LearningResource extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LearningResource";
 
     @JsonIgnore
     public Reference<LearningResource> getReference() {
@@ -45,72 +49,60 @@ public class LearningResource extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private LearningResource(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private LearningResource() {
+        this(null);
     }
 
+    private LearningResource(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LearningResource>{
-        
         public Builder IRI(String IRI) { LearningResource.this.IRI = IRI; return this; }
-        
         public Builder about(List<Reference<? extends LearningResourceAbout>> about) { LearningResource.this.about = about; return this; }
-        
         public Builder abstract_(String abstract_) { LearningResource.this.abstract_ = abstract_; return this; }
-        
         public Builder author(List<Reference<? extends LearningResourceAuthor>> author) { LearningResource.this.author = author; return this; }
-        
         public Builder citedPublication(List<Reference<? extends LearningResourceCitedPublication>> citedPublication) { LearningResource.this.citedPublication = citedPublication; return this; }
-        
-        public Builder copyright(Copyright copyright) { LearningResource.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { LearningResource.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder creationDate(String creationDate) { LearningResource.this.creationDate = creationDate; return this; }
-        
         public Builder custodian(List<Reference<? extends LearningResourceCustodian>> custodian) { LearningResource.this.custodian = custodian; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { LearningResource.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder editor(List<Reference<Person>> editor) { LearningResource.this.editor = editor; return this; }
-        
         public Builder educationalLevel(Reference<EducationalLevel> educationalLevel) { LearningResource.this.educationalLevel = educationalLevel; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { LearningResource.this.funding = funding; return this; }
-        
         public Builder keyword(List<Reference<? extends LearningResourceKeyword>> keyword) { LearningResource.this.keyword = keyword; return this; }
-        
         public Builder learningOutcome(String learningOutcome) { LearningResource.this.learningOutcome = learningOutcome; return this; }
-        
         public Builder license(Reference<License> license) { LearningResource.this.license = license; return this; }
-        
         public Builder modificationDate(String modificationDate) { LearningResource.this.modificationDate = modificationDate; return this; }
-        
         public Builder name(String name) { LearningResource.this.name = name; return this; }
-        
         public Builder order(Object order) { LearningResource.this.order = order; return this; }
-        
         public Builder prerequisite(String prerequisite) { LearningResource.this.prerequisite = prerequisite; return this; }
-        
         public Builder publicationDate(String publicationDate) { LearningResource.this.publicationDate = publicationDate; return this; }
-        
         public Builder publisher(Reference<? extends LearningResourcePublisher> publisher) { LearningResource.this.publisher = publisher; return this; }
-        
-        public Builder requiredTime(LearningResourceRequiredTime requiredTime) { LearningResource.this.requiredTime = requiredTime; return this; }
-        
+        public Builder requiredTime(Function<LearningResourceRequiredTime.EmbeddedBuilder, LearningResourceRequiredTime> requiredTime) { LearningResource.this.requiredTime = requiredTime.apply(LearningResourceRequiredTime.createEmbedded()); return this; }
         public Builder topic(String topic) { LearningResource.this.topic = topic; return this; }
-        
         public Builder type(Reference<LearningResourceType> type) { LearningResource.this.type = type; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { LearningResource.this.versionIdentifier = versionIdentifier; return this; }
         
 
         public LearningResource build(OpenMINDSContext context) {
-            if (LearningResource.this.id == null) {
-                LearningResource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            LearningResource.this.atType = SEMANTIC_NAME;
+            LearningResource.super.build(context);
             return LearningResource.this;
         }
     }
+
+    public static LearningResource.Builder create(LocalId localId){
+        return new LearningResource(localId).new Builder();
+    }
+
+    public LearningResource.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LearningResource.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -321,11 +313,5 @@ public class LearningResource extends Instance {
     }
 
  
-    public static LearningResource.Builder create(LocalId localId){
-        return new LearningResource(localId).new Builder();
-    }
 
-    public LearningResource.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LearningResource.class).new Builder();
-    }
 }

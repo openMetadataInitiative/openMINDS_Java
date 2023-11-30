@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.ephys.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +30,10 @@ import static org.openmetadatainitiative.openminds.v3.ephys.activity.RecordingAc
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RecordingActivity extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/RecordingActivity";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class RecordingActivity extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/RecordingActivity";
 
     @JsonIgnore
     public Reference<RecordingActivity> getReference() {
@@ -40,50 +44,49 @@ public class RecordingActivity extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private RecordingActivity(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private RecordingActivity() {
+        this(null);
     }
 
+    private RecordingActivity(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<RecordingActivity>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { RecordingActivity.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { RecordingActivity.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { RecordingActivity.this.description = description; return this; }
-        
         public Builder device(List<Reference<? extends RecordingActivityDevice>> device) { RecordingActivity.this.device = device; return this; }
-        
         public Builder endTime(String endTime) { RecordingActivity.this.endTime = endTime; return this; }
-        
         public Builder input(List<Reference<? extends RecordingActivityInput>> input) { RecordingActivity.this.input = input; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { RecordingActivity.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder isPartOf(Reference<DatasetVersion> isPartOf) { RecordingActivity.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { RecordingActivity.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends RecordingActivityOutput>> output) { RecordingActivity.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends RecordingActivityPerformedBy>> performedBy) { RecordingActivity.this.performedBy = performedBy; return this; }
-        
         public Builder preparationDesign(Reference<PreparationType> preparationDesign) { RecordingActivity.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { RecordingActivity.this.protocol = protocol; return this; }
-        
         public Builder startTime(String startTime) { RecordingActivity.this.startTime = startTime; return this; }
-        
         public Builder studyTarget(List<Reference<? extends RecordingActivityStudyTarget>> studyTarget) { RecordingActivity.this.studyTarget = studyTarget; return this; }
         
 
         public RecordingActivity build(OpenMINDSContext context) {
-            if (RecordingActivity.this.id == null) {
-                RecordingActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            RecordingActivity.this.atType = SEMANTIC_NAME;
+            RecordingActivity.super.build(context);
             return RecordingActivity.this;
         }
     }
+
+    public static RecordingActivity.Builder create(LocalId localId){
+        return new RecordingActivity(localId).new Builder();
+    }
+
+    public RecordingActivity.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, RecordingActivity.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -208,11 +211,5 @@ public class RecordingActivity extends Instance {
     }
 
  
-    public static RecordingActivity.Builder create(LocalId localId){
-        return new RecordingActivity(localId).new Builder();
-    }
 
-    public RecordingActivity.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, RecordingActivity.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileArchive.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileArchive";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileArchive";
 
     @JsonIgnore
     public Reference<FileArchive> getReference() {
@@ -33,28 +37,38 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private FileArchive(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private FileArchive() {
+        this(null);
     }
 
+    private FileArchive(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<FileArchive>{
-        
         public Builder IRI(String IRI) { FileArchive.this.IRI = IRI; return this; }
-        
         public Builder format(Reference<ContentType> format) { FileArchive.this.format = format; return this; }
-        
         public Builder sourceData(List<Reference<File>> sourceData) { FileArchive.this.sourceData = sourceData; return this; }
         
 
         public FileArchive build(OpenMINDSContext context) {
-            if (FileArchive.this.id == null) {
-                FileArchive.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            FileArchive.this.atType = SEMANTIC_NAME;
+            FileArchive.super.build(context);
             return FileArchive.this;
         }
     }
+
+    public static FileArchive.Builder create(LocalId localId){
+        return new FileArchive(localId).new Builder();
+    }
+
+    public FileArchive.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FileArchive.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -84,11 +98,5 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
     }
 
  
-    public static FileArchive.Builder create(LocalId localId){
-        return new FileArchive(localId).new Builder();
-    }
 
-    public FileArchive.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FileArchive.class).new Builder();
-    }
 }

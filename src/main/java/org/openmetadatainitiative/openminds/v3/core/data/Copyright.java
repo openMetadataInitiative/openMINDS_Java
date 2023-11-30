@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.core.data.Copyright.SEMANT
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Copyright extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Copyright";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Copyright extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Copyright";
 
     @JsonIgnore
     public Reference<Copyright> getReference() {
@@ -32,26 +36,33 @@ public class Copyright extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Copyright(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Copyright() {
+        this(null);
     }
 
+    private Copyright(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Copyright>{
-        
-        public Builder holder(List<Reference<? extends CopyrightHolder>> holder) { Copyright.this.holder = holder; return this; }
-        
-        public Builder year(List<String> year) { Copyright.this.year = year; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder holder(List<Reference<? extends CopyrightHolder>> holder) { Copyright.this.holder = holder; return this; }
+        public EmbeddedBuilder year(List<String> year) { Copyright.this.year = year; return this; }
         
 
-        public Copyright build(OpenMINDSContext context) {
-            if (Copyright.this.id == null) {
-                Copyright.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Copyright.this.atType = SEMANTIC_NAME;
+        public Copyright build(){
             return Copyright.this;
         }
     }
+
+    public static Copyright.EmbeddedBuilder createEmbedded(){
+        return new Copyright(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/holder")
     private List<Reference<? extends CopyrightHolder>> holder;
@@ -74,11 +85,5 @@ public class Copyright extends Instance {
     }
 
  
-    public static Copyright.Builder create(LocalId localId){
-        return new Copyright(localId).new Builder();
-    }
 
-    public Copyright.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Copyright.class).new Builder();
-    }
 }

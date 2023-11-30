@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.specimenPrep.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TissueCulturePreparation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/TissueCulturePreparation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class TissueCulturePreparation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/TissueCulturePreparation";
 
     @JsonIgnore
     public Reference<TissueCulturePreparation> getReference() {
@@ -35,30 +39,39 @@ public class TissueCulturePreparation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private TissueCulturePreparation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private TissueCulturePreparation() {
+        this(null);
     }
 
+    private TissueCulturePreparation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueCulturePreparation>{
-        
         public Builder cultureMedium(Reference<ChemicalMixture> cultureMedium) { TissueCulturePreparation.this.cultureMedium = cultureMedium; return this; }
-        
         public Builder cultureType(Reference<CellCultureType> cultureType) { TissueCulturePreparation.this.cultureType = cultureType; return this; }
-        
         public Builder input(Reference<? extends TissueCulturePreparationInput> input) { TissueCulturePreparation.this.input = input; return this; }
-        
         public Builder output(Reference<TissueSampleState> output) { TissueCulturePreparation.this.output = output; return this; }
         
 
         public TissueCulturePreparation build(OpenMINDSContext context) {
-            if (TissueCulturePreparation.this.id == null) {
-                TissueCulturePreparation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            TissueCulturePreparation.this.atType = SEMANTIC_NAME;
+            TissueCulturePreparation.super.build(context);
             return TissueCulturePreparation.this;
         }
     }
+
+    public static TissueCulturePreparation.Builder create(LocalId localId){
+        return new TissueCulturePreparation(localId).new Builder();
+    }
+
+    public TissueCulturePreparation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueCulturePreparation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/cultureMedium")
     private Reference<ChemicalMixture> cultureMedium;
@@ -95,11 +108,5 @@ public class TissueCulturePreparation extends Instance {
     }
 
  
-    public static TissueCulturePreparation.Builder create(LocalId localId){
-        return new TissueCulturePreparation(localId).new Builder();
-    }
 
-    public TissueCulturePreparation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueCulturePreparation.class).new Builder();
-    }
 }

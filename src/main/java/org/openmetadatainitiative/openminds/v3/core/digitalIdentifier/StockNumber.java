@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.Sto
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StockNumber extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/StockNumber";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class StockNumber extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/StockNumber";
 
     @JsonIgnore
     public Reference<StockNumber> getReference() {
@@ -32,26 +36,33 @@ public class StockNumber extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private StockNumber(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private StockNumber() {
+        this(null);
     }
 
+    private StockNumber(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<StockNumber>{
-        
-        public Builder identifier(String identifier) { StockNumber.this.identifier = identifier; return this; }
-        
-        public Builder vendor(Reference<Organization> vendor) { StockNumber.this.vendor = vendor; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder identifier(String identifier) { StockNumber.this.identifier = identifier; return this; }
+        public EmbeddedBuilder vendor(Reference<Organization> vendor) { StockNumber.this.vendor = vendor; return this; }
         
 
-        public StockNumber build(OpenMINDSContext context) {
-            if (StockNumber.this.id == null) {
-                StockNumber.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            StockNumber.this.atType = SEMANTIC_NAME;
+        public StockNumber build(){
             return StockNumber.this;
         }
     }
+
+    public static StockNumber.EmbeddedBuilder createEmbedded(){
+        return new StockNumber(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
     private String identifier;
@@ -71,11 +82,5 @@ public class StockNumber extends Instance {
     }
 
  
-    public static StockNumber.Builder create(LocalId localId){
-        return new StockNumber(localId).new Builder();
-    }
 
-    public StockNumber.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, StockNumber.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileReposito
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FileRepositoryStructure extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileRepositoryStructure";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class FileRepositoryStructure extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileRepositoryStructure";
 
     @JsonIgnore
     public Reference<FileRepositoryStructure> getReference() {
@@ -32,26 +36,37 @@ public class FileRepositoryStructure extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private FileRepositoryStructure(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private FileRepositoryStructure() {
+        this(null);
     }
 
+    private FileRepositoryStructure(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<FileRepositoryStructure>{
-        
-        public Builder filePathPattern(List<FilePathPattern> filePathPattern) { FileRepositoryStructure.this.filePathPattern = filePathPattern; return this; }
-        
+        public Builder filePathPattern(List<Function<FilePathPattern.EmbeddedBuilder, FilePathPattern>> filePathPattern) { FileRepositoryStructure.this.filePathPattern = filePathPattern.stream().map(b -> b.apply(FilePathPattern.createEmbedded())).toList(); return this; }
         public Builder lookupLabel(String lookupLabel) { FileRepositoryStructure.this.lookupLabel = lookupLabel; return this; }
         
 
         public FileRepositoryStructure build(OpenMINDSContext context) {
-            if (FileRepositoryStructure.this.id == null) {
-                FileRepositoryStructure.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            FileRepositoryStructure.this.atType = SEMANTIC_NAME;
+            FileRepositoryStructure.super.build(context);
             return FileRepositoryStructure.this;
         }
     }
+
+    public static FileRepositoryStructure.Builder create(LocalId localId){
+        return new FileRepositoryStructure(localId).new Builder();
+    }
+
+    public FileRepositoryStructure.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FileRepositoryStructure.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/filePathPattern")
     private List<FilePathPattern> filePathPattern;
@@ -68,11 +83,5 @@ public class FileRepositoryStructure extends Instance {
     }
 
  
-    public static FileRepositoryStructure.Builder create(LocalId localId){
-        return new FileRepositoryStructure(localId).new Builder();
-    }
 
-    public FileRepositoryStructure.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FileRepositoryStructure.class).new Builder();
-    }
 }

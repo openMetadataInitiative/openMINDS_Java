@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.ContactInf
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContactInformation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContactInformation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ContactInformation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContactInformation";
 
     @JsonIgnore
     public Reference<ContactInformation> getReference() {
@@ -31,24 +35,36 @@ public class ContactInformation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ContactInformation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ContactInformation() {
+        this(null);
     }
 
+    private ContactInformation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ContactInformation>{
-        
         public Builder email(String email) { ContactInformation.this.email = email; return this; }
         
 
         public ContactInformation build(OpenMINDSContext context) {
-            if (ContactInformation.this.id == null) {
-                ContactInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ContactInformation.this.atType = SEMANTIC_NAME;
+            ContactInformation.super.build(context);
             return ContactInformation.this;
         }
     }
+
+    public static ContactInformation.Builder create(LocalId localId){
+        return new ContactInformation(localId).new Builder();
+    }
+
+    public ContactInformation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ContactInformation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/email")
     private String email;
@@ -61,11 +77,5 @@ public class ContactInformation extends Instance {
     }
 
  
-    public static ContactInformation.Builder create(LocalId localId){
-        return new ContactInformation(localId).new Builder();
-    }
 
-    public ContactInformation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ContactInformation.class).new Builder();
-    }
 }

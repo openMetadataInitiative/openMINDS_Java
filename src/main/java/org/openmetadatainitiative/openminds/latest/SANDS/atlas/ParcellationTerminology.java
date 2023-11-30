@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.Parcellati
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ParcellationTerminology extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ParcellationTerminology";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ParcellationTerminology extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ParcellationTerminology";
 
     @JsonIgnore
     public Reference<ParcellationTerminology> getReference() {
@@ -33,28 +37,34 @@ public class ParcellationTerminology extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ParcellationTerminology(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ParcellationTerminology() {
+        this(null);
     }
 
+    private ParcellationTerminology(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ParcellationTerminology>{
-        
-        public Builder dataLocation(List<Reference<File>> dataLocation) { ParcellationTerminology.this.dataLocation = dataLocation; return this; }
-        
-        public Builder hasEntity(List<Reference<ParcellationEntity>> hasEntity) { ParcellationTerminology.this.hasEntity = hasEntity; return this; }
-        
-        public Builder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationTerminology.this.ontologyIdentifier = ontologyIdentifier; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder dataLocation(List<Reference<File>> dataLocation) { ParcellationTerminology.this.dataLocation = dataLocation; return this; }
+        public EmbeddedBuilder hasEntity(List<Reference<ParcellationEntity>> hasEntity) { ParcellationTerminology.this.hasEntity = hasEntity; return this; }
+        public EmbeddedBuilder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationTerminology.this.ontologyIdentifier = ontologyIdentifier; return this; }
         
 
-        public ParcellationTerminology build(OpenMINDSContext context) {
-            if (ParcellationTerminology.this.id == null) {
-                ParcellationTerminology.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ParcellationTerminology.this.atType = SEMANTIC_NAME;
+        public ParcellationTerminology build(){
             return ParcellationTerminology.this;
         }
     }
+
+    public static ParcellationTerminology.EmbeddedBuilder createEmbedded(){
+        return new ParcellationTerminology(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
     private List<Reference<File>> dataLocation;
@@ -81,11 +91,5 @@ public class ParcellationTerminology extends Instance {
     }
 
  
-    public static ParcellationTerminology.Builder create(LocalId localId){
-        return new ParcellationTerminology(localId).new Builder();
-    }
 
-    public ParcellationTerminology.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ParcellationTerminology.class).new Builder();
-    }
 }

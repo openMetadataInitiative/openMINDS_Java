@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.TissueSa
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TissueSampleState extends Instance implements org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingOutput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSampleState";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class TissueSampleState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingOutput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSampleState";
 
     @JsonIgnore
     public Reference<TissueSampleState> getReference() {
@@ -37,40 +41,44 @@ public class TissueSampleState extends Instance implements org.openmetadatainiti
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private TissueSampleState(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private TissueSampleState() {
+        this(null);
     }
 
+    private TissueSampleState(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueSampleState>{
-        
         public Builder additionalRemarks(String additionalRemarks) { TissueSampleState.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder age(TissueSampleStateAge age) { TissueSampleState.this.age = age; return this; }
-        
+        public Builder age(Function<TissueSampleStateAge.EmbeddedBuilder, TissueSampleStateAge> age) { TissueSampleState.this.age = age.apply(TissueSampleStateAge.createEmbedded()); return this; }
         public Builder attribute(List<Reference<TissueSampleAttribute>> attribute) { TissueSampleState.this.attribute = attribute; return this; }
-        
         public Builder descendedFrom(List<Reference<? extends TissueSampleStateDescendedFrom>> descendedFrom) { TissueSampleState.this.descendedFrom = descendedFrom; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { TissueSampleState.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { TissueSampleState.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder pathology(List<Reference<? extends TissueSampleStatePathology>> pathology) { TissueSampleState.this.pathology = pathology; return this; }
-        
-        public Builder relativeTimeIndication(TissueSampleStateRelativeTimeIndication relativeTimeIndication) { TissueSampleState.this.relativeTimeIndication = relativeTimeIndication; return this; }
-        
-        public Builder weight(TissueSampleStateWeight weight) { TissueSampleState.this.weight = weight; return this; }
+        public Builder relativeTimeIndication(Function<TissueSampleStateRelativeTimeIndication.EmbeddedBuilder, TissueSampleStateRelativeTimeIndication> relativeTimeIndication) { TissueSampleState.this.relativeTimeIndication = relativeTimeIndication.apply(TissueSampleStateRelativeTimeIndication.createEmbedded()); return this; }
+        public Builder weight(Function<TissueSampleStateWeight.EmbeddedBuilder, TissueSampleStateWeight> weight) { TissueSampleState.this.weight = weight.apply(TissueSampleStateWeight.createEmbedded()); return this; }
         
 
         public TissueSampleState build(OpenMINDSContext context) {
-            if (TissueSampleState.this.id == null) {
-                TissueSampleState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            TissueSampleState.this.atType = SEMANTIC_NAME;
+            TissueSampleState.super.build(context);
             return TissueSampleState.this;
         }
     }
+
+    public static TissueSampleState.Builder create(LocalId localId){
+        return new TissueSampleState(localId).new Builder();
+    }
+
+    public TissueSampleState.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSampleState.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -151,11 +159,5 @@ public class TissueSampleState extends Instance implements org.openmetadatainiti
     }
 
  
-    public static TissueSampleState.Builder create(LocalId localId){
-        return new TissueSampleState(localId).new Builder();
-    }
 
-    public TissueSampleState.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSampleState.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,10 @@ import static org.openmetadatainitiative.openminds.latest.core.products.WebServi
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WebServiceVersion extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationEnvironment, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/WebServiceVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class WebServiceVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationEnvironment, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/WebServiceVersion";
 
     @JsonIgnore
     public Reference<WebServiceVersion> getReference() {
@@ -44,70 +48,59 @@ public class WebServiceVersion extends Instance implements org.openmetadatainiti
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private WebServiceVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private WebServiceVersion() {
+        this(null);
     }
 
+    private WebServiceVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<WebServiceVersion>{
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { WebServiceVersion.this.accessibility = accessibility; return this; }
-        
-        public Builder copyright(Copyright copyright) { WebServiceVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { WebServiceVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends WebServiceVersionCustodian>> custodian) { WebServiceVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { WebServiceVersion.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends WebServiceVersionDeveloper>> developer) { WebServiceVersion.this.developer = developer; return this; }
-        
         public Builder fullDocumentation(Reference<? extends WebServiceVersionFullDocumentation> fullDocumentation) { WebServiceVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { WebServiceVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { WebServiceVersion.this.funding = funding; return this; }
-        
         public Builder hasPart(List<Reference<SoftwareVersion>> hasPart) { WebServiceVersion.this.hasPart = hasPart; return this; }
-        
         public Builder homepage(String homepage) { WebServiceVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { WebServiceVersion.this.howToCite = howToCite; return this; }
-        
         public Builder inputFormat(List<Reference<ContentType>> inputFormat) { WebServiceVersion.this.inputFormat = inputFormat; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<WebServiceVersion>> isAlternativeVersionOf) { WebServiceVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<WebServiceVersion> isNewVersionOf) { WebServiceVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends WebServiceVersionKeyword>> keyword) { WebServiceVersion.this.keyword = keyword; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { WebServiceVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { WebServiceVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder outputFormat(List<Reference<ContentType>> outputFormat) { WebServiceVersion.this.outputFormat = outputFormat; return this; }
-        
         public Builder relatedPublication(List<Reference<? extends WebServiceVersionRelatedPublication>> relatedPublication) { WebServiceVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { WebServiceVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { WebServiceVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { WebServiceVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { WebServiceVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { WebServiceVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { WebServiceVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public WebServiceVersion build(OpenMINDSContext context) {
-            if (WebServiceVersion.this.id == null) {
-                WebServiceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            WebServiceVersion.this.atType = SEMANTIC_NAME;
+            WebServiceVersion.super.build(context);
             return WebServiceVersion.this;
         }
     }
+
+    public static WebServiceVersion.Builder create(LocalId localId){
+        return new WebServiceVersion(localId).new Builder();
+    }
+
+    public WebServiceVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WebServiceVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
     private Reference<ProductAccessibility> accessibility;
@@ -347,11 +340,5 @@ public class WebServiceVersion extends Instance implements org.openmetadatainiti
     }
 
  
-    public static WebServiceVersion.Builder create(LocalId localId){
-        return new WebServiceVersion(localId).new Builder();
-    }
 
-    public WebServiceVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WebServiceVersion.class).new Builder();
-    }
 }

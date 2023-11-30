@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.Contributi
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Contribution extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Contribution";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Contribution extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Contribution";
 
     @JsonIgnore
     public Reference<Contribution> getReference() {
@@ -33,26 +37,33 @@ public class Contribution extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Contribution(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Contribution() {
+        this(null);
     }
 
+    private Contribution(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Contribution>{
-        
-        public Builder contributor(Reference<? extends ContributionContributor> contributor) { Contribution.this.contributor = contributor; return this; }
-        
-        public Builder type(List<Reference<ContributionType>> type) { Contribution.this.type = type; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder contributor(Reference<? extends ContributionContributor> contributor) { Contribution.this.contributor = contributor; return this; }
+        public EmbeddedBuilder type(List<Reference<ContributionType>> type) { Contribution.this.type = type; return this; }
         
 
-        public Contribution build(OpenMINDSContext context) {
-            if (Contribution.this.id == null) {
-                Contribution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Contribution.this.atType = SEMANTIC_NAME;
+        public Contribution build(){
             return Contribution.this;
         }
     }
+
+    public static Contribution.EmbeddedBuilder createEmbedded(){
+        return new Contribution(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contributor")
     private Reference<? extends ContributionContributor> contributor;
@@ -75,11 +86,5 @@ public class Contribution extends Instance {
     }
 
  
-    public static Contribution.Builder create(LocalId localId){
-        return new Contribution(localId).new Builder();
-    }
 
-    public Contribution.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Contribution.class).new Builder();
-    }
 }

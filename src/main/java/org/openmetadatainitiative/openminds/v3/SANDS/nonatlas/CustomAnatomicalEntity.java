@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.nonatlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnato
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomAnatomicalEntity extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.ElectrodePlacementStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.RecordingActivityStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfArray, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfElectrodes, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeUsageAnatomicalLocation, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsageAnatomicalLocation, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.QualitativeRelationAssessmentInRelationTo, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.AnatomicalTargetPositionAnatomicalTarget, org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolExecutionStudyTarget, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleAnatomicalLocation, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionAnatomicalLocation, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelStudyTarget, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionStudyTarget, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget, org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.StimulationActivityStudyTarget{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CustomAnatomicalEntity extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisStudyTarget, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.ElectrodePlacementStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.RecordingActivityStudyTarget, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfArray, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfElectrodes, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeUsageAnatomicalLocation, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsageAnatomicalLocation, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.QualitativeRelationAssessmentInRelationTo, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.AnatomicalTargetPositionAnatomicalTarget, org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolExecutionStudyTarget, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleAnatomicalLocation, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionAnatomicalLocation, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelStudyTarget, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionStudyTarget, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget, org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.StimulationActivityStudyTarget{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity";
 
     @JsonIgnore
     public Reference<CustomAnatomicalEntity> getReference() {
@@ -34,30 +38,39 @@ public class CustomAnatomicalEntity extends Instance implements org.openmetadata
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CustomAnatomicalEntity(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CustomAnatomicalEntity() {
+        this(null);
     }
 
+    private CustomAnatomicalEntity(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CustomAnatomicalEntity>{
-        
-        public Builder hasAnnotation(List<CustomAnnotation> hasAnnotation) { CustomAnatomicalEntity.this.hasAnnotation = hasAnnotation; return this; }
-        
+        public Builder hasAnnotation(List<Function<CustomAnnotation.EmbeddedBuilder, CustomAnnotation>> hasAnnotation) { CustomAnatomicalEntity.this.hasAnnotation = hasAnnotation.stream().map(b -> b.apply(CustomAnnotation.createEmbedded())).toList(); return this; }
         public Builder name(String name) { CustomAnatomicalEntity.this.name = name; return this; }
-        
         public Builder relatedUBERONTerm(Reference<? extends CustomAnatomicalEntityRelatedUBERONTerm> relatedUBERONTerm) { CustomAnatomicalEntity.this.relatedUBERONTerm = relatedUBERONTerm; return this; }
-        
-        public Builder relationAssessment(List<? extends CustomAnatomicalEntityRelationAssessment> relationAssessment) { CustomAnatomicalEntity.this.relationAssessment = relationAssessment; return this; }
+        public Builder relationAssessment(List<Function<CustomAnatomicalEntityRelationAssessment.EmbeddedBuilder, CustomAnatomicalEntityRelationAssessment>> relationAssessment) { CustomAnatomicalEntity.this.relationAssessment = relationAssessment.stream().map(b -> b.apply(CustomAnatomicalEntityRelationAssessment.createEmbedded())).toList(); return this; }
         
 
         public CustomAnatomicalEntity build(OpenMINDSContext context) {
-            if (CustomAnatomicalEntity.this.id == null) {
-                CustomAnatomicalEntity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CustomAnatomicalEntity.this.atType = SEMANTIC_NAME;
+            CustomAnatomicalEntity.super.build(context);
             return CustomAnatomicalEntity.this;
         }
     }
+
+    public static CustomAnatomicalEntity.Builder create(LocalId localId){
+        return new CustomAnatomicalEntity(localId).new Builder();
+    }
+
+    public CustomAnatomicalEntity.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CustomAnatomicalEntity.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasAnnotation")
     private List<CustomAnnotation> hasAnnotation;
@@ -91,11 +104,5 @@ public class CustomAnatomicalEntity extends Instance implements org.openmetadata
     }
 
  
-    public static CustomAnatomicalEntity.Builder create(LocalId localId){
-        return new CustomAnatomicalEntity(localId).new Builder();
-    }
 
-    public CustomAnatomicalEntity.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CustomAnatomicalEntity.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.LocalFile.SEMA
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LocalFile extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/LocalFile";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class LocalFile extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/LocalFile";
 
     @JsonIgnore
     public Reference<LocalFile> getReference() {
@@ -37,40 +41,44 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private LocalFile(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private LocalFile() {
+        this(null);
     }
 
+    private LocalFile(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LocalFile>{
-        
         public Builder contentDescription(String contentDescription) { LocalFile.this.contentDescription = contentDescription; return this; }
-        
         public Builder copyOf(Reference<File> copyOf) { LocalFile.this.copyOf = copyOf; return this; }
-        
         public Builder dataType(List<Reference<DataType>> dataType) { LocalFile.this.dataType = dataType; return this; }
-        
         public Builder format(Reference<ContentType> format) { LocalFile.this.format = format; return this; }
-        
-        public Builder hash(Hash hash) { LocalFile.this.hash = hash; return this; }
-        
+        public Builder hash(Function<Hash.EmbeddedBuilder, Hash> hash) { LocalFile.this.hash = hash.apply(Hash.createEmbedded()); return this; }
         public Builder name(String name) { LocalFile.this.name = name; return this; }
-        
         public Builder path(String path) { LocalFile.this.path = path; return this; }
-        
         public Builder specialUsageRole(Reference<FileUsageRole> specialUsageRole) { LocalFile.this.specialUsageRole = specialUsageRole; return this; }
-        
-        public Builder storageSize(QuantitativeValue storageSize) { LocalFile.this.storageSize = storageSize; return this; }
+        public Builder storageSize(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> storageSize) { LocalFile.this.storageSize = storageSize.apply(QuantitativeValue.createEmbedded()); return this; }
         
 
         public LocalFile build(OpenMINDSContext context) {
-            if (LocalFile.this.id == null) {
-                LocalFile.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            LocalFile.this.atType = SEMANTIC_NAME;
+            LocalFile.super.build(context);
             return LocalFile.this;
         }
     }
+
+    public static LocalFile.Builder create(LocalId localId){
+        return new LocalFile(localId).new Builder();
+    }
+
+    public LocalFile.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LocalFile.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentDescription")
     private String contentDescription;
@@ -151,11 +159,5 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
     }
 
  
-    public static LocalFile.Builder create(LocalId localId){
-        return new LocalFile(localId).new Builder();
-    }
 
-    public LocalFile.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LocalFile.class).new Builder();
-    }
 }

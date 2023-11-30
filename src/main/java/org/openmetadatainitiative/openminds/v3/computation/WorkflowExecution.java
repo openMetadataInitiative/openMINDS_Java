@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.WorkflowExecut
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WorkflowExecution extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowExecution";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class WorkflowExecution extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowExecution";
 
     @JsonIgnore
     public Reference<WorkflowExecution> getReference() {
@@ -35,30 +39,39 @@ public class WorkflowExecution extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private WorkflowExecution(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private WorkflowExecution() {
+        this(null);
     }
 
+    private WorkflowExecution(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<WorkflowExecution>{
-        
         public Builder configuration(Reference<? extends WorkflowExecutionConfiguration> configuration) { WorkflowExecution.this.configuration = configuration; return this; }
-        
         public Builder recipe(Reference<WorkflowRecipeVersion> recipe) { WorkflowExecution.this.recipe = recipe; return this; }
-        
         public Builder stage(List<Reference<? extends WorkflowExecutionStage>> stage) { WorkflowExecution.this.stage = stage; return this; }
-        
         public Builder startedBy(Reference<? extends WorkflowExecutionStartedBy> startedBy) { WorkflowExecution.this.startedBy = startedBy; return this; }
         
 
         public WorkflowExecution build(OpenMINDSContext context) {
-            if (WorkflowExecution.this.id == null) {
-                WorkflowExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            WorkflowExecution.this.atType = SEMANTIC_NAME;
+            WorkflowExecution.super.build(context);
             return WorkflowExecution.this;
         }
     }
+
+    public static WorkflowExecution.Builder create(LocalId localId){
+        return new WorkflowExecution(localId).new Builder();
+    }
+
+    public WorkflowExecution.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WorkflowExecution.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/configuration")
     private Reference<? extends WorkflowExecutionConfiguration> configuration;
@@ -89,11 +102,5 @@ public class WorkflowExecution extends Instance {
     }
 
  
-    public static WorkflowExecution.Builder create(LocalId localId){
-        return new WorkflowExecution(localId).new Builder();
-    }
 
-    public WorkflowExecution.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WorkflowExecution.class).new Builder();
-    }
 }

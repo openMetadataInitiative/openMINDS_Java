@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ServiceLink extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ServiceLink";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ServiceLink extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ServiceLink";
 
     @JsonIgnore
     public Reference<ServiceLink> getReference() {
@@ -34,32 +38,40 @@ public class ServiceLink extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ServiceLink(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ServiceLink() {
+        this(null);
     }
 
+    private ServiceLink(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ServiceLink>{
-        
         public Builder dataLocation(Reference<? extends ServiceLinkDataLocation> dataLocation) { ServiceLink.this.dataLocation = dataLocation; return this; }
-        
         public Builder displayLabel(String displayLabel) { ServiceLink.this.displayLabel = displayLabel; return this; }
-        
         public Builder openDataIn(String openDataIn) { ServiceLink.this.openDataIn = openDataIn; return this; }
-        
         public Builder previewImage(Reference<File> previewImage) { ServiceLink.this.previewImage = previewImage; return this; }
-        
         public Builder service(Reference<Service> service) { ServiceLink.this.service = service; return this; }
         
 
         public ServiceLink build(OpenMINDSContext context) {
-            if (ServiceLink.this.id == null) {
-                ServiceLink.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ServiceLink.this.atType = SEMANTIC_NAME;
+            ServiceLink.super.build(context);
             return ServiceLink.this;
         }
     }
+
+    public static ServiceLink.Builder create(LocalId localId){
+        return new ServiceLink(localId).new Builder();
+    }
+
+    public ServiceLink.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ServiceLink.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
     private Reference<? extends ServiceLinkDataLocation> dataLocation;
@@ -97,11 +109,5 @@ public class ServiceLink extends Instance {
     }
 
  
-    public static ServiceLink.Builder create(LocalId localId){
-        return new ServiceLink(localId).new Builder();
-    }
 
-    public ServiceLink.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ServiceLink.class).new Builder();
-    }
 }

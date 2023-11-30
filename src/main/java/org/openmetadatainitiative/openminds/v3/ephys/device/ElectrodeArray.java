@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArra
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ElectrodeArray extends Instance implements org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeArray";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ElectrodeArray extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeArray";
 
     @JsonIgnore
     public Reference<ElectrodeArray> getReference() {
@@ -38,50 +42,49 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ElectrodeArray(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ElectrodeArray() {
+        this(null);
     }
 
+    private ElectrodeArray(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ElectrodeArray>{
-        
         public Builder conductorMaterial(Reference<? extends ElectrodeArrayConductorMaterial> conductorMaterial) { ElectrodeArray.this.conductorMaterial = conductorMaterial; return this; }
-        
         public Builder description(String description) { ElectrodeArray.this.description = description; return this; }
-        
         public Builder deviceType(Reference<DeviceType> deviceType) { ElectrodeArray.this.deviceType = deviceType; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends ElectrodeArrayDigitalIdentifier> digitalIdentifier) { ElectrodeArray.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder electrodeIdentifier(List<String> electrodeIdentifier) { ElectrodeArray.this.electrodeIdentifier = electrodeIdentifier; return this; }
-        
         public Builder insulatorMaterial(Reference<? extends ElectrodeArrayInsulatorMaterial> insulatorMaterial) { ElectrodeArray.this.insulatorMaterial = insulatorMaterial; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { ElectrodeArray.this.internalIdentifier = internalIdentifier; return this; }
-        
-        public Builder intrinsicResistance(ElectrodeArrayIntrinsicResistance intrinsicResistance) { ElectrodeArray.this.intrinsicResistance = intrinsicResistance; return this; }
-        
+        public Builder intrinsicResistance(Function<ElectrodeArrayIntrinsicResistance.EmbeddedBuilder, ElectrodeArrayIntrinsicResistance> intrinsicResistance) { ElectrodeArray.this.intrinsicResistance = intrinsicResistance.apply(ElectrodeArrayIntrinsicResistance.createEmbedded()); return this; }
         public Builder lookupLabel(String lookupLabel) { ElectrodeArray.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder manufacturer(List<Reference<? extends ElectrodeArrayManufacturer>> manufacturer) { ElectrodeArray.this.manufacturer = manufacturer; return this; }
-        
         public Builder name(String name) { ElectrodeArray.this.name = name; return this; }
-        
         public Builder numberOfElectrodes(Object numberOfElectrodes) { ElectrodeArray.this.numberOfElectrodes = numberOfElectrodes; return this; }
-        
         public Builder owner(List<Reference<? extends ElectrodeArrayOwner>> owner) { ElectrodeArray.this.owner = owner; return this; }
-        
         public Builder serialNumber(String serialNumber) { ElectrodeArray.this.serialNumber = serialNumber; return this; }
         
 
         public ElectrodeArray build(OpenMINDSContext context) {
-            if (ElectrodeArray.this.id == null) {
-                ElectrodeArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ElectrodeArray.this.atType = SEMANTIC_NAME;
+            ElectrodeArray.super.build(context);
             return ElectrodeArray.this;
         }
     }
+
+    public static ElectrodeArray.Builder create(LocalId localId){
+        return new ElectrodeArray(localId).new Builder();
+    }
+
+    public ElectrodeArray.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ElectrodeArray.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/conductorMaterial")
     private Reference<? extends ElectrodeArrayConductorMaterial> conductorMaterial;
@@ -194,11 +197,5 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
     }
 
  
-    public static ElectrodeArray.Builder create(LocalId localId){
-        return new ElectrodeArray(localId).new Builder();
-    }
 
-    public ElectrodeArray.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ElectrodeArray.class).new Builder();
-    }
 }

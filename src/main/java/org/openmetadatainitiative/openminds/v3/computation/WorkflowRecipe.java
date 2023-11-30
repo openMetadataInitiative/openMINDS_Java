@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowRecipe";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowRecipe";
 
     @JsonIgnore
     public Reference<WorkflowRecipe> getReference() {
@@ -35,40 +39,44 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private WorkflowRecipe(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private WorkflowRecipe() {
+        this(null);
     }
 
+    private WorkflowRecipe(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<WorkflowRecipe>{
-        
         public Builder custodian(List<Reference<? extends WorkflowRecipeCustodian>> custodian) { WorkflowRecipe.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { WorkflowRecipe.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends WorkflowRecipeDeveloper>> developer) { WorkflowRecipe.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { WorkflowRecipe.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { WorkflowRecipe.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<WorkflowRecipeVersion>> hasVersion) { WorkflowRecipe.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { WorkflowRecipe.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { WorkflowRecipe.this.howToCite = howToCite; return this; }
-        
         public Builder shortName(String shortName) { WorkflowRecipe.this.shortName = shortName; return this; }
         
 
         public WorkflowRecipe build(OpenMINDSContext context) {
-            if (WorkflowRecipe.this.id == null) {
-                WorkflowRecipe.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            WorkflowRecipe.this.atType = SEMANTIC_NAME;
+            WorkflowRecipe.super.build(context);
             return WorkflowRecipe.this;
         }
     }
+
+    public static WorkflowRecipe.Builder create(LocalId localId){
+        return new WorkflowRecipe(localId).new Builder();
+    }
+
+    public WorkflowRecipe.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WorkflowRecipe.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
     private List<Reference<? extends WorkflowRecipeCustodian>> custodian;
@@ -161,11 +169,5 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
     }
 
  
-    public static WorkflowRecipe.Builder create(LocalId localId){
-        return new WorkflowRecipe(localId).new Builder();
-    }
 
-    public WorkflowRecipe.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WorkflowRecipe.class).new Builder();
-    }
 }

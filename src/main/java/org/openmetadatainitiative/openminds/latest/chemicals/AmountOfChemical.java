@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChem
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AmountOfChemical extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/AmountOfChemical";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class AmountOfChemical extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/AmountOfChemical";
 
     @JsonIgnore
     public Reference<AmountOfChemical> getReference() {
@@ -33,26 +37,33 @@ public class AmountOfChemical extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private AmountOfChemical(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private AmountOfChemical() {
+        this(null);
     }
 
+    private AmountOfChemical(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AmountOfChemical>{
-        
-        public Builder amount(QuantitativeValue amount) { AmountOfChemical.this.amount = amount; return this; }
-        
-        public Builder chemicalProduct(Reference<? extends AmountOfChemicalChemicalProduct> chemicalProduct) { AmountOfChemical.this.chemicalProduct = chemicalProduct; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder amount(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> amount) { AmountOfChemical.this.amount = amount.apply(QuantitativeValue.createEmbedded()); return this; }
+        public EmbeddedBuilder chemicalProduct(Reference<? extends AmountOfChemicalChemicalProduct> chemicalProduct) { AmountOfChemical.this.chemicalProduct = chemicalProduct; return this; }
         
 
-        public AmountOfChemical build(OpenMINDSContext context) {
-            if (AmountOfChemical.this.id == null) {
-                AmountOfChemical.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            AmountOfChemical.this.atType = SEMANTIC_NAME;
+        public AmountOfChemical build(){
             return AmountOfChemical.this;
         }
     }
+
+    public static AmountOfChemical.EmbeddedBuilder createEmbedded(){
+        return new AmountOfChemical(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/amount")
     private QuantitativeValue amount;
@@ -69,11 +80,5 @@ public class AmountOfChemical extends Instance {
     }
 
  
-    public static AmountOfChemical.Builder create(LocalId localId){
-        return new AmountOfChemical(localId).new Builder();
-    }
 
-    public AmountOfChemical.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AmountOfChemical.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.Viewer
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ViewerSpecification extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ViewerSpecification";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ViewerSpecification extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ViewerSpecification";
 
     @JsonIgnore
     public Reference<ViewerSpecification> getReference() {
@@ -34,30 +38,35 @@ public class ViewerSpecification extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ViewerSpecification(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ViewerSpecification() {
+        this(null);
     }
 
+    private ViewerSpecification(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ViewerSpecification>{
-        
-        public Builder additionalRemarks(String additionalRemarks) { ViewerSpecification.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder anchorPoint(List<QuantitativeValue> anchorPoint) { ViewerSpecification.this.anchorPoint = anchorPoint; return this; }
-        
-        public Builder cameraPosition(CoordinatePoint cameraPosition) { ViewerSpecification.this.cameraPosition = cameraPosition; return this; }
-        
-        public Builder preferredDisplayColor(Reference<? extends ViewerSpecificationPreferredDisplayColor> preferredDisplayColor) { ViewerSpecification.this.preferredDisplayColor = preferredDisplayColor; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder additionalRemarks(String additionalRemarks) { ViewerSpecification.this.additionalRemarks = additionalRemarks; return this; }
+        public EmbeddedBuilder anchorPoint(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> anchorPoint) { ViewerSpecification.this.anchorPoint = anchorPoint.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
+        public EmbeddedBuilder cameraPosition(Function<CoordinatePoint.EmbeddedBuilder, CoordinatePoint> cameraPosition) { ViewerSpecification.this.cameraPosition = cameraPosition.apply(CoordinatePoint.createEmbedded()); return this; }
+        public EmbeddedBuilder preferredDisplayColor(Reference<? extends ViewerSpecificationPreferredDisplayColor> preferredDisplayColor) { ViewerSpecification.this.preferredDisplayColor = preferredDisplayColor; return this; }
         
 
-        public ViewerSpecification build(OpenMINDSContext context) {
-            if (ViewerSpecification.this.id == null) {
-                ViewerSpecification.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ViewerSpecification.this.atType = SEMANTIC_NAME;
+        public ViewerSpecification build(){
             return ViewerSpecification.this;
         }
     }
+
+    public static ViewerSpecification.EmbeddedBuilder createEmbedded(){
+        return new ViewerSpecification(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -91,11 +100,5 @@ public class ViewerSpecification extends Instance {
     }
 
  
-    public static ViewerSpecification.Builder create(LocalId localId){
-        return new ViewerSpecification(localId).new Builder();
-    }
 
-    public ViewerSpecification.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ViewerSpecification.class).new Builder();
-    }
 }

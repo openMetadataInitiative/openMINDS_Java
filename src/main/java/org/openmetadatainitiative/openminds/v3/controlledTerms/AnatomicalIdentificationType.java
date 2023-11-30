@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.controlledTerms.Anatomical
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AnatomicalIdentificationType extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/AnatomicalIdentificationType";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class AnatomicalIdentificationType extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.v3.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/AnatomicalIdentificationType";
 
     @JsonIgnore
     public Reference<AnatomicalIdentificationType> getReference() {
@@ -31,36 +35,42 @@ public class AnatomicalIdentificationType extends Instance implements org.openme
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private AnatomicalIdentificationType(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private AnatomicalIdentificationType() {
+        this(null);
     }
 
+    private AnatomicalIdentificationType(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AnatomicalIdentificationType>{
-        
         public Builder definition(String definition) { AnatomicalIdentificationType.this.definition = definition; return this; }
-        
         public Builder description(String description) { AnatomicalIdentificationType.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { AnatomicalIdentificationType.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { AnatomicalIdentificationType.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { AnatomicalIdentificationType.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { AnatomicalIdentificationType.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { AnatomicalIdentificationType.this.synonym = synonym; return this; }
         
 
         public AnatomicalIdentificationType build(OpenMINDSContext context) {
-            if (AnatomicalIdentificationType.this.id == null) {
-                AnatomicalIdentificationType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            AnatomicalIdentificationType.this.atType = SEMANTIC_NAME;
+            AnatomicalIdentificationType.super.build(context);
             return AnatomicalIdentificationType.this;
         }
     }
+
+    public static AnatomicalIdentificationType.Builder create(LocalId localId){
+        return new AnatomicalIdentificationType(localId).new Builder();
+    }
+
+    public AnatomicalIdentificationType.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AnatomicalIdentificationType.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class AnatomicalIdentificationType extends Instance implements org.openme
     }
 
  
-    public static AnatomicalIdentificationType.Builder create(LocalId localId){
-        return new AnatomicalIdentificationType(localId).new Builder();
-    }
 
-    public AnatomicalIdentificationType.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AnatomicalIdentificationType.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.Quantit
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class QuantitativeValueArray extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/QuantitativeValueArray";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class QuantitativeValueArray extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/QuantitativeValueArray";
 
     @JsonIgnore
     public Reference<QuantitativeValueArray> getReference() {
@@ -33,44 +37,52 @@ public class QuantitativeValueArray extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private QuantitativeValueArray(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private QuantitativeValueArray() {
+        this(null);
     }
 
+    private QuantitativeValueArray(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<QuantitativeValueArray>{
-        
-        public Builder negativeUncertainties(Object negativeUncertainties) { QuantitativeValueArray.this.negativeUncertainties = negativeUncertainties; return this; }
-        
-        public Builder positiveUncertainties(Object positiveUncertainties) { QuantitativeValueArray.this.positiveUncertainties = positiveUncertainties; return this; }
-        
+        public Builder negativeUncertainties(List<Double> negativeUncertainties) { QuantitativeValueArray.this.negativeUncertainties = negativeUncertainties; return this; }
+        public Builder positiveUncertainties(List<Double> positiveUncertainties) { QuantitativeValueArray.this.positiveUncertainties = positiveUncertainties; return this; }
         public Builder typeOfUncertainty(Reference<TypeOfUncertainty> typeOfUncertainty) { QuantitativeValueArray.this.typeOfUncertainty = typeOfUncertainty; return this; }
-        
         public Builder unit(Reference<UnitOfMeasurement> unit) { QuantitativeValueArray.this.unit = unit; return this; }
-        
-        public Builder values(Object values) { QuantitativeValueArray.this.values = values; return this; }
+        public Builder values(List<Double> values) { QuantitativeValueArray.this.values = values; return this; }
         
 
         public QuantitativeValueArray build(OpenMINDSContext context) {
-            if (QuantitativeValueArray.this.id == null) {
-                QuantitativeValueArray.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            QuantitativeValueArray.this.atType = SEMANTIC_NAME;
+            QuantitativeValueArray.super.build(context);
             return QuantitativeValueArray.this;
         }
     }
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/negativeUncertainties")
-    private Object negativeUncertainties;
+    public static QuantitativeValueArray.Builder create(LocalId localId){
+        return new QuantitativeValueArray(localId).new Builder();
+    }
+
+    public QuantitativeValueArray.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, QuantitativeValueArray.class).new Builder();
+    }
     
-    public Object getNegativeUncertainties() {
+
+   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/negativeUncertainties")
+    private List<Double> negativeUncertainties;
+    
+    public List<Double> getNegativeUncertainties() {
        return this.negativeUncertainties;
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/positiveUncertainties")
-    private Object positiveUncertainties;
+    private List<Double> positiveUncertainties;
     
-    public Object getPositiveUncertainties() {
+    public List<Double> getPositiveUncertainties() {
        return this.positiveUncertainties;
     }
 
@@ -95,18 +107,12 @@ public class QuantitativeValueArray extends Instance {
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/values")
-    private Object values;
+    private List<Double> values;
     
-    public Object getValues() {
+    public List<Double> getValues() {
        return this.values;
     }
 
  
-    public static QuantitativeValueArray.Builder create(LocalId localId){
-        return new QuantitativeValueArray(localId).new Builder();
-    }
 
-    public QuantitativeValueArray.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, QuantitativeValueArray.class).new Builder();
-    }
 }

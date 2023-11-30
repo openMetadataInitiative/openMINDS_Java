@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +36,10 @@ import static org.openmetadatainitiative.openminds.v3.core.products.MetaDataMode
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MetaDataModelVersion extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/MetaDataModelVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class MetaDataModelVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/MetaDataModelVersion";
 
     @JsonIgnore
     public Reference<MetaDataModelVersion> getReference() {
@@ -46,74 +50,61 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private MetaDataModelVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private MetaDataModelVersion() {
+        this(null);
     }
 
+    private MetaDataModelVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<MetaDataModelVersion>{
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { MetaDataModelVersion.this.accessibility = accessibility; return this; }
-        
-        public Builder copyright(Copyright copyright) { MetaDataModelVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { MetaDataModelVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends MetaDataModelVersionCustodian>> custodian) { MetaDataModelVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { MetaDataModelVersion.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends MetaDataModelVersionDeveloper>> developer) { MetaDataModelVersion.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends MetaDataModelVersionDigitalIdentifier> digitalIdentifier) { MetaDataModelVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullDocumentation(Reference<? extends MetaDataModelVersionFullDocumentation> fullDocumentation) { MetaDataModelVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { MetaDataModelVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { MetaDataModelVersion.this.funding = funding; return this; }
-        
         public Builder homepage(String homepage) { MetaDataModelVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { MetaDataModelVersion.this.howToCite = howToCite; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<MetaDataModelVersion>> isAlternativeVersionOf) { MetaDataModelVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<MetaDataModelVersion> isNewVersionOf) { MetaDataModelVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends MetaDataModelVersionKeyword>> keyword) { MetaDataModelVersion.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { MetaDataModelVersion.this.license = license; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { MetaDataModelVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { MetaDataModelVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder relatedPublication(List<Reference<? extends MetaDataModelVersionRelatedPublication>> relatedPublication) { MetaDataModelVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { MetaDataModelVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { MetaDataModelVersion.this.repository = repository; return this; }
-        
         public Builder serializationFormat(List<Reference<ContentType>> serializationFormat) { MetaDataModelVersion.this.serializationFormat = serializationFormat; return this; }
-        
         public Builder shortName(String shortName) { MetaDataModelVersion.this.shortName = shortName; return this; }
-        
         public Builder specificationFormat(List<Reference<ContentType>> specificationFormat) { MetaDataModelVersion.this.specificationFormat = specificationFormat; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { MetaDataModelVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder type(Reference<MetaDataModelType> type) { MetaDataModelVersion.this.type = type; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { MetaDataModelVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { MetaDataModelVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public MetaDataModelVersion build(OpenMINDSContext context) {
-            if (MetaDataModelVersion.this.id == null) {
-                MetaDataModelVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            MetaDataModelVersion.this.atType = SEMANTIC_NAME;
+            MetaDataModelVersion.super.build(context);
             return MetaDataModelVersion.this;
         }
     }
+
+    public static MetaDataModelVersion.Builder create(LocalId localId){
+        return new MetaDataModelVersion(localId).new Builder();
+    }
+
+    public MetaDataModelVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, MetaDataModelVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
     private Reference<ProductAccessibility> accessibility;
@@ -376,11 +367,5 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
     }
 
  
-    public static MetaDataModelVersion.Builder create(LocalId localId){
-        return new MetaDataModelVersion(localId).new Builder();
-    }
 
-    public MetaDataModelVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, MetaDataModelVersion.class).new Builder();
-    }
 }

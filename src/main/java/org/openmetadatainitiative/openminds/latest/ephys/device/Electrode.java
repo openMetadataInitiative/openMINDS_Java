@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.Electrode
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Electrode extends Instance implements org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Electrode";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Electrode extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Electrode";
 
     @JsonIgnore
     public Reference<Electrode> getReference() {
@@ -38,46 +42,47 @@ public class Electrode extends Instance implements org.openmetadatainitiative.op
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Electrode(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Electrode() {
+        this(null);
     }
 
+    private Electrode(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Electrode>{
-        
         public Builder conductorMaterial(Reference<? extends ElectrodeConductorMaterial> conductorMaterial) { Electrode.this.conductorMaterial = conductorMaterial; return this; }
-        
         public Builder description(String description) { Electrode.this.description = description; return this; }
-        
         public Builder deviceType(Reference<DeviceType> deviceType) { Electrode.this.deviceType = deviceType; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends ElectrodeDigitalIdentifier> digitalIdentifier) { Electrode.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder insulatorMaterial(Reference<? extends ElectrodeInsulatorMaterial> insulatorMaterial) { Electrode.this.insulatorMaterial = insulatorMaterial; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { Electrode.this.internalIdentifier = internalIdentifier; return this; }
-        
-        public Builder intrinsicResistance(ElectrodeIntrinsicResistance intrinsicResistance) { Electrode.this.intrinsicResistance = intrinsicResistance; return this; }
-        
+        public Builder intrinsicResistance(Function<ElectrodeIntrinsicResistance.EmbeddedBuilder, ElectrodeIntrinsicResistance> intrinsicResistance) { Electrode.this.intrinsicResistance = intrinsicResistance.apply(ElectrodeIntrinsicResistance.createEmbedded()); return this; }
         public Builder lookupLabel(String lookupLabel) { Electrode.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder manufacturer(List<Reference<? extends ElectrodeManufacturer>> manufacturer) { Electrode.this.manufacturer = manufacturer; return this; }
-        
         public Builder name(String name) { Electrode.this.name = name; return this; }
-        
         public Builder owner(List<Reference<? extends ElectrodeOwner>> owner) { Electrode.this.owner = owner; return this; }
-        
         public Builder serialNumber(String serialNumber) { Electrode.this.serialNumber = serialNumber; return this; }
         
 
         public Electrode build(OpenMINDSContext context) {
-            if (Electrode.this.id == null) {
-                Electrode.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Electrode.this.atType = SEMANTIC_NAME;
+            Electrode.super.build(context);
             return Electrode.this;
         }
     }
+
+    public static Electrode.Builder create(LocalId localId){
+        return new Electrode(localId).new Builder();
+    }
+
+    public Electrode.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Electrode.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/conductorMaterial")
     private Reference<? extends ElectrodeConductorMaterial> conductorMaterial;
@@ -176,11 +181,5 @@ public class Electrode extends Instance implements org.openmetadatainitiative.op
     }
 
  
-    public static Electrode.Builder create(LocalId localId){
-        return new Electrode(localId).new Builder();
-    }
 
-    public Electrode.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Electrode.class).new Builder();
-    }
 }

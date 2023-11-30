@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.Affiliatio
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Affiliation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Affiliation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Affiliation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Affiliation";
 
     @JsonIgnore
     public Reference<Affiliation> getReference() {
@@ -32,28 +36,34 @@ public class Affiliation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Affiliation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Affiliation() {
+        this(null);
     }
 
+    private Affiliation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Affiliation>{
-        
-        public Builder endDate(String endDate) { Affiliation.this.endDate = endDate; return this; }
-        
-        public Builder memberOf(Reference<? extends AffiliationMemberOf> memberOf) { Affiliation.this.memberOf = memberOf; return this; }
-        
-        public Builder startDate(String startDate) { Affiliation.this.startDate = startDate; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder endDate(String endDate) { Affiliation.this.endDate = endDate; return this; }
+        public EmbeddedBuilder memberOf(Reference<? extends AffiliationMemberOf> memberOf) { Affiliation.this.memberOf = memberOf; return this; }
+        public EmbeddedBuilder startDate(String startDate) { Affiliation.this.startDate = startDate; return this; }
         
 
-        public Affiliation build(OpenMINDSContext context) {
-            if (Affiliation.this.id == null) {
-                Affiliation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Affiliation.this.atType = SEMANTIC_NAME;
+        public Affiliation build(){
             return Affiliation.this;
         }
     }
+
+    public static Affiliation.EmbeddedBuilder createEmbedded(){
+        return new Affiliation(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endDate")
     private String endDate;
@@ -83,11 +93,5 @@ public class Affiliation extends Instance {
     }
 
  
-    public static Affiliation.Builder create(LocalId localId){
-        return new Affiliation(localId).new Builder();
-    }
 
-    public Affiliation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Affiliation.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRI
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GRIDID extends Instance implements org.openmetadatainitiative.openminds.v3.core.actors.intf.OrganizationDigitalIdentifier{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/GRIDID";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class GRIDID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.actors.intf.OrganizationDigitalIdentifier{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/GRIDID";
 
     @JsonIgnore
     public Reference<GRIDID> getReference() {
@@ -31,24 +35,36 @@ public class GRIDID extends Instance implements org.openmetadatainitiative.openm
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private GRIDID(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private GRIDID() {
+        this(null);
     }
 
+    private GRIDID(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<GRIDID>{
-        
         public Builder identifier(String identifier) { GRIDID.this.identifier = identifier; return this; }
         
 
         public GRIDID build(OpenMINDSContext context) {
-            if (GRIDID.this.id == null) {
-                GRIDID.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            GRIDID.this.atType = SEMANTIC_NAME;
+            GRIDID.super.build(context);
             return GRIDID.this;
         }
     }
+
+    public static GRIDID.Builder create(LocalId localId){
+        return new GRIDID(localId).new Builder();
+    }
+
+    public GRIDID.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, GRIDID.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
     private String identifier;
@@ -61,11 +77,5 @@ public class GRIDID extends Instance implements org.openmetadatainitiative.openm
     }
 
  
-    public static GRIDID.Builder create(LocalId localId){
-        return new GRIDID(localId).new Builder();
-    }
 
-    public GRIDID.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, GRIDID.class).new Builder();
-    }
 }

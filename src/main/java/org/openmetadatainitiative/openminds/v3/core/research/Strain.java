@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,10 @@ import static org.openmetadatainitiative.openminds.v3.core.research.Strain.SEMAN
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Strain extends Instance implements org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleSpecies, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionSpecies, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectSpecies, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupSpecies{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Strain";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Strain extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleSpecies, org.openmetadatainitiative.openminds.v3.core.research.intf.TissueSampleCollectionSpecies, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectSpecies, org.openmetadatainitiative.openminds.v3.core.research.intf.SubjectGroupSpecies{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Strain";
 
     @JsonIgnore
     public Reference<Strain> getReference() {
@@ -37,50 +41,49 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Strain(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Strain() {
+        this(null);
     }
 
+    private Strain(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Strain>{
-        
         public Builder alternateIdentifier(List<String> alternateIdentifier) { Strain.this.alternateIdentifier = alternateIdentifier; return this; }
-        
         public Builder backgroundStrain(List<Reference<Strain>> backgroundStrain) { Strain.this.backgroundStrain = backgroundStrain; return this; }
-        
         public Builder breedingType(Reference<BreedingType> breedingType) { Strain.this.breedingType = breedingType; return this; }
-        
         public Builder description(String description) { Strain.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<RRID> digitalIdentifier) { Strain.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder diseaseModel(List<Reference<? extends StrainDiseaseModel>> diseaseModel) { Strain.this.diseaseModel = diseaseModel; return this; }
-        
         public Builder geneticStrainType(Reference<GeneticStrainType> geneticStrainType) { Strain.this.geneticStrainType = geneticStrainType; return this; }
-        
         public Builder laboratoryCode(String laboratoryCode) { Strain.this.laboratoryCode = laboratoryCode; return this; }
-        
         public Builder name(String name) { Strain.this.name = name; return this; }
-        
         public Builder ontologyIdentifier(List<String> ontologyIdentifier) { Strain.this.ontologyIdentifier = ontologyIdentifier; return this; }
-        
         public Builder phenotype(String phenotype) { Strain.this.phenotype = phenotype; return this; }
-        
         public Builder species(Reference<Species> species) { Strain.this.species = species; return this; }
-        
-        public Builder stockNumber(StockNumber stockNumber) { Strain.this.stockNumber = stockNumber; return this; }
-        
+        public Builder stockNumber(Function<StockNumber.EmbeddedBuilder, StockNumber> stockNumber) { Strain.this.stockNumber = stockNumber.apply(StockNumber.createEmbedded()); return this; }
         public Builder synonym(List<String> synonym) { Strain.this.synonym = synonym; return this; }
         
 
         public Strain build(OpenMINDSContext context) {
-            if (Strain.this.id == null) {
-                Strain.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Strain.this.atType = SEMANTIC_NAME;
+            Strain.super.build(context);
             return Strain.this;
         }
     }
+
+    public static Strain.Builder create(LocalId localId){
+        return new Strain(localId).new Builder();
+    }
+
+    public Strain.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Strain.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/alternateIdentifier")
     private List<String> alternateIdentifier;
@@ -202,11 +205,5 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
     }
 
  
-    public static Strain.Builder create(LocalId localId){
-        return new Strain(localId).new Builder();
-    }
 
-    public Strain.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Strain.class).new Builder();
-    }
 }

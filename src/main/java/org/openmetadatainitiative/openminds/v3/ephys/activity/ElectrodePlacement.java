@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.ephys.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,10 @@ import static org.openmetadatainitiative.openminds.v3.ephys.activity.ElectrodePl
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ElectrodePlacement extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodePlacement";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ElectrodePlacement extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodePlacement";
 
     @JsonIgnore
     public Reference<ElectrodePlacement> getReference() {
@@ -41,50 +45,49 @@ public class ElectrodePlacement extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ElectrodePlacement(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ElectrodePlacement() {
+        this(null);
     }
 
+    private ElectrodePlacement(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ElectrodePlacement>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { ElectrodePlacement.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { ElectrodePlacement.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { ElectrodePlacement.this.description = description; return this; }
-        
         public Builder device(List<Reference<? extends ElectrodePlacementDevice>> device) { ElectrodePlacement.this.device = device; return this; }
-        
         public Builder endTime(String endTime) { ElectrodePlacement.this.endTime = endTime; return this; }
-        
         public Builder input(List<Reference<? extends ElectrodePlacementInput>> input) { ElectrodePlacement.this.input = input; return this; }
-        
         public Builder isPartOf(Reference<DatasetVersion> isPartOf) { ElectrodePlacement.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { ElectrodePlacement.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends ElectrodePlacementOutput>> output) { ElectrodePlacement.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends ElectrodePlacementPerformedBy>> performedBy) { ElectrodePlacement.this.performedBy = performedBy; return this; }
-        
         public Builder preparationDesign(Reference<PreparationType> preparationDesign) { ElectrodePlacement.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { ElectrodePlacement.this.protocol = protocol; return this; }
-        
         public Builder startTime(String startTime) { ElectrodePlacement.this.startTime = startTime; return this; }
-        
         public Builder studyTarget(List<Reference<? extends ElectrodePlacementStudyTarget>> studyTarget) { ElectrodePlacement.this.studyTarget = studyTarget; return this; }
-        
-        public Builder targetPosition(AnatomicalTargetPosition targetPosition) { ElectrodePlacement.this.targetPosition = targetPosition; return this; }
+        public Builder targetPosition(Function<AnatomicalTargetPosition.EmbeddedBuilder, AnatomicalTargetPosition> targetPosition) { ElectrodePlacement.this.targetPosition = targetPosition.apply(AnatomicalTargetPosition.createEmbedded()); return this; }
         
 
         public ElectrodePlacement build(OpenMINDSContext context) {
-            if (ElectrodePlacement.this.id == null) {
-                ElectrodePlacement.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ElectrodePlacement.this.atType = SEMANTIC_NAME;
+            ElectrodePlacement.super.build(context);
             return ElectrodePlacement.this;
         }
     }
+
+    public static ElectrodePlacement.Builder create(LocalId localId){
+        return new ElectrodePlacement(localId).new Builder();
+    }
+
+    public ElectrodePlacement.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ElectrodePlacement.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -206,11 +209,5 @@ public class ElectrodePlacement extends Instance {
     }
 
  
-    public static ElectrodePlacement.Builder create(LocalId localId){
-        return new ElectrodePlacement(localId).new Builder();
-    }
 
-    public ElectrodePlacement.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ElectrodePlacement.class).new Builder();
-    }
 }

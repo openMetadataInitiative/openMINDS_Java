@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +29,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotatio
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AtlasAnnotation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/AtlasAnnotation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class AtlasAnnotation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/AtlasAnnotation";
 
     @JsonIgnore
     public Reference<AtlasAnnotation> getReference() {
@@ -39,42 +43,41 @@ public class AtlasAnnotation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private AtlasAnnotation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private AtlasAnnotation() {
+        this(null);
     }
 
+    private AtlasAnnotation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AtlasAnnotation>{
-        
-        public Builder anchorPoint(List<QuantitativeValue> anchorPoint) { AtlasAnnotation.this.anchorPoint = anchorPoint; return this; }
-        
-        public Builder criteria(Reference<ProtocolExecution> criteria) { AtlasAnnotation.this.criteria = criteria; return this; }
-        
-        public Builder criteriaQualityType(Reference<CriteriaQualityType> criteriaQualityType) { AtlasAnnotation.this.criteriaQualityType = criteriaQualityType; return this; }
-        
-        public Builder criteriaType(Reference<AnnotationCriteriaType> criteriaType) { AtlasAnnotation.this.criteriaType = criteriaType; return this; }
-        
-        public Builder inspiredBy(List<Reference<File>> inspiredBy) { AtlasAnnotation.this.inspiredBy = inspiredBy; return this; }
-        
-        public Builder internalIdentifier(String internalIdentifier) { AtlasAnnotation.this.internalIdentifier = internalIdentifier; return this; }
-        
-        public Builder laterality(List<Reference<Laterality>> laterality) { AtlasAnnotation.this.laterality = laterality; return this; }
-        
-        public Builder preferredVisualization(ViewerSpecification preferredVisualization) { AtlasAnnotation.this.preferredVisualization = preferredVisualization; return this; }
-        
-        public Builder specification(Reference<File> specification) { AtlasAnnotation.this.specification = specification; return this; }
-        
-        public Builder type(Reference<AnnotationType> type) { AtlasAnnotation.this.type = type; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder anchorPoint(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> anchorPoint) { AtlasAnnotation.this.anchorPoint = anchorPoint.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
+        public EmbeddedBuilder criteria(Reference<ProtocolExecution> criteria) { AtlasAnnotation.this.criteria = criteria; return this; }
+        public EmbeddedBuilder criteriaQualityType(Reference<CriteriaQualityType> criteriaQualityType) { AtlasAnnotation.this.criteriaQualityType = criteriaQualityType; return this; }
+        public EmbeddedBuilder criteriaType(Reference<AnnotationCriteriaType> criteriaType) { AtlasAnnotation.this.criteriaType = criteriaType; return this; }
+        public EmbeddedBuilder inspiredBy(List<Reference<File>> inspiredBy) { AtlasAnnotation.this.inspiredBy = inspiredBy; return this; }
+        public EmbeddedBuilder internalIdentifier(String internalIdentifier) { AtlasAnnotation.this.internalIdentifier = internalIdentifier; return this; }
+        public EmbeddedBuilder laterality(List<Reference<Laterality>> laterality) { AtlasAnnotation.this.laterality = laterality; return this; }
+        public EmbeddedBuilder preferredVisualization(Function<ViewerSpecification.EmbeddedBuilder, ViewerSpecification> preferredVisualization) { AtlasAnnotation.this.preferredVisualization = preferredVisualization.apply(ViewerSpecification.createEmbedded()); return this; }
+        public EmbeddedBuilder specification(Reference<File> specification) { AtlasAnnotation.this.specification = specification; return this; }
+        public EmbeddedBuilder type(Reference<AnnotationType> type) { AtlasAnnotation.this.type = type; return this; }
         
 
-        public AtlasAnnotation build(OpenMINDSContext context) {
-            if (AtlasAnnotation.this.id == null) {
-                AtlasAnnotation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            AtlasAnnotation.this.atType = SEMANTIC_NAME;
+        public AtlasAnnotation build(){
             return AtlasAnnotation.this;
         }
     }
+
+    public static AtlasAnnotation.EmbeddedBuilder createEmbedded(){
+        return new AtlasAnnotation(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anchorPoint")
     private List<QuantitativeValue> anchorPoint;
@@ -168,11 +171,5 @@ public class AtlasAnnotation extends Instance {
     }
 
  
-    public static AtlasAnnotation.Builder create(LocalId localId){
-        return new AtlasAnnotation(localId).new Builder();
-    }
 
-    public AtlasAnnotation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AtlasAnnotation.class).new Builder();
-    }
 }

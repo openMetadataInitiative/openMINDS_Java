@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Funding extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Funding";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Funding extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Funding";
 
     @JsonIgnore
     public Reference<Funding> getReference() {
@@ -32,30 +36,39 @@ public class Funding extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Funding(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Funding() {
+        this(null);
     }
 
+    private Funding(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Funding>{
-        
         public Builder acknowledgement(String acknowledgement) { Funding.this.acknowledgement = acknowledgement; return this; }
-        
         public Builder awardNumber(String awardNumber) { Funding.this.awardNumber = awardNumber; return this; }
-        
         public Builder awardTitle(String awardTitle) { Funding.this.awardTitle = awardTitle; return this; }
-        
         public Builder funder(Reference<? extends FundingFunder> funder) { Funding.this.funder = funder; return this; }
         
 
         public Funding build(OpenMINDSContext context) {
-            if (Funding.this.id == null) {
-                Funding.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Funding.this.atType = SEMANTIC_NAME;
+            Funding.super.build(context);
             return Funding.this;
         }
     }
+
+    public static Funding.Builder create(LocalId localId){
+        return new Funding(localId).new Builder();
+    }
+
+    public Funding.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Funding.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/acknowledgement")
     private String acknowledgement;
@@ -98,11 +111,5 @@ public class Funding extends Instance {
     }
 
  
-    public static Funding.Builder create(LocalId localId){
-        return new Funding(localId).new Builder();
-    }
 
-    public Funding.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Funding.class).new Builder();
-    }
 }

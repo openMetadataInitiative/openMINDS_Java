@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,10 @@ import static org.openmetadatainitiative.openminds.latest.publications.Book.SEMA
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Book extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionRelatedPublication{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/Book";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Book extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionRelatedPublication{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/Book";
 
     @JsonIgnore
     public Reference<Book> getReference() {
@@ -41,56 +45,52 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Book(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Book() {
+        this(null);
     }
 
+    private Book(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Book>{
-        
         public Builder IRI(String IRI) { Book.this.IRI = IRI; return this; }
-        
         public Builder abstract_(String abstract_) { Book.this.abstract_ = abstract_; return this; }
-        
         public Builder author(List<Reference<? extends BookAuthor>> author) { Book.this.author = author; return this; }
-        
         public Builder citedPublication(List<Reference<? extends BookCitedPublication>> citedPublication) { Book.this.citedPublication = citedPublication; return this; }
-        
-        public Builder copyright(Copyright copyright) { Book.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { Book.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder creationDate(String creationDate) { Book.this.creationDate = creationDate; return this; }
-        
         public Builder custodian(List<Reference<? extends BookCustodian>> custodian) { Book.this.custodian = custodian; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends BookDigitalIdentifier> digitalIdentifier) { Book.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder editor(List<Reference<Person>> editor) { Book.this.editor = editor; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { Book.this.funding = funding; return this; }
-        
         public Builder keyword(List<Reference<? extends BookKeyword>> keyword) { Book.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { Book.this.license = license; return this; }
-        
         public Builder modificationDate(String modificationDate) { Book.this.modificationDate = modificationDate; return this; }
-        
         public Builder name(String name) { Book.this.name = name; return this; }
-        
         public Builder publicationDate(String publicationDate) { Book.this.publicationDate = publicationDate; return this; }
-        
         public Builder publisher(Reference<? extends BookPublisher> publisher) { Book.this.publisher = publisher; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { Book.this.versionIdentifier = versionIdentifier; return this; }
         
 
         public Book build(OpenMINDSContext context) {
-            if (Book.this.id == null) {
-                Book.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Book.this.atType = SEMANTIC_NAME;
+            Book.super.build(context);
             return Book.this;
         }
     }
+
+    public static Book.Builder create(LocalId localId){
+        return new Book(localId).new Builder();
+    }
+
+    public Book.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Book.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -242,11 +242,5 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
     }
 
  
-    public static Book.Builder create(LocalId localId){
-        return new Book(localId).new Builder();
-    }
 
-    public Book.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Book.class).new Builder();
-    }
 }

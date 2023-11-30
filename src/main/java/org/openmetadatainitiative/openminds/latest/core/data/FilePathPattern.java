@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FilePathPatt
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FilePathPattern extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FilePathPattern";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class FilePathPattern extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FilePathPattern";
 
     @JsonIgnore
     public Reference<FilePathPattern> getReference() {
@@ -32,26 +36,33 @@ public class FilePathPattern extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private FilePathPattern(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private FilePathPattern() {
+        this(null);
     }
 
+    private FilePathPattern(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<FilePathPattern>{
-        
-        public Builder groupingType(List<Reference<FileBundleGrouping>> groupingType) { FilePathPattern.this.groupingType = groupingType; return this; }
-        
-        public Builder regex(String regex) { FilePathPattern.this.regex = regex; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder groupingType(List<Reference<FileBundleGrouping>> groupingType) { FilePathPattern.this.groupingType = groupingType; return this; }
+        public EmbeddedBuilder regex(String regex) { FilePathPattern.this.regex = regex; return this; }
         
 
-        public FilePathPattern build(OpenMINDSContext context) {
-            if (FilePathPattern.this.id == null) {
-                FilePathPattern.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            FilePathPattern.this.atType = SEMANTIC_NAME;
+        public FilePathPattern build(){
             return FilePathPattern.this;
         }
     }
+
+    public static FilePathPattern.EmbeddedBuilder createEmbedded(){
+        return new FilePathPattern(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/groupingType")
     private List<Reference<FileBundleGrouping>> groupingType;
@@ -68,11 +79,5 @@ public class FilePathPattern extends Instance {
     }
 
  
-    public static FilePathPattern.Builder create(LocalId localId){
-        return new FilePathPattern(localId).new Builder();
-    }
 
-    public FilePathPattern.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FilePathPattern.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Setup.SE
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Setup extends Instance implements org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Setup";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Setup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Setup";
 
     @JsonIgnore
     public Reference<Setup> getReference() {
@@ -34,34 +38,41 @@ public class Setup extends Instance implements org.openmetadatainitiative.openmi
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Setup(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Setup() {
+        this(null);
     }
 
+    private Setup(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Setup>{
-        
         public Builder description(String description) { Setup.this.description = description; return this; }
-        
         public Builder hasPart(List<Reference<? extends SetupHasPart>> hasPart) { Setup.this.hasPart = hasPart; return this; }
-        
         public Builder location(String location) { Setup.this.location = location; return this; }
-        
         public Builder manufacturer(List<Reference<? extends SetupManufacturer>> manufacturer) { Setup.this.manufacturer = manufacturer; return this; }
-        
         public Builder name(String name) { Setup.this.name = name; return this; }
-        
         public Builder type(List<Reference<SetupType>> type) { Setup.this.type = type; return this; }
         
 
         public Setup build(OpenMINDSContext context) {
-            if (Setup.this.id == null) {
-                Setup.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Setup.this.atType = SEMANTIC_NAME;
+            Setup.super.build(context);
             return Setup.this;
         }
     }
+
+    public static Setup.Builder create(LocalId localId){
+        return new Setup(localId).new Builder();
+    }
+
+    public Setup.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Setup.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
     private String description;
@@ -115,11 +126,5 @@ public class Setup extends Instance implements org.openmetadatainitiative.openmi
     }
 
  
-    public static Setup.Builder create(LocalId localId){
-        return new Setup(localId).new Builder();
-    }
 
-    public Setup.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Setup.class).new Builder();
-    }
 }

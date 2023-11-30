@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.TissueSa
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSampleCollection";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSampleCollection";
 
     @JsonIgnore
     public Reference<TissueSampleCollection> getReference() {
@@ -38,44 +42,46 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private TissueSampleCollection(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private TissueSampleCollection() {
+        this(null);
     }
 
+    private TissueSampleCollection(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueSampleCollection>{
-        
         public Builder additionalRemarks(String additionalRemarks) { TissueSampleCollection.this.additionalRemarks = additionalRemarks; return this; }
-        
         public Builder anatomicalLocation(List<Reference<? extends TissueSampleCollectionAnatomicalLocation>> anatomicalLocation) { TissueSampleCollection.this.anatomicalLocation = anatomicalLocation; return this; }
-        
         public Builder biologicalSex(List<Reference<BiologicalSex>> biologicalSex) { TissueSampleCollection.this.biologicalSex = biologicalSex; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { TissueSampleCollection.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder laterality(List<Reference<Laterality>> laterality) { TissueSampleCollection.this.laterality = laterality; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { TissueSampleCollection.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder numberOfTissueSamples(Object numberOfTissueSamples) { TissueSampleCollection.this.numberOfTissueSamples = numberOfTissueSamples; return this; }
-        
         public Builder origin(List<Reference<? extends TissueSampleCollectionOrigin>> origin) { TissueSampleCollection.this.origin = origin; return this; }
-        
         public Builder species(List<Reference<? extends TissueSampleCollectionSpecies>> species) { TissueSampleCollection.this.species = species; return this; }
-        
         public Builder studiedState(List<Reference<TissueSampleCollectionState>> studiedState) { TissueSampleCollection.this.studiedState = studiedState; return this; }
-        
         public Builder type(List<Reference<TissueSampleType>> type) { TissueSampleCollection.this.type = type; return this; }
         
 
         public TissueSampleCollection build(OpenMINDSContext context) {
-            if (TissueSampleCollection.this.id == null) {
-                TissueSampleCollection.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            TissueSampleCollection.this.atType = SEMANTIC_NAME;
+            TissueSampleCollection.super.build(context);
             return TissueSampleCollection.this;
         }
     }
+
+    public static TissueSampleCollection.Builder create(LocalId localId){
+        return new TissueSampleCollection(localId).new Builder();
+    }
+
+    public TissueSampleCollection.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSampleCollection.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -179,11 +185,5 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
     }
 
  
-    public static TissueSampleCollection.Builder create(LocalId localId){
-        return new TissueSampleCollection(localId).new Builder();
-    }
 
-    public TissueSampleCollection.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, TissueSampleCollection.class).new Builder();
-    }
 }

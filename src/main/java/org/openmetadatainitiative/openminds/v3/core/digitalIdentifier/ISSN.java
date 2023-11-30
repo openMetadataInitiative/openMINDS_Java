@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISS
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ISSN extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ISSN";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ISSN extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ISSN";
 
     @JsonIgnore
     public Reference<ISSN> getReference() {
@@ -31,24 +35,36 @@ public class ISSN extends Instance implements org.openmetadatainitiative.openmin
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ISSN(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ISSN() {
+        this(null);
     }
 
+    private ISSN(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ISSN>{
-        
         public Builder identifier(String identifier) { ISSN.this.identifier = identifier; return this; }
         
 
         public ISSN build(OpenMINDSContext context) {
-            if (ISSN.this.id == null) {
-                ISSN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ISSN.this.atType = SEMANTIC_NAME;
+            ISSN.super.build(context);
             return ISSN.this;
         }
     }
+
+    public static ISSN.Builder create(LocalId localId){
+        return new ISSN(localId).new Builder();
+    }
+
+    public ISSN.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ISSN.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
     private String identifier;
@@ -61,11 +77,5 @@ public class ISSN extends Instance implements org.openmetadatainitiative.openmin
     }
 
  
-    public static ISSN.Builder create(LocalId localId){
-        return new ISSN(localId).new Builder();
-    }
 
-    public ISSN.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ISSN.class).new Builder();
-    }
 }

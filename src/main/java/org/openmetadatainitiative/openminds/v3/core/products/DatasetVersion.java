@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +44,10 @@ import static org.openmetadatainitiative.openminds.v3.core.products.DatasetVersi
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DatasetVersion extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/DatasetVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class DatasetVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/DatasetVersion";
 
     @JsonIgnore
     public Reference<DatasetVersion> getReference() {
@@ -54,88 +58,68 @@ public class DatasetVersion extends Instance implements org.openmetadatainitiati
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private DatasetVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private DatasetVersion() {
+        this(null);
     }
 
+    private DatasetVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<DatasetVersion>{
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { DatasetVersion.this.accessibility = accessibility; return this; }
-        
         public Builder author(List<Reference<? extends DatasetVersionAuthor>> author) { DatasetVersion.this.author = author; return this; }
-        
         public Builder behavioralProtocol(List<Reference<BehavioralProtocol>> behavioralProtocol) { DatasetVersion.this.behavioralProtocol = behavioralProtocol; return this; }
-        
-        public Builder copyright(Copyright copyright) { DatasetVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { DatasetVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends DatasetVersionCustodian>> custodian) { DatasetVersion.this.custodian = custodian; return this; }
-        
         public Builder dataType(List<Reference<SemanticDataType>> dataType) { DatasetVersion.this.dataType = dataType; return this; }
-        
         public Builder description(String description) { DatasetVersion.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends DatasetVersionDigitalIdentifier> digitalIdentifier) { DatasetVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder ethicsAssessment(Reference<EthicsAssessment> ethicsAssessment) { DatasetVersion.this.ethicsAssessment = ethicsAssessment; return this; }
-        
         public Builder experimentalApproach(List<Reference<ExperimentalApproach>> experimentalApproach) { DatasetVersion.this.experimentalApproach = experimentalApproach; return this; }
-        
         public Builder fullDocumentation(Reference<? extends DatasetVersionFullDocumentation> fullDocumentation) { DatasetVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { DatasetVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { DatasetVersion.this.funding = funding; return this; }
-        
         public Builder homepage(String homepage) { DatasetVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { DatasetVersion.this.howToCite = howToCite; return this; }
-        
         public Builder inputData(List<Reference<? extends DatasetVersionInputData>> inputData) { DatasetVersion.this.inputData = inputData; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<DatasetVersion>> isAlternativeVersionOf) { DatasetVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<DatasetVersion> isNewVersionOf) { DatasetVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends DatasetVersionKeyword>> keyword) { DatasetVersion.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<? extends DatasetVersionLicense> license) { DatasetVersion.this.license = license; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { DatasetVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { DatasetVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder preparationDesign(List<Reference<PreparationType>> preparationDesign) { DatasetVersion.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { DatasetVersion.this.protocol = protocol; return this; }
-        
         public Builder relatedPublication(List<Reference<? extends DatasetVersionRelatedPublication>> relatedPublication) { DatasetVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { DatasetVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { DatasetVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { DatasetVersion.this.shortName = shortName; return this; }
-        
         public Builder studiedSpecimen(List<Reference<? extends DatasetVersionStudiedSpecimen>> studiedSpecimen) { DatasetVersion.this.studiedSpecimen = studiedSpecimen; return this; }
-        
         public Builder studyTarget(List<Reference<? extends DatasetVersionStudyTarget>> studyTarget) { DatasetVersion.this.studyTarget = studyTarget; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { DatasetVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder technique(List<Reference<? extends DatasetVersionTechnique>> technique) { DatasetVersion.this.technique = technique; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { DatasetVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { DatasetVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public DatasetVersion build(OpenMINDSContext context) {
-            if (DatasetVersion.this.id == null) {
-                DatasetVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            DatasetVersion.this.atType = SEMANTIC_NAME;
+            DatasetVersion.super.build(context);
             return DatasetVersion.this;
         }
     }
+
+    public static DatasetVersion.Builder create(LocalId localId){
+        return new DatasetVersion(localId).new Builder();
+    }
+
+    public DatasetVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DatasetVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
     private Reference<ProductAccessibility> accessibility;
@@ -453,11 +437,5 @@ public class DatasetVersion extends Instance implements org.openmetadatainitiati
     }
 
  
-    public static DatasetVersion.Builder create(LocalId localId){
-        return new DatasetVersion(localId).new Builder();
-    }
 
-    public DatasetVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DatasetVersion.class).new Builder();
-    }
 }

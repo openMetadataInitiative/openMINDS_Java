@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.latest.core.products.WebServi
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WebService extends Instance implements org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/WebService";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class WebService extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/WebService";
 
     @JsonIgnore
     public Reference<WebService> getReference() {
@@ -34,38 +38,43 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private WebService(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private WebService() {
+        this(null);
     }
 
+    private WebService(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<WebService>{
-        
         public Builder custodian(List<Reference<? extends WebServiceCustodian>> custodian) { WebService.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { WebService.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends WebServiceDeveloper>> developer) { WebService.this.developer = developer; return this; }
-        
         public Builder fullName(String fullName) { WebService.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<WebServiceVersion>> hasVersion) { WebService.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { WebService.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { WebService.this.howToCite = howToCite; return this; }
-        
         public Builder shortName(String shortName) { WebService.this.shortName = shortName; return this; }
         
 
         public WebService build(OpenMINDSContext context) {
-            if (WebService.this.id == null) {
-                WebService.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            WebService.this.atType = SEMANTIC_NAME;
+            WebService.super.build(context);
             return WebService.this;
         }
     }
+
+    public static WebService.Builder create(LocalId localId){
+        return new WebService(localId).new Builder();
+    }
+
+    public WebService.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WebService.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
     private List<Reference<? extends WebServiceCustodian>> custodian;
@@ -148,11 +157,5 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
     }
 
  
-    public static WebService.Builder create(LocalId localId){
-        return new WebService(localId).new Builder();
-    }
 
-    public WebService.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WebService.class).new Builder();
-    }
 }

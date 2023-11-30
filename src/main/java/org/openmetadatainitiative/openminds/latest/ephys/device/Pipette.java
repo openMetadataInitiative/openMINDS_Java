@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.ephys.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,10 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.S
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Pipette extends Instance implements org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Pipette";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Pipette extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Pipette";
 
     @JsonIgnore
     public Reference<Pipette> getReference() {
@@ -37,46 +41,47 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Pipette(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Pipette() {
+        this(null);
     }
 
+    private Pipette(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Pipette>{
-        
         public Builder description(String description) { Pipette.this.description = description; return this; }
-        
         public Builder deviceType(Reference<DeviceType> deviceType) { Pipette.this.deviceType = deviceType; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends PipetteDigitalIdentifier> digitalIdentifier) { Pipette.this.digitalIdentifier = digitalIdentifier; return this; }
-        
-        public Builder externalDiameter(QuantitativeValue externalDiameter) { Pipette.this.externalDiameter = externalDiameter; return this; }
-        
-        public Builder internalDiameter(QuantitativeValue internalDiameter) { Pipette.this.internalDiameter = internalDiameter; return this; }
-        
+        public Builder externalDiameter(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> externalDiameter) { Pipette.this.externalDiameter = externalDiameter.apply(QuantitativeValue.createEmbedded()); return this; }
+        public Builder internalDiameter(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> internalDiameter) { Pipette.this.internalDiameter = internalDiameter.apply(QuantitativeValue.createEmbedded()); return this; }
         public Builder internalIdentifier(String internalIdentifier) { Pipette.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { Pipette.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder manufacturer(List<Reference<? extends PipetteManufacturer>> manufacturer) { Pipette.this.manufacturer = manufacturer; return this; }
-        
         public Builder material(Reference<? extends PipetteMaterial> material) { Pipette.this.material = material; return this; }
-        
         public Builder name(String name) { Pipette.this.name = name; return this; }
-        
         public Builder owner(List<Reference<? extends PipetteOwner>> owner) { Pipette.this.owner = owner; return this; }
-        
         public Builder serialNumber(String serialNumber) { Pipette.this.serialNumber = serialNumber; return this; }
         
 
         public Pipette build(OpenMINDSContext context) {
-            if (Pipette.this.id == null) {
-                Pipette.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Pipette.this.atType = SEMANTIC_NAME;
+            Pipette.super.build(context);
             return Pipette.this;
         }
     }
+
+    public static Pipette.Builder create(LocalId localId){
+        return new Pipette(localId).new Builder();
+    }
+
+    public Pipette.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Pipette.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
     private String description;
@@ -175,11 +180,5 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
     }
 
  
-    public static Pipette.Builder create(LocalId localId){
-        return new Pipette(localId).new Builder();
-    }
 
-    public Pipette.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Pipette.class).new Builder();
-    }
 }

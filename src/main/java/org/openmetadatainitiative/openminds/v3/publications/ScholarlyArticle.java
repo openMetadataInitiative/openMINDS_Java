@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +32,10 @@ import static org.openmetadatainitiative.openminds.v3.publications.ScholarlyArti
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ScholarlyArticle extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/ScholarlyArticle";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ScholarlyArticle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/ScholarlyArticle";
 
     @JsonIgnore
     public Reference<ScholarlyArticle> getReference() {
@@ -42,60 +46,54 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ScholarlyArticle(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ScholarlyArticle() {
+        this(null);
     }
 
+    private ScholarlyArticle(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ScholarlyArticle>{
-        
         public Builder IRI(String IRI) { ScholarlyArticle.this.IRI = IRI; return this; }
-        
         public Builder abstract_(String abstract_) { ScholarlyArticle.this.abstract_ = abstract_; return this; }
-        
         public Builder author(List<Reference<? extends ScholarlyArticleAuthor>> author) { ScholarlyArticle.this.author = author; return this; }
-        
         public Builder citedPublication(List<Reference<? extends ScholarlyArticleCitedPublication>> citedPublication) { ScholarlyArticle.this.citedPublication = citedPublication; return this; }
-        
-        public Builder copyright(Copyright copyright) { ScholarlyArticle.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { ScholarlyArticle.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder creationDate(String creationDate) { ScholarlyArticle.this.creationDate = creationDate; return this; }
-        
         public Builder custodian(List<Reference<? extends ScholarlyArticleCustodian>> custodian) { ScholarlyArticle.this.custodian = custodian; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { ScholarlyArticle.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder editor(List<Reference<Person>> editor) { ScholarlyArticle.this.editor = editor; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { ScholarlyArticle.this.funding = funding; return this; }
-        
         public Builder isPartOf(Reference<? extends ScholarlyArticleIsPartOf> isPartOf) { ScholarlyArticle.this.isPartOf = isPartOf; return this; }
-        
         public Builder keyword(List<Reference<? extends ScholarlyArticleKeyword>> keyword) { ScholarlyArticle.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { ScholarlyArticle.this.license = license; return this; }
-        
         public Builder modificationDate(String modificationDate) { ScholarlyArticle.this.modificationDate = modificationDate; return this; }
-        
         public Builder name(String name) { ScholarlyArticle.this.name = name; return this; }
-        
         public Builder pagination(String pagination) { ScholarlyArticle.this.pagination = pagination; return this; }
-        
         public Builder publicationDate(String publicationDate) { ScholarlyArticle.this.publicationDate = publicationDate; return this; }
-        
         public Builder publisher(Reference<? extends ScholarlyArticlePublisher> publisher) { ScholarlyArticle.this.publisher = publisher; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { ScholarlyArticle.this.versionIdentifier = versionIdentifier; return this; }
         
 
         public ScholarlyArticle build(OpenMINDSContext context) {
-            if (ScholarlyArticle.this.id == null) {
-                ScholarlyArticle.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ScholarlyArticle.this.atType = SEMANTIC_NAME;
+            ScholarlyArticle.super.build(context);
             return ScholarlyArticle.this;
         }
     }
+
+    public static ScholarlyArticle.Builder create(LocalId localId){
+        return new ScholarlyArticle(localId).new Builder();
+    }
+
+    public ScholarlyArticle.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ScholarlyArticle.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -264,11 +262,5 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
     }
 
  
-    public static ScholarlyArticle.Builder create(LocalId localId){
-        return new ScholarlyArticle(localId).new Builder();
-    }
 
-    public ScholarlyArticle.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ScholarlyArticle.class).new Builder();
-    }
 }

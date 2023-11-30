@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.specimenPrep.device;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.Sl
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SlicingDeviceUsage extends Instance implements org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class SlicingDeviceUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage";
 
     @JsonIgnore
     public Reference<SlicingDeviceUsage> getReference() {
@@ -38,42 +42,45 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private SlicingDeviceUsage(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private SlicingDeviceUsage() {
+        this(null);
     }
 
+    private SlicingDeviceUsage(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<SlicingDeviceUsage>{
-        
         public Builder device(Reference<SlicingDevice> device) { SlicingDeviceUsage.this.device = device; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { SlicingDeviceUsage.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder metadataLocation(List<Reference<? extends SlicingDeviceUsageMetadataLocation>> metadataLocation) { SlicingDeviceUsage.this.metadataLocation = metadataLocation; return this; }
-        
-        public Builder oscillationAmplitude(QuantitativeValue oscillationAmplitude) { SlicingDeviceUsage.this.oscillationAmplitude = oscillationAmplitude; return this; }
-        
-        public Builder sliceThickness(SlicingDeviceUsageSliceThickness sliceThickness) { SlicingDeviceUsage.this.sliceThickness = sliceThickness; return this; }
-        
-        public Builder slicingAngle(List<? extends SlicingDeviceUsageSlicingAngle> slicingAngle) { SlicingDeviceUsage.this.slicingAngle = slicingAngle; return this; }
-        
+        public Builder oscillationAmplitude(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> oscillationAmplitude) { SlicingDeviceUsage.this.oscillationAmplitude = oscillationAmplitude.apply(QuantitativeValue.createEmbedded()); return this; }
+        public Builder sliceThickness(Function<SlicingDeviceUsageSliceThickness.EmbeddedBuilder, SlicingDeviceUsageSliceThickness> sliceThickness) { SlicingDeviceUsage.this.sliceThickness = sliceThickness.apply(SlicingDeviceUsageSliceThickness.createEmbedded()); return this; }
+        public Builder slicingAngle(List<Function<SlicingDeviceUsageSlicingAngle.EmbeddedBuilder, SlicingDeviceUsageSlicingAngle>> slicingAngle) { SlicingDeviceUsage.this.slicingAngle = slicingAngle.stream().map(b -> b.apply(SlicingDeviceUsageSlicingAngle.createEmbedded())).toList(); return this; }
         public Builder slicingPlane(Reference<AnatomicalPlane> slicingPlane) { SlicingDeviceUsage.this.slicingPlane = slicingPlane; return this; }
-        
-        public Builder slicingSpeed(QuantitativeValue slicingSpeed) { SlicingDeviceUsage.this.slicingSpeed = slicingSpeed; return this; }
-        
+        public Builder slicingSpeed(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> slicingSpeed) { SlicingDeviceUsage.this.slicingSpeed = slicingSpeed.apply(QuantitativeValue.createEmbedded()); return this; }
         public Builder usedSpecimen(Reference<? extends SlicingDeviceUsageUsedSpecimen> usedSpecimen) { SlicingDeviceUsage.this.usedSpecimen = usedSpecimen; return this; }
-        
-        public Builder vibrationFrequency(QuantitativeValue vibrationFrequency) { SlicingDeviceUsage.this.vibrationFrequency = vibrationFrequency; return this; }
+        public Builder vibrationFrequency(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> vibrationFrequency) { SlicingDeviceUsage.this.vibrationFrequency = vibrationFrequency.apply(QuantitativeValue.createEmbedded()); return this; }
         
 
         public SlicingDeviceUsage build(OpenMINDSContext context) {
-            if (SlicingDeviceUsage.this.id == null) {
-                SlicingDeviceUsage.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            SlicingDeviceUsage.this.atType = SEMANTIC_NAME;
+            SlicingDeviceUsage.super.build(context);
             return SlicingDeviceUsage.this;
         }
     }
+
+    public static SlicingDeviceUsage.Builder create(LocalId localId){
+        return new SlicingDeviceUsage(localId).new Builder();
+    }
+
+    public SlicingDeviceUsage.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, SlicingDeviceUsage.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
     private Reference<SlicingDevice> device;
@@ -149,11 +156,5 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
     }
 
  
-    public static SlicingDeviceUsage.Builder create(LocalId localId){
-        return new SlicingDeviceUsage(localId).new Builder();
-    }
 
-    public SlicingDeviceUsage.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, SlicingDeviceUsage.class).new Builder();
-    }
 }

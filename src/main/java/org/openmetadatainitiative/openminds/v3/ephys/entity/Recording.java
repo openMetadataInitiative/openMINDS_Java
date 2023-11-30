@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.ephys.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.v3.ephys.entity.Recording.SEM
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Recording extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Recording";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Recording extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Recording";
 
     @JsonIgnore
     public Reference<Recording> getReference() {
@@ -35,38 +39,43 @@ public class Recording extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Recording(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Recording() {
+        this(null);
     }
 
+    private Recording(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Recording>{
-        
         public Builder additionalRemarks(String additionalRemarks) { Recording.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder channel(List<Channel> channel) { Recording.this.channel = channel; return this; }
-        
+        public Builder channel(List<Function<Channel.EmbeddedBuilder, Channel>> channel) { Recording.this.channel = channel.stream().map(b -> b.apply(Channel.createEmbedded())).toList(); return this; }
         public Builder dataLocation(Reference<? extends RecordingDataLocation> dataLocation) { Recording.this.dataLocation = dataLocation; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { Recording.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder name(String name) { Recording.this.name = name; return this; }
-        
         public Builder previousRecording(Reference<Recording> previousRecording) { Recording.this.previousRecording = previousRecording; return this; }
-        
         public Builder recordedWith(Reference<? extends RecordingRecordedWith> recordedWith) { Recording.this.recordedWith = recordedWith; return this; }
-        
-        public Builder samplingFrequency(QuantitativeValue samplingFrequency) { Recording.this.samplingFrequency = samplingFrequency; return this; }
+        public Builder samplingFrequency(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> samplingFrequency) { Recording.this.samplingFrequency = samplingFrequency.apply(QuantitativeValue.createEmbedded()); return this; }
         
 
         public Recording build(OpenMINDSContext context) {
-            if (Recording.this.id == null) {
-                Recording.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Recording.this.atType = SEMANTIC_NAME;
+            Recording.super.build(context);
             return Recording.this;
         }
     }
+
+    public static Recording.Builder create(LocalId localId){
+        return new Recording(localId).new Builder();
+    }
+
+    public Recording.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Recording.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -134,11 +143,5 @@ public class Recording extends Instance {
     }
 
  
-    public static Recording.Builder create(LocalId localId){
-        return new Recording(localId).new Builder();
-    }
 
-    public Recording.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Recording.class).new Builder();
-    }
 }

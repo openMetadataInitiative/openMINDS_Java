@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.chemicals;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.SE
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProductSource extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ProductSource";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ProductSource extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ProductSource";
 
     @JsonIgnore
     public Reference<ProductSource> getReference() {
@@ -34,32 +38,40 @@ public class ProductSource extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ProductSource(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ProductSource() {
+        this(null);
     }
 
+    private ProductSource(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ProductSource>{
-        
         public Builder digitalIdentifier(Reference<RRID> digitalIdentifier) { ProductSource.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder identifier(String identifier) { ProductSource.this.identifier = identifier; return this; }
-        
         public Builder productName(String productName) { ProductSource.this.productName = productName; return this; }
-        
         public Builder provider(Reference<? extends ProductSourceProvider> provider) { ProductSource.this.provider = provider; return this; }
-        
-        public Builder purity(ProductSourcePurity purity) { ProductSource.this.purity = purity; return this; }
+        public Builder purity(Function<ProductSourcePurity.EmbeddedBuilder, ProductSourcePurity> purity) { ProductSource.this.purity = purity.apply(ProductSourcePurity.createEmbedded()); return this; }
         
 
         public ProductSource build(OpenMINDSContext context) {
-            if (ProductSource.this.id == null) {
-                ProductSource.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ProductSource.this.atType = SEMANTIC_NAME;
+            ProductSource.super.build(context);
             return ProductSource.this;
         }
     }
+
+    public static ProductSource.Builder create(LocalId localId){
+        return new ProductSource(localId).new Builder();
+    }
+
+    public ProductSource.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ProductSource.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
     private Reference<RRID> digitalIdentifier;
@@ -103,11 +115,5 @@ public class ProductSource extends Instance {
     }
 
  
-    public static ProductSource.Builder create(LocalId localId){
-        return new ProductSource(localId).new Builder();
-    }
 
-    public ProductSource.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ProductSource.class).new Builder();
-    }
 }

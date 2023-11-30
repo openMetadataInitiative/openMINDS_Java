@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DOI extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookDigitalIdentifier, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeDigitalIdentifier, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayDigitalIdentifier, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.research.intf.BehavioralProtocolDescribedIn, org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolDescribedIn, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceDigitalIdentifier{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/DOI";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class DOI extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookDigitalIdentifier, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeDigitalIdentifier, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayDigitalIdentifier, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.research.intf.BehavioralProtocolDescribedIn, org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolDescribedIn, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionFullDocumentation, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.specimenPrep.device.intf.SlicingDeviceDigitalIdentifier{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/DOI";
 
     @JsonIgnore
     public Reference<DOI> getReference() {
@@ -31,24 +35,36 @@ public class DOI extends Instance implements org.openmetadatainitiative.openmind
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private DOI(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private DOI() {
+        this(null);
     }
 
+    private DOI(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<DOI>{
-        
         public Builder identifier(String identifier) { DOI.this.identifier = identifier; return this; }
         
 
         public DOI build(OpenMINDSContext context) {
-            if (DOI.this.id == null) {
-                DOI.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            DOI.this.atType = SEMANTIC_NAME;
+            DOI.super.build(context);
             return DOI.this;
         }
     }
+
+    public static DOI.Builder create(LocalId localId){
+        return new DOI(localId).new Builder();
+    }
+
+    public DOI.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DOI.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
     private String identifier;
@@ -61,11 +77,5 @@ public class DOI extends Instance implements org.openmetadatainitiative.openmind
     }
 
  
-    public static DOI.Builder create(LocalId localId){
-        return new DOI(localId).new Builder();
-    }
 
-    public DOI.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, DOI.class).new Builder();
-    }
 }

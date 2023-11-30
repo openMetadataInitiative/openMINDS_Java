@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.Hash.SEMANTI
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Hash extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Hash";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Hash extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Hash";
 
     @JsonIgnore
     public Reference<Hash> getReference() {
@@ -31,26 +35,33 @@ public class Hash extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Hash(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Hash() {
+        this(null);
     }
 
+    private Hash(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Hash>{
-        
-        public Builder algorithm(String algorithm) { Hash.this.algorithm = algorithm; return this; }
-        
-        public Builder digest(String digest) { Hash.this.digest = digest; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder algorithm(String algorithm) { Hash.this.algorithm = algorithm; return this; }
+        public EmbeddedBuilder digest(String digest) { Hash.this.digest = digest; return this; }
         
 
-        public Hash build(OpenMINDSContext context) {
-            if (Hash.this.id == null) {
-                Hash.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Hash.this.atType = SEMANTIC_NAME;
+        public Hash build(){
             return Hash.this;
         }
     }
+
+    public static Hash.EmbeddedBuilder createEmbedded(){
+        return new Hash(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/algorithm")
     private String algorithm;
@@ -73,11 +84,5 @@ public class Hash extends Instance {
     }
 
  
-    public static Hash.Builder create(LocalId localId){
-        return new Hash(localId).new Builder();
-    }
 
-    public Hash.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Hash.class).new Builder();
-    }
 }

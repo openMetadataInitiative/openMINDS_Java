@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.SubjectS
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SubjectState extends Instance implements org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SubjectState";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class SubjectState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SubjectState";
 
     @JsonIgnore
     public Reference<SubjectState> getReference() {
@@ -38,44 +42,46 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private SubjectState(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private SubjectState() {
+        this(null);
     }
 
+    private SubjectState(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<SubjectState>{
-        
         public Builder additionalRemarks(String additionalRemarks) { SubjectState.this.additionalRemarks = additionalRemarks; return this; }
-        
-        public Builder age(SubjectStateAge age) { SubjectState.this.age = age; return this; }
-        
+        public Builder age(Function<SubjectStateAge.EmbeddedBuilder, SubjectStateAge> age) { SubjectState.this.age = age.apply(SubjectStateAge.createEmbedded()); return this; }
         public Builder ageCategory(Reference<AgeCategory> ageCategory) { SubjectState.this.ageCategory = ageCategory; return this; }
-        
         public Builder attribute(List<Reference<SubjectAttribute>> attribute) { SubjectState.this.attribute = attribute; return this; }
-        
         public Builder descendedFrom(Reference<SubjectState> descendedFrom) { SubjectState.this.descendedFrom = descendedFrom; return this; }
-        
         public Builder handedness(Reference<Handedness> handedness) { SubjectState.this.handedness = handedness; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { SubjectState.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { SubjectState.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder pathology(List<Reference<? extends SubjectStatePathology>> pathology) { SubjectState.this.pathology = pathology; return this; }
-        
-        public Builder relativeTimeIndication(SubjectStateRelativeTimeIndication relativeTimeIndication) { SubjectState.this.relativeTimeIndication = relativeTimeIndication; return this; }
-        
-        public Builder weight(SubjectStateWeight weight) { SubjectState.this.weight = weight; return this; }
+        public Builder relativeTimeIndication(Function<SubjectStateRelativeTimeIndication.EmbeddedBuilder, SubjectStateRelativeTimeIndication> relativeTimeIndication) { SubjectState.this.relativeTimeIndication = relativeTimeIndication.apply(SubjectStateRelativeTimeIndication.createEmbedded()); return this; }
+        public Builder weight(Function<SubjectStateWeight.EmbeddedBuilder, SubjectStateWeight> weight) { SubjectState.this.weight = weight.apply(SubjectStateWeight.createEmbedded()); return this; }
         
 
         public SubjectState build(OpenMINDSContext context) {
-            if (SubjectState.this.id == null) {
-                SubjectState.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            SubjectState.this.atType = SEMANTIC_NAME;
+            SubjectState.super.build(context);
             return SubjectState.this;
         }
     }
+
+    public static SubjectState.Builder create(LocalId localId){
+        return new SubjectState(localId).new Builder();
+    }
+
+    public SubjectState.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, SubjectState.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
     private String additionalRemarks;
@@ -176,11 +182,5 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
     }
 
  
-    public static SubjectState.Builder create(LocalId localId){
-        return new SubjectState(localId).new Builder();
-    }
 
-    public SubjectState.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, SubjectState.class).new Builder();
-    }
 }

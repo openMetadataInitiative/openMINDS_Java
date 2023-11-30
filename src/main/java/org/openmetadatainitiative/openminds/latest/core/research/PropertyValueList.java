@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Property
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PropertyValueList extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/PropertyValueList";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class PropertyValueList extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/PropertyValueList";
 
     @JsonIgnore
     public Reference<PropertyValueList> getReference() {
@@ -32,26 +36,37 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private PropertyValueList(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private PropertyValueList() {
+        this(null);
     }
 
+    private PropertyValueList(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<PropertyValueList>{
-        
         public Builder lookupLabel(String lookupLabel) { PropertyValueList.this.lookupLabel = lookupLabel; return this; }
-        
-        public Builder propertyValuePair(List<? extends PropertyValueListPropertyValuePair> propertyValuePair) { PropertyValueList.this.propertyValuePair = propertyValuePair; return this; }
+        public Builder propertyValuePair(List<Function<PropertyValueListPropertyValuePair.EmbeddedBuilder, PropertyValueListPropertyValuePair>> propertyValuePair) { PropertyValueList.this.propertyValuePair = propertyValuePair.stream().map(b -> b.apply(PropertyValueListPropertyValuePair.createEmbedded())).toList(); return this; }
         
 
         public PropertyValueList build(OpenMINDSContext context) {
-            if (PropertyValueList.this.id == null) {
-                PropertyValueList.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            PropertyValueList.this.atType = SEMANTIC_NAME;
+            PropertyValueList.super.build(context);
             return PropertyValueList.this;
         }
     }
+
+    public static PropertyValueList.Builder create(LocalId localId){
+        return new PropertyValueList(localId).new Builder();
+    }
+
+    public PropertyValueList.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, PropertyValueList.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
     private String lookupLabel;
@@ -68,11 +83,5 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
     }
 
  
-    public static PropertyValueList.Builder create(LocalId localId){
-        return new PropertyValueList(localId).new Builder();
-    }
 
-    public PropertyValueList.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, PropertyValueList.class).new Builder();
-    }
 }

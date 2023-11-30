@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.digitalIdentifier;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISB
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ISBN extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ISBN";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ISBN extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ChapterCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.ScholarlyArticleCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookCitedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.BookDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ISBN";
 
     @JsonIgnore
     public Reference<ISBN> getReference() {
@@ -31,24 +35,36 @@ public class ISBN extends Instance implements org.openmetadatainitiative.openmin
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ISBN(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ISBN() {
+        this(null);
     }
 
+    private ISBN(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ISBN>{
-        
         public Builder identifier(String identifier) { ISBN.this.identifier = identifier; return this; }
         
 
         public ISBN build(OpenMINDSContext context) {
-            if (ISBN.this.id == null) {
-                ISBN.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ISBN.this.atType = SEMANTIC_NAME;
+            ISBN.super.build(context);
             return ISBN.this;
         }
     }
+
+    public static ISBN.Builder create(LocalId localId){
+        return new ISBN(localId).new Builder();
+    }
+
+    public ISBN.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ISBN.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
     private String identifier;
@@ -61,11 +77,5 @@ public class ISBN extends Instance implements org.openmetadatainitiative.openmin
     }
 
  
-    public static ISBN.Builder create(LocalId localId){
-        return new ISBN(localId).new Builder();
-    }
 
-    public ISBN.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ISBN.class).new Builder();
-    }
 }

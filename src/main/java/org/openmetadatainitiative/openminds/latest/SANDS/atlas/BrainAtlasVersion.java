@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +38,10 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrainAtlasVersion extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/BrainAtlasVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class BrainAtlasVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/BrainAtlasVersion";
 
     @JsonIgnore
     public Reference<BrainAtlasVersion> getReference() {
@@ -48,82 +52,65 @@ public class BrainAtlasVersion extends Instance implements org.openmetadatainiti
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private BrainAtlasVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private BrainAtlasVersion() {
+        this(null);
     }
 
+    private BrainAtlasVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<BrainAtlasVersion>{
-        
         public Builder abbreviation(String abbreviation) { BrainAtlasVersion.this.abbreviation = abbreviation; return this; }
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { BrainAtlasVersion.this.accessibility = accessibility; return this; }
-        
         public Builder author(List<Reference<? extends BrainAtlasVersionAuthor>> author) { BrainAtlasVersion.this.author = author; return this; }
-        
         public Builder coordinateSpace(Reference<CommonCoordinateSpaceVersion> coordinateSpace) { BrainAtlasVersion.this.coordinateSpace = coordinateSpace; return this; }
-        
-        public Builder copyright(Copyright copyright) { BrainAtlasVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { BrainAtlasVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends BrainAtlasVersionCustodian>> custodian) { BrainAtlasVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { BrainAtlasVersion.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends BrainAtlasVersionDigitalIdentifier> digitalIdentifier) { BrainAtlasVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullDocumentation(Reference<? extends BrainAtlasVersionFullDocumentation> fullDocumentation) { BrainAtlasVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { BrainAtlasVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { BrainAtlasVersion.this.funding = funding; return this; }
-        
-        public Builder hasTerminology(ParcellationTerminologyVersion hasTerminology) { BrainAtlasVersion.this.hasTerminology = hasTerminology; return this; }
-        
+        public Builder hasTerminology(Function<ParcellationTerminologyVersion.EmbeddedBuilder, ParcellationTerminologyVersion> hasTerminology) { BrainAtlasVersion.this.hasTerminology = hasTerminology.apply(ParcellationTerminologyVersion.createEmbedded()); return this; }
         public Builder homepage(String homepage) { BrainAtlasVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { BrainAtlasVersion.this.howToCite = howToCite; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<BrainAtlasVersion>> isAlternativeVersionOf) { BrainAtlasVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<BrainAtlasVersion> isNewVersionOf) { BrainAtlasVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends BrainAtlasVersionKeyword>> keyword) { BrainAtlasVersion.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { BrainAtlasVersion.this.license = license; return this; }
-        
         public Builder majorVersionIdentifier(String majorVersionIdentifier) { BrainAtlasVersion.this.majorVersionIdentifier = majorVersionIdentifier; return this; }
-        
         public Builder ontologyIdentifier(String ontologyIdentifier) { BrainAtlasVersion.this.ontologyIdentifier = ontologyIdentifier; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { BrainAtlasVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { BrainAtlasVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder relatedPublication(List<Reference<? extends BrainAtlasVersionRelatedPublication>> relatedPublication) { BrainAtlasVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { BrainAtlasVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { BrainAtlasVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { BrainAtlasVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { BrainAtlasVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder type(Reference<AtlasType> type) { BrainAtlasVersion.this.type = type; return this; }
-        
         public Builder usedSpecimen(List<Reference<? extends BrainAtlasVersionUsedSpecimen>> usedSpecimen) { BrainAtlasVersion.this.usedSpecimen = usedSpecimen; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { BrainAtlasVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { BrainAtlasVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public BrainAtlasVersion build(OpenMINDSContext context) {
-            if (BrainAtlasVersion.this.id == null) {
-                BrainAtlasVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            BrainAtlasVersion.this.atType = SEMANTIC_NAME;
+            BrainAtlasVersion.super.build(context);
             return BrainAtlasVersion.this;
         }
     }
+
+    public static BrainAtlasVersion.Builder create(LocalId localId){
+        return new BrainAtlasVersion(localId).new Builder();
+    }
+
+    public BrainAtlasVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, BrainAtlasVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abbreviation")
     private String abbreviation;
@@ -414,11 +401,5 @@ public class BrainAtlasVersion extends Instance implements org.openmetadatainiti
     }
 
  
-    public static BrainAtlasVersion.Builder create(LocalId localId){
-        return new BrainAtlasVersion(localId).new Builder();
-    }
 
-    public BrainAtlasVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, BrainAtlasVersion.class).new Builder();
-    }
 }

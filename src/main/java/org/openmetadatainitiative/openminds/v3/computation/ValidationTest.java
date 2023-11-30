@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +29,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.ValidationTest
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ValidationTest extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/ValidationTest";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ValidationTest extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/ValidationTest";
 
     @JsonIgnore
     public Reference<ValidationTest> getReference() {
@@ -39,48 +43,48 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ValidationTest(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ValidationTest() {
+        this(null);
     }
 
+    private ValidationTest(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ValidationTest>{
-        
         public Builder custodian(List<Reference<? extends ValidationTestCustodian>> custodian) { ValidationTest.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { ValidationTest.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends ValidationTestDeveloper>> developer) { ValidationTest.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { ValidationTest.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { ValidationTest.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<ValidationTestVersion>> hasVersion) { ValidationTest.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { ValidationTest.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { ValidationTest.this.howToCite = howToCite; return this; }
-        
         public Builder referenceDataAcquisition(List<Reference<Technique>> referenceDataAcquisition) { ValidationTest.this.referenceDataAcquisition = referenceDataAcquisition; return this; }
-        
         public Builder scope(Reference<ModelScope> scope) { ValidationTest.this.scope = scope; return this; }
-        
         public Builder scoreType(Reference<DifferenceMeasure> scoreType) { ValidationTest.this.scoreType = scoreType; return this; }
-        
         public Builder shortName(String shortName) { ValidationTest.this.shortName = shortName; return this; }
-        
         public Builder studyTarget(List<Reference<? extends ValidationTestStudyTarget>> studyTarget) { ValidationTest.this.studyTarget = studyTarget; return this; }
         
 
         public ValidationTest build(OpenMINDSContext context) {
-            if (ValidationTest.this.id == null) {
-                ValidationTest.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ValidationTest.this.atType = SEMANTIC_NAME;
+            ValidationTest.super.build(context);
             return ValidationTest.this;
         }
     }
+
+    public static ValidationTest.Builder create(LocalId localId){
+        return new ValidationTest(localId).new Builder();
+    }
+
+    public ValidationTest.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ValidationTest.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
     private List<Reference<? extends ValidationTestCustodian>> custodian;
@@ -207,11 +211,5 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
     }
 
  
-    public static ValidationTest.Builder create(LocalId localId){
-        return new ValidationTest(localId).new Builder();
-    }
 
-    public ValidationTest.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ValidationTest.class).new Builder();
-    }
 }

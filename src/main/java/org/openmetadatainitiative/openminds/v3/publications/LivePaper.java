@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.v3.publications.LivePaper.SEM
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LivePaper extends Instance implements org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaper";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class LivePaper extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaper";
 
     @JsonIgnore
     public Reference<LivePaper> getReference() {
@@ -35,40 +39,44 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private LivePaper(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private LivePaper() {
+        this(null);
     }
 
+    private LivePaper(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaper>{
-        
         public Builder author(List<Reference<? extends LivePaperAuthor>> author) { LivePaper.this.author = author; return this; }
-        
         public Builder custodian(List<Reference<? extends LivePaperCustodian>> custodian) { LivePaper.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { LivePaper.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { LivePaper.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullName(String fullName) { LivePaper.this.fullName = fullName; return this; }
-        
         public Builder hasVersion(List<Reference<LivePaperVersion>> hasVersion) { LivePaper.this.hasVersion = hasVersion; return this; }
-        
         public Builder homepage(String homepage) { LivePaper.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { LivePaper.this.howToCite = howToCite; return this; }
-        
         public Builder shortName(String shortName) { LivePaper.this.shortName = shortName; return this; }
         
 
         public LivePaper build(OpenMINDSContext context) {
-            if (LivePaper.this.id == null) {
-                LivePaper.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            LivePaper.this.atType = SEMANTIC_NAME;
+            LivePaper.super.build(context);
             return LivePaper.this;
         }
     }
+
+    public static LivePaper.Builder create(LocalId localId){
+        return new LivePaper(localId).new Builder();
+    }
+
+    public LivePaper.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LivePaper.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/author")
     private List<Reference<? extends LivePaperAuthor>> author;
@@ -161,11 +169,5 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
     }
 
  
-    public static LivePaper.Builder create(LocalId localId){
-        return new LivePaper(localId).new Builder();
-    }
 
-    public LivePaper.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, LivePaper.class).new Builder();
-    }
 }

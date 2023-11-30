@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.SANDS.nonatlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomC
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomCoordinateSpace";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CustomCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomCoordinateSpace";
 
     @JsonIgnore
     public Reference<CustomCoordinateSpace> getReference() {
@@ -35,32 +39,40 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CustomCoordinateSpace(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CustomCoordinateSpace() {
+        this(null);
     }
 
+    private CustomCoordinateSpace(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CustomCoordinateSpace>{
-        
         public Builder anatomicalAxesOrientation(Reference<AnatomicalAxesOrientation> anatomicalAxesOrientation) { CustomCoordinateSpace.this.anatomicalAxesOrientation = anatomicalAxesOrientation; return this; }
-        
-        public Builder axesOrigin(List<QuantitativeValue> axesOrigin) { CustomCoordinateSpace.this.axesOrigin = axesOrigin; return this; }
-        
+        public Builder axesOrigin(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> axesOrigin) { CustomCoordinateSpace.this.axesOrigin = axesOrigin.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
         public Builder defaultImage(List<Reference<File>> defaultImage) { CustomCoordinateSpace.this.defaultImage = defaultImage; return this; }
-        
         public Builder name(String name) { CustomCoordinateSpace.this.name = name; return this; }
-        
         public Builder nativeUnit(Reference<UnitOfMeasurement> nativeUnit) { CustomCoordinateSpace.this.nativeUnit = nativeUnit; return this; }
         
 
         public CustomCoordinateSpace build(OpenMINDSContext context) {
-            if (CustomCoordinateSpace.this.id == null) {
-                CustomCoordinateSpace.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CustomCoordinateSpace.this.atType = SEMANTIC_NAME;
+            CustomCoordinateSpace.super.build(context);
             return CustomCoordinateSpace.this;
         }
     }
+
+    public static CustomCoordinateSpace.Builder create(LocalId localId){
+        return new CustomCoordinateSpace(localId).new Builder();
+    }
+
+    public CustomCoordinateSpace.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CustomCoordinateSpace.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation")
     private Reference<AnatomicalAxesOrientation> anatomicalAxesOrientation;
@@ -113,11 +125,5 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
     }
 
  
-    public static CustomCoordinateSpace.Builder create(LocalId localId){
-        return new CustomCoordinateSpace(localId).new Builder();
-    }
 
-    public CustomCoordinateSpace.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CustomCoordinateSpace.class).new Builder();
-    }
 }

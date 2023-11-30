@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.publications;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +32,10 @@ import static org.openmetadatainitiative.openminds.v3.publications.Chapter.SEMAN
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Chapter extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/Chapter";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Chapter extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionRelatedPublication{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/Chapter";
 
     @JsonIgnore
     public Reference<Chapter> getReference() {
@@ -42,60 +46,54 @@ public class Chapter extends Instance implements org.openmetadatainitiative.open
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Chapter(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Chapter() {
+        this(null);
     }
 
+    private Chapter(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Chapter>{
-        
         public Builder IRI(String IRI) { Chapter.this.IRI = IRI; return this; }
-        
         public Builder abstract_(String abstract_) { Chapter.this.abstract_ = abstract_; return this; }
-        
         public Builder author(List<Reference<? extends ChapterAuthor>> author) { Chapter.this.author = author; return this; }
-        
         public Builder citedPublication(List<Reference<? extends ChapterCitedPublication>> citedPublication) { Chapter.this.citedPublication = citedPublication; return this; }
-        
-        public Builder copyright(Copyright copyright) { Chapter.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { Chapter.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder creationDate(String creationDate) { Chapter.this.creationDate = creationDate; return this; }
-        
         public Builder custodian(List<Reference<? extends ChapterCustodian>> custodian) { Chapter.this.custodian = custodian; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { Chapter.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder editor(List<Reference<Person>> editor) { Chapter.this.editor = editor; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { Chapter.this.funding = funding; return this; }
-        
         public Builder isPartOf(Reference<Book> isPartOf) { Chapter.this.isPartOf = isPartOf; return this; }
-        
         public Builder keyword(List<Reference<? extends ChapterKeyword>> keyword) { Chapter.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { Chapter.this.license = license; return this; }
-        
         public Builder modificationDate(String modificationDate) { Chapter.this.modificationDate = modificationDate; return this; }
-        
         public Builder name(String name) { Chapter.this.name = name; return this; }
-        
         public Builder pagination(String pagination) { Chapter.this.pagination = pagination; return this; }
-        
         public Builder publicationDate(String publicationDate) { Chapter.this.publicationDate = publicationDate; return this; }
-        
         public Builder publisher(Reference<? extends ChapterPublisher> publisher) { Chapter.this.publisher = publisher; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { Chapter.this.versionIdentifier = versionIdentifier; return this; }
         
 
         public Chapter build(OpenMINDSContext context) {
-            if (Chapter.this.id == null) {
-                Chapter.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Chapter.this.atType = SEMANTIC_NAME;
+            Chapter.super.build(context);
             return Chapter.this;
         }
     }
+
+    public static Chapter.Builder create(LocalId localId){
+        return new Chapter(localId).new Builder();
+    }
+
+    public Chapter.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Chapter.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -264,11 +262,5 @@ public class Chapter extends Instance implements org.openmetadatainitiative.open
     }
 
  
-    public static Chapter.Builder create(LocalId localId){
-        return new Chapter(localId).new Builder();
-    }
 
-    public Chapter.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Chapter.class).new Builder();
-    }
 }

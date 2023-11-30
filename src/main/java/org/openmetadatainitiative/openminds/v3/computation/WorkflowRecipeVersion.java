@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.computation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +36,10 @@ import static org.openmetadatainitiative.openminds.v3.computation.WorkflowRecipe
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WorkflowRecipeVersion extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class WorkflowRecipeVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion";
 
     @JsonIgnore
     public Reference<WorkflowRecipeVersion> getReference() {
@@ -46,72 +50,60 @@ public class WorkflowRecipeVersion extends Instance implements org.openmetadatai
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private WorkflowRecipeVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private WorkflowRecipeVersion() {
+        this(null);
     }
 
+    private WorkflowRecipeVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<WorkflowRecipeVersion>{
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { WorkflowRecipeVersion.this.accessibility = accessibility; return this; }
-        
-        public Builder copyright(Copyright copyright) { WorkflowRecipeVersion.this.copyright = copyright; return this; }
-        
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { WorkflowRecipeVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends WorkflowRecipeVersionCustodian>> custodian) { WorkflowRecipeVersion.this.custodian = custodian; return this; }
-        
         public Builder description(String description) { WorkflowRecipeVersion.this.description = description; return this; }
-        
         public Builder developer(List<Reference<? extends WorkflowRecipeVersionDeveloper>> developer) { WorkflowRecipeVersion.this.developer = developer; return this; }
-        
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { WorkflowRecipeVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder format(Reference<ContentType> format) { WorkflowRecipeVersion.this.format = format; return this; }
-        
         public Builder fullDocumentation(Reference<? extends WorkflowRecipeVersionFullDocumentation> fullDocumentation) { WorkflowRecipeVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { WorkflowRecipeVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { WorkflowRecipeVersion.this.funding = funding; return this; }
-        
         public Builder hasPart(List<Reference<? extends WorkflowRecipeVersionHasPart>> hasPart) { WorkflowRecipeVersion.this.hasPart = hasPart; return this; }
-        
         public Builder homepage(String homepage) { WorkflowRecipeVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { WorkflowRecipeVersion.this.howToCite = howToCite; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<WorkflowRecipeVersion>> isAlternativeVersionOf) { WorkflowRecipeVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<WorkflowRecipeVersion> isNewVersionOf) { WorkflowRecipeVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends WorkflowRecipeVersionKeyword>> keyword) { WorkflowRecipeVersion.this.keyword = keyword; return this; }
-        
         public Builder license(List<Reference<License>> license) { WorkflowRecipeVersion.this.license = license; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { WorkflowRecipeVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { WorkflowRecipeVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder relatedPublication(List<Reference<? extends WorkflowRecipeVersionRelatedPublication>> relatedPublication) { WorkflowRecipeVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { WorkflowRecipeVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { WorkflowRecipeVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { WorkflowRecipeVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { WorkflowRecipeVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { WorkflowRecipeVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { WorkflowRecipeVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public WorkflowRecipeVersion build(OpenMINDSContext context) {
-            if (WorkflowRecipeVersion.this.id == null) {
-                WorkflowRecipeVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            WorkflowRecipeVersion.this.atType = SEMANTIC_NAME;
+            WorkflowRecipeVersion.super.build(context);
             return WorkflowRecipeVersion.this;
         }
     }
+
+    public static WorkflowRecipeVersion.Builder create(LocalId localId){
+        return new WorkflowRecipeVersion(localId).new Builder();
+    }
+
+    public WorkflowRecipeVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WorkflowRecipeVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
     private Reference<ProductAccessibility> accessibility;
@@ -361,11 +353,5 @@ public class WorkflowRecipeVersion extends Instance implements org.openmetadatai
     }
 
  
-    public static WorkflowRecipeVersion.Builder create(LocalId localId){
-        return new WorkflowRecipeVersion(localId).new Builder();
-    }
 
-    public WorkflowRecipeVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, WorkflowRecipeVersion.class).new Builder();
-    }
 }

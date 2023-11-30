@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.controlledTerms;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,10 @@ import static org.openmetadatainitiative.openminds.latest.controlledTerms.Crania
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CranialWindowReinforcementType extends Instance implements org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/CranialWindowReinforcementType";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CranialWindowReinforcementType extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/controlledTerms/CranialWindowReinforcementType";
 
     @JsonIgnore
     public Reference<CranialWindowReinforcementType> getReference() {
@@ -31,36 +35,42 @@ public class CranialWindowReinforcementType extends Instance implements org.open
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CranialWindowReinforcementType(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CranialWindowReinforcementType() {
+        this(null);
     }
 
+    private CranialWindowReinforcementType(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CranialWindowReinforcementType>{
-        
         public Builder definition(String definition) { CranialWindowReinforcementType.this.definition = definition; return this; }
-        
         public Builder description(String description) { CranialWindowReinforcementType.this.description = description; return this; }
-        
         public Builder interlexIdentifier(String interlexIdentifier) { CranialWindowReinforcementType.this.interlexIdentifier = interlexIdentifier; return this; }
-        
         public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { CranialWindowReinforcementType.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
-        
         public Builder name(String name) { CranialWindowReinforcementType.this.name = name; return this; }
-        
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { CranialWindowReinforcementType.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
-        
         public Builder synonym(List<String> synonym) { CranialWindowReinforcementType.this.synonym = synonym; return this; }
         
 
         public CranialWindowReinforcementType build(OpenMINDSContext context) {
-            if (CranialWindowReinforcementType.this.id == null) {
-                CranialWindowReinforcementType.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CranialWindowReinforcementType.this.atType = SEMANTIC_NAME;
+            CranialWindowReinforcementType.super.build(context);
             return CranialWindowReinforcementType.this;
         }
     }
+
+    public static CranialWindowReinforcementType.Builder create(LocalId localId){
+        return new CranialWindowReinforcementType(localId).new Builder();
+    }
+
+    public CranialWindowReinforcementType.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CranialWindowReinforcementType.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/definition")
     private String definition;
@@ -133,11 +143,5 @@ public class CranialWindowReinforcementType extends Instance implements org.open
     }
 
  
-    public static CranialWindowReinforcementType.Builder create(LocalId localId){
-        return new CranialWindowReinforcementType(localId).new Builder();
-    }
 
-    public CranialWindowReinforcementType.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CranialWindowReinforcementType.class).new Builder();
-    }
 }

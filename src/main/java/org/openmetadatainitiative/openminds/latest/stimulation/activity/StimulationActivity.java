@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.stimulation.activity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +30,10 @@ import static org.openmetadatainitiative.openminds.latest.stimulation.activity.S
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StimulationActivity extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/stimulation/StimulationActivity";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class StimulationActivity extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/stimulation/StimulationActivity";
 
     @JsonIgnore
     public Reference<StimulationActivity> getReference() {
@@ -40,50 +44,49 @@ public class StimulationActivity extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private StimulationActivity(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private StimulationActivity() {
+        this(null);
     }
 
+    private StimulationActivity(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<StimulationActivity>{
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { StimulationActivity.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { StimulationActivity.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { StimulationActivity.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { StimulationActivity.this.endTime = endTime; return this; }
-        
         public Builder input(List<Reference<? extends StimulationActivityInput>> input) { StimulationActivity.this.input = input; return this; }
-        
         public Builder isPartOf(Reference<DatasetVersion> isPartOf) { StimulationActivity.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { StimulationActivity.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends StimulationActivityOutput>> output) { StimulationActivity.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends StimulationActivityPerformedBy>> performedBy) { StimulationActivity.this.performedBy = performedBy; return this; }
-        
         public Builder preparationDesign(Reference<PreparationType> preparationDesign) { StimulationActivity.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { StimulationActivity.this.protocol = protocol; return this; }
-        
         public Builder setup(Reference<Setup> setup) { StimulationActivity.this.setup = setup; return this; }
-        
         public Builder startTime(String startTime) { StimulationActivity.this.startTime = startTime; return this; }
-        
         public Builder stimulus(Object stimulus) { StimulationActivity.this.stimulus = stimulus; return this; }
-        
         public Builder studyTarget(List<Reference<? extends StimulationActivityStudyTarget>> studyTarget) { StimulationActivity.this.studyTarget = studyTarget; return this; }
         
 
         public StimulationActivity build(OpenMINDSContext context) {
-            if (StimulationActivity.this.id == null) {
-                StimulationActivity.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            StimulationActivity.this.atType = SEMANTIC_NAME;
+            StimulationActivity.super.build(context);
             return StimulationActivity.this;
         }
     }
+
+    public static StimulationActivity.Builder create(LocalId localId){
+        return new StimulationActivity(localId).new Builder();
+    }
+
+    public StimulationActivity.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, StimulationActivity.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
@@ -202,11 +205,5 @@ public class StimulationActivity extends Instance {
     }
 
  
-    public static StimulationActivity.Builder create(LocalId localId){
-        return new StimulationActivity(localId).new Builder();
-    }
 
-    public StimulationActivity.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, StimulationActivity.class).new Builder();
-    }
 }

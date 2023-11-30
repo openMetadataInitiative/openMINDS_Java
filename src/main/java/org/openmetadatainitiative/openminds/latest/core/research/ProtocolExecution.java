@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +30,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Protocol
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ProtocolExecution extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ProtocolExecution";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class ProtocolExecution extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ProtocolExecution";
 
     @JsonIgnore
     public Reference<ProtocolExecution> getReference() {
@@ -40,48 +44,48 @@ public class ProtocolExecution extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private ProtocolExecution(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private ProtocolExecution() {
+        this(null);
     }
 
+    private ProtocolExecution(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ProtocolExecution>{
-        
         public Builder behavioralProtocol(List<Reference<BehavioralProtocol>> behavioralProtocol) { ProtocolExecution.this.behavioralProtocol = behavioralProtocol; return this; }
-        
-        public Builder customPropertySet(List<CustomPropertySet> customPropertySet) { ProtocolExecution.this.customPropertySet = customPropertySet; return this; }
-        
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { ProtocolExecution.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
         public Builder description(String description) { ProtocolExecution.this.description = description; return this; }
-        
         public Builder endTime(String endTime) { ProtocolExecution.this.endTime = endTime; return this; }
-        
         public Builder input(List<Reference<? extends ProtocolExecutionInput>> input) { ProtocolExecution.this.input = input; return this; }
-        
         public Builder isPartOf(Reference<DatasetVersion> isPartOf) { ProtocolExecution.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { ProtocolExecution.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder output(List<Reference<? extends ProtocolExecutionOutput>> output) { ProtocolExecution.this.output = output; return this; }
-        
         public Builder performedBy(List<Reference<? extends ProtocolExecutionPerformedBy>> performedBy) { ProtocolExecution.this.performedBy = performedBy; return this; }
-        
         public Builder preparationDesign(Reference<PreparationType> preparationDesign) { ProtocolExecution.this.preparationDesign = preparationDesign; return this; }
-        
         public Builder protocol(List<Reference<Protocol>> protocol) { ProtocolExecution.this.protocol = protocol; return this; }
-        
         public Builder startTime(String startTime) { ProtocolExecution.this.startTime = startTime; return this; }
-        
         public Builder studyTarget(List<Reference<? extends ProtocolExecutionStudyTarget>> studyTarget) { ProtocolExecution.this.studyTarget = studyTarget; return this; }
         
 
         public ProtocolExecution build(OpenMINDSContext context) {
-            if (ProtocolExecution.this.id == null) {
-                ProtocolExecution.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            ProtocolExecution.this.atType = SEMANTIC_NAME;
+            ProtocolExecution.super.build(context);
             return ProtocolExecution.this;
         }
     }
+
+    public static ProtocolExecution.Builder create(LocalId localId){
+        return new ProtocolExecution(localId).new Builder();
+    }
+
+    public ProtocolExecution.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ProtocolExecution.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/behavioralProtocol")
     private List<Reference<BehavioralProtocol>> behavioralProtocol;
@@ -193,11 +197,5 @@ public class ProtocolExecution extends Instance {
     }
 
  
-    public static ProtocolExecution.Builder create(LocalId localId){
-        return new ProtocolExecution(localId).new Builder();
-    }
 
-    public ProtocolExecution.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, ProtocolExecution.class).new Builder();
-    }
 }

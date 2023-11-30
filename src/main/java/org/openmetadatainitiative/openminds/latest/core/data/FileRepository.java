@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileReposito
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class FileRepository extends Instance implements org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleIsPartOf{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileRepository";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class FileRepository extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleIsPartOf{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileRepository";
 
     @JsonIgnore
     public Reference<FileRepository> getReference() {
@@ -38,40 +42,44 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private FileRepository(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private FileRepository() {
+        this(null);
     }
 
+    private FileRepository(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<FileRepository>{
-        
         public Builder IRI(String IRI) { FileRepository.this.IRI = IRI; return this; }
-        
         public Builder contentTypePattern(List<Reference<ContentTypePattern>> contentTypePattern) { FileRepository.this.contentTypePattern = contentTypePattern; return this; }
-        
         public Builder format(Reference<ContentType> format) { FileRepository.this.format = format; return this; }
-        
-        public Builder hash(Hash hash) { FileRepository.this.hash = hash; return this; }
-        
+        public Builder hash(Function<Hash.EmbeddedBuilder, Hash> hash) { FileRepository.this.hash = hash.apply(Hash.createEmbedded()); return this; }
         public Builder hostedBy(Reference<Organization> hostedBy) { FileRepository.this.hostedBy = hostedBy; return this; }
-        
         public Builder name(String name) { FileRepository.this.name = name; return this; }
-        
-        public Builder storageSize(QuantitativeValue storageSize) { FileRepository.this.storageSize = storageSize; return this; }
-        
+        public Builder storageSize(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> storageSize) { FileRepository.this.storageSize = storageSize.apply(QuantitativeValue.createEmbedded()); return this; }
         public Builder structurePattern(Reference<FileRepositoryStructure> structurePattern) { FileRepository.this.structurePattern = structurePattern; return this; }
-        
         public Builder type(Reference<FileRepositoryType> type) { FileRepository.this.type = type; return this; }
         
 
         public FileRepository build(OpenMINDSContext context) {
-            if (FileRepository.this.id == null) {
-                FileRepository.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            FileRepository.this.atType = SEMANTIC_NAME;
+            FileRepository.super.build(context);
             return FileRepository.this;
         }
     }
+
+    public static FileRepository.Builder create(LocalId localId){
+        return new FileRepository(localId).new Builder();
+    }
+
+    public FileRepository.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FileRepository.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
     private String IRI;
@@ -158,11 +166,5 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
     }
 
  
-    public static FileRepository.Builder create(LocalId localId){
-        return new FileRepository(localId).new Builder();
-    }
 
-    public FileRepository.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, FileRepository.class).new Builder();
-    }
 }

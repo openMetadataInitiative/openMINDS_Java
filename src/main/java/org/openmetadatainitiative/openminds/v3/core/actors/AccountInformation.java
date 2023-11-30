@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.actors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.core.actors.AccountInforma
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AccountInformation extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/AccountInformation";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class AccountInformation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/AccountInformation";
 
     @JsonIgnore
     public Reference<AccountInformation> getReference() {
@@ -32,26 +36,37 @@ public class AccountInformation extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private AccountInformation(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private AccountInformation() {
+        this(null);
     }
 
+    private AccountInformation(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AccountInformation>{
-        
         public Builder service(Reference<WebService> service) { AccountInformation.this.service = service; return this; }
-        
         public Builder userName(String userName) { AccountInformation.this.userName = userName; return this; }
         
 
         public AccountInformation build(OpenMINDSContext context) {
-            if (AccountInformation.this.id == null) {
-                AccountInformation.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            AccountInformation.this.atType = SEMANTIC_NAME;
+            AccountInformation.super.build(context);
             return AccountInformation.this;
         }
     }
+
+    public static AccountInformation.Builder create(LocalId localId){
+        return new AccountInformation(localId).new Builder();
+    }
+
+    public AccountInformation.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AccountInformation.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/service")
     private Reference<WebService> service;
@@ -68,11 +83,5 @@ public class AccountInformation extends Instance {
     }
 
  
-    public static AccountInformation.Builder create(LocalId localId){
-        return new AccountInformation(localId).new Builder();
-    }
 
-    public AccountInformation.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, AccountInformation.class).new Builder();
-    }
 }

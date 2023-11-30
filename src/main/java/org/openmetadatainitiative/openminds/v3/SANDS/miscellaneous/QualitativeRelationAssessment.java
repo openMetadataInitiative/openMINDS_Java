@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.Qualit
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class QualitativeRelationAssessment extends Instance implements org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.ParcellationEntityVersionRelationAssessment, org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.intf.CustomAnatomicalEntityRelationAssessment{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class QualitativeRelationAssessment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.ParcellationEntityVersionRelationAssessment, org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.intf.CustomAnatomicalEntityRelationAssessment{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment";
 
     @JsonIgnore
     public Reference<QualitativeRelationAssessment> getReference() {
@@ -34,28 +38,34 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private QualitativeRelationAssessment(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private QualitativeRelationAssessment() {
+        this(null);
     }
 
+    private QualitativeRelationAssessment(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<QualitativeRelationAssessment>{
-        
-        public Builder criteria(Reference<ProtocolExecution> criteria) { QualitativeRelationAssessment.this.criteria = criteria; return this; }
-        
-        public Builder inRelationTo(Reference<? extends QualitativeRelationAssessmentInRelationTo> inRelationTo) { QualitativeRelationAssessment.this.inRelationTo = inRelationTo; return this; }
-        
-        public Builder qualitativeOverlap(Reference<QualitativeOverlap> qualitativeOverlap) { QualitativeRelationAssessment.this.qualitativeOverlap = qualitativeOverlap; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder criteria(Reference<ProtocolExecution> criteria) { QualitativeRelationAssessment.this.criteria = criteria; return this; }
+        public EmbeddedBuilder inRelationTo(Reference<? extends QualitativeRelationAssessmentInRelationTo> inRelationTo) { QualitativeRelationAssessment.this.inRelationTo = inRelationTo; return this; }
+        public EmbeddedBuilder qualitativeOverlap(Reference<QualitativeOverlap> qualitativeOverlap) { QualitativeRelationAssessment.this.qualitativeOverlap = qualitativeOverlap; return this; }
         
 
-        public QualitativeRelationAssessment build(OpenMINDSContext context) {
-            if (QualitativeRelationAssessment.this.id == null) {
-                QualitativeRelationAssessment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            QualitativeRelationAssessment.this.atType = SEMANTIC_NAME;
+        public QualitativeRelationAssessment build(){
             return QualitativeRelationAssessment.this;
         }
     }
+
+    public static QualitativeRelationAssessment.EmbeddedBuilder createEmbedded(){
+        return new QualitativeRelationAssessment(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/criteria")
     private Reference<ProtocolExecution> criteria;
@@ -88,11 +98,5 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
     }
 
  
-    public static QualitativeRelationAssessment.Builder create(LocalId localId){
-        return new QualitativeRelationAssessment(localId).new Builder();
-    }
 
-    public QualitativeRelationAssessment.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, QualitativeRelationAssessment.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.miscellaneous;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Com
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Comment extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Comment";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Comment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Comment";
 
     @JsonIgnore
     public Reference<Comment> getReference() {
@@ -33,30 +37,39 @@ public class Comment extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Comment(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Comment() {
+        this(null);
     }
 
+    private Comment(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Comment>{
-        
         public Builder about(Reference<? extends CommentAbout> about) { Comment.this.about = about; return this; }
-        
         public Builder comment(String comment) { Comment.this.comment = comment; return this; }
-        
         public Builder commenter(Reference<Person> commenter) { Comment.this.commenter = commenter; return this; }
-        
         public Builder timestamp(String timestamp) { Comment.this.timestamp = timestamp; return this; }
         
 
         public Comment build(OpenMINDSContext context) {
-            if (Comment.this.id == null) {
-                Comment.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Comment.this.atType = SEMANTIC_NAME;
+            Comment.super.build(context);
             return Comment.this;
         }
     }
+
+    public static Comment.Builder create(LocalId localId){
+        return new Comment(localId).new Builder();
+    }
+
+    public Comment.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Comment.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/about")
     private Reference<? extends CommentAbout> about;
@@ -87,11 +100,5 @@ public class Comment extends Instance {
     }
 
  
-    public static Comment.Builder create(LocalId localId){
-        return new Comment(localId).new Builder();
-    }
 
-    public Comment.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Comment.class).new Builder();
-    }
 }

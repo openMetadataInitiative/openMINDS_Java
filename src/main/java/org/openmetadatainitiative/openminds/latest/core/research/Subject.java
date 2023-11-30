@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.latest.core.research;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,10 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Subject.
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Subject extends Instance implements org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Subject";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Subject extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Subject";
 
     @JsonIgnore
     public Reference<Subject> getReference() {
@@ -35,34 +39,41 @@ public class Subject extends Instance implements org.openmetadatainitiative.open
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Subject(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Subject() {
+        this(null);
     }
 
+    private Subject(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Subject>{
-        
         public Builder biologicalSex(Reference<BiologicalSex> biologicalSex) { Subject.this.biologicalSex = biologicalSex; return this; }
-        
         public Builder internalIdentifier(String internalIdentifier) { Subject.this.internalIdentifier = internalIdentifier; return this; }
-        
         public Builder isPartOf(List<Reference<SubjectGroup>> isPartOf) { Subject.this.isPartOf = isPartOf; return this; }
-        
         public Builder lookupLabel(String lookupLabel) { Subject.this.lookupLabel = lookupLabel; return this; }
-        
         public Builder species(Reference<? extends SubjectSpecies> species) { Subject.this.species = species; return this; }
-        
         public Builder studiedState(List<Reference<SubjectState>> studiedState) { Subject.this.studiedState = studiedState; return this; }
         
 
         public Subject build(OpenMINDSContext context) {
-            if (Subject.this.id == null) {
-                Subject.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Subject.this.atType = SEMANTIC_NAME;
+            Subject.super.build(context);
             return Subject.this;
         }
     }
+
+    public static Subject.Builder create(LocalId localId){
+        return new Subject(localId).new Builder();
+    }
+
+    public Subject.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Subject.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/biologicalSex")
     private Reference<BiologicalSex> biologicalSex;
@@ -122,11 +133,5 @@ public class Subject extends Instance implements org.openmetadatainitiative.open
     }
 
  
-    public static Subject.Builder create(LocalId localId){
-        return new Subject(localId).new Builder();
-    }
 
-    public Subject.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Subject.class).new Builder();
-    }
 }

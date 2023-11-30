@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.core.products;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ import static org.openmetadatainitiative.openminds.v3.core.products.Project.SEMA
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Project extends Instance {
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Project";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Project extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Project";
 
     @JsonIgnore
     public Reference<Project> getReference() {
@@ -33,34 +37,41 @@ public class Project extends Instance {
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Project(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Project() {
+        this(null);
     }
 
+    private Project(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Project>{
-        
         public Builder coordinator(List<Reference<? extends ProjectCoordinator>> coordinator) { Project.this.coordinator = coordinator; return this; }
-        
         public Builder description(String description) { Project.this.description = description; return this; }
-        
         public Builder fullName(String fullName) { Project.this.fullName = fullName; return this; }
-        
         public Builder hasPart(List<Reference<? extends ProjectHasPart>> hasPart) { Project.this.hasPart = hasPart; return this; }
-        
         public Builder homepage(String homepage) { Project.this.homepage = homepage; return this; }
-        
         public Builder shortName(String shortName) { Project.this.shortName = shortName; return this; }
         
 
         public Project build(OpenMINDSContext context) {
-            if (Project.this.id == null) {
-                Project.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Project.this.atType = SEMANTIC_NAME;
+            Project.super.build(context);
             return Project.this;
         }
     }
+
+    public static Project.Builder create(LocalId localId){
+        return new Project(localId).new Builder();
+    }
+
+    public Project.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Project.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/coordinator")
     private List<Reference<? extends ProjectCoordinator>> coordinator;
@@ -120,11 +131,5 @@ public class Project extends Instance {
     }
 
  
-    public static Project.Builder create(LocalId localId){
-        return new Project(localId).new Builder();
-    }
 
-    public Project.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Project.class).new Builder();
-    }
 }

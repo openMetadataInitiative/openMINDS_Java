@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.atlas;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +39,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordina
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CommonCoordinateSpaceVersion extends Instance implements org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace, org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class CommonCoordinateSpaceVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace, org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace, org.openmetadatainitiative.openminds.v3.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion";
 
     @JsonIgnore
     public Reference<CommonCoordinateSpaceVersion> getReference() {
@@ -49,82 +53,65 @@ public class CommonCoordinateSpaceVersion extends Instance implements org.openme
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private CommonCoordinateSpaceVersion(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private CommonCoordinateSpaceVersion() {
+        this(null);
     }
 
+    private CommonCoordinateSpaceVersion(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
+    
+
+    
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<CommonCoordinateSpaceVersion>{
-        
         public Builder abbreviation(String abbreviation) { CommonCoordinateSpaceVersion.this.abbreviation = abbreviation; return this; }
-        
         public Builder accessibility(Reference<ProductAccessibility> accessibility) { CommonCoordinateSpaceVersion.this.accessibility = accessibility; return this; }
-        
         public Builder anatomicalAxesOrientation(Reference<AnatomicalAxesOrientation> anatomicalAxesOrientation) { CommonCoordinateSpaceVersion.this.anatomicalAxesOrientation = anatomicalAxesOrientation; return this; }
-        
         public Builder author(List<Reference<? extends CommonCoordinateSpaceVersionAuthor>> author) { CommonCoordinateSpaceVersion.this.author = author; return this; }
-        
-        public Builder axesOrigin(List<QuantitativeValue> axesOrigin) { CommonCoordinateSpaceVersion.this.axesOrigin = axesOrigin; return this; }
-        
-        public Builder copyright(Copyright copyright) { CommonCoordinateSpaceVersion.this.copyright = copyright; return this; }
-        
+        public Builder axesOrigin(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> axesOrigin) { CommonCoordinateSpaceVersion.this.axesOrigin = axesOrigin.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
+        public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { CommonCoordinateSpaceVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder custodian(List<Reference<? extends CommonCoordinateSpaceVersionCustodian>> custodian) { CommonCoordinateSpaceVersion.this.custodian = custodian; return this; }
-        
         public Builder defaultImage(List<Reference<File>> defaultImage) { CommonCoordinateSpaceVersion.this.defaultImage = defaultImage; return this; }
-        
         public Builder description(String description) { CommonCoordinateSpaceVersion.this.description = description; return this; }
-        
         public Builder digitalIdentifier(Reference<? extends CommonCoordinateSpaceVersionDigitalIdentifier> digitalIdentifier) { CommonCoordinateSpaceVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        
         public Builder fullDocumentation(Reference<? extends CommonCoordinateSpaceVersionFullDocumentation> fullDocumentation) { CommonCoordinateSpaceVersion.this.fullDocumentation = fullDocumentation; return this; }
-        
         public Builder fullName(String fullName) { CommonCoordinateSpaceVersion.this.fullName = fullName; return this; }
-        
         public Builder funding(List<Reference<Funding>> funding) { CommonCoordinateSpaceVersion.this.funding = funding; return this; }
-        
         public Builder homepage(String homepage) { CommonCoordinateSpaceVersion.this.homepage = homepage; return this; }
-        
         public Builder howToCite(String howToCite) { CommonCoordinateSpaceVersion.this.howToCite = howToCite; return this; }
-        
         public Builder isAlternativeVersionOf(List<Reference<CommonCoordinateSpaceVersion>> isAlternativeVersionOf) { CommonCoordinateSpaceVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        
         public Builder isNewVersionOf(Reference<CommonCoordinateSpaceVersion> isNewVersionOf) { CommonCoordinateSpaceVersion.this.isNewVersionOf = isNewVersionOf; return this; }
-        
         public Builder keyword(List<Reference<? extends CommonCoordinateSpaceVersionKeyword>> keyword) { CommonCoordinateSpaceVersion.this.keyword = keyword; return this; }
-        
         public Builder license(Reference<License> license) { CommonCoordinateSpaceVersion.this.license = license; return this; }
-        
         public Builder nativeUnit(Reference<UnitOfMeasurement> nativeUnit) { CommonCoordinateSpaceVersion.this.nativeUnit = nativeUnit; return this; }
-        
         public Builder ontologyIdentifier(List<String> ontologyIdentifier) { CommonCoordinateSpaceVersion.this.ontologyIdentifier = ontologyIdentifier; return this; }
-        
-        public Builder otherContribution(List<Contribution> otherContribution) { CommonCoordinateSpaceVersion.this.otherContribution = otherContribution; return this; }
-        
+        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { CommonCoordinateSpaceVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder relatedPublication(List<Reference<? extends CommonCoordinateSpaceVersionRelatedPublication>> relatedPublication) { CommonCoordinateSpaceVersion.this.relatedPublication = relatedPublication; return this; }
-        
         public Builder releaseDate(String releaseDate) { CommonCoordinateSpaceVersion.this.releaseDate = releaseDate; return this; }
-        
         public Builder repository(Reference<FileRepository> repository) { CommonCoordinateSpaceVersion.this.repository = repository; return this; }
-        
         public Builder shortName(String shortName) { CommonCoordinateSpaceVersion.this.shortName = shortName; return this; }
-        
         public Builder supportChannel(List<String> supportChannel) { CommonCoordinateSpaceVersion.this.supportChannel = supportChannel; return this; }
-        
         public Builder usedSpecimen(List<Reference<? extends CommonCoordinateSpaceVersionUsedSpecimen>> usedSpecimen) { CommonCoordinateSpaceVersion.this.usedSpecimen = usedSpecimen; return this; }
-        
         public Builder versionIdentifier(String versionIdentifier) { CommonCoordinateSpaceVersion.this.versionIdentifier = versionIdentifier; return this; }
-        
         public Builder versionInnovation(String versionInnovation) { CommonCoordinateSpaceVersion.this.versionInnovation = versionInnovation; return this; }
         
 
         public CommonCoordinateSpaceVersion build(OpenMINDSContext context) {
-            if (CommonCoordinateSpaceVersion.this.id == null) {
-                CommonCoordinateSpaceVersion.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            CommonCoordinateSpaceVersion.this.atType = SEMANTIC_NAME;
+            CommonCoordinateSpaceVersion.super.build(context);
             return CommonCoordinateSpaceVersion.this;
         }
     }
+
+    public static CommonCoordinateSpaceVersion.Builder create(LocalId localId){
+        return new CommonCoordinateSpaceVersion(localId).new Builder();
+    }
+
+    public CommonCoordinateSpaceVersion.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CommonCoordinateSpaceVersion.class).new Builder();
+    }
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abbreviation")
     private String abbreviation;
@@ -421,11 +408,5 @@ public class CommonCoordinateSpaceVersion extends Instance implements org.openme
     }
 
  
-    public static CommonCoordinateSpaceVersion.Builder create(LocalId localId){
-        return new CommonCoordinateSpaceVersion(localId).new Builder();
-    }
 
-    public CommonCoordinateSpaceVersion.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, CommonCoordinateSpaceVersion.class).new Builder();
-    }
 }

@@ -3,7 +3,9 @@ package org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.E
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Ellipse extends Instance implements org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationDimension{
-    static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Ellipse";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class Ellipse extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.specimenPrep.activity.intf.CranialWindowPreparationDimension{
+    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Ellipse";
 
     @JsonIgnore
     public Reference<Ellipse> getReference() {
@@ -32,26 +36,33 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private Ellipse(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private Ellipse() {
+        this(null);
     }
 
+    private Ellipse(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Ellipse>{
-        
-        public Builder semiMajorAxis(QuantitativeValue semiMajorAxis) { Ellipse.this.semiMajorAxis = semiMajorAxis; return this; }
-        
-        public Builder semiMinorAxis(QuantitativeValue semiMinorAxis) { Ellipse.this.semiMinorAxis = semiMinorAxis; return this; }
+    
+    public class EmbeddedBuilder {
+
+        public EmbeddedBuilder semiMajorAxis(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> semiMajorAxis) { Ellipse.this.semiMajorAxis = semiMajorAxis.apply(QuantitativeValue.createEmbedded()); return this; }
+        public EmbeddedBuilder semiMinorAxis(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> semiMinorAxis) { Ellipse.this.semiMinorAxis = semiMinorAxis.apply(QuantitativeValue.createEmbedded()); return this; }
         
 
-        public Ellipse build(OpenMINDSContext context) {
-            if (Ellipse.this.id == null) {
-                Ellipse.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            Ellipse.this.atType = SEMANTIC_NAME;
+        public Ellipse build(){
             return Ellipse.this;
         }
     }
+
+    public static Ellipse.EmbeddedBuilder createEmbedded(){
+        return new Ellipse(null).new EmbeddedBuilder();
+    }
+    
+
+    
 
    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/semiMajorAxis")
     private QuantitativeValue semiMajorAxis;
@@ -68,11 +79,5 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
     }
 
  
-    public static Ellipse.Builder create(LocalId localId){
-        return new Ellipse(localId).new Builder();
-    }
 
-    public Ellipse.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, Ellipse.class).new Builder();
-    }
 }
