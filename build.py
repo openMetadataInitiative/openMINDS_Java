@@ -20,7 +20,7 @@ ignored_versions = ["v1.0", "v2.0"]
 relevant_versions = [v for v in schema_loader.get_schema_versions() if v not in ignored_versions]
 
 
-def build_central():
+def build_central(embedded_only):
     env = Environment(
         loader=PackageLoader("generator"),
         autoescape=select_autoescape()
@@ -28,7 +28,8 @@ def build_central():
     template = env.get_template("OpenMINDS.java.j2")
     result = template.render(
         relevant_versions = built_versions,
-        packages_by_version = packages_by_version
+        packages_by_version = packages_by_version,
+        embedded_only = embedded_only
     )
     target_file = "target/src/main/java/org/openmetadatainitiative/openminds/OpenMINDS.java"
     os.makedirs(os.path.dirname(target_file), exist_ok=True)
@@ -45,13 +46,19 @@ for schema_version in relevant_versions:
     type_to_class_name = {}
     implemented_interfaces = {}
     builders = []
+    linked_types = set()
+    embedded_types = set()
+
+
     for schema_file_path in schemas_file_paths:
         builder = JavaBuilder(schema_file_path, schema_loader.schemas_sources)
         if builder.version not in packages_by_version:
             packages_by_version[builder.version] = {}
         if builder.relative_path_without_extension[0] not in packages_by_version[builder.version]:
             packages_by_version[builder.version][builder.relative_path_without_extension[0]] = []
-        packages_by_version[builder.version][builder.relative_path_without_extension[0]].append((builder.class_name, builder.canonical_class_name()))
+        packages_by_version[builder.version][builder.relative_path_without_extension[0]].append((builder.class_name, builder.canonical_class_name(), builder.type))
+        linked_types.update(builder.linked_types)
+        embedded_types.update(builder.embedded_types)
         if builder.version not in built_versions:
             built_versions.append(builder.version)
         for property, types in builder.additional_interfaces.items():
@@ -62,9 +69,9 @@ for schema_version in relevant_versions:
         type_to_class_name[builder.type]=builder.canonical_class_name()
         builders.append(builder)
 
-
+    embedded_only = embedded_types-linked_types
     for builder in builders:
         # Step 3 - translate and build each openMINDS schema as JSON-Schema
-        builder.build(type_to_class_name, implemented_interfaces)
+        builder.build(type_to_class_name, implemented_interfaces, embedded_types, embedded_only)
 
-build_central()
+build_central(embedded_only)

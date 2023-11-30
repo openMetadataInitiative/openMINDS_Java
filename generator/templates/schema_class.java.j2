@@ -3,7 +3,9 @@ package {{package_name}};
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openmetadatainitiative.openminds.utils.*;
+import java.util.function.Function;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +22,10 @@ import static {{package_name}}.{{ class_name }}.SEMANTIC_NAME;
  */
 @InstanceType(SEMANTIC_NAME)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class {{ class_name }} extends Instance {% if implemented_interfaces %}implements {{ implemented_interfaces|join(', ') }}{% endif %}{
-    static final String SEMANTIC_NAME = "{{ type }}";
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@SuppressWarnings("unused")
+public class {{ class_name }} extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.{{version[0]|upper}}{{version[1:]}}.Entity{% if implemented_interfaces %}, {{ implemented_interfaces|join(', ') }}{% endif %}{
+    public static final String SEMANTIC_NAME = "{{ type }}";
 
     @JsonIgnore
     public Reference<{{ class_name }}> getReference() {
@@ -32,24 +36,50 @@ public class {{ class_name }} extends Instance {% if implemented_interfaces %}im
         return new Reference<>(new InstanceId(instanceId));
     }
 
-    private {{ class_name }}(LocalId localId ) {
-        super(localId);
+    /** For deserialization **/
+    private {{ class_name }}() {
+        this(null);
     }
 
+    private {{ class_name }}(LocalId localId ) {
+        super(localId, SEMANTIC_NAME);
+    }
 
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<{{ class_name }}>{
-        {% for property in properties %}{% for line in builder_for_properties[property] %}
-        {{ line }}
-        {% endfor %}{% endfor %}
+    {% if type in embedded_types %}
+    public class EmbeddedBuilder {
 
-        public {{ class_name }} build(OpenMINDSContext context) {
-            if ({{ class_name }}.this.id == null) {
-                {{ class_name }}.this.id = InstanceId.withPrefix(UUID.randomUUID().toString(), context.idPrefix());
-            }
-            {{ class_name }}.this.atType = SEMANTIC_NAME;
+        {% for property in properties %}public EmbeddedBuilder {{ builder_for_properties[property] }}
+        {% endfor %}
+
+        public {{ class_name }} build(){
             return {{ class_name }}.this;
         }
     }
+
+    public static {{ class_name }}.EmbeddedBuilder createEmbedded(){
+        return new {{ class_name }}(null).new EmbeddedBuilder();
+    }
+    {% endif %}
+
+    {%if type not in embedded_types or type not in embedded_only %}
+    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<{{ class_name }}>{
+        {% for property in properties %}public Builder {{ builder_for_properties[property] }}
+        {% endfor %}
+
+        public {{ class_name }} build(OpenMINDSContext context) {
+            {{ class_name }}.super.build(context);
+            return {{ class_name }}.this;
+        }
+    }
+
+    public static {{ class_name }}.Builder create(LocalId localId){
+        return new {{ class_name }}(localId).new Builder();
+    }
+
+    public {{ class_name }}.Builder copy(){
+        return ParsingUtils.OBJECT_MAPPER.convertValue(this, {{ class_name }}.class).new Builder();
+    }
+    {% endif %}
 
 {% for property in properties %}   @JsonProperty(value = "{%if property in absolute_property_translations%}{{absolute_property_translations[property]}}{%else%}{{property}}{%endif%}")
     {{member_for_properties[property]}}
@@ -60,11 +90,5 @@ public class {{ class_name }} extends Instance {% if implemented_interfaces %}im
     {{getter_for_properties[property]}}
 
  {% endfor %}
-    public static {{ class_name }}.Builder create(LocalId localId){
-        return new {{ class_name }}(localId).new Builder();
-    }
 
-    public {{ class_name }}.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, {{ class_name }}.class).new Builder();
-    }
 }
