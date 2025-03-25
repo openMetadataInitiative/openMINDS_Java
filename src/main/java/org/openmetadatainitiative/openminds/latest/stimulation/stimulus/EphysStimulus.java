@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
+import org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusDeliveredBy;
+import org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusGeneratedBy;
+import org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusSpecification;
 
 
 import static org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus.SEMANTIC_NAME;
@@ -25,7 +29,7 @@ import static org.openmetadatainitiative.openminds.latest.stimulation.stimulus.E
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class EphysStimulus extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/stimulation/EphysStimulus";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/EphysStimulus";
 
     @JsonIgnore
     public Reference<EphysStimulus> getReference() {
@@ -49,6 +53,13 @@ public class EphysStimulus extends Instance implements org.openmetadatainitiativ
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<EphysStimulus>{
+        public Builder deliveredBy(Reference<? extends EphysStimulusDeliveredBy> deliveredBy) { EphysStimulus.this.deliveredBy = deliveredBy; return this; }
+        public Builder description(String description) { EphysStimulus.this.description = description; return this; }
+        public Builder epoch(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> epoch) { EphysStimulus.this.epoch = epoch.apply(QuantitativeValue.createEmbedded()); return this; }
+        public Builder generatedBy(Reference<? extends EphysStimulusGeneratedBy> generatedBy) { EphysStimulus.this.generatedBy = generatedBy; return this; }
+        public Builder internalIdentifier(String internalIdentifier) { EphysStimulus.this.internalIdentifier = internalIdentifier; return this; }
+        public Builder lookupLabel(String lookupLabel) { EphysStimulus.this.lookupLabel = lookupLabel; return this; }
+        public Builder specification(List<Reference<? extends EphysStimulusSpecification>> specification) { EphysStimulus.this.specification = specification; return this; }
         public Builder type(Reference<ElectricalStimulusType> type) { EphysStimulus.this.type = type; return this; }
         
 
@@ -67,7 +78,65 @@ public class EphysStimulus extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+   @JsonProperty(value = "https://openminds.om-i.org/props/deliveredBy")
+    private Reference<? extends EphysStimulusDeliveredBy> deliveredBy;
+    
+    public Reference<? extends EphysStimulusDeliveredBy> getDeliveredBy() {
+       return this.deliveredBy;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
+    private String description;
+    
+    /**
+    * Longer statement or account giving the characteristics of someone or something.
+    */
+    public String getDescription() {
+       return this.description;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/epoch")
+    private QuantitativeValue epoch;
+    
+    public QuantitativeValue getEpoch() {
+       return this.epoch;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/generatedBy")
+    private Reference<? extends EphysStimulusGeneratedBy> generatedBy;
+    
+    public Reference<? extends EphysStimulusGeneratedBy> getGeneratedBy() {
+       return this.generatedBy;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
+    private String internalIdentifier;
+    
+    /**
+    * Term or code that identifies someone or something within a particular product.
+    */
+    public String getInternalIdentifier() {
+       return this.internalIdentifier;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
+    private String lookupLabel;
+    
+    public String getLookupLabel() {
+       return this.lookupLabel;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/specification")
+    private List<Reference<? extends EphysStimulusSpecification>> specification;
+    
+    /**
+    * Detailed and precise presentation of, or proposal for something.
+    */
+    public List<Reference<? extends EphysStimulusSpecification>> getSpecification() {
+       return this.specification;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private Reference<ElectricalStimulusType> type;
     
     /**

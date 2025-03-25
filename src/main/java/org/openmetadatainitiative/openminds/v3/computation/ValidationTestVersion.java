@@ -39,7 +39,7 @@ import static org.openmetadatainitiative.openminds.v3.computation.ValidationTest
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ValidationTestVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+public class ValidationTestVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/ValidationTestVersion";
 
     @JsonIgnore

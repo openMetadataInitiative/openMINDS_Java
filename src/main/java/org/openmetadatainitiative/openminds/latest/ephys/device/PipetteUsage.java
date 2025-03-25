@@ -32,8 +32,8 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUs
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class PipetteUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/PipetteUsage";
+public class PipetteUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/PipetteUsage";
 
     @JsonIgnore
     public Reference<PipetteUsage> getReference() {
@@ -92,28 +92,28 @@ public class PipetteUsage extends Instance implements org.openmetadatainitiative
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalLocation")
     private Reference<? extends PipetteUsageAnatomicalLocation> anatomicalLocation;
     
     public Reference<? extends PipetteUsageAnatomicalLocation> getAnatomicalLocation() {
        return this.anatomicalLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/chlorideReversalPotential")
+    @JsonProperty(value = "https://openminds.om-i.org/props/chlorideReversalPotential")
     private List<Measurement> chlorideReversalPotential;
     
     public List<Measurement> getChlorideReversalPotential() {
        return this.chlorideReversalPotential;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/compensationCurrent")
+    @JsonProperty(value = "https://openminds.om-i.org/props/compensationCurrent")
     private Measurement compensationCurrent;
     
     public Measurement getCompensationCurrent() {
        return this.compensationCurrent;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private Reference<Pipette> device;
     
     /**
@@ -123,98 +123,98 @@ public class PipetteUsage extends Instance implements org.openmetadatainitiative
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endMembranePotential")
+    @JsonProperty(value = "https://openminds.om-i.org/props/endMembranePotential")
     private Measurement endMembranePotential;
     
     public Measurement getEndMembranePotential() {
        return this.endMembranePotential;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/holdingPotential")
+    @JsonProperty(value = "https://openminds.om-i.org/props/holdingPotential")
     private Measurement holdingPotential;
     
     public Measurement getHoldingPotential() {
        return this.holdingPotential;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/inputResistance")
+    @JsonProperty(value = "https://openminds.om-i.org/props/inputResistance")
     private Measurement inputResistance;
     
     public Measurement getInputResistance() {
        return this.inputResistance;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/labelingCompound")
+    @JsonProperty(value = "https://openminds.om-i.org/props/labelingCompound")
     private Reference<? extends PipetteUsageLabelingCompound> labelingCompound;
     
     public Reference<? extends PipetteUsageLabelingCompound> getLabelingCompound() {
        return this.labelingCompound;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/liquidJunctionPotential")
+    @JsonProperty(value = "https://openminds.om-i.org/props/liquidJunctionPotential")
     private Measurement liquidJunctionPotential;
     
     public Measurement getLiquidJunctionPotential() {
        return this.liquidJunctionPotential;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/metadataLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/metadataLocation")
     private List<Reference<? extends PipetteUsageMetadataLocation>> metadataLocation;
     
     public List<Reference<? extends PipetteUsageMetadataLocation>> getMetadataLocation() {
        return this.metadataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/pipetteResistance")
+    @JsonProperty(value = "https://openminds.om-i.org/props/pipetteResistance")
     private PipetteUsagePipetteResistance pipetteResistance;
     
     public PipetteUsagePipetteResistance getPipetteResistance() {
        return this.pipetteResistance;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/pipetteSolution")
+    @JsonProperty(value = "https://openminds.om-i.org/props/pipetteSolution")
     private Reference<ChemicalMixture> pipetteSolution;
     
     public Reference<ChemicalMixture> getPipetteSolution() {
        return this.pipetteSolution;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/sealResistance")
+    @JsonProperty(value = "https://openminds.om-i.org/props/sealResistance")
     private Measurement sealResistance;
     
     public Measurement getSealResistance() {
        return this.sealResistance;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/seriesResistance")
+    @JsonProperty(value = "https://openminds.om-i.org/props/seriesResistance")
     private Measurement seriesResistance;
     
     public Measurement getSeriesResistance() {
        return this.seriesResistance;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/spatialLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/spatialLocation")
     private CoordinatePoint spatialLocation;
     
     public CoordinatePoint getSpatialLocation() {
        return this.spatialLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startMembranePotential")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startMembranePotential")
     private Measurement startMembranePotential;
     
     public Measurement getStartMembranePotential() {
        return this.startMembranePotential;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/usedSpecimen")
+    @JsonProperty(value = "https://openminds.om-i.org/props/usedSpecimen")
     private Reference<? extends PipetteUsageUsedSpecimen> usedSpecimen;
     
     public Reference<? extends PipetteUsageUsedSpecimen> getUsedSpecimen() {

@@ -28,7 +28,7 @@ import static org.openmetadatainitiative.openminds.latest.ephys.entity.Recording
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Recording extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Recording";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Recording";
 
     @JsonIgnore
     public Reference<Recording> getReference() {
@@ -77,7 +77,7 @@ public class Recording extends Instance implements org.openmetadatainitiative.op
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -87,21 +87,21 @@ public class Recording extends Instance implements org.openmetadatainitiative.op
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/channel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/channel")
     private List<Channel> channel;
     
     public List<Channel> getChannel() {
        return this.channel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/dataLocation")
     private Reference<? extends RecordingDataLocation> dataLocation;
     
     public Reference<? extends RecordingDataLocation> getDataLocation() {
        return this.dataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -111,7 +111,7 @@ public class Recording extends Instance implements org.openmetadatainitiative.op
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -121,21 +121,21 @@ public class Recording extends Instance implements org.openmetadatainitiative.op
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/previousRecording")
+    @JsonProperty(value = "https://openminds.om-i.org/props/previousRecording")
     private Reference<Recording> previousRecording;
     
     public Reference<Recording> getPreviousRecording() {
        return this.previousRecording;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/recordedWith")
+    @JsonProperty(value = "https://openminds.om-i.org/props/recordedWith")
     private Reference<? extends RecordingRecordedWith> recordedWith;
     
     public Reference<? extends RecordingRecordedWith> getRecordedWith() {
        return this.recordedWith;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/samplingFrequency")
+    @JsonProperty(value = "https://openminds.om-i.org/props/samplingFrequency")
     private QuantitativeValue samplingFrequency;
     
     public QuantitativeValue getSamplingFrequency() {

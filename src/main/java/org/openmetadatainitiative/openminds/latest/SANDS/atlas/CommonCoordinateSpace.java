@@ -28,8 +28,8 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class CommonCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CommonCoordinateSpace";
+public class CommonCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/CommonCoordinateSpace";
 
     @JsonIgnore
     public Reference<CommonCoordinateSpace> getReference() {
@@ -82,14 +82,14 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abbreviation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/abbreviation")
     private String abbreviation;
     
     public String getAbbreviation() {
        return this.abbreviation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/author")
+    @JsonProperty(value = "https://openminds.om-i.org/props/author")
     private List<Reference<? extends CommonCoordinateSpaceAuthor>> author;
     
     /**
@@ -99,7 +99,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.author;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends CommonCoordinateSpaceCustodian>> custodian;
     
     /**
@@ -109,7 +109,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -119,7 +119,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends CommonCoordinateSpaceDigitalIdentifier> digitalIdentifier;
     
     /**
@@ -129,7 +129,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -139,7 +139,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasVersion")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
     private List<Reference<CommonCoordinateSpaceVersion>> hasVersion;
     
     /**
@@ -149,7 +149,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.hasVersion;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -159,7 +159,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -169,7 +169,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/ontologyIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/ontologyIdentifier")
     private List<String> ontologyIdentifier;
     
     /**
@@ -179,7 +179,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.ontologyIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**
@@ -189,7 +189,7 @@ public class CommonCoordinateSpace extends Instance implements org.openmetadatai
        return this.shortName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/usedSpecies")
+    @JsonProperty(value = "https://openminds.om-i.org/props/usedSpecies")
     private Reference<Species> usedSpecies;
     
     public Reference<Species> getUsedSpecies() {

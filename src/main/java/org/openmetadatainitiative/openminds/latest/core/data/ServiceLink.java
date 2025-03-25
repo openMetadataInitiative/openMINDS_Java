@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ServiceLink extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ServiceLink";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ServiceLink";
 
     @JsonIgnore
     public Reference<ServiceLink> getReference() {
@@ -73,35 +73,35 @@ public class ServiceLink extends Instance implements org.openmetadatainitiative.
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/dataLocation")
     private Reference<? extends ServiceLinkDataLocation> dataLocation;
     
     public Reference<? extends ServiceLinkDataLocation> getDataLocation() {
        return this.dataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/displayLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/displayLabel")
     private String displayLabel;
     
     public String getDisplayLabel() {
        return this.displayLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/openDataIn")
+    @JsonProperty(value = "https://openminds.om-i.org/props/openDataIn")
     private String openDataIn;
     
     public String getOpenDataIn() {
        return this.openDataIn;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/previewImage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/previewImage")
     private Reference<File> previewImage;
     
     public Reference<File> getPreviewImage() {
        return this.previewImage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/service")
+    @JsonProperty(value = "https://openminds.om-i.org/props/service")
     private Reference<Service> service;
     
     public Reference<Service> getService() {

@@ -30,8 +30,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.SubjectG
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SubjectGroupState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SubjectGroupState";
+public class SubjectGroupState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SubjectGroupState";
 
     @JsonIgnore
     public Reference<SubjectGroupState> getReference() {
@@ -83,7 +83,7 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -93,7 +93,7 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/age")
+    @JsonProperty(value = "https://openminds.om-i.org/props/age")
     private SubjectGroupStateAge age;
     
     /**
@@ -103,7 +103,7 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
        return this.age;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/ageCategory")
+    @JsonProperty(value = "https://openminds.om-i.org/props/ageCategory")
     private List<Reference<AgeCategory>> ageCategory;
     
     /**
@@ -113,21 +113,21 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
        return this.ageCategory;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/attribute")
+    @JsonProperty(value = "https://openminds.om-i.org/props/attribute")
     private List<Reference<SubjectAttribute>> attribute;
     
     public List<Reference<SubjectAttribute>> getAttribute() {
        return this.attribute;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/descendedFrom")
+    @JsonProperty(value = "https://openminds.om-i.org/props/descendedFrom")
     private Reference<SubjectGroupState> descendedFrom;
     
     public Reference<SubjectGroupState> getDescendedFrom() {
        return this.descendedFrom;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/handedness")
+    @JsonProperty(value = "https://openminds.om-i.org/props/handedness")
     private List<Reference<Handedness>> handedness;
     
     /**
@@ -137,7 +137,7 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
        return this.handedness;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -147,14 +147,14 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/pathology")
+    @JsonProperty(value = "https://openminds.om-i.org/props/pathology")
     private List<Reference<? extends SubjectGroupStatePathology>> pathology;
     
     /**
@@ -164,14 +164,14 @@ public class SubjectGroupState extends Instance implements org.openmetadatainiti
        return this.pathology;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relativeTimeIndication")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relativeTimeIndication")
     private SubjectGroupStateRelativeTimeIndication relativeTimeIndication;
     
     public SubjectGroupStateRelativeTimeIndication getRelativeTimeIndication() {
        return this.relativeTimeIndication;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/weight")
+    @JsonProperty(value = "https://openminds.om-i.org/props/weight")
     private SubjectGroupStateWeight weight;
     
     /**

@@ -13,7 +13,7 @@ public interface CommonCoordinateSpaceVersionFullDocumentation extends Entity {
 
    class Deserializer extends ByTypeDeserializer<CommonCoordinateSpaceVersionFullDocumentation> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class);
+            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.class, org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class);
         }
     }
     

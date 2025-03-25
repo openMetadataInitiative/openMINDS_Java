@@ -24,8 +24,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Configur
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Configuration";
+public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusSpecification{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Configuration";
 
     @JsonIgnore
     public Reference<Configuration> getReference() {
@@ -69,14 +69,14 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/configuration")
+   @JsonProperty(value = "https://openminds.om-i.org/props/configuration")
     private String configuration;
     
     public String getConfiguration() {
        return this.configuration;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**
@@ -86,7 +86,7 @@ public class Configuration extends Instance implements org.openmetadatainitiativ
        return this.format;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {

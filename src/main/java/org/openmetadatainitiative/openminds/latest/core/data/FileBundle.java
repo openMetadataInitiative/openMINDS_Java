@@ -29,8 +29,8 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileBundle.S
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class FileBundle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityOutput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingDataLocation, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleIsPartOf, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageMetadataLocation{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileBundle";
+public class FileBundle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityOutput, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingDataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleIsPartOf, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusSpecification{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/FileBundle";
 
     @JsonIgnore
     public Reference<FileBundle> getReference() {
@@ -79,14 +79,14 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentDescription")
+   @JsonProperty(value = "https://openminds.om-i.org/props/contentDescription")
     private String contentDescription;
     
     public String getContentDescription() {
        return this.contentDescription;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**
@@ -96,7 +96,7 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
        return this.format;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/groupedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/groupedBy")
     private List<Reference<? extends FileBundleGroupedBy>> groupedBy;
     
     /**
@@ -106,14 +106,14 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
        return this.groupedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/groupingType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/groupingType")
     private List<Reference<FileBundleGrouping>> groupingType;
     
     public List<Reference<FileBundleGrouping>> getGroupingType() {
        return this.groupingType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hash")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hash")
     private Hash hash;
     
     /**
@@ -123,7 +123,7 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
        return this.hash;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<? extends FileBundleIsPartOf> isPartOf;
     
     /**
@@ -133,7 +133,7 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -143,7 +143,7 @@ public class FileBundle extends Instance implements org.openmetadatainitiative.o
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/storageSize")
+    @JsonProperty(value = "https://openminds.om-i.org/props/storageSize")
     private QuantitativeValue storageSize;
     
     /**

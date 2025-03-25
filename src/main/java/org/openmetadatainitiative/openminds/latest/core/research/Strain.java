@@ -29,8 +29,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Strain.S
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Strain extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupSpecies{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Strain";
+public class Strain extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleSpecies{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Strain";
 
     @JsonIgnore
     public Reference<Strain> getReference() {
@@ -85,28 +85,28 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/alternateIdentifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/alternateIdentifier")
     private List<String> alternateIdentifier;
     
     public List<String> getAlternateIdentifier() {
        return this.alternateIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/backgroundStrain")
+    @JsonProperty(value = "https://openminds.om-i.org/props/backgroundStrain")
     private List<Reference<Strain>> backgroundStrain;
     
     public List<Reference<Strain>> getBackgroundStrain() {
        return this.backgroundStrain;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/breedingType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/breedingType")
     private Reference<BreedingType> breedingType;
     
     public Reference<BreedingType> getBreedingType() {
        return this.breedingType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -116,7 +116,7 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<RRID> digitalIdentifier;
     
     /**
@@ -126,28 +126,28 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/diseaseModel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/diseaseModel")
     private List<Reference<? extends StrainDiseaseModel>> diseaseModel;
     
     public List<Reference<? extends StrainDiseaseModel>> getDiseaseModel() {
        return this.diseaseModel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/geneticStrainType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/geneticStrainType")
     private Reference<GeneticStrainType> geneticStrainType;
     
     public Reference<GeneticStrainType> getGeneticStrainType() {
        return this.geneticStrainType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/laboratoryCode")
+    @JsonProperty(value = "https://openminds.om-i.org/props/laboratoryCode")
     private String laboratoryCode;
     
     public String getLaboratoryCode() {
        return this.laboratoryCode;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -157,7 +157,7 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/ontologyIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/ontologyIdentifier")
     private List<String> ontologyIdentifier;
     
     /**
@@ -167,7 +167,7 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
        return this.ontologyIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/phenotype")
+    @JsonProperty(value = "https://openminds.om-i.org/props/phenotype")
     private String phenotype;
     
     /**
@@ -177,7 +177,7 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
        return this.phenotype;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/species")
+    @JsonProperty(value = "https://openminds.om-i.org/props/species")
     private Reference<Species> species;
     
     /**
@@ -187,14 +187,14 @@ public class Strain extends Instance implements org.openmetadatainitiative.openm
        return this.species;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stockNumber")
+    @JsonProperty(value = "https://openminds.om-i.org/props/stockNumber")
     private StockNumber stockNumber;
     
     public StockNumber getStockNumber() {
        return this.stockNumber;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/synonym")
+    @JsonProperty(value = "https://openminds.om-i.org/props/synonym")
     private List<String> synonym;
     
     /**

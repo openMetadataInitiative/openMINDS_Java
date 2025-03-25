@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Protocol
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Protocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Protocol";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Protocol";
 
     @JsonIgnore
     public Reference<Protocol> getReference() {
@@ -73,14 +73,14 @@ public class Protocol extends Instance implements org.openmetadatainitiative.ope
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/describedIn")
+   @JsonProperty(value = "https://openminds.om-i.org/props/describedIn")
     private Reference<? extends ProtocolDescribedIn> describedIn;
     
     public Reference<? extends ProtocolDescribedIn> getDescribedIn() {
        return this.describedIn;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -90,7 +90,7 @@ public class Protocol extends Instance implements org.openmetadatainitiative.ope
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -100,14 +100,14 @@ public class Protocol extends Instance implements org.openmetadatainitiative.ope
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stimulusType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/stimulusType")
     private List<Reference<? extends ProtocolStimulusType>> stimulusType;
     
     public List<Reference<? extends ProtocolStimulusType>> getStimulusType() {
        return this.stimulusType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/technique")
+    @JsonProperty(value = "https://openminds.om-i.org/props/technique")
     private List<Reference<? extends ProtocolTechnique>> technique;
     
     /**

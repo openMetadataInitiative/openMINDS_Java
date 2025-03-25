@@ -23,7 +23,7 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.SWH
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SWHID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionDigitalIdentifier{
+public class SWHID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.MetaDataModelDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.ModelDigitalIdentifier{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SWHID";
 
     @JsonIgnore

@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChem
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class AmountOfChemical extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/AmountOfChemical";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/AmountOfChemical";
 
     @JsonIgnore
     public Reference<AmountOfChemical> getReference() {
@@ -65,14 +65,14 @@ public class AmountOfChemical extends Instance implements org.openmetadatainitia
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/amount")
+   @JsonProperty(value = "https://openminds.om-i.org/props/amount")
     private QuantitativeValue amount;
     
     public QuantitativeValue getAmount() {
        return this.amount;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/chemicalProduct")
+    @JsonProperty(value = "https://openminds.om-i.org/props/chemicalProduct")
     private Reference<? extends AmountOfChemicalChemicalProduct> chemicalProduct;
     
     public Reference<? extends AmountOfChemicalChemicalProduct> getChemicalProduct() {

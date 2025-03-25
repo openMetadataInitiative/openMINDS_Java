@@ -26,8 +26,8 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.Parcellati
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ParcellationEntityVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfArray, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfElectrodes, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityVersionHasParent, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.QualitativeRelationAssessmentInRelationTo, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.AnatomicalTargetPositionAnatomicalTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionStudyTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelStudyTarget, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudyTarget, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityStudyTarget{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ParcellationEntityVersion";
+public class ParcellationEntityVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationStudyTarget, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfArray, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfElectrodes, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudyTarget, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelStudyTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionStudyTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyStudyTarget, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityVersionHasParent, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.QualitativeRelationAssessmentInRelationTo, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.AnatomicalTargetPositionAnatomicalTarget, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityStudyTarget{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ParcellationEntityVersion";
 
     @JsonIgnore
     public Reference<ParcellationEntityVersion> getReference() {
@@ -80,14 +80,14 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abbreviation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/abbreviation")
     private String abbreviation;
     
     public String getAbbreviation() {
        return this.abbreviation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+    @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -97,28 +97,28 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/alternateName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/alternateName")
     private List<String> alternateName;
     
     public List<String> getAlternateName() {
        return this.alternateName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/correctedName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/correctedName")
     private String correctedName;
     
     public String getCorrectedName() {
        return this.correctedName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasAnnotation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasAnnotation")
     private List<AtlasAnnotation> hasAnnotation;
     
     public List<AtlasAnnotation> getHasAnnotation() {
        return this.hasAnnotation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasParent")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasParent")
     private List<Reference<? extends ParcellationEntityVersionHasParent>> hasParent;
     
     /**
@@ -128,14 +128,14 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
        return this.hasParent;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -145,7 +145,7 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/ontologyIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/ontologyIdentifier")
     private List<String> ontologyIdentifier;
     
     /**
@@ -155,14 +155,14 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
        return this.ontologyIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relationAssessment")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relationAssessment")
     private List<? extends ParcellationEntityVersionRelationAssessment> relationAssessment;
     
     public List<? extends ParcellationEntityVersionRelationAssessment> getRelationAssessment() {
        return this.relationAssessment;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
     /**
@@ -172,7 +172,7 @@ public class ParcellationEntityVersion extends Instance implements org.openmetad
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionInnovation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
     private String versionInnovation;
     
     /**

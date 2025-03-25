@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class RORID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.actors.intf.OrganizationDigitalIdentifier{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/RORID";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/RORID";
 
     @JsonIgnore
     public Reference<RORID> getReference() {
@@ -66,7 +66,7 @@ public class RORID extends Instance implements org.openmetadatainitiative.openmi
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/identifier")
     private String identifier;
     
     /**

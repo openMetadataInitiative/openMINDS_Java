@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.Hash.SEMANTI
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Hash extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Hash";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Hash";
 
     @JsonIgnore
     public Reference<Hash> getReference() {
@@ -63,7 +63,7 @@ public class Hash extends Instance implements org.openmetadatainitiative.openmin
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/algorithm")
+   @JsonProperty(value = "https://openminds.om-i.org/props/algorithm")
     private String algorithm;
     
     /**
@@ -73,7 +73,7 @@ public class Hash extends Instance implements org.openmetadatainitiative.openmin
        return this.algorithm;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digest")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digest")
     private String digest;
     
     /**

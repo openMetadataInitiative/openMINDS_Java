@@ -31,7 +31,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileReposito
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class FileRepository extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleIsPartOf{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileRepository";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/FileRepository";
 
     @JsonIgnore
     public Reference<FileRepository> getReference() {
@@ -81,7 +81,7 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -91,14 +91,14 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentTypePattern")
+    @JsonProperty(value = "https://openminds.om-i.org/props/contentTypePattern")
     private List<Reference<ContentTypePattern>> contentTypePattern;
     
     public List<Reference<ContentTypePattern>> getContentTypePattern() {
        return this.contentTypePattern;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**
@@ -108,7 +108,7 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
        return this.format;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hash")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hash")
     private Hash hash;
     
     /**
@@ -118,7 +118,7 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
        return this.hash;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hostedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hostedBy")
     private Reference<Organization> hostedBy;
     
     /**
@@ -128,7 +128,7 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
        return this.hostedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -138,7 +138,7 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/storageSize")
+    @JsonProperty(value = "https://openminds.om-i.org/props/storageSize")
     private QuantitativeValue storageSize;
     
     /**
@@ -148,14 +148,14 @@ public class FileRepository extends Instance implements org.openmetadatainitiati
        return this.storageSize;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/structurePattern")
+    @JsonProperty(value = "https://openminds.om-i.org/props/structurePattern")
     private Reference<FileRepositoryStructure> structurePattern;
     
     public Reference<FileRepositoryStructure> getStructurePattern() {
        return this.structurePattern;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private Reference<FileRepositoryType> type;
     
     /**

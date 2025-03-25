@@ -13,7 +13,7 @@ public interface WorkflowRecipeVersionFullDocumentation extends Entity {
 
    class Deserializer extends ByTypeDeserializer<WorkflowRecipeVersionFullDocumentation> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.v3.core.data.File.class, org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.class);
+            super(org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.v3.core.data.File.class, org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.class, org.openmetadatainitiative.openminds.v3.core.miscellaneous.WebResource.class);
         }
     }
     

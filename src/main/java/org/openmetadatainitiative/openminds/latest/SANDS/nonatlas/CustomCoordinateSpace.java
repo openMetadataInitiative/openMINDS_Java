@@ -27,8 +27,8 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomC
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class CustomCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/CustomCoordinateSpace";
+public class CustomCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/CustomCoordinateSpace";
 
     @JsonIgnore
     public Reference<CustomCoordinateSpace> getReference() {
@@ -74,7 +74,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalAxesOrientation")
     private Reference<AnatomicalAxesOrientation> anatomicalAxesOrientation;
     
     /**
@@ -84,7 +84,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
        return this.anatomicalAxesOrientation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/axesOrigin")
+    @JsonProperty(value = "https://openminds.om-i.org/props/axesOrigin")
     private List<QuantitativeValue> axesOrigin;
     
     /**
@@ -94,7 +94,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
        return this.axesOrigin;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/defaultImage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/defaultImage")
     private List<Reference<File>> defaultImage;
     
     /**
@@ -104,7 +104,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
        return this.defaultImage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -114,7 +114,7 @@ public class CustomCoordinateSpace extends Instance implements org.openmetadatai
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/nativeUnit")
+    @JsonProperty(value = "https://openminds.om-i.org/props/nativeUnit")
     private Reference<UnitOfMeasurement> nativeUnit;
     
     /**

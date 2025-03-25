@@ -28,7 +28,7 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.Sl
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class SlicingDevice extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/SlicingDevice";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SlicingDevice";
 
     @JsonIgnore
     public Reference<SlicingDevice> getReference() {
@@ -77,7 +77,7 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -87,14 +87,14 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/deviceType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/deviceType")
     private Reference<DeviceType> deviceType;
     
     public Reference<DeviceType> getDeviceType() {
        return this.deviceType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends SlicingDeviceDigitalIdentifier> digitalIdentifier;
     
     /**
@@ -104,21 +104,21 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/manufacturer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/manufacturer")
     private List<Reference<? extends SlicingDeviceManufacturer>> manufacturer;
     
     public List<Reference<? extends SlicingDeviceManufacturer>> getManufacturer() {
        return this.manufacturer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -128,14 +128,14 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/owner")
+    @JsonProperty(value = "https://openminds.om-i.org/props/owner")
     private List<Reference<? extends SlicingDeviceOwner>> owner;
     
     public List<Reference<? extends SlicingDeviceOwner>> getOwner() {
        return this.owner;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/serialNumber")
+    @JsonProperty(value = "https://openminds.om-i.org/props/serialNumber")
     private String serialNumber;
     
     public String getSerialNumber() {

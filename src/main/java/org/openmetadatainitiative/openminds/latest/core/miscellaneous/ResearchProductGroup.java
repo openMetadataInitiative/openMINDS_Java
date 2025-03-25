@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Res
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ResearchProductGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ResearchProductGroup";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ResearchProductGroup";
 
     @JsonIgnore
     public Reference<ResearchProductGroup> getReference() {
@@ -68,14 +68,14 @@ public class ResearchProductGroup extends Instance implements org.openmetadatain
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/context")
+   @JsonProperty(value = "https://openminds.om-i.org/props/context")
     private String context;
     
     public String getContext() {
        return this.context;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasPart")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasPart")
     private List<Reference<? extends ResearchProductGroupHasPart>> hasPart;
     
     public List<Reference<? extends ResearchProductGroupHasPart>> getHasPart() {

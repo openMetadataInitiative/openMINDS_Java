@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.Measurement.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Measurement extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Measurement";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Measurement";
 
     @JsonIgnore
     public Reference<Measurement> getReference() {
@@ -69,7 +69,7 @@ public class Measurement extends Instance implements org.openmetadatainitiative.
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -79,28 +79,28 @@ public class Measurement extends Instance implements org.openmetadatainitiative.
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/measuredQuantity")
+    @JsonProperty(value = "https://openminds.om-i.org/props/measuredQuantity")
     private Reference<MeasuredQuantity> measuredQuantity;
     
     public Reference<MeasuredQuantity> getMeasuredQuantity() {
        return this.measuredQuantity;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/measuredWith")
+    @JsonProperty(value = "https://openminds.om-i.org/props/measuredWith")
     private Reference<? extends MeasurementMeasuredWith> measuredWith;
     
     public Reference<? extends MeasurementMeasuredWith> getMeasuredWith() {
        return this.measuredWith;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/timestamp")
+    @JsonProperty(value = "https://openminds.om-i.org/props/timestamp")
     private String timestamp;
     
     public String getTimestamp() {
        return this.timestamp;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/value")
+    @JsonProperty(value = "https://openminds.om-i.org/props/value")
     private List<? extends MeasurementValue> value;
     
     /**

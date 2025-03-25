@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.An
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class AnatomicalTargetPosition extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/AnatomicalTargetPosition";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/AnatomicalTargetPosition";
 
     @JsonIgnore
     public Reference<AnatomicalTargetPosition> getReference() {
@@ -68,7 +68,7 @@ public class AnatomicalTargetPosition extends Instance implements org.openmetada
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -78,21 +78,21 @@ public class AnatomicalTargetPosition extends Instance implements org.openmetada
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalTarget")
+    @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalTarget")
     private List<Reference<? extends AnatomicalTargetPositionAnatomicalTarget>> anatomicalTarget;
     
     public List<Reference<? extends AnatomicalTargetPositionAnatomicalTarget>> getAnatomicalTarget() {
        return this.anatomicalTarget;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/spatialLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/spatialLocation")
     private List<CoordinatePoint> spatialLocation;
     
     public List<CoordinatePoint> getSpatialLocation() {
        return this.spatialLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/targetIdentificationType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/targetIdentificationType")
     private Reference<AnatomicalIdentificationType> targetIdentificationType;
     
     public Reference<AnatomicalIdentificationType> getTargetIdentificationType() {

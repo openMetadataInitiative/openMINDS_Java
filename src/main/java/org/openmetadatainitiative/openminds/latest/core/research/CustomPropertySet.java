@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.CustomPr
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class CustomPropertySet extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/CustomPropertySet";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/CustomPropertySet";
 
     @JsonIgnore
     public Reference<CustomPropertySet> getReference() {
@@ -66,21 +66,21 @@ public class CustomPropertySet extends Instance implements org.openmetadatainiti
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/context")
+   @JsonProperty(value = "https://openminds.om-i.org/props/context")
     private String context;
     
     public String getContext() {
        return this.context;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/dataLocation")
     private Reference<? extends CustomPropertySetDataLocation> dataLocation;
     
     public Reference<? extends CustomPropertySetDataLocation> getDataLocation() {
        return this.dataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relevantFor")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relevantFor")
     private Reference<? extends CustomPropertySetRelevantFor> relevantFor;
     
     /**

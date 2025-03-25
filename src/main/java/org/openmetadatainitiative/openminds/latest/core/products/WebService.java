@@ -26,8 +26,8 @@ import static org.openmetadatainitiative.openminds.latest.core.products.WebServi
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class WebService extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/WebService";
+public class WebService extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/WebService";
 
     @JsonIgnore
     public Reference<WebService> getReference() {
@@ -76,7 +76,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends WebServiceCustodian>> custodian;
     
     /**
@@ -86,7 +86,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -96,7 +96,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/developer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
     private List<Reference<? extends WebServiceDeveloper>> developer;
     
     /**
@@ -106,7 +106,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.developer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -116,7 +116,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasVersion")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
     private List<Reference<WebServiceVersion>> hasVersion;
     
     /**
@@ -126,7 +126,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.hasVersion;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -136,7 +136,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -146,7 +146,7 @@ public class WebService extends Instance implements org.openmetadatainitiative.o
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**

@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShap
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Ellipse extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Ellipse";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Ellipse";
 
     @JsonIgnore
     public Reference<Ellipse> getReference() {
@@ -64,14 +64,14 @@ public class Ellipse extends Instance implements org.openmetadatainitiative.open
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/semiMajorAxis")
+   @JsonProperty(value = "https://openminds.om-i.org/props/semiMajorAxis")
     private QuantitativeValue semiMajorAxis;
     
     public QuantitativeValue getSemiMajorAxis() {
        return this.semiMajorAxis;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/semiMinorAxis")
+    @JsonProperty(value = "https://openminds.om-i.org/props/semiMinorAxis")
     private QuantitativeValue semiMinorAxis;
     
     public QuantitativeValue getSemiMinorAxis() {

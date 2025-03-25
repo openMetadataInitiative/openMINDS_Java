@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.computation.LaunchConf
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class LaunchConfiguration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/LaunchConfiguration";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LaunchConfiguration";
 
     @JsonIgnore
     public Reference<LaunchConfiguration> getReference() {
@@ -71,14 +71,14 @@ public class LaunchConfiguration extends Instance implements org.openmetadataini
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/argument")
+   @JsonProperty(value = "https://openminds.om-i.org/props/argument")
     private List<String> argument;
     
     public List<String> getArgument() {
        return this.argument;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -88,21 +88,21 @@ public class LaunchConfiguration extends Instance implements org.openmetadataini
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/environmentVariable")
+    @JsonProperty(value = "https://openminds.om-i.org/props/environmentVariable")
     private Reference<PropertyValueList> environmentVariable;
     
     public Reference<PropertyValueList> getEnvironmentVariable() {
        return this.environmentVariable;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/executable")
+    @JsonProperty(value = "https://openminds.om-i.org/props/executable")
     private String executable;
     
     public String getExecutable() {
        return this.executable;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**

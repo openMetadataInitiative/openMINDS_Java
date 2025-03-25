@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileReposito
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class FileRepositoryStructure extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileRepositoryStructure";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/FileRepositoryStructure";
 
     @JsonIgnore
     public Reference<FileRepositoryStructure> getReference() {
@@ -68,14 +68,14 @@ public class FileRepositoryStructure extends Instance implements org.openmetadat
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/filePathPattern")
+   @JsonProperty(value = "https://openminds.om-i.org/props/filePathPattern")
     private List<FilePathPattern> filePathPattern;
     
     public List<FilePathPattern> getFilePathPattern() {
        return this.filePathPattern;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {

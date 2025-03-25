@@ -26,8 +26,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.SubjectG
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SubjectGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SubjectGroup";
+public class SubjectGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SubjectGroup";
 
     @JsonIgnore
     public Reference<SubjectGroup> getReference() {
@@ -75,7 +75,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -85,7 +85,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/biologicalSex")
+    @JsonProperty(value = "https://openminds.om-i.org/props/biologicalSex")
     private List<Reference<BiologicalSex>> biologicalSex;
     
     /**
@@ -95,7 +95,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
        return this.biologicalSex;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -105,21 +105,21 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/numberOfSubjects")
+    @JsonProperty(value = "https://openminds.om-i.org/props/numberOfSubjects")
     private Object numberOfSubjects;
     
     public Object getNumberOfSubjects() {
        return this.numberOfSubjects;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/species")
+    @JsonProperty(value = "https://openminds.om-i.org/props/species")
     private List<Reference<? extends SubjectGroupSpecies>> species;
     
     /**
@@ -129,7 +129,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
        return this.species;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studiedState")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studiedState")
     private List<Reference<SubjectGroupState>> studiedState;
     
     /**

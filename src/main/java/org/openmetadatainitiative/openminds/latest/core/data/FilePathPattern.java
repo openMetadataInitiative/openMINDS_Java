@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FilePathPatt
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class FilePathPattern extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FilePathPattern";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/FilePathPattern";
 
     @JsonIgnore
     public Reference<FilePathPattern> getReference() {
@@ -64,14 +64,14 @@ public class FilePathPattern extends Instance implements org.openmetadatainitiat
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/groupingType")
+   @JsonProperty(value = "https://openminds.om-i.org/props/groupingType")
     private List<Reference<FileBundleGrouping>> groupingType;
     
     public List<Reference<FileBundleGrouping>> getGroupingType() {
        return this.groupingType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/regex")
+    @JsonProperty(value = "https://openminds.om-i.org/props/regex")
     private String regex;
     
     public String getRegex() {

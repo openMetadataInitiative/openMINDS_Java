@@ -28,7 +28,7 @@ import static org.openmetadatainitiative.openminds.latest.computation.WorkflowEx
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class WorkflowExecution extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowExecution";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/WorkflowExecution";
 
     @JsonIgnore
     public Reference<WorkflowExecution> getReference() {
@@ -73,28 +73,28 @@ public class WorkflowExecution extends Instance implements org.openmetadatainiti
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/configuration")
+   @JsonProperty(value = "https://openminds.om-i.org/props/configuration")
     private Reference<? extends WorkflowExecutionConfiguration> configuration;
     
     public Reference<? extends WorkflowExecutionConfiguration> getConfiguration() {
        return this.configuration;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/recipe")
+    @JsonProperty(value = "https://openminds.om-i.org/props/recipe")
     private Reference<WorkflowRecipeVersion> recipe;
     
     public Reference<WorkflowRecipeVersion> getRecipe() {
        return this.recipe;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/stage")
     private List<Reference<? extends WorkflowExecutionStage>> stage;
     
     public List<Reference<? extends WorkflowExecutionStage>> getStage() {
        return this.stage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startedBy")
     private Reference<? extends WorkflowExecutionStartedBy> startedBy;
     
     public Reference<? extends WorkflowExecutionStartedBy> getStartedBy() {

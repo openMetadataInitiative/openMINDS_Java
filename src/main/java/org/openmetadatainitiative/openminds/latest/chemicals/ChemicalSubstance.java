@@ -26,8 +26,8 @@ import static org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubs
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ChemicalSubstance extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteMaterial{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ChemicalSubstance";
+public class ChemicalSubstance extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeInsulatorMaterial{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ChemicalSubstance";
 
     @JsonIgnore
     public Reference<ChemicalSubstance> getReference() {
@@ -73,7 +73,7 @@ public class ChemicalSubstance extends Instance implements org.openmetadatainiti
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -83,28 +83,28 @@ public class ChemicalSubstance extends Instance implements org.openmetadatainiti
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/molecularEntity")
+    @JsonProperty(value = "https://openminds.om-i.org/props/molecularEntity")
     private Reference<MolecularEntity> molecularEntity;
     
     public Reference<MolecularEntity> getMolecularEntity() {
        return this.molecularEntity;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/productSource")
+    @JsonProperty(value = "https://openminds.om-i.org/props/productSource")
     private Reference<ProductSource> productSource;
     
     public Reference<ProductSource> getProductSource() {
        return this.productSource;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/purity")
+    @JsonProperty(value = "https://openminds.om-i.org/props/purity")
     private ChemicalSubstancePurity purity;
     
     public ChemicalSubstancePurity getPurity() {

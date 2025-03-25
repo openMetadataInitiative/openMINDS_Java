@@ -24,8 +24,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Numerica
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class NumericalProperty extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/NumericalProperty";
+public class NumericalProperty extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle, org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/NumericalProperty";
 
     @JsonIgnore
     public Reference<NumericalProperty> getReference() {
@@ -64,7 +64,7 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+   @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -74,7 +74,7 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/value")
+    @JsonProperty(value = "https://openminds.om-i.org/props/value")
     private List<? extends NumericalPropertyValue> value;
     
     /**

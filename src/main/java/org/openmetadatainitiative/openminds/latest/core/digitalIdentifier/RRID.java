@@ -23,8 +23,8 @@ import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class RRID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeDigitalIdentifier, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayDigitalIdentifier, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.actors.intf.OrganizationDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceDigitalIdentifier{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/RRID";
+public class RRID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceDigitalIdentifier, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayDigitalIdentifier, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteDigitalIdentifier, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.actors.intf.OrganizationDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasDigitalIdentifier, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionDigitalIdentifier{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/RRID";
 
     @JsonIgnore
     public Reference<RRID> getReference() {
@@ -66,7 +66,7 @@ public class RRID extends Instance implements org.openmetadatainitiative.openmin
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/identifier")
     private String identifier;
     
     /**

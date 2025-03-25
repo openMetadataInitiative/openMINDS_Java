@@ -30,7 +30,7 @@ import static org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArra
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ElectrodeArrayUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.v3.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.v3.core.data.intf.MeasurementMeasuredWith{
+public class ElectrodeArrayUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.v3.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.v3.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.v3.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.v3.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.v3.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage";
 
     @JsonIgnore

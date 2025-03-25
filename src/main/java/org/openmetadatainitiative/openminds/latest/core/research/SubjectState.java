@@ -30,8 +30,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.SubjectS
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SubjectState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SubjectState";
+public class SubjectState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SubjectState";
 
     @JsonIgnore
     public Reference<SubjectState> getReference() {
@@ -83,7 +83,7 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -93,7 +93,7 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/age")
+    @JsonProperty(value = "https://openminds.om-i.org/props/age")
     private SubjectStateAge age;
     
     /**
@@ -103,7 +103,7 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
        return this.age;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/ageCategory")
+    @JsonProperty(value = "https://openminds.om-i.org/props/ageCategory")
     private Reference<AgeCategory> ageCategory;
     
     /**
@@ -113,21 +113,21 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
        return this.ageCategory;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/attribute")
+    @JsonProperty(value = "https://openminds.om-i.org/props/attribute")
     private List<Reference<SubjectAttribute>> attribute;
     
     public List<Reference<SubjectAttribute>> getAttribute() {
        return this.attribute;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/descendedFrom")
+    @JsonProperty(value = "https://openminds.om-i.org/props/descendedFrom")
     private Reference<SubjectState> descendedFrom;
     
     public Reference<SubjectState> getDescendedFrom() {
        return this.descendedFrom;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/handedness")
+    @JsonProperty(value = "https://openminds.om-i.org/props/handedness")
     private Reference<Handedness> handedness;
     
     /**
@@ -137,7 +137,7 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
        return this.handedness;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -147,14 +147,14 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/pathology")
+    @JsonProperty(value = "https://openminds.om-i.org/props/pathology")
     private List<Reference<? extends SubjectStatePathology>> pathology;
     
     /**
@@ -164,14 +164,14 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
        return this.pathology;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relativeTimeIndication")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relativeTimeIndication")
     private SubjectStateRelativeTimeIndication relativeTimeIndication;
     
     public SubjectStateRelativeTimeIndication getRelativeTimeIndication() {
        return this.relativeTimeIndication;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/weight")
+    @JsonProperty(value = "https://openminds.om-i.org/props/weight")
     private SubjectStateWeight weight;
     
     /**

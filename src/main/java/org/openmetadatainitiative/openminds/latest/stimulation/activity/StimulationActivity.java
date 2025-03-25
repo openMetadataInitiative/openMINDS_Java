@@ -20,6 +20,7 @@ import org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.Sti
 import org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput;
 import org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityPerformedBy;
 import org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityStudyTarget;
+import org.openmetadatainitiative.openminds.latest.stimulation.stimulus.EphysStimulus;
 
 
 import static org.openmetadatainitiative.openminds.latest.stimulation.activity.StimulationActivity.SEMANTIC_NAME;
@@ -33,7 +34,7 @@ import static org.openmetadatainitiative.openminds.latest.stimulation.activity.S
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class StimulationActivity extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/stimulation/StimulationActivity";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/StimulationActivity";
 
     @JsonIgnore
     public Reference<StimulationActivity> getReference() {
@@ -69,7 +70,7 @@ public class StimulationActivity extends Instance implements org.openmetadataini
         public Builder protocol(List<Reference<Protocol>> protocol) { StimulationActivity.this.protocol = protocol; return this; }
         public Builder setup(Reference<Setup> setup) { StimulationActivity.this.setup = setup; return this; }
         public Builder startTime(String startTime) { StimulationActivity.this.startTime = startTime; return this; }
-        public Builder stimulus(Object stimulus) { StimulationActivity.this.stimulus = stimulus; return this; }
+        public Builder stimulus(List<Reference<EphysStimulus>> stimulus) { StimulationActivity.this.stimulus = stimulus; return this; }
         public Builder studyTarget(List<Reference<? extends StimulationActivityStudyTarget>> studyTarget) { StimulationActivity.this.studyTarget = studyTarget; return this; }
         
 
@@ -88,14 +89,14 @@ public class StimulationActivity extends Instance implements org.openmetadataini
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
+   @JsonProperty(value = "https://openminds.om-i.org/props/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
     
     public List<CustomPropertySet> getCustomPropertySet() {
        return this.customPropertySet;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -105,14 +106,14 @@ public class StimulationActivity extends Instance implements org.openmetadataini
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/endTime")
     private String endTime;
     
     public String getEndTime() {
        return this.endTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/input")
+    @JsonProperty(value = "https://openminds.om-i.org/props/input")
     private List<Reference<? extends StimulationActivityInput>> input;
     
     /**
@@ -122,7 +123,7 @@ public class StimulationActivity extends Instance implements org.openmetadataini
        return this.input;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<DatasetVersion> isPartOf;
     
     /**
@@ -132,14 +133,14 @@ public class StimulationActivity extends Instance implements org.openmetadataini
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/output")
+    @JsonProperty(value = "https://openminds.om-i.org/props/output")
     private List<Reference<? extends StimulationActivityOutput>> output;
     
     /**
@@ -149,21 +150,21 @@ public class StimulationActivity extends Instance implements org.openmetadataini
        return this.output;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/performedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/performedBy")
     private List<Reference<? extends StimulationActivityPerformedBy>> performedBy;
     
     public List<Reference<? extends StimulationActivityPerformedBy>> getPerformedBy() {
        return this.performedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/preparationDesign")
+    @JsonProperty(value = "https://openminds.om-i.org/props/preparationDesign")
     private Reference<PreparationType> preparationDesign;
     
     public Reference<PreparationType> getPreparationDesign() {
        return this.preparationDesign;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/protocol")
+    @JsonProperty(value = "https://openminds.om-i.org/props/protocol")
     private List<Reference<Protocol>> protocol;
     
     /**
@@ -173,28 +174,28 @@ public class StimulationActivity extends Instance implements org.openmetadataini
        return this.protocol;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/setup")
+    @JsonProperty(value = "https://openminds.om-i.org/props/setup")
     private Reference<Setup> setup;
     
     public Reference<Setup> getSetup() {
        return this.setup;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startTime")
     private String startTime;
     
     public String getStartTime() {
        return this.startTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stimulus")
-    private Object stimulus;
+    @JsonProperty(value = "https://openminds.om-i.org/props/stimulus")
+    private List<Reference<EphysStimulus>> stimulus;
     
-    public Object getStimulus() {
+    public List<Reference<EphysStimulus>> getStimulus() {
        return this.stimulus;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studyTarget")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
     private List<Reference<? extends StimulationActivityStudyTarget>> studyTarget;
     
     /**

@@ -29,6 +29,7 @@ import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersio
 import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionDeveloper;
 import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionDigitalIdentifier;
 import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionFullDocumentation;
+import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionHasPart;
 import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionKeyword;
 import org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionRelatedPublication;
 
@@ -43,7 +44,7 @@ import static org.openmetadatainitiative.openminds.v3.core.products.SoftwareVers
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout{
+public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.v3.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v3.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v3.core.products.intf.SoftwareVersionHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v3.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.v3.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyInput{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SoftwareVersion";
 
     @JsonIgnore
@@ -80,7 +81,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
         public Builder fullDocumentation(Reference<? extends SoftwareVersionFullDocumentation> fullDocumentation) { SoftwareVersion.this.fullDocumentation = fullDocumentation; return this; }
         public Builder fullName(String fullName) { SoftwareVersion.this.fullName = fullName; return this; }
         public Builder funding(List<Reference<Funding>> funding) { SoftwareVersion.this.funding = funding; return this; }
-        public Builder hasPart(List<Reference<SoftwareVersion>> hasPart) { SoftwareVersion.this.hasPart = hasPart; return this; }
+        public Builder hasPart(List<Reference<? extends SoftwareVersionHasPart>> hasPart) { SoftwareVersion.this.hasPart = hasPart; return this; }
         public Builder homepage(String homepage) { SoftwareVersion.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { SoftwareVersion.this.howToCite = howToCite; return this; }
         public Builder inputFormat(List<Reference<ContentType>> inputFormat) { SoftwareVersion.this.inputFormat = inputFormat; return this; }
@@ -239,9 +240,9 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasPart")
-    private List<Reference<SoftwareVersion>> hasPart;
+    private List<Reference<? extends SoftwareVersionHasPart>> hasPart;
     
-    public List<Reference<SoftwareVersion>> getHasPart() {
+    public List<Reference<? extends SoftwareVersionHasPart>> getHasPart() {
        return this.hasPart;
     }
 

@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Fun
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Funding extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Funding";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Funding";
 
     @JsonIgnore
     public Reference<Funding> getReference() {
@@ -70,7 +70,7 @@ public class Funding extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/acknowledgement")
+   @JsonProperty(value = "https://openminds.om-i.org/props/acknowledgement")
     private String acknowledgement;
     
     /**
@@ -80,7 +80,7 @@ public class Funding extends Instance implements org.openmetadatainitiative.open
        return this.acknowledgement;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/awardNumber")
+    @JsonProperty(value = "https://openminds.om-i.org/props/awardNumber")
     private String awardNumber;
     
     /**
@@ -90,7 +90,7 @@ public class Funding extends Instance implements org.openmetadatainitiative.open
        return this.awardNumber;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/awardTitle")
+    @JsonProperty(value = "https://openminds.om-i.org/props/awardTitle")
     private String awardTitle;
     
     /**
@@ -100,7 +100,7 @@ public class Funding extends Instance implements org.openmetadatainitiative.open
        return this.awardTitle;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/funder")
+    @JsonProperty(value = "https://openminds.om-i.org/props/funder")
     private Reference<? extends FundingFunder> funder;
     
     /**

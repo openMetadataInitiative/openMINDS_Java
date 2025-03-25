@@ -30,7 +30,7 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.S
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Pipette extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Pipette";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Pipette";
 
     @JsonIgnore
     public Reference<Pipette> getReference() {
@@ -83,7 +83,7 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -93,14 +93,14 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/deviceType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/deviceType")
     private Reference<DeviceType> deviceType;
     
     public Reference<DeviceType> getDeviceType() {
        return this.deviceType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends PipetteDigitalIdentifier> digitalIdentifier;
     
     /**
@@ -110,21 +110,21 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/externalDiameter")
+    @JsonProperty(value = "https://openminds.om-i.org/props/externalDiameter")
     private QuantitativeValue externalDiameter;
     
     public QuantitativeValue getExternalDiameter() {
        return this.externalDiameter;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalDiameter")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalDiameter")
     private QuantitativeValue internalDiameter;
     
     public QuantitativeValue getInternalDiameter() {
        return this.internalDiameter;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -134,28 +134,28 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/manufacturer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/manufacturer")
     private List<Reference<? extends PipetteManufacturer>> manufacturer;
     
     public List<Reference<? extends PipetteManufacturer>> getManufacturer() {
        return this.manufacturer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/material")
+    @JsonProperty(value = "https://openminds.om-i.org/props/material")
     private Reference<? extends PipetteMaterial> material;
     
     public Reference<? extends PipetteMaterial> getMaterial() {
        return this.material;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -165,14 +165,14 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/owner")
+    @JsonProperty(value = "https://openminds.om-i.org/props/owner")
     private List<Reference<? extends PipetteOwner>> owner;
     
     public List<Reference<? extends PipetteOwner>> getOwner() {
        return this.owner;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/serialNumber")
+    @JsonProperty(value = "https://openminds.om-i.org/props/serialNumber")
     private String serialNumber;
     
     public String getSerialNumber() {

@@ -34,7 +34,7 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class CranialWindowPreparation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/CranialWindowPreparation";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/CranialWindowPreparation";
 
     @JsonIgnore
     public Reference<CranialWindowPreparation> getReference() {
@@ -90,21 +90,21 @@ public class CranialWindowPreparation extends Instance implements org.openmetada
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/constructionType")
+   @JsonProperty(value = "https://openminds.om-i.org/props/constructionType")
     private Reference<CranialWindowConstructionType> constructionType;
     
     public Reference<CranialWindowConstructionType> getConstructionType() {
        return this.constructionType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
+    @JsonProperty(value = "https://openminds.om-i.org/props/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
     
     public List<CustomPropertySet> getCustomPropertySet() {
        return this.customPropertySet;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -114,21 +114,21 @@ public class CranialWindowPreparation extends Instance implements org.openmetada
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dimension")
+    @JsonProperty(value = "https://openminds.om-i.org/props/dimension")
     private CranialWindowPreparationDimension dimension;
     
     public CranialWindowPreparationDimension getDimension() {
        return this.dimension;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/endTime")
     private String endTime;
     
     public String getEndTime() {
        return this.endTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/input")
+    @JsonProperty(value = "https://openminds.om-i.org/props/input")
     private List<Reference<SubjectState>> input;
     
     /**
@@ -138,7 +138,7 @@ public class CranialWindowPreparation extends Instance implements org.openmetada
        return this.input;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<DatasetVersion> isPartOf;
     
     /**
@@ -148,14 +148,14 @@ public class CranialWindowPreparation extends Instance implements org.openmetada
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/output")
+    @JsonProperty(value = "https://openminds.om-i.org/props/output")
     private List<Reference<SubjectState>> output;
     
     /**
@@ -165,21 +165,21 @@ public class CranialWindowPreparation extends Instance implements org.openmetada
        return this.output;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/performedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/performedBy")
     private List<Reference<? extends CranialWindowPreparationPerformedBy>> performedBy;
     
     public List<Reference<? extends CranialWindowPreparationPerformedBy>> getPerformedBy() {
        return this.performedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/preparationDesign")
+    @JsonProperty(value = "https://openminds.om-i.org/props/preparationDesign")
     private Reference<PreparationType> preparationDesign;
     
     public Reference<PreparationType> getPreparationDesign() {
        return this.preparationDesign;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/protocol")
+    @JsonProperty(value = "https://openminds.om-i.org/props/protocol")
     private List<Reference<Protocol>> protocol;
     
     /**
@@ -189,21 +189,21 @@ public class CranialWindowPreparation extends Instance implements org.openmetada
        return this.protocol;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/reinforcementType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/reinforcementType")
     private Reference<CranialWindowReinforcementType> reinforcementType;
     
     public Reference<CranialWindowReinforcementType> getReinforcementType() {
        return this.reinforcementType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startTime")
     private String startTime;
     
     public String getStartTime() {
        return this.startTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studyTarget")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
     private List<Reference<? extends CranialWindowPreparationStudyTarget>> studyTarget;
     
     /**

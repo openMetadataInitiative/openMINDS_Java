@@ -30,7 +30,7 @@ import static org.openmetadatainitiative.openminds.v3.core.research.TissueSample
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy{
+public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.v3.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSampleCollection";
 
     @JsonIgnore

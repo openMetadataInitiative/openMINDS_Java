@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.ContentTypeP
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ContentTypePattern extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContentTypePattern";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ContentTypePattern";
 
     @JsonIgnore
     public Reference<ContentTypePattern> getReference() {
@@ -69,21 +69,21 @@ public class ContentTypePattern extends Instance implements org.openmetadatainit
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentType")
+   @JsonProperty(value = "https://openminds.om-i.org/props/contentType")
     private Reference<ContentType> contentType;
     
     public Reference<ContentType> getContentType() {
        return this.contentType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/regex")
+    @JsonProperty(value = "https://openminds.om-i.org/props/regex")
     private String regex;
     
     public String getRegex() {

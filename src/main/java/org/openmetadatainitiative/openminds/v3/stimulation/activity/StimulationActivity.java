@@ -20,6 +20,7 @@ import org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.Stimula
 import org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.StimulationActivityOutput;
 import org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.StimulationActivityPerformedBy;
 import org.openmetadatainitiative.openminds.v3.stimulation.activity.intf.StimulationActivityStudyTarget;
+import org.openmetadatainitiative.openminds.v3.stimulation.stimulus.EphysStimulus;
 
 
 import static org.openmetadatainitiative.openminds.v3.stimulation.activity.StimulationActivity.SEMANTIC_NAME;
@@ -69,7 +70,7 @@ public class StimulationActivity extends Instance implements org.openmetadataini
         public Builder protocol(List<Reference<Protocol>> protocol) { StimulationActivity.this.protocol = protocol; return this; }
         public Builder setup(Reference<Setup> setup) { StimulationActivity.this.setup = setup; return this; }
         public Builder startTime(String startTime) { StimulationActivity.this.startTime = startTime; return this; }
-        public Builder stimulus(Object stimulus) { StimulationActivity.this.stimulus = stimulus; return this; }
+        public Builder stimulus(List<Reference<EphysStimulus>> stimulus) { StimulationActivity.this.stimulus = stimulus; return this; }
         public Builder studyTarget(List<Reference<? extends StimulationActivityStudyTarget>> studyTarget) { StimulationActivity.this.studyTarget = studyTarget; return this; }
         
 
@@ -188,9 +189,9 @@ public class StimulationActivity extends Instance implements org.openmetadataini
     }
 
     @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stimulus")
-    private Object stimulus;
+    private List<Reference<EphysStimulus>> stimulus;
     
-    public Object getStimulus() {
+    public List<Reference<EphysStimulus>> getStimulus() {
        return this.stimulus;
     }
 

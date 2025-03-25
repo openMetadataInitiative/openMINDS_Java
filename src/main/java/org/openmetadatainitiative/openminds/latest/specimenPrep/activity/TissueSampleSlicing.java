@@ -12,8 +12,14 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType;
+import org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion;
+import org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet;
+import org.openmetadatainitiative.openminds.latest.core.research.Protocol;
 import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput;
 import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingOutput;
+import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingPerformedBy;
+import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingStudyTarget;
 import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingTemperature;
 import org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage;
 
@@ -29,7 +35,7 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class TissueSampleSlicing extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/TissueSampleSlicing";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/TissueSampleSlicing";
 
     @JsonIgnore
     public Reference<TissueSampleSlicing> getReference() {
@@ -53,9 +59,19 @@ public class TissueSampleSlicing extends Instance implements org.openmetadataini
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueSampleSlicing>{
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { TissueSampleSlicing.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
+        public Builder description(String description) { TissueSampleSlicing.this.description = description; return this; }
         public Builder device(Reference<SlicingDeviceUsage> device) { TissueSampleSlicing.this.device = device; return this; }
-        public Builder input(Reference<? extends TissueSampleSlicingInput> input) { TissueSampleSlicing.this.input = input; return this; }
+        public Builder endTime(String endTime) { TissueSampleSlicing.this.endTime = endTime; return this; }
+        public Builder input(List<Reference<? extends TissueSampleSlicingInput>> input) { TissueSampleSlicing.this.input = input; return this; }
+        public Builder isPartOf(Reference<DatasetVersion> isPartOf) { TissueSampleSlicing.this.isPartOf = isPartOf; return this; }
+        public Builder lookupLabel(String lookupLabel) { TissueSampleSlicing.this.lookupLabel = lookupLabel; return this; }
         public Builder output(List<Reference<? extends TissueSampleSlicingOutput>> output) { TissueSampleSlicing.this.output = output; return this; }
+        public Builder performedBy(List<Reference<? extends TissueSampleSlicingPerformedBy>> performedBy) { TissueSampleSlicing.this.performedBy = performedBy; return this; }
+        public Builder preparationDesign(Reference<PreparationType> preparationDesign) { TissueSampleSlicing.this.preparationDesign = preparationDesign; return this; }
+        public Builder protocol(List<Reference<Protocol>> protocol) { TissueSampleSlicing.this.protocol = protocol; return this; }
+        public Builder startTime(String startTime) { TissueSampleSlicing.this.startTime = startTime; return this; }
+        public Builder studyTarget(List<Reference<? extends TissueSampleSlicingStudyTarget>> studyTarget) { TissueSampleSlicing.this.studyTarget = studyTarget; return this; }
         public Builder temperature(Function<TissueSampleSlicingTemperature.EmbeddedBuilder, TissueSampleSlicingTemperature> temperature) { TissueSampleSlicing.this.temperature = temperature.apply(TissueSampleSlicingTemperature.createEmbedded()); return this; }
         public Builder tissueBathSolution(Reference<ChemicalMixture> tissueBathSolution) { TissueSampleSlicing.this.tissueBathSolution = tissueBathSolution; return this; }
         
@@ -75,7 +91,24 @@ public class TissueSampleSlicing extends Instance implements org.openmetadataini
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+   @JsonProperty(value = "https://openminds.om-i.org/props/customPropertySet")
+    private List<CustomPropertySet> customPropertySet;
+    
+    public List<CustomPropertySet> getCustomPropertySet() {
+       return this.customPropertySet;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
+    private String description;
+    
+    /**
+    * Longer statement or account giving the characteristics of someone or something.
+    */
+    public String getDescription() {
+       return this.description;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private Reference<SlicingDeviceUsage> device;
     
     /**
@@ -85,17 +118,41 @@ public class TissueSampleSlicing extends Instance implements org.openmetadataini
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/input")
-    private Reference<? extends TissueSampleSlicingInput> input;
+    @JsonProperty(value = "https://openminds.om-i.org/props/endTime")
+    private String endTime;
+    
+    public String getEndTime() {
+       return this.endTime;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/input")
+    private List<Reference<? extends TissueSampleSlicingInput>> input;
     
     /**
     * Something or someone that is put into or participates in a process or machine.
     */
-    public Reference<? extends TissueSampleSlicingInput> getInput() {
+    public List<Reference<? extends TissueSampleSlicingInput>> getInput() {
        return this.input;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/output")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
+    private Reference<DatasetVersion> isPartOf;
+    
+    /**
+    * Reference to the ensemble of multiple things or beings.
+    */
+    public Reference<DatasetVersion> getIsPartOf() {
+       return this.isPartOf;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
+    private String lookupLabel;
+    
+    public String getLookupLabel() {
+       return this.lookupLabel;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/output")
     private List<Reference<? extends TissueSampleSlicingOutput>> output;
     
     /**
@@ -105,14 +162,55 @@ public class TissueSampleSlicing extends Instance implements org.openmetadataini
        return this.output;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/temperature")
+    @JsonProperty(value = "https://openminds.om-i.org/props/performedBy")
+    private List<Reference<? extends TissueSampleSlicingPerformedBy>> performedBy;
+    
+    public List<Reference<? extends TissueSampleSlicingPerformedBy>> getPerformedBy() {
+       return this.performedBy;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/preparationDesign")
+    private Reference<PreparationType> preparationDesign;
+    
+    public Reference<PreparationType> getPreparationDesign() {
+       return this.preparationDesign;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/protocol")
+    private List<Reference<Protocol>> protocol;
+    
+    /**
+    * Plan that describes the process of a scientific or medical experiment, treatment, or procedure.
+    */
+    public List<Reference<Protocol>> getProtocol() {
+       return this.protocol;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/startTime")
+    private String startTime;
+    
+    public String getStartTime() {
+       return this.startTime;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
+    private List<Reference<? extends TissueSampleSlicingStudyTarget>> studyTarget;
+    
+    /**
+    * Structure or function that was targeted within a study.
+    */
+    public List<Reference<? extends TissueSampleSlicingStudyTarget>> getStudyTarget() {
+       return this.studyTarget;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/temperature")
     private TissueSampleSlicingTemperature temperature;
     
     public TissueSampleSlicingTemperature getTemperature() {
        return this.temperature;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/tissueBathSolution")
+    @JsonProperty(value = "https://openminds.om-i.org/props/tissueBathSolution")
     private Reference<ChemicalMixture> tissueBathSolution;
     
     public Reference<ChemicalMixture> getTissueBathSolution() {

@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.Publicati
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class PublicationVolume extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleIsPartOf{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/PublicationVolume";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/PublicationVolume";
 
     @JsonIgnore
     public Reference<PublicationVolume> getReference() {
@@ -68,7 +68,7 @@ public class PublicationVolume extends Instance implements org.openmetadatainiti
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+   @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<Periodical> isPartOf;
     
     /**
@@ -78,7 +78,7 @@ public class PublicationVolume extends Instance implements org.openmetadatainiti
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/volumeNumber")
+    @JsonProperty(value = "https://openminds.om-i.org/props/volumeNumber")
     private String volumeNumber;
     
     public String getVolumeNumber() {

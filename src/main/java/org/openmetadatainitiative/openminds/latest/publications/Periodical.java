@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.Periodica
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Periodical extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/Periodical";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Periodical";
 
     @JsonIgnore
     public Reference<Periodical> getReference() {
@@ -69,14 +69,14 @@ public class Periodical extends Instance implements org.openmetadatainitiative.o
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abbreviation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/abbreviation")
     private String abbreviation;
     
     public String getAbbreviation() {
        return this.abbreviation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<ISSN> digitalIdentifier;
     
     /**
@@ -86,7 +86,7 @@ public class Periodical extends Instance implements org.openmetadatainitiative.o
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**

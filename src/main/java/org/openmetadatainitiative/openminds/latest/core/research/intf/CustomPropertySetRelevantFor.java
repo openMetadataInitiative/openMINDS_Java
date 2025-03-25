@@ -13,7 +13,7 @@ public interface CustomPropertySetRelevantFor extends Entity {
 
    class Deserializer extends ByTypeDeserializer<CustomPropertySetRelevantFor> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.class, org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.class, org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.class, org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.class);
+            super(org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.class, org.openmetadatainitiative.openminds.latest.controlledTerms.MRIPulseSequence.class, org.openmetadatainitiative.openminds.latest.controlledTerms.MRIWeighting.class, org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.class, org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.class, org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.class);
         }
     }
     

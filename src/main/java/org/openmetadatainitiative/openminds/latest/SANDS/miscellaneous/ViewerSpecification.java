@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.Vi
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ViewerSpecification extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ViewerSpecification";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ViewerSpecification";
 
     @JsonIgnore
     public Reference<ViewerSpecification> getReference() {
@@ -68,7 +68,7 @@ public class ViewerSpecification extends Instance implements org.openmetadataini
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -78,21 +78,21 @@ public class ViewerSpecification extends Instance implements org.openmetadataini
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anchorPoint")
+    @JsonProperty(value = "https://openminds.om-i.org/props/anchorPoint")
     private List<QuantitativeValue> anchorPoint;
     
     public List<QuantitativeValue> getAnchorPoint() {
        return this.anchorPoint;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/cameraPosition")
+    @JsonProperty(value = "https://openminds.om-i.org/props/cameraPosition")
     private CoordinatePoint cameraPosition;
     
     public CoordinatePoint getCameraPosition() {
        return this.cameraPosition;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/preferredDisplayColor")
+    @JsonProperty(value = "https://openminds.om-i.org/props/preferredDisplayColor")
     private Reference<? extends ViewerSpecificationPreferredDisplayColor> preferredDisplayColor;
     
     public Reference<? extends ViewerSpecificationPreferredDisplayColor> getPreferredDisplayColor() {

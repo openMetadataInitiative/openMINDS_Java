@@ -30,8 +30,8 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.Electrode
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ElectrodeArrayUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage";
+public class ElectrodeArrayUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ElectrodeArrayUsage";
 
     @JsonIgnore
     public Reference<ElectrodeArrayUsage> getReference() {
@@ -81,28 +81,28 @@ public class ElectrodeArrayUsage extends Instance implements org.openmetadataini
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocationOfArray")
+   @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalLocationOfArray")
     private List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfArray>> anatomicalLocationOfArray;
     
     public List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfArray>> getAnatomicalLocationOfArray() {
        return this.anatomicalLocationOfArray;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocationOfElectrodes")
+    @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalLocationOfElectrodes")
     private List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfElectrodes>> anatomicalLocationOfElectrodes;
     
     public List<Reference<? extends ElectrodeArrayUsageAnatomicalLocationOfElectrodes>> getAnatomicalLocationOfElectrodes() {
        return this.anatomicalLocationOfElectrodes;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contactResistances")
+    @JsonProperty(value = "https://openminds.om-i.org/props/contactResistances")
     private List<? extends ElectrodeArrayUsageContactResistances> contactResistances;
     
     public List<? extends ElectrodeArrayUsageContactResistances> getContactResistances() {
        return this.contactResistances;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private Reference<ElectrodeArray> device;
     
     /**
@@ -112,35 +112,35 @@ public class ElectrodeArrayUsage extends Instance implements org.openmetadataini
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/metadataLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/metadataLocation")
     private List<Reference<? extends ElectrodeArrayUsageMetadataLocation>> metadataLocation;
     
     public List<Reference<? extends ElectrodeArrayUsageMetadataLocation>> getMetadataLocation() {
        return this.metadataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/spatialLocationOfElectrodes")
+    @JsonProperty(value = "https://openminds.om-i.org/props/spatialLocationOfElectrodes")
     private List<CoordinatePoint> spatialLocationOfElectrodes;
     
     public List<CoordinatePoint> getSpatialLocationOfElectrodes() {
        return this.spatialLocationOfElectrodes;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/usedElectrode")
+    @JsonProperty(value = "https://openminds.om-i.org/props/usedElectrode")
     private List<String> usedElectrode;
     
     public List<String> getUsedElectrode() {
        return this.usedElectrode;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/usedSpecimen")
+    @JsonProperty(value = "https://openminds.om-i.org/props/usedSpecimen")
     private Reference<? extends ElectrodeArrayUsageUsedSpecimen> usedSpecimen;
     
     public Reference<? extends ElectrodeArrayUsageUsedSpecimen> getUsedSpecimen() {

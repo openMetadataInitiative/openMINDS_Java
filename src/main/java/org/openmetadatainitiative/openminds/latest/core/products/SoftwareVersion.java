@@ -29,6 +29,7 @@ import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVe
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDeveloper;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDigitalIdentifier;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionFullDocumentation;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionHasPart;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication;
 
@@ -43,8 +44,8 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Software
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SoftwareVersion";
+public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SoftwareVersion";
 
     @JsonIgnore
     public Reference<SoftwareVersion> getReference() {
@@ -80,7 +81,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
         public Builder fullDocumentation(Reference<? extends SoftwareVersionFullDocumentation> fullDocumentation) { SoftwareVersion.this.fullDocumentation = fullDocumentation; return this; }
         public Builder fullName(String fullName) { SoftwareVersion.this.fullName = fullName; return this; }
         public Builder funding(List<Reference<Funding>> funding) { SoftwareVersion.this.funding = funding; return this; }
-        public Builder hasPart(List<Reference<SoftwareVersion>> hasPart) { SoftwareVersion.this.hasPart = hasPart; return this; }
+        public Builder hasPart(List<Reference<? extends SoftwareVersionHasPart>> hasPart) { SoftwareVersion.this.hasPart = hasPart; return this; }
         public Builder homepage(String homepage) { SoftwareVersion.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { SoftwareVersion.this.howToCite = howToCite; return this; }
         public Builder inputFormat(List<Reference<ContentType>> inputFormat) { SoftwareVersion.this.inputFormat = inputFormat; return this; }
@@ -118,7 +119,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
+   @JsonProperty(value = "https://openminds.om-i.org/props/accessibility")
     private Reference<ProductAccessibility> accessibility;
     
     /**
@@ -128,7 +129,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.accessibility;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/applicationCategory")
+    @JsonProperty(value = "https://openminds.om-i.org/props/applicationCategory")
     private List<Reference<SoftwareApplicationCategory>> applicationCategory;
     
     /**
@@ -138,7 +139,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.applicationCategory;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/copyright")
+    @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
     private Copyright copyright;
     
     /**
@@ -148,7 +149,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends SoftwareVersionCustodian>> custodian;
     
     /**
@@ -158,7 +159,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -168,7 +169,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/developer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
     private List<Reference<? extends SoftwareVersionDeveloper>> developer;
     
     /**
@@ -178,7 +179,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.developer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private List<Reference<OperatingDevice>> device;
     
     /**
@@ -188,7 +189,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends SoftwareVersionDigitalIdentifier> digitalIdentifier;
     
     /**
@@ -198,7 +199,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/feature")
+    @JsonProperty(value = "https://openminds.om-i.org/props/feature")
     private List<Reference<SoftwareFeature>> feature;
     
     /**
@@ -208,7 +209,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.feature;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullDocumentation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullDocumentation")
     private Reference<? extends SoftwareVersionFullDocumentation> fullDocumentation;
     
     /**
@@ -218,7 +219,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.fullDocumentation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -228,7 +229,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/funding")
+    @JsonProperty(value = "https://openminds.om-i.org/props/funding")
     private List<Reference<Funding>> funding;
     
     /**
@@ -238,14 +239,14 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.funding;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasPart")
-    private List<Reference<SoftwareVersion>> hasPart;
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasPart")
+    private List<Reference<? extends SoftwareVersionHasPart>> hasPart;
     
-    public List<Reference<SoftwareVersion>> getHasPart() {
+    public List<Reference<? extends SoftwareVersionHasPart>> getHasPart() {
        return this.hasPart;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -255,7 +256,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -265,7 +266,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/inputFormat")
+    @JsonProperty(value = "https://openminds.om-i.org/props/inputFormat")
     private List<Reference<ContentType>> inputFormat;
     
     /**
@@ -275,7 +276,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.inputFormat;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isAlternativeVersionOf")
     private List<Reference<SoftwareVersion>> isAlternativeVersionOf;
     
     /**
@@ -285,7 +286,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.isAlternativeVersionOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isNewVersionOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isNewVersionOf")
     private Reference<SoftwareVersion> isNewVersionOf;
     
     /**
@@ -295,7 +296,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.isNewVersionOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/keyword")
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
     private List<Reference<? extends SoftwareVersionKeyword>> keyword;
     
     /**
@@ -305,7 +306,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/language")
+    @JsonProperty(value = "https://openminds.om-i.org/props/language")
     private List<Reference<Language>> language;
     
     /**
@@ -315,7 +316,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.language;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/license")
+    @JsonProperty(value = "https://openminds.om-i.org/props/license")
     private List<Reference<License>> license;
     
     /**
@@ -325,7 +326,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.license;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/operatingSystem")
+    @JsonProperty(value = "https://openminds.om-i.org/props/operatingSystem")
     private List<Reference<OperatingSystem>> operatingSystem;
     
     /**
@@ -335,7 +336,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.operatingSystem;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/otherContribution")
+    @JsonProperty(value = "https://openminds.om-i.org/props/otherContribution")
     private List<Contribution> otherContribution;
     
     /**
@@ -345,7 +346,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.otherContribution;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/outputFormat")
+    @JsonProperty(value = "https://openminds.om-i.org/props/outputFormat")
     private List<Reference<ContentType>> outputFormat;
     
     /**
@@ -355,7 +356,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.outputFormat;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/programmingLanguage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/programmingLanguage")
     private List<Reference<ProgrammingLanguage>> programmingLanguage;
     
     /**
@@ -365,7 +366,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.programmingLanguage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relatedPublication")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
     private List<Reference<? extends SoftwareVersionRelatedPublication>> relatedPublication;
     
     /**
@@ -375,7 +376,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.relatedPublication;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/releaseDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/releaseDate")
     private String releaseDate;
     
     /**
@@ -385,7 +386,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.releaseDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/repository")
+    @JsonProperty(value = "https://openminds.om-i.org/props/repository")
     private Reference<FileRepository> repository;
     
     /**
@@ -395,7 +396,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.repository;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/requirement")
+    @JsonProperty(value = "https://openminds.om-i.org/props/requirement")
     private List<String> requirement;
     
     /**
@@ -405,7 +406,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.requirement;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**
@@ -415,7 +416,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.shortName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/supportChannel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
     private List<String> supportChannel;
     
     /**
@@ -425,7 +426,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.supportChannel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
     /**
@@ -435,7 +436,7 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionInnovation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
     private String versionInnovation;
     
     /**

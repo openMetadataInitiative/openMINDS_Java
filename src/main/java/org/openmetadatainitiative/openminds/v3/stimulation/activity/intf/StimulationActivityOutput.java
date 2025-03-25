@@ -13,7 +13,7 @@ public interface StimulationActivityOutput extends Entity {
 
    class Deserializer extends ByTypeDeserializer<StimulationActivityOutput> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.class, org.openmetadatainitiative.openminds.v3.core.research.SubjectState.class, org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.class, org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.class);
+            super(org.openmetadatainitiative.openminds.v3.core.data.File.class, org.openmetadatainitiative.openminds.v3.core.data.FileBundle.class, org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.class, org.openmetadatainitiative.openminds.v3.core.research.SubjectState.class, org.openmetadatainitiative.openminds.v3.core.research.TissueSampleCollectionState.class, org.openmetadatainitiative.openminds.v3.core.research.TissueSampleState.class);
         }
     }
     

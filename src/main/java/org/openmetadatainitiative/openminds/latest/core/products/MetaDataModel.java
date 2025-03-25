@@ -27,8 +27,8 @@ import static org.openmetadatainitiative.openminds.latest.core.products.MetaData
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class MetaDataModel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/MetaDataModel";
+public class MetaDataModel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/MetaDataModel";
 
     @JsonIgnore
     public Reference<MetaDataModel> getReference() {
@@ -78,7 +78,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends MetaDataModelCustodian>> custodian;
     
     /**
@@ -88,7 +88,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -98,7 +98,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/developer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
     private List<Reference<? extends MetaDataModelDeveloper>> developer;
     
     /**
@@ -108,7 +108,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.developer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends MetaDataModelDigitalIdentifier> digitalIdentifier;
     
     /**
@@ -118,7 +118,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -128,7 +128,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasVersion")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
     private List<Reference<MetaDataModelVersion>> hasVersion;
     
     /**
@@ -138,7 +138,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.hasVersion;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -148,7 +148,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -158,7 +158,7 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**

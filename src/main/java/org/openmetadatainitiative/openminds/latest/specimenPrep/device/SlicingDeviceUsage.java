@@ -30,8 +30,8 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.Sl
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SlicingDeviceUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage";
+public class SlicingDeviceUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SlicingDeviceUsage";
 
     @JsonIgnore
     public Reference<SlicingDeviceUsage> getReference() {
@@ -82,7 +82,7 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+   @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private Reference<SlicingDevice> device;
     
     /**
@@ -92,63 +92,63 @@ public class SlicingDeviceUsage extends Instance implements org.openmetadatainit
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/metadataLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/metadataLocation")
     private List<Reference<? extends SlicingDeviceUsageMetadataLocation>> metadataLocation;
     
     public List<Reference<? extends SlicingDeviceUsageMetadataLocation>> getMetadataLocation() {
        return this.metadataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/oscillationAmplitude")
+    @JsonProperty(value = "https://openminds.om-i.org/props/oscillationAmplitude")
     private QuantitativeValue oscillationAmplitude;
     
     public QuantitativeValue getOscillationAmplitude() {
        return this.oscillationAmplitude;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/sliceThickness")
+    @JsonProperty(value = "https://openminds.om-i.org/props/sliceThickness")
     private SlicingDeviceUsageSliceThickness sliceThickness;
     
     public SlicingDeviceUsageSliceThickness getSliceThickness() {
        return this.sliceThickness;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/slicingAngle")
+    @JsonProperty(value = "https://openminds.om-i.org/props/slicingAngle")
     private List<? extends SlicingDeviceUsageSlicingAngle> slicingAngle;
     
     public List<? extends SlicingDeviceUsageSlicingAngle> getSlicingAngle() {
        return this.slicingAngle;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/slicingPlane")
+    @JsonProperty(value = "https://openminds.om-i.org/props/slicingPlane")
     private Reference<AnatomicalPlane> slicingPlane;
     
     public Reference<AnatomicalPlane> getSlicingPlane() {
        return this.slicingPlane;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/slicingSpeed")
+    @JsonProperty(value = "https://openminds.om-i.org/props/slicingSpeed")
     private QuantitativeValue slicingSpeed;
     
     public QuantitativeValue getSlicingSpeed() {
        return this.slicingSpeed;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/usedSpecimen")
+    @JsonProperty(value = "https://openminds.om-i.org/props/usedSpecimen")
     private Reference<? extends SlicingDeviceUsageUsedSpecimen> usedSpecimen;
     
     public Reference<? extends SlicingDeviceUsageUsedSpecimen> getUsedSpecimen() {
        return this.usedSpecimen;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/vibrationFrequency")
+    @JsonProperty(value = "https://openminds.om-i.org/props/vibrationFrequency")
     private QuantitativeValue vibrationFrequency;
     
     public QuantitativeValue getVibrationFrequency() {

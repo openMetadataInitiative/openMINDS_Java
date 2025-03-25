@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.v3.computation.Environment.SE
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Environment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationEnvironment{
+public class Environment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.v3.computation.intf.DataCopyEnvironment{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Environment";
 
     @JsonIgnore

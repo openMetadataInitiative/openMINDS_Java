@@ -25,8 +25,8 @@ import static org.openmetadatainitiative.openminds.latest.core.data.FileArchive.
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileArchive";
+public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/FileArchive";
 
     @JsonIgnore
     public Reference<FileArchive> getReference() {
@@ -70,7 +70,7 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -80,7 +80,7 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**
@@ -90,7 +90,7 @@ public class FileArchive extends Instance implements org.openmetadatainitiative.
        return this.format;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/sourceData")
+    @JsonProperty(value = "https://openminds.om-i.org/props/sourceData")
     private List<Reference<File>> sourceData;
     
     public List<Reference<File>> getSourceData() {

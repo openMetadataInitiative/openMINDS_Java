@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShap
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Rectangle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Rectangle";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Rectangle";
 
     @JsonIgnore
     public Reference<Rectangle> getReference() {
@@ -64,14 +64,14 @@ public class Rectangle extends Instance implements org.openmetadatainitiative.op
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/length")
+   @JsonProperty(value = "https://openminds.om-i.org/props/length")
     private QuantitativeValue length;
     
     public QuantitativeValue getLength() {
        return this.length;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/width")
+    @JsonProperty(value = "https://openminds.om-i.org/props/width")
     private QuantitativeValue width;
     
     public QuantitativeValue getWidth() {

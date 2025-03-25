@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.StringPr
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class StringProperty extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/StringProperty";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/StringProperty";
 
     @JsonIgnore
     public Reference<StringProperty> getReference() {
@@ -63,7 +63,7 @@ public class StringProperty extends Instance implements org.openmetadatainitiati
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+   @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -73,7 +73,7 @@ public class StringProperty extends Instance implements org.openmetadatainitiati
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/value")
+    @JsonProperty(value = "https://openminds.om-i.org/props/value")
     private String value;
     
     /**

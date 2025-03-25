@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ChemicalMixture extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeInsulatorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteMaterial{
+public class ChemicalMixture extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.v3.ephys.device.intf.PipetteMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.v3.ephys.device.intf.ElectrodeInsulatorMaterial{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ChemicalMixture";
 
     @JsonIgnore

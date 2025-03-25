@@ -33,8 +33,8 @@ import static org.openmetadatainitiative.openminds.latest.publications.Book.SEMA
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Book extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionRelatedPublication{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/Book";
+public class Book extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Book";
 
     @JsonIgnore
     public Reference<Book> getReference() {
@@ -92,7 +92,7 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -102,14 +102,14 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abstract")
+    @JsonProperty(value = "https://openminds.om-i.org/props/abstract")
     private String abstract_;
     
     public String getAbstract_() {
        return this.abstract_;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/author")
+    @JsonProperty(value = "https://openminds.om-i.org/props/author")
     private List<Reference<? extends BookAuthor>> author;
     
     /**
@@ -119,14 +119,14 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.author;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/citedPublication")
+    @JsonProperty(value = "https://openminds.om-i.org/props/citedPublication")
     private List<Reference<? extends BookCitedPublication>> citedPublication;
     
     public List<Reference<? extends BookCitedPublication>> getCitedPublication() {
        return this.citedPublication;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/copyright")
+    @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
     private Copyright copyright;
     
     /**
@@ -136,14 +136,14 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/creationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/creationDate")
     private String creationDate;
     
     public String getCreationDate() {
        return this.creationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends BookCustodian>> custodian;
     
     /**
@@ -153,7 +153,7 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends BookDigitalIdentifier> digitalIdentifier;
     
     /**
@@ -163,14 +163,14 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/editor")
+    @JsonProperty(value = "https://openminds.om-i.org/props/editor")
     private List<Reference<Person>> editor;
     
     public List<Reference<Person>> getEditor() {
        return this.editor;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/funding")
+    @JsonProperty(value = "https://openminds.om-i.org/props/funding")
     private List<Reference<Funding>> funding;
     
     /**
@@ -180,7 +180,7 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.funding;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/keyword")
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
     private List<Reference<? extends BookKeyword>> keyword;
     
     /**
@@ -190,7 +190,7 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/license")
+    @JsonProperty(value = "https://openminds.om-i.org/props/license")
     private Reference<License> license;
     
     /**
@@ -200,14 +200,14 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.license;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/modificationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/modificationDate")
     private String modificationDate;
     
     public String getModificationDate() {
        return this.modificationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -217,21 +217,21 @@ public class Book extends Instance implements org.openmetadatainitiative.openmin
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/publicationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/publicationDate")
     private String publicationDate;
     
     public String getPublicationDate() {
        return this.publicationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/publisher")
+    @JsonProperty(value = "https://openminds.om-i.org/props/publisher")
     private Reference<? extends BookPublisher> publisher;
     
     public Reference<? extends BookPublisher> getPublisher() {
        return this.publisher;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
     /**

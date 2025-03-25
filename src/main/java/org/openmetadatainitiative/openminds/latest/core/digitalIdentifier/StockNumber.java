@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class StockNumber extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/StockNumber";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/StockNumber";
 
     @JsonIgnore
     public Reference<StockNumber> getReference() {
@@ -64,7 +64,7 @@ public class StockNumber extends Instance implements org.openmetadatainitiative.
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/identifier")
     private String identifier;
     
     /**
@@ -74,7 +74,7 @@ public class StockNumber extends Instance implements org.openmetadatainitiative.
        return this.identifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/vendor")
+    @JsonProperty(value = "https://openminds.om-i.org/props/vendor")
     private Reference<Organization> vendor;
     
     public Reference<Organization> getVendor() {

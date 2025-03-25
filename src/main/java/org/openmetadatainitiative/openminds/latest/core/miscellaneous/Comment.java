@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Com
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Comment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Comment";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Comment";
 
     @JsonIgnore
     public Reference<Comment> getReference() {
@@ -71,28 +71,28 @@ public class Comment extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/about")
+   @JsonProperty(value = "https://openminds.om-i.org/props/about")
     private Reference<? extends CommentAbout> about;
     
     public Reference<? extends CommentAbout> getAbout() {
        return this.about;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/comment")
+    @JsonProperty(value = "https://openminds.om-i.org/props/comment")
     private String comment;
     
     public String getComment() {
        return this.comment;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/commenter")
+    @JsonProperty(value = "https://openminds.om-i.org/props/commenter")
     private Reference<Person> commenter;
     
     public Reference<Person> getCommenter() {
        return this.commenter;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/timestamp")
+    @JsonProperty(value = "https://openminds.om-i.org/props/timestamp")
     private String timestamp;
     
     public String getTimestamp() {

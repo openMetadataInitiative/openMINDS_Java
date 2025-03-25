@@ -30,8 +30,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.TissueSa
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/TissueSampleCollection";
+public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/TissueSampleCollection";
 
     @JsonIgnore
     public Reference<TissueSampleCollection> getReference() {
@@ -83,7 +83,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/additionalRemarks")
+   @JsonProperty(value = "https://openminds.om-i.org/props/additionalRemarks")
     private String additionalRemarks;
     
     /**
@@ -93,14 +93,14 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.additionalRemarks;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalLocation")
     private List<Reference<? extends TissueSampleCollectionAnatomicalLocation>> anatomicalLocation;
     
     public List<Reference<? extends TissueSampleCollectionAnatomicalLocation>> getAnatomicalLocation() {
        return this.anatomicalLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/biologicalSex")
+    @JsonProperty(value = "https://openminds.om-i.org/props/biologicalSex")
     private List<Reference<BiologicalSex>> biologicalSex;
     
     /**
@@ -110,7 +110,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.biologicalSex;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -120,7 +120,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/laterality")
+    @JsonProperty(value = "https://openminds.om-i.org/props/laterality")
     private List<Reference<Laterality>> laterality;
     
     /**
@@ -130,21 +130,21 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.laterality;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/numberOfTissueSamples")
+    @JsonProperty(value = "https://openminds.om-i.org/props/numberOfTissueSamples")
     private Object numberOfTissueSamples;
     
     public Object getNumberOfTissueSamples() {
        return this.numberOfTissueSamples;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/origin")
+    @JsonProperty(value = "https://openminds.om-i.org/props/origin")
     private List<Reference<? extends TissueSampleCollectionOrigin>> origin;
     
     /**
@@ -154,7 +154,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.origin;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/species")
+    @JsonProperty(value = "https://openminds.om-i.org/props/species")
     private List<Reference<? extends TissueSampleCollectionSpecies>> species;
     
     /**
@@ -164,7 +164,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.species;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studiedState")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studiedState")
     private List<Reference<TissueSampleCollectionState>> studiedState;
     
     /**
@@ -174,7 +174,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
        return this.studiedState;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private List<Reference<TissueSampleType>> type;
     
     /**

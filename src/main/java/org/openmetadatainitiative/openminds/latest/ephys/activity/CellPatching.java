@@ -37,7 +37,7 @@ import static org.openmetadatainitiative.openminds.latest.ephys.activity.CellPat
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class CellPatching extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/CellPatching";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/CellPatching";
 
     @JsonIgnore
     public Reference<CellPatching> getReference() {
@@ -95,21 +95,21 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/bathTemperature")
+   @JsonProperty(value = "https://openminds.om-i.org/props/bathTemperature")
     private CellPatchingBathTemperature bathTemperature;
     
     public CellPatchingBathTemperature getBathTemperature() {
        return this.bathTemperature;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
+    @JsonProperty(value = "https://openminds.om-i.org/props/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
     
     public List<CustomPropertySet> getCustomPropertySet() {
        return this.customPropertySet;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -119,7 +119,7 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private List<Reference<? extends CellPatchingDevice>> device;
     
     /**
@@ -129,14 +129,14 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/endTime")
     private String endTime;
     
     public String getEndTime() {
        return this.endTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/input")
+    @JsonProperty(value = "https://openminds.om-i.org/props/input")
     private List<Reference<? extends CellPatchingInput>> input;
     
     /**
@@ -146,7 +146,7 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.input;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<DatasetVersion> isPartOf;
     
     /**
@@ -156,14 +156,14 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/output")
+    @JsonProperty(value = "https://openminds.om-i.org/props/output")
     private List<Reference<? extends CellPatchingOutput>> output;
     
     /**
@@ -173,21 +173,21 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.output;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/performedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/performedBy")
     private List<Reference<? extends CellPatchingPerformedBy>> performedBy;
     
     public List<Reference<? extends CellPatchingPerformedBy>> getPerformedBy() {
        return this.performedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/preparationDesign")
+    @JsonProperty(value = "https://openminds.om-i.org/props/preparationDesign")
     private Reference<PreparationType> preparationDesign;
     
     public Reference<PreparationType> getPreparationDesign() {
        return this.preparationDesign;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/protocol")
+    @JsonProperty(value = "https://openminds.om-i.org/props/protocol")
     private List<Reference<Protocol>> protocol;
     
     /**
@@ -197,14 +197,14 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.protocol;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startTime")
     private String startTime;
     
     public String getStartTime() {
        return this.startTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studyTarget")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
     private List<Reference<? extends CellPatchingStudyTarget>> studyTarget;
     
     /**
@@ -214,21 +214,21 @@ public class CellPatching extends Instance implements org.openmetadatainitiative
        return this.studyTarget;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/targetPosition")
+    @JsonProperty(value = "https://openminds.om-i.org/props/targetPosition")
     private AnatomicalTargetPosition targetPosition;
     
     public AnatomicalTargetPosition getTargetPosition() {
        return this.targetPosition;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/tissueBathSolution")
+    @JsonProperty(value = "https://openminds.om-i.org/props/tissueBathSolution")
     private Reference<ChemicalMixture> tissueBathSolution;
     
     public Reference<ChemicalMixture> getTissueBathSolution() {
        return this.tissueBathSolution;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/variation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/variation")
     private Reference<PatchClampVariation> variation;
     
     public Reference<PatchClampVariation> getVariation() {

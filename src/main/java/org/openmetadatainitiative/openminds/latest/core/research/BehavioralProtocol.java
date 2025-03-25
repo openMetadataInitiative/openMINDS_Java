@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Behavior
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class BehavioralProtocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/BehavioralProtocol";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/BehavioralProtocol";
 
     @JsonIgnore
     public Reference<BehavioralProtocol> getReference() {
@@ -74,14 +74,14 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/describedIn")
+   @JsonProperty(value = "https://openminds.om-i.org/props/describedIn")
     private List<Reference<? extends BehavioralProtocolDescribedIn>> describedIn;
     
     public List<Reference<? extends BehavioralProtocolDescribedIn>> getDescribedIn() {
        return this.describedIn;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -91,7 +91,7 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -101,7 +101,7 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -111,14 +111,14 @@ public class BehavioralProtocol extends Instance implements org.openmetadatainit
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stimulation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/stimulation")
     private List<Reference<? extends BehavioralProtocolStimulation>> stimulation;
     
     public List<Reference<? extends BehavioralProtocolStimulation>> getStimulation() {
        return this.stimulation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/stimulusType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/stimulusType")
     private List<Reference<? extends BehavioralProtocolStimulusType>> stimulusType;
     
     public List<Reference<? extends BehavioralProtocolStimulusType>> getStimulusType() {

@@ -23,8 +23,8 @@ import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SWHID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionDigitalIdentifier{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/SWHID";
+public class SWHID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelDigitalIdentifier{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SWHID";
 
     @JsonIgnore
     public Reference<SWHID> getReference() {
@@ -66,7 +66,7 @@ public class SWHID extends Instance implements org.openmetadatainitiative.openmi
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/identifier")
     private String identifier;
     
     /**

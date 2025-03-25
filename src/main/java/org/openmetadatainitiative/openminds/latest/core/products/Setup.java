@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Setup.SE
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Setup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Setup";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Setup";
 
     @JsonIgnore
     public Reference<Setup> getReference() {
@@ -74,7 +74,7 @@ public class Setup extends Instance implements org.openmetadatainitiative.openmi
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -84,28 +84,28 @@ public class Setup extends Instance implements org.openmetadatainitiative.openmi
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasPart")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasPart")
     private List<Reference<? extends SetupHasPart>> hasPart;
     
     public List<Reference<? extends SetupHasPart>> getHasPart() {
        return this.hasPart;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/location")
+    @JsonProperty(value = "https://openminds.om-i.org/props/location")
     private String location;
     
     public String getLocation() {
        return this.location;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/manufacturer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/manufacturer")
     private List<Reference<? extends SetupManufacturer>> manufacturer;
     
     public List<Reference<? extends SetupManufacturer>> getManufacturer() {
        return this.manufacturer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -115,7 +115,7 @@ public class Setup extends Instance implements org.openmetadatainitiative.openmi
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private List<Reference<SetupType>> type;
     
     /**

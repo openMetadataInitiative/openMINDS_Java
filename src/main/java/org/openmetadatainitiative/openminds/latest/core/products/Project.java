@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Project.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Project extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Project";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Project";
 
     @JsonIgnore
     public Reference<Project> getReference() {
@@ -73,7 +73,7 @@ public class Project extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/coordinator")
+   @JsonProperty(value = "https://openminds.om-i.org/props/coordinator")
     private List<Reference<? extends ProjectCoordinator>> coordinator;
     
     /**
@@ -83,7 +83,7 @@ public class Project extends Instance implements org.openmetadatainitiative.open
        return this.coordinator;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -93,7 +93,7 @@ public class Project extends Instance implements org.openmetadatainitiative.open
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -103,14 +103,14 @@ public class Project extends Instance implements org.openmetadatainitiative.open
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasPart")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasPart")
     private List<Reference<? extends ProjectHasPart>> hasPart;
     
     public List<Reference<? extends ProjectHasPart>> getHasPart() {
        return this.hasPart;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -120,7 +120,7 @@ public class Project extends Instance implements org.openmetadatainitiative.open
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**

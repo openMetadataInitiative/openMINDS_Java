@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.openmetadatainitiative.openminds.latest.core.actors.Organization;
 import org.openmetadatainitiative.openminds.latest.publications.LivePaperSection;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy;
 
 
 import static org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.SEMANTIC_NAME;
@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.LivePaper
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class LivePaperResourceItem extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperResourceItem";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LivePaperResourceItem";
 
     @JsonIgnore
     public Reference<LivePaperResourceItem> getReference() {
@@ -51,7 +51,7 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaperResourceItem>{
         public Builder IRI(String IRI) { LivePaperResourceItem.this.IRI = IRI; return this; }
-        public Builder hostedBy(Reference<? extends LivePaperResourceItemHostedBy> hostedBy) { LivePaperResourceItem.this.hostedBy = hostedBy; return this; }
+        public Builder hostedBy(Reference<Organization> hostedBy) { LivePaperResourceItem.this.hostedBy = hostedBy; return this; }
         public Builder isPartOf(Reference<LivePaperSection> isPartOf) { LivePaperResourceItem.this.isPartOf = isPartOf; return this; }
         public Builder name(String name) { LivePaperResourceItem.this.name = name; return this; }
         
@@ -71,7 +71,7 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -81,17 +81,17 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hostedBy")
-    private Reference<? extends LivePaperResourceItemHostedBy> hostedBy;
+    @JsonProperty(value = "https://openminds.om-i.org/props/hostedBy")
+    private Reference<Organization> hostedBy;
     
     /**
     * Reference to an organization that provides facilities and services for something.
     */
-    public Reference<? extends LivePaperResourceItemHostedBy> getHostedBy() {
+    public Reference<Organization> getHostedBy() {
        return this.hostedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<LivePaperSection> isPartOf;
     
     /**
@@ -101,7 +101,7 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**

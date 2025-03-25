@@ -24,8 +24,8 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Property
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class PropertyValueList extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/PropertyValueList";
+public class PropertyValueList extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusSpecification{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/PropertyValueList";
 
     @JsonIgnore
     public Reference<PropertyValueList> getReference() {
@@ -68,14 +68,14 @@ public class PropertyValueList extends Instance implements org.openmetadatainiti
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+   @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/propertyValuePair")
+    @JsonProperty(value = "https://openminds.om-i.org/props/propertyValuePair")
     private List<? extends PropertyValueListPropertyValuePair> propertyValuePair;
     
     public List<? extends PropertyValueListPropertyValuePair> getPropertyValuePair() {

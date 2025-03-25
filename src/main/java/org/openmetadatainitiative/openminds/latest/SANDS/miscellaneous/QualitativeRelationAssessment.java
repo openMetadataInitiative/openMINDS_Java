@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.Qu
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class QualitativeRelationAssessment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityVersionRelationAssessment, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnatomicalEntityRelationAssessment{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/QualitativeRelationAssessment";
 
     @JsonIgnore
     public Reference<QualitativeRelationAssessment> getReference() {
@@ -67,7 +67,7 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/criteria")
+   @JsonProperty(value = "https://openminds.om-i.org/props/criteria")
     private Reference<ProtocolExecution> criteria;
     
     /**
@@ -77,7 +77,7 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
        return this.criteria;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/inRelationTo")
+    @JsonProperty(value = "https://openminds.om-i.org/props/inRelationTo")
     private Reference<? extends QualitativeRelationAssessmentInRelationTo> inRelationTo;
     
     /**
@@ -87,7 +87,7 @@ public class QualitativeRelationAssessment extends Instance implements org.openm
        return this.inRelationTo;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/qualitativeOverlap")
+    @JsonProperty(value = "https://openminds.om-i.org/props/qualitativeOverlap")
     private Reference<QualitativeOverlap> qualitativeOverlap;
     
     /**

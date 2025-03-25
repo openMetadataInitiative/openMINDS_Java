@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.License.SEMA
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class License extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionLicense{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/License";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/License";
 
     @JsonIgnore
     public Reference<License> getReference() {
@@ -69,7 +69,7 @@ public class License extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+   @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -79,7 +79,7 @@ public class License extends Instance implements org.openmetadatainitiative.open
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/legalCode")
+    @JsonProperty(value = "https://openminds.om-i.org/props/legalCode")
     private String legalCode;
     
     /**
@@ -89,7 +89,7 @@ public class License extends Instance implements org.openmetadatainitiative.open
        return this.legalCode;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**
@@ -99,7 +99,7 @@ public class License extends Instance implements org.openmetadatainitiative.open
        return this.shortName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/webpage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/webpage")
     private List<String> webpage;
     
     /**

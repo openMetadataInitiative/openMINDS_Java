@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.v3.core.data.FileArchive.SEMA
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.v3.core.data.intf.ServiceLinkDataLocation{
+public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.v3.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.v3.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.v3.computation.intf.SimulationOutput{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/FileArchive";
 
     @JsonIgnore

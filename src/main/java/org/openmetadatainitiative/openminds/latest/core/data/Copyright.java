@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.Copyright.SE
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Copyright extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Copyright";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Copyright";
 
     @JsonIgnore
     public Reference<Copyright> getReference() {
@@ -64,7 +64,7 @@ public class Copyright extends Instance implements org.openmetadatainitiative.op
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/holder")
+   @JsonProperty(value = "https://openminds.om-i.org/props/holder")
     private List<Reference<? extends CopyrightHolder>> holder;
     
     /**
@@ -74,7 +74,7 @@ public class Copyright extends Instance implements org.openmetadatainitiative.op
        return this.holder;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/year")
+    @JsonProperty(value = "https://openminds.om-i.org/props/year")
     private List<String> year;
     
     /**

@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.Parcellati
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ParcellationTerminology extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/ParcellationTerminology";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ParcellationTerminology";
 
     @JsonIgnore
     public Reference<ParcellationTerminology> getReference() {
@@ -66,21 +66,21 @@ public class ParcellationTerminology extends Instance implements org.openmetadat
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataLocation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/dataLocation")
     private List<Reference<File>> dataLocation;
     
     public List<Reference<File>> getDataLocation() {
        return this.dataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasEntity")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasEntity")
     private List<Reference<ParcellationEntity>> hasEntity;
     
     public List<Reference<ParcellationEntity>> getHasEntity() {
        return this.hasEntity;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/ontologyIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/ontologyIdentifier")
     private List<String> ontologyIdentifier;
     
     /**

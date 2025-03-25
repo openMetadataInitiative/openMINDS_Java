@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.LivePaper
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class LivePaperSection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperSection";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LivePaperSection";
 
     @JsonIgnore
     public Reference<LivePaperSection> getReference() {
@@ -71,7 +71,7 @@ public class LivePaperSection extends Instance implements org.openmetadatainitia
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -81,7 +81,7 @@ public class LivePaperSection extends Instance implements org.openmetadatainitia
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private Reference<LivePaperVersion> isPartOf;
     
     /**
@@ -91,7 +91,7 @@ public class LivePaperSection extends Instance implements org.openmetadatainitia
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -101,14 +101,14 @@ public class LivePaperSection extends Instance implements org.openmetadatainitia
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/order")
+    @JsonProperty(value = "https://openminds.om-i.org/props/order")
     private Object order;
     
     public Object getOrder() {
        return this.order;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private String type;
     
     /**

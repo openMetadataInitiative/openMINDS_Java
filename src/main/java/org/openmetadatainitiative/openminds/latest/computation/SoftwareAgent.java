@@ -25,8 +25,8 @@ import static org.openmetadatainitiative.openminds.latest.computation.SoftwareAg
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SoftwareAgent extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationStartedBy, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementPerformedBy, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingPerformedBy, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityPerformedBy, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionPerformedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationPerformedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityPerformedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/SoftwareAgent";
+public class SoftwareAgent extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationPerformedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationPerformedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingPerformedBy, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityPerformedBy, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingPerformedBy, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementPerformedBy, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationStartedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyPerformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyStartedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityPerformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SoftwareAgent";
 
     @JsonIgnore
     public Reference<SoftwareAgent> getReference() {
@@ -70,14 +70,14 @@ public class SoftwareAgent extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/environment")
+   @JsonProperty(value = "https://openminds.om-i.org/props/environment")
     private Reference<Environment> environment;
     
     public Reference<Environment> getEnvironment() {
        return this.environment;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -87,7 +87,7 @@ public class SoftwareAgent extends Instance implements org.openmetadatainitiativ
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/software")
+    @JsonProperty(value = "https://openminds.om-i.org/props/software")
     private Reference<SoftwareVersion> software;
     
     public Reference<SoftwareVersion> getSoftware() {

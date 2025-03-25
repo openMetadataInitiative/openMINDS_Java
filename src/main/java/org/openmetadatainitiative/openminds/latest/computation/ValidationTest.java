@@ -31,8 +31,8 @@ import static org.openmetadatainitiative.openminds.latest.computation.Validation
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ValidationTest extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/ValidationTest";
+public class ValidationTest extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ValidationTest";
 
     @JsonIgnore
     public Reference<ValidationTest> getReference() {
@@ -86,7 +86,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends ValidationTestCustodian>> custodian;
     
     /**
@@ -96,7 +96,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -106,7 +106,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/developer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
     private List<Reference<? extends ValidationTestDeveloper>> developer;
     
     /**
@@ -116,7 +116,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.developer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
     /**
@@ -126,7 +126,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -136,7 +136,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasVersion")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
     private List<Reference<ValidationTestVersion>> hasVersion;
     
     /**
@@ -146,7 +146,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.hasVersion;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -156,7 +156,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -166,14 +166,14 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/referenceDataAcquisition")
+    @JsonProperty(value = "https://openminds.om-i.org/props/referenceDataAcquisition")
     private List<Reference<Technique>> referenceDataAcquisition;
     
     public List<Reference<Technique>> getReferenceDataAcquisition() {
        return this.referenceDataAcquisition;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/scope")
+    @JsonProperty(value = "https://openminds.om-i.org/props/scope")
     private Reference<ModelScope> scope;
     
     /**
@@ -183,14 +183,14 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.scope;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/scoreType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/scoreType")
     private Reference<DifferenceMeasure> scoreType;
     
     public Reference<DifferenceMeasure> getScoreType() {
        return this.scoreType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**
@@ -200,7 +200,7 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.shortName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studyTarget")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
     private List<Reference<? extends ValidationTestStudyTarget>> studyTarget;
     
     /**

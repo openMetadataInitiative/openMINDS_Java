@@ -29,8 +29,8 @@ import static org.openmetadatainitiative.openminds.latest.ephys.device.Electrode
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ElectrodeUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/ElectrodeUsage";
+public class ElectrodeUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ElectrodeUsage";
 
     @JsonIgnore
     public Reference<ElectrodeUsage> getReference() {
@@ -78,21 +78,21 @@ public class ElectrodeUsage extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anatomicalLocation")
+   @JsonProperty(value = "https://openminds.om-i.org/props/anatomicalLocation")
     private Reference<? extends ElectrodeUsageAnatomicalLocation> anatomicalLocation;
     
     public Reference<? extends ElectrodeUsageAnatomicalLocation> getAnatomicalLocation() {
        return this.anatomicalLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contactResistance")
+    @JsonProperty(value = "https://openminds.om-i.org/props/contactResistance")
     private ElectrodeUsageContactResistance contactResistance;
     
     public ElectrodeUsageContactResistance getContactResistance() {
        return this.contactResistance;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/device")
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
     private Reference<Electrode> device;
     
     /**
@@ -102,28 +102,28 @@ public class ElectrodeUsage extends Instance implements org.openmetadatainitiati
        return this.device;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/metadataLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/metadataLocation")
     private List<Reference<? extends ElectrodeUsageMetadataLocation>> metadataLocation;
     
     public List<Reference<? extends ElectrodeUsageMetadataLocation>> getMetadataLocation() {
        return this.metadataLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/spatialLocation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/spatialLocation")
     private CoordinatePoint spatialLocation;
     
     public CoordinatePoint getSpatialLocation() {
        return this.spatialLocation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/usedSpecimen")
+    @JsonProperty(value = "https://openminds.om-i.org/props/usedSpecimen")
     private Reference<? extends ElectrodeUsageUsedSpecimen> usedSpecimen;
     
     public Reference<? extends ElectrodeUsageUsedSpecimen> getUsedSpecimen() {

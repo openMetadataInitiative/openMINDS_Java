@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.data.ContentType.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ContentType extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/ContentType";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ContentType";
 
     @JsonIgnore
     public Reference<ContentType> getReference() {
@@ -74,14 +74,14 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataType")
+   @JsonProperty(value = "https://openminds.om-i.org/props/dataType")
     private List<Reference<DataType>> dataType;
     
     public List<Reference<DataType>> getDataType() {
        return this.dataType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -91,14 +91,14 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/displayLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/displayLabel")
     private String displayLabel;
     
     public String getDisplayLabel() {
        return this.displayLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fileExtension")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fileExtension")
     private List<String> fileExtension;
     
     /**
@@ -108,7 +108,7 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
        return this.fileExtension;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -118,7 +118,7 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relatedMediaType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedMediaType")
     private String relatedMediaType;
     
     /**
@@ -128,7 +128,7 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
        return this.relatedMediaType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/specification")
+    @JsonProperty(value = "https://openminds.om-i.org/props/specification")
     private String specification;
     
     /**
@@ -138,7 +138,7 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
        return this.specification;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/synonym")
+    @JsonProperty(value = "https://openminds.om-i.org/props/synonym")
     private List<String> synonym;
     
     /**

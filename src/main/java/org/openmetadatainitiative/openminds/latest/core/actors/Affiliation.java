@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.Affiliatio
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Affiliation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/Affiliation";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Affiliation";
 
     @JsonIgnore
     public Reference<Affiliation> getReference() {
@@ -65,7 +65,7 @@ public class Affiliation extends Instance implements org.openmetadatainitiative.
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endDate")
+   @JsonProperty(value = "https://openminds.om-i.org/props/endDate")
     private String endDate;
     
     /**
@@ -75,14 +75,14 @@ public class Affiliation extends Instance implements org.openmetadatainitiative.
        return this.endDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/memberOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/memberOf")
     private Reference<? extends AffiliationMemberOf> memberOf;
     
     public Reference<? extends AffiliationMemberOf> getMemberOf() {
        return this.memberOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startDate")
     private String startDate;
     
     /**

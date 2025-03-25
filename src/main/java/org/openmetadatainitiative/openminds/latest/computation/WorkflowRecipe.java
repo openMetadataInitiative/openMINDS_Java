@@ -27,8 +27,8 @@ import static org.openmetadatainitiative.openminds.latest.computation.WorkflowRe
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/WorkflowRecipe";
+public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/WorkflowRecipe";
 
     @JsonIgnore
     public Reference<WorkflowRecipe> getReference() {
@@ -78,7 +78,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends WorkflowRecipeCustodian>> custodian;
     
     /**
@@ -88,7 +88,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -98,7 +98,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/developer")
+    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
     private List<Reference<? extends WorkflowRecipeDeveloper>> developer;
     
     /**
@@ -108,7 +108,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.developer;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
     /**
@@ -118,7 +118,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -128,7 +128,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hasVersion")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
     private List<Reference<WorkflowRecipeVersion>> hasVersion;
     
     /**
@@ -138,7 +138,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.hasVersion;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -148,7 +148,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -158,7 +158,7 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**

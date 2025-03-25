@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShap
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Circle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/Circle";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Circle";
 
     @JsonIgnore
     public Reference<Circle> getReference() {
@@ -63,7 +63,7 @@ public class Circle extends Instance implements org.openmetadatainitiative.openm
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/radius")
+   @JsonProperty(value = "https://openminds.om-i.org/props/radius")
     private QuantitativeValue radius;
     
     public QuantitativeValue getRadius() {

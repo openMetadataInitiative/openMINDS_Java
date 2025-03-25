@@ -29,8 +29,8 @@ import static org.openmetadatainitiative.openminds.latest.computation.LocalFile.
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class LocalFile extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/LocalFile";
+public class LocalFile extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyOutput{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LocalFile";
 
     @JsonIgnore
     public Reference<LocalFile> getReference() {
@@ -80,28 +80,28 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentDescription")
+   @JsonProperty(value = "https://openminds.om-i.org/props/contentDescription")
     private String contentDescription;
     
     public String getContentDescription() {
        return this.contentDescription;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/copyOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/copyOf")
     private Reference<File> copyOf;
     
     public Reference<File> getCopyOf() {
        return this.copyOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/dataType")
     private List<Reference<DataType>> dataType;
     
     public List<Reference<DataType>> getDataType() {
        return this.dataType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**
@@ -111,7 +111,7 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
        return this.format;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hash")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hash")
     private Hash hash;
     
     /**
@@ -121,7 +121,7 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
        return this.hash;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -131,14 +131,14 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/path")
+    @JsonProperty(value = "https://openminds.om-i.org/props/path")
     private String path;
     
     public String getPath() {
        return this.path;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/specialUsageRole")
+    @JsonProperty(value = "https://openminds.om-i.org/props/specialUsageRole")
     private Reference<FileUsageRole> specialUsageRole;
     
     /**
@@ -148,7 +148,7 @@ public class LocalFile extends Instance implements org.openmetadatainitiative.op
        return this.specialUsageRole;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/storageSize")
+    @JsonProperty(value = "https://openminds.om-i.org/props/storageSize")
     private QuantitativeValue storageSize;
     
     /**

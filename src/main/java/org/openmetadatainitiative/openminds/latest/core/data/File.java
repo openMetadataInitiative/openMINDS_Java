@@ -30,8 +30,8 @@ import static org.openmetadatainitiative.openminds.latest.core.data.File.SEMANTI
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class File extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityOutput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingDataLocation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.BehavioralProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageMetadataLocation{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/File";
+public class File extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityOutput, org.openmetadatainitiative.openminds.latest.ephys.entity.intf.RecordingDataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageMetadataLocation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.research.intf.BehavioralProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationOutput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyOutput, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput, org.openmetadatainitiative.openminds.latest.stimulation.stimulus.intf.EphysStimulusSpecification{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/File";
 
     @JsonIgnore
     public Reference<File> getReference() {
@@ -82,7 +82,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -92,28 +92,28 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentDescription")
+    @JsonProperty(value = "https://openminds.om-i.org/props/contentDescription")
     private String contentDescription;
     
     public String getContentDescription() {
        return this.contentDescription;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/dataType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/dataType")
     private List<Reference<DataType>> dataType;
     
     public List<Reference<DataType>> getDataType() {
        return this.dataType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fileRepository")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fileRepository")
     private Reference<FileRepository> fileRepository;
     
     public Reference<FileRepository> getFileRepository() {
        return this.fileRepository;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**
@@ -123,7 +123,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
        return this.format;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hash")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hash")
     private List<Hash> hash;
     
     /**
@@ -133,7 +133,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
        return this.hash;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isPartOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
     private List<Reference<FileBundle>> isPartOf;
     
     /**
@@ -143,7 +143,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
        return this.isPartOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -153,7 +153,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/specialUsageRole")
+    @JsonProperty(value = "https://openminds.om-i.org/props/specialUsageRole")
     private Reference<FileUsageRole> specialUsageRole;
     
     /**
@@ -163,7 +163,7 @@ public class File extends Instance implements org.openmetadatainitiative.openmin
        return this.specialUsageRole;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/storageSize")
+    @JsonProperty(value = "https://openminds.om-i.org/props/storageSize")
     private QuantitativeValue storageSize;
     
     /**

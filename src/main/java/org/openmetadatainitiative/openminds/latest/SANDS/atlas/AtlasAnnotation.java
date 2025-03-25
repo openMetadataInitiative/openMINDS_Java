@@ -32,7 +32,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnot
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class AtlasAnnotation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/AtlasAnnotation";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/AtlasAnnotation";
 
     @JsonIgnore
     public Reference<AtlasAnnotation> getReference() {
@@ -79,14 +79,14 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/anchorPoint")
+   @JsonProperty(value = "https://openminds.om-i.org/props/anchorPoint")
     private List<QuantitativeValue> anchorPoint;
     
     public List<QuantitativeValue> getAnchorPoint() {
        return this.anchorPoint;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/criteria")
+    @JsonProperty(value = "https://openminds.om-i.org/props/criteria")
     private Reference<ProtocolExecution> criteria;
     
     /**
@@ -96,7 +96,7 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
        return this.criteria;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/criteriaQualityType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/criteriaQualityType")
     private Reference<CriteriaQualityType> criteriaQualityType;
     
     /**
@@ -106,14 +106,14 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
        return this.criteriaQualityType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/criteriaType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/criteriaType")
     private Reference<AnnotationCriteriaType> criteriaType;
     
     public Reference<AnnotationCriteriaType> getCriteriaType() {
        return this.criteriaType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/inspiredBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/inspiredBy")
     private List<Reference<File>> inspiredBy;
     
     /**
@@ -123,7 +123,7 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
        return this.inspiredBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -133,7 +133,7 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/laterality")
+    @JsonProperty(value = "https://openminds.om-i.org/props/laterality")
     private List<Reference<Laterality>> laterality;
     
     /**
@@ -143,14 +143,14 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
        return this.laterality;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/preferredVisualization")
+    @JsonProperty(value = "https://openminds.om-i.org/props/preferredVisualization")
     private ViewerSpecification preferredVisualization;
     
     public ViewerSpecification getPreferredVisualization() {
        return this.preferredVisualization;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/specification")
+    @JsonProperty(value = "https://openminds.om-i.org/props/specification")
     private Reference<File> specification;
     
     /**
@@ -160,7 +160,7 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
        return this.specification;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private Reference<AnnotationType> type;
     
     /**

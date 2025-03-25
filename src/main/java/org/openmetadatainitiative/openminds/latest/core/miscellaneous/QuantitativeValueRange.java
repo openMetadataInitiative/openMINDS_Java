@@ -24,8 +24,8 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Qua
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class QuantitativeValueRange extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationResourceUsage, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceRequiredTime, org.openmetadatainitiative.openminds.latest.chemicals.intf.ChemicalSubstancePurity, org.openmetadatainitiative.openminds.latest.chemicals.intf.ProductSourcePurity, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingBathTemperature, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageContactResistances, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageContactResistance, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeIntrinsicResistance, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayIntrinsicResistance, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsagePipetteResistance, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.QuantitativeRelationAssessmentQuantitativeOverlap, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateWeight, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateWeight, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateWeight, org.openmetadatainitiative.openminds.latest.core.research.intf.NumericalPropertyValue, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateWeight, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementValue, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingTemperature, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSliceThickness{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/QuantitativeValueRange";
+public class QuantitativeValueRange extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceRequiredTime, org.openmetadatainitiative.openminds.latest.chemicals.intf.ChemicalSubstancePurity, org.openmetadatainitiative.openminds.latest.chemicals.intf.ProductSourcePurity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingTemperature, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSliceThickness, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingBathTemperature, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayIntrinsicResistance, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageContactResistance, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsagePipetteResistance, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageContactResistances, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeIntrinsicResistance, org.openmetadatainitiative.openminds.latest.core.research.intf.NumericalPropertyValue, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateWeight, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateWeight, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateWeight, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateAge, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateRelativeTimeIndication, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateWeight, org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementValue, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationResourceUsage, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyResourceUsage, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.QuantitativeRelationAssessmentQuantitativeOverlap{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/QuantitativeValueRange";
 
     @JsonIgnore
     public Reference<QuantitativeValueRange> getReference() {
@@ -66,7 +66,7 @@ public class QuantitativeValueRange extends Instance implements org.openmetadata
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/maxValue")
+   @JsonProperty(value = "https://openminds.om-i.org/props/maxValue")
     private Double maxValue;
     
     /**
@@ -76,14 +76,14 @@ public class QuantitativeValueRange extends Instance implements org.openmetadata
        return this.maxValue;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/maxValueUnit")
+    @JsonProperty(value = "https://openminds.om-i.org/props/maxValueUnit")
     private Reference<UnitOfMeasurement> maxValueUnit;
     
     public Reference<UnitOfMeasurement> getMaxValueUnit() {
        return this.maxValueUnit;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/minValue")
+    @JsonProperty(value = "https://openminds.om-i.org/props/minValue")
     private Double minValue;
     
     /**
@@ -93,7 +93,7 @@ public class QuantitativeValueRange extends Instance implements org.openmetadata
        return this.minValue;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/minValueUnit")
+    @JsonProperty(value = "https://openminds.om-i.org/props/minValueUnit")
     private Reference<UnitOfMeasurement> minValueUnit;
     
     public Reference<UnitOfMeasurement> getMinValueUnit() {

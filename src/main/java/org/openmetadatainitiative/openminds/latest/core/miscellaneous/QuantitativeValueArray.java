@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Qua
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class QuantitativeValueArray extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/QuantitativeValueArray";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/QuantitativeValueArray";
 
     @JsonIgnore
     public Reference<QuantitativeValueArray> getReference() {
@@ -72,21 +72,21 @@ public class QuantitativeValueArray extends Instance implements org.openmetadata
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/negativeUncertainties")
+   @JsonProperty(value = "https://openminds.om-i.org/props/negativeUncertainties")
     private List<Double> negativeUncertainties;
     
     public List<Double> getNegativeUncertainties() {
        return this.negativeUncertainties;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/positiveUncertainties")
+    @JsonProperty(value = "https://openminds.om-i.org/props/positiveUncertainties")
     private List<Double> positiveUncertainties;
     
     public List<Double> getPositiveUncertainties() {
        return this.positiveUncertainties;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/typeOfUncertainty")
+    @JsonProperty(value = "https://openminds.om-i.org/props/typeOfUncertainty")
     private Reference<TypeOfUncertainty> typeOfUncertainty;
     
     /**
@@ -96,7 +96,7 @@ public class QuantitativeValueArray extends Instance implements org.openmetadata
        return this.typeOfUncertainty;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/unit")
+    @JsonProperty(value = "https://openminds.om-i.org/props/unit")
     private Reference<UnitOfMeasurement> unit;
     
     /**
@@ -106,7 +106,7 @@ public class QuantitativeValueArray extends Instance implements org.openmetadata
        return this.unit;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/values")
+    @JsonProperty(value = "https://openminds.om-i.org/props/values")
     private List<Double> values;
     
     public List<Double> getValues() {

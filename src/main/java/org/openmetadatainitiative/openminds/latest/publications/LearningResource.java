@@ -38,7 +38,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.LearningR
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class LearningResource extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LearningResource";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LearningResource";
 
     @JsonIgnore
     public Reference<LearningResource> getReference() {
@@ -104,7 +104,7 @@ public class LearningResource extends Instance implements org.openmetadatainitia
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -114,21 +114,21 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/about")
+    @JsonProperty(value = "https://openminds.om-i.org/props/about")
     private List<Reference<? extends LearningResourceAbout>> about;
     
     public List<Reference<? extends LearningResourceAbout>> getAbout() {
        return this.about;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/abstract")
+    @JsonProperty(value = "https://openminds.om-i.org/props/abstract")
     private String abstract_;
     
     public String getAbstract_() {
        return this.abstract_;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/author")
+    @JsonProperty(value = "https://openminds.om-i.org/props/author")
     private List<Reference<? extends LearningResourceAuthor>> author;
     
     /**
@@ -138,14 +138,14 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.author;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/citedPublication")
+    @JsonProperty(value = "https://openminds.om-i.org/props/citedPublication")
     private List<Reference<? extends LearningResourceCitedPublication>> citedPublication;
     
     public List<Reference<? extends LearningResourceCitedPublication>> getCitedPublication() {
        return this.citedPublication;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/copyright")
+    @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
     private Copyright copyright;
     
     /**
@@ -155,14 +155,14 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/creationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/creationDate")
     private String creationDate;
     
     public String getCreationDate() {
        return this.creationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends LearningResourceCustodian>> custodian;
     
     /**
@@ -172,7 +172,7 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
     /**
@@ -182,21 +182,21 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/editor")
+    @JsonProperty(value = "https://openminds.om-i.org/props/editor")
     private List<Reference<Person>> editor;
     
     public List<Reference<Person>> getEditor() {
        return this.editor;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/educationalLevel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/educationalLevel")
     private Reference<EducationalLevel> educationalLevel;
     
     public Reference<EducationalLevel> getEducationalLevel() {
        return this.educationalLevel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/funding")
+    @JsonProperty(value = "https://openminds.om-i.org/props/funding")
     private List<Reference<Funding>> funding;
     
     /**
@@ -206,7 +206,7 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.funding;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/keyword")
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
     private List<Reference<? extends LearningResourceKeyword>> keyword;
     
     /**
@@ -216,14 +216,14 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/learningOutcome")
+    @JsonProperty(value = "https://openminds.om-i.org/props/learningOutcome")
     private String learningOutcome;
     
     public String getLearningOutcome() {
        return this.learningOutcome;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/license")
+    @JsonProperty(value = "https://openminds.om-i.org/props/license")
     private Reference<License> license;
     
     /**
@@ -233,14 +233,14 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.license;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/modificationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/modificationDate")
     private String modificationDate;
     
     public String getModificationDate() {
        return this.modificationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -250,49 +250,49 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/order")
+    @JsonProperty(value = "https://openminds.om-i.org/props/order")
     private Object order;
     
     public Object getOrder() {
        return this.order;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/prerequisite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/prerequisite")
     private String prerequisite;
     
     public String getPrerequisite() {
        return this.prerequisite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/publicationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/publicationDate")
     private String publicationDate;
     
     public String getPublicationDate() {
        return this.publicationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/publisher")
+    @JsonProperty(value = "https://openminds.om-i.org/props/publisher")
     private Reference<? extends LearningResourcePublisher> publisher;
     
     public Reference<? extends LearningResourcePublisher> getPublisher() {
        return this.publisher;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/requiredTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/requiredTime")
     private LearningResourceRequiredTime requiredTime;
     
     public LearningResourceRequiredTime getRequiredTime() {
        return this.requiredTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/topic")
+    @JsonProperty(value = "https://openminds.om-i.org/props/topic")
     private String topic;
     
     public String getTopic() {
        return this.topic;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/type")
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
     private Reference<LearningResourceType> type;
     
     /**
@@ -302,7 +302,7 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.type;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
     /**

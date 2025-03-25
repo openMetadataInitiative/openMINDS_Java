@@ -13,7 +13,7 @@ public interface LivePaperVersionFullDocumentation extends Entity {
 
    class Deserializer extends ByTypeDeserializer<LivePaperVersionFullDocumentation> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class);
+            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.class, org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class);
         }
     }
     

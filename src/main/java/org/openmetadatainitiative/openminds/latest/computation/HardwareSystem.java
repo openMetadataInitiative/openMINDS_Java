@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.computation.HardwareSy
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class HardwareSystem extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/HardwareSystem";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/HardwareSystem";
 
     @JsonIgnore
     public Reference<HardwareSystem> getReference() {
@@ -68,7 +68,7 @@ public class HardwareSystem extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -78,7 +78,7 @@ public class HardwareSystem extends Instance implements org.openmetadatainitiati
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -88,7 +88,7 @@ public class HardwareSystem extends Instance implements org.openmetadatainitiati
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
     /**

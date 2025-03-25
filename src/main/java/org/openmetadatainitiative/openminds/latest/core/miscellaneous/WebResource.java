@@ -24,8 +24,8 @@ import static org.openmetadatainitiative.openminds.latest.core.miscellaneous.Web
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class WebResource extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.research.intf.BehavioralProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionLicense{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/WebResource";
+public class WebResource extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionOutputData, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionLicense, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.core.research.intf.BehavioralProtocolDescribedIn, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionFullDocumentation, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionFullDocumentation{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/WebResource";
 
     @JsonIgnore
     public Reference<WebResource> getReference() {
@@ -69,7 +69,7 @@ public class WebResource extends Instance implements org.openmetadatainitiative.
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/IRI")
+   @JsonProperty(value = "https://openminds.om-i.org/props/IRI")
     private String IRI;
     
     /**
@@ -79,14 +79,14 @@ public class WebResource extends Instance implements org.openmetadatainitiative.
        return this.IRI;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/contentDescription")
+    @JsonProperty(value = "https://openminds.om-i.org/props/contentDescription")
     private String contentDescription;
     
     public String getContentDescription() {
        return this.contentDescription;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/format")
+    @JsonProperty(value = "https://openminds.om-i.org/props/format")
     private Reference<ContentType> format;
     
     /**

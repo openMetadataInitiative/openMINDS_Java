@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.ephys.entity.Channel.S
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class Channel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/ephys/Channel";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Channel";
 
     @JsonIgnore
     public Reference<Channel> getReference() {
@@ -64,7 +64,7 @@ public class Channel extends Instance implements org.openmetadatainitiative.open
 
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/internalIdentifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
     private String internalIdentifier;
     
     /**
@@ -74,7 +74,7 @@ public class Channel extends Instance implements org.openmetadatainitiative.open
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/unit")
+    @JsonProperty(value = "https://openminds.om-i.org/props/unit")
     private Reference<UnitOfMeasurement> unit;
     
     /**

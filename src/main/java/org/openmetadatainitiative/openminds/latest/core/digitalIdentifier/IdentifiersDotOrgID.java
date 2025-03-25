@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class IdentifiersDotOrgID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetDigitalIdentifier, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionDigitalIdentifier{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/IdentifiersDotOrgID";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/IdentifiersDotOrgID";
 
     @JsonIgnore
     public Reference<IdentifiersDotOrgID> getReference() {
@@ -66,7 +66,7 @@ public class IdentifiersDotOrgID extends Instance implements org.openmetadataini
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/identifier")
     private String identifier;
     
     /**

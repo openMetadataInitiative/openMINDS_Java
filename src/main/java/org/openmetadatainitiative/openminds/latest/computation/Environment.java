@@ -26,8 +26,8 @@ import static org.openmetadatainitiative.openminds.latest.computation.Environmen
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Environment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationEnvironment{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/Environment";
+public class Environment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationEnvironment, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyEnvironment{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Environment";
 
     @JsonIgnore
     public Reference<Environment> getReference() {
@@ -73,14 +73,14 @@ public class Environment extends Instance implements org.openmetadatainitiative.
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/configuration")
+   @JsonProperty(value = "https://openminds.om-i.org/props/configuration")
     private Reference<Configuration> configuration;
     
     public Reference<Configuration> getConfiguration() {
        return this.configuration;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -90,14 +90,14 @@ public class Environment extends Instance implements org.openmetadatainitiative.
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/hardware")
+    @JsonProperty(value = "https://openminds.om-i.org/props/hardware")
     private Reference<HardwareSystem> hardware;
     
     public Reference<HardwareSystem> getHardware() {
        return this.hardware;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/name")
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**
@@ -107,7 +107,7 @@ public class Environment extends Instance implements org.openmetadatainitiative.
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/software")
+    @JsonProperty(value = "https://openminds.om-i.org/props/software")
     private List<Reference<SoftwareVersion>> software;
     
     public List<Reference<SoftwareVersion>> getSoftware() {

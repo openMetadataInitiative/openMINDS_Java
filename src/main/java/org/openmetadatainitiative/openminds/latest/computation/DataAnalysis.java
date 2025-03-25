@@ -36,8 +36,8 @@ import static org.openmetadatainitiative.openminds.latest.computation.DataAnalys
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class DataAnalysis extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationWasInformedBy{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/computation/DataAnalysis";
+public class DataAnalysis extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowExecutionStage, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationWasInformedBy, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyWasInformedBy{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/DataAnalysis";
 
     @JsonIgnore
     public Reference<DataAnalysis> getReference() {
@@ -96,14 +96,14 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/customPropertySet")
+   @JsonProperty(value = "https://openminds.om-i.org/props/customPropertySet")
     private List<CustomPropertySet> customPropertySet;
     
     public List<CustomPropertySet> getCustomPropertySet() {
        return this.customPropertySet;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -113,21 +113,21 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/endTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/endTime")
     private String endTime;
     
     public String getEndTime() {
        return this.endTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/environment")
+    @JsonProperty(value = "https://openminds.om-i.org/props/environment")
     private Reference<? extends DataAnalysisEnvironment> environment;
     
     public Reference<? extends DataAnalysisEnvironment> getEnvironment() {
        return this.environment;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/input")
+    @JsonProperty(value = "https://openminds.om-i.org/props/input")
     private List<Reference<? extends DataAnalysisInput>> input;
     
     /**
@@ -137,21 +137,21 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
        return this.input;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/launchConfiguration")
+    @JsonProperty(value = "https://openminds.om-i.org/props/launchConfiguration")
     private Reference<LaunchConfiguration> launchConfiguration;
     
     public Reference<LaunchConfiguration> getLaunchConfiguration() {
        return this.launchConfiguration;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/lookupLabel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
     public String getLookupLabel() {
        return this.lookupLabel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/output")
+    @JsonProperty(value = "https://openminds.om-i.org/props/output")
     private List<Reference<? extends DataAnalysisOutput>> output;
     
     /**
@@ -161,49 +161,49 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
        return this.output;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/performedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/performedBy")
     private List<Reference<? extends DataAnalysisPerformedBy>> performedBy;
     
     public List<Reference<? extends DataAnalysisPerformedBy>> getPerformedBy() {
        return this.performedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/recipe")
+    @JsonProperty(value = "https://openminds.om-i.org/props/recipe")
     private Reference<WorkflowRecipeVersion> recipe;
     
     public Reference<WorkflowRecipeVersion> getRecipe() {
        return this.recipe;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/resourceUsage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/resourceUsage")
     private List<? extends DataAnalysisResourceUsage> resourceUsage;
     
     public List<? extends DataAnalysisResourceUsage> getResourceUsage() {
        return this.resourceUsage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startTime")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startTime")
     private String startTime;
     
     public String getStartTime() {
        return this.startTime;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/startedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/startedBy")
     private Reference<? extends DataAnalysisStartedBy> startedBy;
     
     public Reference<? extends DataAnalysisStartedBy> getStartedBy() {
        return this.startedBy;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/status")
+    @JsonProperty(value = "https://openminds.om-i.org/props/status")
     private Reference<ActionStatusType> status;
     
     public Reference<ActionStatusType> getStatus() {
        return this.status;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/studyTarget")
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
     private List<Reference<? extends DataAnalysisStudyTarget>> studyTarget;
     
     /**
@@ -213,14 +213,14 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
        return this.studyTarget;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/tag")
+    @JsonProperty(value = "https://openminds.om-i.org/props/tag")
     private List<String> tag;
     
     public List<String> getTag() {
        return this.tag;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/technique")
+    @JsonProperty(value = "https://openminds.om-i.org/props/technique")
     private List<Reference<AnalysisTechnique>> technique;
     
     /**
@@ -230,7 +230,7 @@ public class DataAnalysis extends Instance implements org.openmetadatainitiative
        return this.technique;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/wasInformedBy")
+    @JsonProperty(value = "https://openminds.om-i.org/props/wasInformedBy")
     private Reference<? extends DataAnalysisWasInformedBy> wasInformedBy;
     
     public Reference<? extends DataAnalysisWasInformedBy> getWasInformedBy() {

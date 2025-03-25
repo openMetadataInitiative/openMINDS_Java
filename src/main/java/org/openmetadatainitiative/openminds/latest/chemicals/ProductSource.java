@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.latest.chemicals.ProductSourc
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class ProductSource extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/chemicals/ProductSource";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ProductSource";
 
     @JsonIgnore
     public Reference<ProductSource> getReference() {
@@ -73,7 +73,7 @@ public class ProductSource extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+   @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<RRID> digitalIdentifier;
     
     /**
@@ -83,7 +83,7 @@ public class ProductSource extends Instance implements org.openmetadatainitiativ
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/identifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/identifier")
     private String identifier;
     
     /**
@@ -93,21 +93,21 @@ public class ProductSource extends Instance implements org.openmetadatainitiativ
        return this.identifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/productName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/productName")
     private String productName;
     
     public String getProductName() {
        return this.productName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/provider")
+    @JsonProperty(value = "https://openminds.om-i.org/props/provider")
     private Reference<? extends ProductSourceProvider> provider;
     
     public Reference<? extends ProductSourceProvider> getProvider() {
        return this.provider;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/purity")
+    @JsonProperty(value = "https://openminds.om-i.org/props/purity")
     private ProductSourcePurity purity;
     
     public ProductSourcePurity getPurity() {

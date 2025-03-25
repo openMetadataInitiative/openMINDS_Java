@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.Si
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class SingleColor extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.ViewerSpecificationPreferredDisplayColor{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/SingleColor";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SingleColor";
 
     @JsonIgnore
     public Reference<SingleColor> getReference() {
@@ -66,7 +66,7 @@ public class SingleColor extends Instance implements org.openmetadatainitiative.
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/value")
+   @JsonProperty(value = "https://openminds.om-i.org/props/value")
     private String value;
     
     /**

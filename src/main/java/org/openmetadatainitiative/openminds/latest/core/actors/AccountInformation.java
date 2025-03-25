@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.AccountInf
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class AccountInformation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/AccountInformation";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/AccountInformation";
 
     @JsonIgnore
     public Reference<AccountInformation> getReference() {
@@ -68,14 +68,14 @@ public class AccountInformation extends Instance implements org.openmetadatainit
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/service")
+   @JsonProperty(value = "https://openminds.om-i.org/props/service")
     private Reference<WebService> service;
     
     public Reference<WebService> getService() {
        return this.service;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/userName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/userName")
     private String userName;
     
     public String getUserName() {

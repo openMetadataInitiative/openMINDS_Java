@@ -37,8 +37,8 @@ import static org.openmetadatainitiative.openminds.latest.publications.LivePaper
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class LivePaperVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/publications/LivePaperVersion";
+public class LivePaperVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LivePaperVersion";
 
     @JsonIgnore
     public Reference<LivePaperVersion> getReference() {
@@ -104,14 +104,14 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/about")
+   @JsonProperty(value = "https://openminds.om-i.org/props/about")
     private List<Reference<? extends LivePaperVersionAbout>> about;
     
     public List<Reference<? extends LivePaperVersionAbout>> getAbout() {
        return this.about;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/accessibility")
+    @JsonProperty(value = "https://openminds.om-i.org/props/accessibility")
     private Reference<ProductAccessibility> accessibility;
     
     /**
@@ -121,7 +121,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.accessibility;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/author")
+    @JsonProperty(value = "https://openminds.om-i.org/props/author")
     private List<Reference<? extends LivePaperVersionAuthor>> author;
     
     /**
@@ -131,7 +131,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.author;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/copyright")
+    @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
     private Copyright copyright;
     
     /**
@@ -141,7 +141,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/custodian")
+    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
     private List<Reference<? extends LivePaperVersionCustodian>> custodian;
     
     /**
@@ -151,7 +151,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.custodian;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/description")
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -161,7 +161,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/digitalIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
     /**
@@ -171,7 +171,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullDocumentation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullDocumentation")
     private Reference<? extends LivePaperVersionFullDocumentation> fullDocumentation;
     
     /**
@@ -181,7 +181,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.fullDocumentation;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/fullName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
     /**
@@ -191,7 +191,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.fullName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/funding")
+    @JsonProperty(value = "https://openminds.om-i.org/props/funding")
     private List<Reference<Funding>> funding;
     
     /**
@@ -201,7 +201,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.funding;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/homepage")
+    @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
     /**
@@ -211,7 +211,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/howToCite")
+    @JsonProperty(value = "https://openminds.om-i.org/props/howToCite")
     private String howToCite;
     
     /**
@@ -221,7 +221,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isAlternativeVersionOf")
     private List<Reference<LivePaperVersion>> isAlternativeVersionOf;
     
     /**
@@ -231,7 +231,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.isAlternativeVersionOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/isNewVersionOf")
+    @JsonProperty(value = "https://openminds.om-i.org/props/isNewVersionOf")
     private Reference<LivePaperVersion> isNewVersionOf;
     
     /**
@@ -241,7 +241,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.isNewVersionOf;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/keyword")
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
     private List<Reference<? extends LivePaperVersionKeyword>> keyword;
     
     /**
@@ -251,7 +251,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/license")
+    @JsonProperty(value = "https://openminds.om-i.org/props/license")
     private Reference<License> license;
     
     /**
@@ -261,14 +261,14 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.license;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/modificationDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/modificationDate")
     private String modificationDate;
     
     public String getModificationDate() {
        return this.modificationDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/otherContribution")
+    @JsonProperty(value = "https://openminds.om-i.org/props/otherContribution")
     private List<Contribution> otherContribution;
     
     /**
@@ -278,7 +278,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.otherContribution;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/relatedPublication")
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
     private List<Reference<? extends LivePaperVersionRelatedPublication>> relatedPublication;
     
     /**
@@ -288,7 +288,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.relatedPublication;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/releaseDate")
+    @JsonProperty(value = "https://openminds.om-i.org/props/releaseDate")
     private String releaseDate;
     
     /**
@@ -298,7 +298,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.releaseDate;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/repository")
+    @JsonProperty(value = "https://openminds.om-i.org/props/repository")
     private Reference<FileRepository> repository;
     
     /**
@@ -308,7 +308,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.repository;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/shortName")
+    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
     /**
@@ -318,7 +318,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.shortName;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/supportChannel")
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
     private List<String> supportChannel;
     
     /**
@@ -328,7 +328,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.supportChannel;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionIdentifier")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
     /**
@@ -338,7 +338,7 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/versionInnovation")
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
     private String versionInnovation;
     
     /**

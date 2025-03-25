@@ -13,8 +13,14 @@ import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.CellCultureType;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType;
+import org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion;
+import org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet;
+import org.openmetadatainitiative.openminds.latest.core.research.Protocol;
 import org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState;
 import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput;
+import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationPerformedBy;
+import org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationStudyTarget;
 
 
 import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.TissueCulturePreparation.SEMANTIC_NAME;
@@ -28,7 +34,7 @@ import static org.openmetadatainitiative.openminds.latest.specimenPrep.activity.
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
 public class TissueCulturePreparation extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
-    public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/specimenPrep/TissueCulturePreparation";
+    public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/TissueCulturePreparation";
 
     @JsonIgnore
     public Reference<TissueCulturePreparation> getReference() {
@@ -54,8 +60,18 @@ public class TissueCulturePreparation extends Instance implements org.openmetada
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueCulturePreparation>{
         public Builder cultureMedium(Reference<ChemicalMixture> cultureMedium) { TissueCulturePreparation.this.cultureMedium = cultureMedium; return this; }
         public Builder cultureType(Reference<CellCultureType> cultureType) { TissueCulturePreparation.this.cultureType = cultureType; return this; }
-        public Builder input(Reference<? extends TissueCulturePreparationInput> input) { TissueCulturePreparation.this.input = input; return this; }
-        public Builder output(Reference<TissueSampleState> output) { TissueCulturePreparation.this.output = output; return this; }
+        public Builder customPropertySet(List<Function<CustomPropertySet.EmbeddedBuilder, CustomPropertySet>> customPropertySet) { TissueCulturePreparation.this.customPropertySet = customPropertySet.stream().map(b -> b.apply(CustomPropertySet.createEmbedded())).toList(); return this; }
+        public Builder description(String description) { TissueCulturePreparation.this.description = description; return this; }
+        public Builder endTime(String endTime) { TissueCulturePreparation.this.endTime = endTime; return this; }
+        public Builder input(List<Reference<? extends TissueCulturePreparationInput>> input) { TissueCulturePreparation.this.input = input; return this; }
+        public Builder isPartOf(Reference<DatasetVersion> isPartOf) { TissueCulturePreparation.this.isPartOf = isPartOf; return this; }
+        public Builder lookupLabel(String lookupLabel) { TissueCulturePreparation.this.lookupLabel = lookupLabel; return this; }
+        public Builder output(List<Reference<TissueSampleState>> output) { TissueCulturePreparation.this.output = output; return this; }
+        public Builder performedBy(List<Reference<? extends TissueCulturePreparationPerformedBy>> performedBy) { TissueCulturePreparation.this.performedBy = performedBy; return this; }
+        public Builder preparationDesign(Reference<PreparationType> preparationDesign) { TissueCulturePreparation.this.preparationDesign = preparationDesign; return this; }
+        public Builder protocol(List<Reference<Protocol>> protocol) { TissueCulturePreparation.this.protocol = protocol; return this; }
+        public Builder startTime(String startTime) { TissueCulturePreparation.this.startTime = startTime; return this; }
+        public Builder studyTarget(List<Reference<? extends TissueCulturePreparationStudyTarget>> studyTarget) { TissueCulturePreparation.this.studyTarget = studyTarget; return this; }
         
 
         public TissueCulturePreparation build(OpenMINDSContext context) {
@@ -73,38 +89,120 @@ public class TissueCulturePreparation extends Instance implements org.openmetada
     }
     
 
-   @JsonProperty(value = "https://openminds.ebrains.eu/vocab/cultureMedium")
+   @JsonProperty(value = "https://openminds.om-i.org/props/cultureMedium")
     private Reference<ChemicalMixture> cultureMedium;
     
     public Reference<ChemicalMixture> getCultureMedium() {
        return this.cultureMedium;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/cultureType")
+    @JsonProperty(value = "https://openminds.om-i.org/props/cultureType")
     private Reference<CellCultureType> cultureType;
     
     public Reference<CellCultureType> getCultureType() {
        return this.cultureType;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/input")
-    private Reference<? extends TissueCulturePreparationInput> input;
+    @JsonProperty(value = "https://openminds.om-i.org/props/customPropertySet")
+    private List<CustomPropertySet> customPropertySet;
+    
+    public List<CustomPropertySet> getCustomPropertySet() {
+       return this.customPropertySet;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
+    private String description;
+    
+    /**
+    * Longer statement or account giving the characteristics of someone or something.
+    */
+    public String getDescription() {
+       return this.description;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/endTime")
+    private String endTime;
+    
+    public String getEndTime() {
+       return this.endTime;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/input")
+    private List<Reference<? extends TissueCulturePreparationInput>> input;
     
     /**
     * Something or someone that is put into or participates in a process or machine.
     */
-    public Reference<? extends TissueCulturePreparationInput> getInput() {
+    public List<Reference<? extends TissueCulturePreparationInput>> getInput() {
        return this.input;
     }
 
-    @JsonProperty(value = "https://openminds.ebrains.eu/vocab/output")
-    private Reference<TissueSampleState> output;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
+    private Reference<DatasetVersion> isPartOf;
+    
+    /**
+    * Reference to the ensemble of multiple things or beings.
+    */
+    public Reference<DatasetVersion> getIsPartOf() {
+       return this.isPartOf;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
+    private String lookupLabel;
+    
+    public String getLookupLabel() {
+       return this.lookupLabel;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/output")
+    private List<Reference<TissueSampleState>> output;
     
     /**
     * Something or someone that comes out of, is delivered or produced by a process or machine.
     */
-    public Reference<TissueSampleState> getOutput() {
+    public List<Reference<TissueSampleState>> getOutput() {
        return this.output;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/performedBy")
+    private List<Reference<? extends TissueCulturePreparationPerformedBy>> performedBy;
+    
+    public List<Reference<? extends TissueCulturePreparationPerformedBy>> getPerformedBy() {
+       return this.performedBy;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/preparationDesign")
+    private Reference<PreparationType> preparationDesign;
+    
+    public Reference<PreparationType> getPreparationDesign() {
+       return this.preparationDesign;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/protocol")
+    private List<Reference<Protocol>> protocol;
+    
+    /**
+    * Plan that describes the process of a scientific or medical experiment, treatment, or procedure.
+    */
+    public List<Reference<Protocol>> getProtocol() {
+       return this.protocol;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/startTime")
+    private String startTime;
+    
+    public String getStartTime() {
+       return this.startTime;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/studyTarget")
+    private List<Reference<? extends TissueCulturePreparationStudyTarget>> studyTarget;
+    
+    /**
+    * Structure or function that was targeted within a study.
+    */
+    public List<Reference<? extends TissueCulturePreparationStudyTarget>> getStudyTarget() {
+       return this.studyTarget;
     }
 
  
