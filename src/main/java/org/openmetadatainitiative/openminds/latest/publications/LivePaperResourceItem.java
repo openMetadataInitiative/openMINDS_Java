@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.actors.Organization;
 import org.openmetadatainitiative.openminds.latest.publications.LivePaperSection;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy;
 
 
 import static org.openmetadatainitiative.openminds.latest.publications.LivePaperResourceItem.SEMANTIC_NAME;
@@ -51,7 +51,7 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaperResourceItem>{
         public Builder IRI(String IRI) { LivePaperResourceItem.this.IRI = IRI; return this; }
-        public Builder hostedBy(Reference<Organization> hostedBy) { LivePaperResourceItem.this.hostedBy = hostedBy; return this; }
+        public Builder hostedBy(Reference<? extends LivePaperResourceItemHostedBy> hostedBy) { LivePaperResourceItem.this.hostedBy = hostedBy; return this; }
         public Builder isPartOf(Reference<LivePaperSection> isPartOf) { LivePaperResourceItem.this.isPartOf = isPartOf; return this; }
         public Builder name(String name) { LivePaperResourceItem.this.name = name; return this; }
         
@@ -82,12 +82,12 @@ public class LivePaperResourceItem extends Instance implements org.openmetadatai
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/hostedBy")
-    private Reference<Organization> hostedBy;
+    private Reference<? extends LivePaperResourceItemHostedBy> hostedBy;
     
     /**
     * Reference to an organization that provides facilities and services for something.
     */
-    public Reference<Organization> getHostedBy() {
+    public Reference<? extends LivePaperResourceItemHostedBy> getHostedBy() {
        return this.hostedBy;
     }
 
