@@ -8,7 +8,10 @@
 
 # openMINDS Java library
 
-openMINDS Java is a library to support the creation and use of openMINDS metadata models and schemas in your Java application, with import and export in JSON-LD format.
+[![GitHub][license-shield]][license-url]
+[![GitHub contributors][contributors-shield]][contributors-url]
+
+**openMINDS Java** is a library to support the creation and use of openMINDS metadata models and schemas in your Java application, with import and export in JSON-LD format.
 
 ## How to contribute
 
