@@ -1,8 +1,8 @@
-<a href="/img/openMINDS-logos/openMINDS-Java_logo_light.png">
+<a href="/img/openMINDS-logos/openMINDS-JAVA_logo_light.png">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="/img/openMINDS-Java_logo_dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="/img/openMINDS-Java_logo_light.png">
-    <img alt="openMINDS-Java_logo" src="/img/openMINDS-Java_logo_light.png" title="Logo created by Schlegel, Zehl, and Hagen Blixhavn." align="right" height="70">
+    <source media="(prefers-color-scheme: dark)" srcset="/img/openMINDS-JAVA_logo_dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="/img/openMINDS-JAVA_logo_light.png">
+    <img alt="openMINDS-JAVA_logo" src="/img/openMINDS-JAVA_logo_light.png" title="Logo created by Schlegel, Zehl, and Hagen Blixhavn." align="right" height="70">
   </picture>
 </a>
 
