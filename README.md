@@ -17,7 +17,7 @@
 
 The openMINDS metadata framework is an open-source project and community contributions are highly appreciated. If you want to contribute please follow our :arrow_right: [**contribution guidelines**][contribution-url].
 
-This repository has two main branches: pipeline and main. The pipeline contains the code for building the Java library from the openMINDS schemas. The build process is triggered by changes to the schemas, and runs as a GitHub action. The resultant library is copied to the main branch.
+This repository has two main branches: pipeline and main. The pipeline contains the code for building the Java library from the openMINDS schemas. The build process is triggered by changes to the schemas, and runs as a GitHub action. The resultant library is copied to the main branch.
 
 General usage questions should be raised and discussed in our :arrow_right: [**community forum**][community-forum].  
 Alternatively you can email us: `support@openmetadatainitiative.org`
@@ -39,6 +39,7 @@ The openMINDS metadata framework is closely collaborating with the [InterLex Pro
 [license-url]: https://www.apache.org/licenses/LICENSE-2.0
 [license-shield]: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 [contribution-url]: https://openminds-documentation.readthedocs.io/en/latest/shared/contribution_guidelines.html
+[community-forum]: https://neurostars.org/t/about-the-openminds-category/31428
 [ebrains2-doi]: https://doi.org/10.3030/101147319
 [hiball-url]: https://bigbrainproject.org/hiball.html
 [hbp-sga1-doi]: https://doi.org/10.3030/720270
