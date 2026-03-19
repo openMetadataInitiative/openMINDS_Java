@@ -14,24 +14,25 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.Language;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem;
-import org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage;
-import org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory;
-import org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
 import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.data.ContentType;
 import org.openmetadatainitiative.openminds.latest.core.data.Copyright;
 import org.openmetadatainitiative.openminds.latest.core.data.FileRepository;
-import org.openmetadatainitiative.openminds.latest.core.data.License;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Dependency;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
+import org.openmetadatainitiative.openminds.latest.core.products.InterfaceVersion;
+import org.openmetadatainitiative.openminds.latest.core.products.Software;
 import org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionCustodian;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDeveloper;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDigitalIdentifier;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionFullDocumentation;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionHasPart;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDocumentation;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionScope;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionUsageCondition;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.SEMANTIC_NAME;
@@ -44,7 +45,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Software
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput{
+public class SoftwareVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationInput, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisInput, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationInput, org.openmetadatainitiative.openminds.latest.computation.intf.ServiceDeploymentDependsOn, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.DependencyFulfilledBy, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SoftwareVersion";
 
     @JsonIgnore
@@ -69,39 +70,39 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<SoftwareVersion>{
-        public Builder accessibility(Reference<ProductAccessibility> accessibility) { SoftwareVersion.this.accessibility = accessibility; return this; }
-        public Builder applicationCategory(List<Reference<SoftwareApplicationCategory>> applicationCategory) { SoftwareVersion.this.applicationCategory = applicationCategory; return this; }
+        public Builder accessibility(Reference<Accessibility> accessibility) { SoftwareVersion.this.accessibility = accessibility; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { SoftwareVersion.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { SoftwareVersion.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { SoftwareVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
-        public Builder custodian(List<Reference<? extends SoftwareVersionCustodian>> custodian) { SoftwareVersion.this.custodian = custodian; return this; }
+        public Builder dependency(List<Function<Dependency.EmbeddedBuilder, Dependency>> dependency) { SoftwareVersion.this.dependency = dependency.stream().map(b -> b.apply(Dependency.createEmbedded())).toList(); return this; }
         public Builder description(String description) { SoftwareVersion.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends SoftwareVersionDeveloper>> developer) { SoftwareVersion.this.developer = developer; return this; }
-        public Builder device(List<Reference<OperatingDevice>> device) { SoftwareVersion.this.device = device; return this; }
         public Builder digitalIdentifier(Reference<? extends SoftwareVersionDigitalIdentifier> digitalIdentifier) { SoftwareVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder feature(List<Reference<SoftwareFeature>> feature) { SoftwareVersion.this.feature = feature; return this; }
-        public Builder fullDocumentation(Reference<? extends SoftwareVersionFullDocumentation> fullDocumentation) { SoftwareVersion.this.fullDocumentation = fullDocumentation; return this; }
+        public Builder documentation(Reference<? extends SoftwareVersionDocumentation> documentation) { SoftwareVersion.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { SoftwareVersion.this.fullName = fullName; return this; }
         public Builder funding(List<Reference<Funding>> funding) { SoftwareVersion.this.funding = funding; return this; }
-        public Builder hasPart(List<Reference<? extends SoftwareVersionHasPart>> hasPart) { SoftwareVersion.this.hasPart = hasPart; return this; }
         public Builder homepage(String homepage) { SoftwareVersion.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { SoftwareVersion.this.howToCite = howToCite; return this; }
+        public Builder implements(List<Reference<InterfaceVersion>> implements) { SoftwareVersion.this.implements = implements; return this; }
         public Builder inputFormat(List<Reference<ContentType>> inputFormat) { SoftwareVersion.this.inputFormat = inputFormat; return this; }
-        public Builder isAlternativeVersionOf(List<Reference<SoftwareVersion>> isAlternativeVersionOf) { SoftwareVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        public Builder isNewVersionOf(Reference<SoftwareVersion> isNewVersionOf) { SoftwareVersion.this.isNewVersionOf = isNewVersionOf; return this; }
+        public Builder isPrecededBy(Reference<SoftwareVersion> isPrecededBy) { SoftwareVersion.this.isPrecededBy = isPrecededBy; return this; }
+        public Builder isVariantOf(List<Reference<SoftwareVersion>> isVariantOf) { SoftwareVersion.this.isVariantOf = isVariantOf; return this; }
+        public Builder isVersionOf(Reference<Software> isVersionOf) { SoftwareVersion.this.isVersionOf = isVersionOf; return this; }
         public Builder keyword(List<Reference<? extends SoftwareVersionKeyword>> keyword) { SoftwareVersion.this.keyword = keyword; return this; }
         public Builder language(List<Reference<Language>> language) { SoftwareVersion.this.language = language; return this; }
-        public Builder license(List<Reference<License>> license) { SoftwareVersion.this.license = license; return this; }
+        public Builder operatingDevice(List<Reference<OperatingDevice>> operatingDevice) { SoftwareVersion.this.operatingDevice = operatingDevice; return this; }
         public Builder operatingSystem(List<Reference<OperatingSystem>> operatingSystem) { SoftwareVersion.this.operatingSystem = operatingSystem; return this; }
-        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { SoftwareVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder outputFormat(List<Reference<ContentType>> outputFormat) { SoftwareVersion.this.outputFormat = outputFormat; return this; }
         public Builder programmingLanguage(List<Reference<ProgrammingLanguage>> programmingLanguage) { SoftwareVersion.this.programmingLanguage = programmingLanguage; return this; }
+        public Builder publicationStatus(Reference<PublicationStatus> publicationStatus) { SoftwareVersion.this.publicationStatus = publicationStatus; return this; }
         public Builder relatedPublication(List<Reference<? extends SoftwareVersionRelatedPublication>> relatedPublication) { SoftwareVersion.this.relatedPublication = relatedPublication; return this; }
         public Builder releaseDate(String releaseDate) { SoftwareVersion.this.releaseDate = releaseDate; return this; }
         public Builder repository(Reference<FileRepository> repository) { SoftwareVersion.this.repository = repository; return this; }
-        public Builder requirement(List<String> requirement) { SoftwareVersion.this.requirement = requirement; return this; }
+        public Builder scope(List<Reference<? extends SoftwareVersionScope>> scope) { SoftwareVersion.this.scope = scope; return this; }
         public Builder shortName(String shortName) { SoftwareVersion.this.shortName = shortName; return this; }
         public Builder supportChannel(List<String> supportChannel) { SoftwareVersion.this.supportChannel = supportChannel; return this; }
+        public Builder usageCondition(List<Reference<? extends SoftwareVersionUsageCondition>> usageCondition) { SoftwareVersion.this.usageCondition = usageCondition; return this; }
         public Builder versionIdentifier(String versionIdentifier) { SoftwareVersion.this.versionIdentifier = versionIdentifier; return this; }
-        public Builder versionInnovation(String versionInnovation) { SoftwareVersion.this.versionInnovation = versionInnovation; return this; }
+        public Builder versionSpecification(String versionSpecification) { SoftwareVersion.this.versionSpecification = versionSpecification; return this; }
         
 
         public SoftwareVersion build(OpenMINDSContext context) {
@@ -120,23 +121,27 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/accessibility")
-    private Reference<ProductAccessibility> accessibility;
+    private Reference<Accessibility> accessibility;
     
     /**
     * Level to which something is accessible to someone or something.
     */
-    public Reference<ProductAccessibility> getAccessibility() {
+    public Reference<Accessibility> getAccessibility() {
        return this.accessibility;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/applicationCategory")
-    private List<Reference<SoftwareApplicationCategory>> applicationCategory;
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * Distinct class that groups software programs which perform a similar task or set of tasks.
-    */
-    public List<Reference<SoftwareApplicationCategory>> getApplicationCategory() {
-       return this.applicationCategory;
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
@@ -149,14 +154,11 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends SoftwareVersionCustodian>> custodian;
+    @JsonProperty(value = "https://openminds.om-i.org/props/dependency")
+    private List<Dependency> dependency;
     
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends SoftwareVersionCustodian>> getCustodian() {
-       return this.custodian;
+    public List<Dependency> getDependency() {
+       return this.dependency;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -169,26 +171,6 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends SoftwareVersionDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends SoftwareVersionDeveloper>> getDeveloper() {
-       return this.developer;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/device")
-    private List<Reference<OperatingDevice>> device;
-    
-    /**
-    * Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.
-    */
-    public List<Reference<OperatingDevice>> getDevice() {
-       return this.device;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends SoftwareVersionDigitalIdentifier> digitalIdentifier;
     
@@ -199,24 +181,11 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/feature")
-    private List<Reference<SoftwareFeature>> feature;
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends SoftwareVersionDocumentation> documentation;
     
-    /**
-    * Structure, form, or appearance that characterizes something or someone.
-    */
-    public List<Reference<SoftwareFeature>> getFeature() {
-       return this.feature;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/fullDocumentation")
-    private Reference<? extends SoftwareVersionFullDocumentation> fullDocumentation;
-    
-    /**
-    * Non-abridged instructions, comments, and information for using a particular product.
-    */
-    public Reference<? extends SoftwareVersionFullDocumentation> getFullDocumentation() {
-       return this.fullDocumentation;
+    public Reference<? extends SoftwareVersionDocumentation> getDocumentation() {
+       return this.documentation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
@@ -239,13 +208,6 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.funding;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasPart")
-    private List<Reference<? extends SoftwareVersionHasPart>> hasPart;
-    
-    public List<Reference<? extends SoftwareVersionHasPart>> getHasPart() {
-       return this.hasPart;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
     private String homepage;
     
@@ -266,6 +228,13 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.howToCite;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/implements")
+    private List<Reference<InterfaceVersion>> implements;
+    
+    public List<Reference<InterfaceVersion>> getImplements() {
+       return this.implements;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/inputFormat")
     private List<Reference<ContentType>> inputFormat;
     
@@ -276,24 +245,25 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.inputFormat;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isAlternativeVersionOf")
-    private List<Reference<SoftwareVersion>> isAlternativeVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPrecededBy")
+    private Reference<SoftwareVersion> isPrecededBy;
     
-    /**
-    * Reference to an original form where the essence was preserved, but presented in an alternative form.
-    */
-    public List<Reference<SoftwareVersion>> getIsAlternativeVersionOf() {
-       return this.isAlternativeVersionOf;
+    public Reference<SoftwareVersion> getIsPrecededBy() {
+       return this.isPrecededBy;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isNewVersionOf")
-    private Reference<SoftwareVersion> isNewVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVariantOf")
+    private List<Reference<SoftwareVersion>> isVariantOf;
     
-    /**
-    * Reference to a previous (potentially outdated) particular form of something.
-    */
-    public Reference<SoftwareVersion> getIsNewVersionOf() {
-       return this.isNewVersionOf;
+    public List<Reference<SoftwareVersion>> getIsVariantOf() {
+       return this.isVariantOf;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVersionOf")
+    private Reference<Software> isVersionOf;
+    
+    public Reference<Software> getIsVersionOf() {
+       return this.isVersionOf;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
@@ -316,14 +286,11 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.language;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/license")
-    private List<Reference<License>> license;
+    @JsonProperty(value = "https://openminds.om-i.org/props/operatingDevice")
+    private List<Reference<OperatingDevice>> operatingDevice;
     
-    /**
-    * Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.
-    */
-    public List<Reference<License>> getLicense() {
-       return this.license;
+    public List<Reference<OperatingDevice>> getOperatingDevice() {
+       return this.operatingDevice;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/operatingSystem")
@@ -334,16 +301,6 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
     */
     public List<Reference<OperatingSystem>> getOperatingSystem() {
        return this.operatingSystem;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/otherContribution")
-    private List<Contribution> otherContribution;
-    
-    /**
-    * Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.
-    */
-    public List<Contribution> getOtherContribution() {
-       return this.otherContribution;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/outputFormat")
@@ -364,6 +321,13 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
     */
     public List<Reference<ProgrammingLanguage>> getProgrammingLanguage() {
        return this.programmingLanguage;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/publicationStatus")
+    private Reference<PublicationStatus> publicationStatus;
+    
+    public Reference<PublicationStatus> getPublicationStatus() {
+       return this.publicationStatus;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
@@ -396,14 +360,14 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.repository;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/requirement")
-    private List<String> requirement;
+    @JsonProperty(value = "https://openminds.om-i.org/props/scope")
+    private List<Reference<? extends SoftwareVersionScope>> scope;
     
     /**
-    * Something essential to the existence, occurrence or function of something else.
+    * Extent of something.
     */
-    public List<String> getRequirement() {
-       return this.requirement;
+    public List<Reference<? extends SoftwareVersionScope>> getScope() {
+       return this.scope;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
@@ -426,6 +390,13 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.supportChannel;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/usageCondition")
+    private List<Reference<? extends SoftwareVersionUsageCondition>> usageCondition;
+    
+    public List<Reference<? extends SoftwareVersionUsageCondition>> getUsageCondition() {
+       return this.usageCondition;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
@@ -436,14 +407,11 @@ public class SoftwareVersion extends Instance implements org.openmetadatainitiat
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
-    private String versionInnovation;
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionSpecification")
+    private String versionSpecification;
     
-    /**
-    * Documentation on what changed in comparison to a previously published form of something.
-    */
-    public String getVersionInnovation() {
-       return this.versionInnovation;
+    public String getVersionSpecification() {
+       return this.versionSpecification;
     }
 
  

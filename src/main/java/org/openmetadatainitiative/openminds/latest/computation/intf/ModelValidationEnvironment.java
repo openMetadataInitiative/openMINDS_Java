@@ -13,7 +13,7 @@ public interface ModelValidationEnvironment extends Entity {
 
    class Deserializer extends ByTypeDeserializer<ModelValidationEnvironment> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.computation.Environment.class, org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.class);
+            super(org.openmetadatainitiative.openminds.latest.computation.Environment.class, org.openmetadatainitiative.openminds.latest.core.products.Service.class);
         }
     }
     

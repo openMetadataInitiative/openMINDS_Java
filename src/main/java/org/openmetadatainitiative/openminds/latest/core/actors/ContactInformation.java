@@ -48,7 +48,7 @@ public class ContactInformation extends Instance implements org.openmetadatainit
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ContactInformation>{
-        public Builder email(String email) { ContactInformation.this.email = email; return this; }
+        public Builder email(List<String> email) { ContactInformation.this.email = email; return this; }
         
 
         public ContactInformation build(OpenMINDSContext context) {
@@ -67,12 +67,12 @@ public class ContactInformation extends Instance implements org.openmetadatainit
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/email")
-    private String email;
+    private List<String> email;
     
     /**
     * Address to which or from which an electronic mail can be sent.
     */
-    public String getEmail() {
+    public List<String> getEmail() {
        return this.email;
     }
 

@@ -11,12 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
-import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteDigitalIdentifier;
-import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteManufacturer;
+import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteContribution;
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteMaterial;
-import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteOwner;
+import org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteType;
 
 
 import static org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.SEMANTIC_NAME;
@@ -54,18 +52,15 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Pipette>{
+        public Builder contribution(List<Reference<? extends PipetteContribution>> contribution) { Pipette.this.contribution = contribution; return this; }
         public Builder description(String description) { Pipette.this.description = description; return this; }
-        public Builder deviceType(Reference<DeviceType> deviceType) { Pipette.this.deviceType = deviceType; return this; }
-        public Builder digitalIdentifier(Reference<? extends PipetteDigitalIdentifier> digitalIdentifier) { Pipette.this.digitalIdentifier = digitalIdentifier; return this; }
         public Builder externalDiameter(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> externalDiameter) { Pipette.this.externalDiameter = externalDiameter.apply(QuantitativeValue.createEmbedded()); return this; }
         public Builder internalDiameter(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> internalDiameter) { Pipette.this.internalDiameter = internalDiameter.apply(QuantitativeValue.createEmbedded()); return this; }
         public Builder internalIdentifier(String internalIdentifier) { Pipette.this.internalIdentifier = internalIdentifier; return this; }
-        public Builder lookupLabel(String lookupLabel) { Pipette.this.lookupLabel = lookupLabel; return this; }
-        public Builder manufacturer(List<Reference<? extends PipetteManufacturer>> manufacturer) { Pipette.this.manufacturer = manufacturer; return this; }
         public Builder material(Reference<? extends PipetteMaterial> material) { Pipette.this.material = material; return this; }
         public Builder name(String name) { Pipette.this.name = name; return this; }
-        public Builder owner(List<Reference<? extends PipetteOwner>> owner) { Pipette.this.owner = owner; return this; }
         public Builder serialNumber(String serialNumber) { Pipette.this.serialNumber = serialNumber; return this; }
+        public Builder type(Reference<? extends PipetteType> type) { Pipette.this.type = type; return this; }
         
 
         public Pipette build(OpenMINDSContext context) {
@@ -83,7 +78,14 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Reference<? extends PipetteContribution>> contribution;
+    
+    public List<Reference<? extends PipetteContribution>> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -91,23 +93,6 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
     */
     public String getDescription() {
        return this.description;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/deviceType")
-    private Reference<DeviceType> deviceType;
-    
-    public Reference<DeviceType> getDeviceType() {
-       return this.deviceType;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
-    private Reference<? extends PipetteDigitalIdentifier> digitalIdentifier;
-    
-    /**
-    * Digital handle to identify objects or legal persons.
-    */
-    public Reference<? extends PipetteDigitalIdentifier> getDigitalIdentifier() {
-       return this.digitalIdentifier;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/externalDiameter")
@@ -134,20 +119,6 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
        return this.internalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
-    private String lookupLabel;
-    
-    public String getLookupLabel() {
-       return this.lookupLabel;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/manufacturer")
-    private List<Reference<? extends PipetteManufacturer>> manufacturer;
-    
-    public List<Reference<? extends PipetteManufacturer>> getManufacturer() {
-       return this.manufacturer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/material")
     private Reference<? extends PipetteMaterial> material;
     
@@ -165,18 +136,21 @@ public class Pipette extends Instance implements org.openmetadatainitiative.open
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/owner")
-    private List<Reference<? extends PipetteOwner>> owner;
-    
-    public List<Reference<? extends PipetteOwner>> getOwner() {
-       return this.owner;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/serialNumber")
     private String serialNumber;
     
     public String getSerialNumber() {
        return this.serialNumber;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
+    private Reference<? extends PipetteType> type;
+    
+    /**
+    * Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.
+    */
+    public Reference<? extends PipetteType> getType() {
+       return this.type;
     }
 
  

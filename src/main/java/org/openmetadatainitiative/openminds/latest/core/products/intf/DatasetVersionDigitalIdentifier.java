@@ -13,7 +13,7 @@ public interface DatasetVersionDigitalIdentifier extends Entity {
 
    class Deserializer extends ByTypeDeserializer<DatasetVersionDigitalIdentifier> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.class);
+            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.class);
         }
     }
     

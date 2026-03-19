@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
-import org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperAuthor;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperCustodian;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperDocumentation;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperKeyword;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperRelatedPublication;
 
 
 import static org.openmetadatainitiative.openminds.latest.publications.LivePaper.SEMANTIC_NAME;
@@ -27,7 +29,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.LivePaper
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class LivePaper extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class LivePaper extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LivePaper";
 
     @JsonIgnore
@@ -52,15 +54,18 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaper>{
-        public Builder author(List<Reference<? extends LivePaperAuthor>> author) { LivePaper.this.author = author; return this; }
-        public Builder custodian(List<Reference<? extends LivePaperCustodian>> custodian) { LivePaper.this.custodian = custodian; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { LivePaper.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { LivePaper.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder description(String description) { LivePaper.this.description = description; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { LivePaper.this.digitalIdentifier = digitalIdentifier; return this; }
+        public Builder documentation(Reference<? extends LivePaperDocumentation> documentation) { LivePaper.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { LivePaper.this.fullName = fullName; return this; }
-        public Builder hasVersion(List<Reference<LivePaperVersion>> hasVersion) { LivePaper.this.hasVersion = hasVersion; return this; }
         public Builder homepage(String homepage) { LivePaper.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { LivePaper.this.howToCite = howToCite; return this; }
+        public Builder keyword(List<Reference<? extends LivePaperKeyword>> keyword) { LivePaper.this.keyword = keyword; return this; }
+        public Builder relatedPublication(List<Reference<? extends LivePaperRelatedPublication>> relatedPublication) { LivePaper.this.relatedPublication = relatedPublication; return this; }
         public Builder shortName(String shortName) { LivePaper.this.shortName = shortName; return this; }
+        public Builder supportChannel(List<String> supportChannel) { LivePaper.this.supportChannel = supportChannel; return this; }
         
 
         public LivePaper build(OpenMINDSContext context) {
@@ -78,24 +83,18 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/author")
-    private List<Reference<? extends LivePaperAuthor>> author;
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * Creator of a literary or creative work, as well as a dataset publication.
-    */
-    public List<Reference<? extends LivePaperAuthor>> getAuthor() {
-       return this.author;
+    public List<Contribution> getContribution() {
+       return this.contribution;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends LivePaperCustodian>> custodian;
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
     
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends LivePaperCustodian>> getCustodian() {
-       return this.custodian;
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -118,6 +117,13 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
        return this.digitalIdentifier;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends LivePaperDocumentation> documentation;
+    
+    public Reference<? extends LivePaperDocumentation> getDocumentation() {
+       return this.documentation;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
@@ -126,16 +132,6 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
     */
     public String getFullName() {
        return this.fullName;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
-    private List<Reference<LivePaperVersion>> hasVersion;
-    
-    /**
-    * Reference to variants of an original.
-    */
-    public List<Reference<LivePaperVersion>> getHasVersion() {
-       return this.hasVersion;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
@@ -158,6 +154,26 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
        return this.howToCite;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
+    private List<Reference<? extends LivePaperKeyword>> keyword;
+    
+    /**
+    * Significant word or concept that are representative of something or someone.
+    */
+    public List<Reference<? extends LivePaperKeyword>> getKeyword() {
+       return this.keyword;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
+    private List<Reference<? extends LivePaperRelatedPublication>> relatedPublication;
+    
+    /**
+    * Reference to something that was made available for the general public to see or buy.
+    */
+    public List<Reference<? extends LivePaperRelatedPublication>> getRelatedPublication() {
+       return this.relatedPublication;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
@@ -166,6 +182,16 @@ public class LivePaper extends Instance implements org.openmetadatainitiative.op
     */
     public String getShortName() {
        return this.shortName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
+    private List<String> supportChannel;
+    
+    /**
+    * Way of communication used to interact with users or customers.
+    */
+    public List<String> getSupportChannel() {
+       return this.supportChannel;
     }
 
  

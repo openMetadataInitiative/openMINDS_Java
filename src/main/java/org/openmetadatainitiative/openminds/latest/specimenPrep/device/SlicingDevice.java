@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType;
-import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceDigitalIdentifier;
-import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceManufacturer;
-import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceOwner;
+import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceContribution;
+import org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceType;
 
 
 import static org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.SEMANTIC_NAME;
@@ -52,14 +50,12 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<SlicingDevice>{
+        public Builder contribution(List<Reference<? extends SlicingDeviceContribution>> contribution) { SlicingDevice.this.contribution = contribution; return this; }
         public Builder description(String description) { SlicingDevice.this.description = description; return this; }
-        public Builder deviceType(Reference<DeviceType> deviceType) { SlicingDevice.this.deviceType = deviceType; return this; }
-        public Builder digitalIdentifier(Reference<? extends SlicingDeviceDigitalIdentifier> digitalIdentifier) { SlicingDevice.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder lookupLabel(String lookupLabel) { SlicingDevice.this.lookupLabel = lookupLabel; return this; }
-        public Builder manufacturer(List<Reference<? extends SlicingDeviceManufacturer>> manufacturer) { SlicingDevice.this.manufacturer = manufacturer; return this; }
+        public Builder internalIdentifier(String internalIdentifier) { SlicingDevice.this.internalIdentifier = internalIdentifier; return this; }
         public Builder name(String name) { SlicingDevice.this.name = name; return this; }
-        public Builder owner(List<Reference<? extends SlicingDeviceOwner>> owner) { SlicingDevice.this.owner = owner; return this; }
         public Builder serialNumber(String serialNumber) { SlicingDevice.this.serialNumber = serialNumber; return this; }
+        public Builder type(Reference<? extends SlicingDeviceType> type) { SlicingDevice.this.type = type; return this; }
         
 
         public SlicingDevice build(OpenMINDSContext context) {
@@ -77,7 +73,14 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/description")
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Reference<? extends SlicingDeviceContribution>> contribution;
+    
+    public List<Reference<? extends SlicingDeviceContribution>> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
     /**
@@ -87,35 +90,14 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/deviceType")
-    private Reference<DeviceType> deviceType;
-    
-    public Reference<DeviceType> getDeviceType() {
-       return this.deviceType;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
-    private Reference<? extends SlicingDeviceDigitalIdentifier> digitalIdentifier;
+    @JsonProperty(value = "https://openminds.om-i.org/props/internalIdentifier")
+    private String internalIdentifier;
     
     /**
-    * Digital handle to identify objects or legal persons.
+    * Term or code that identifies someone or something within a particular product.
     */
-    public Reference<? extends SlicingDeviceDigitalIdentifier> getDigitalIdentifier() {
-       return this.digitalIdentifier;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
-    private String lookupLabel;
-    
-    public String getLookupLabel() {
-       return this.lookupLabel;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/manufacturer")
-    private List<Reference<? extends SlicingDeviceManufacturer>> manufacturer;
-    
-    public List<Reference<? extends SlicingDeviceManufacturer>> getManufacturer() {
-       return this.manufacturer;
+    public String getInternalIdentifier() {
+       return this.internalIdentifier;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/name")
@@ -128,18 +110,21 @@ public class SlicingDevice extends Instance implements org.openmetadatainitiativ
        return this.name;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/owner")
-    private List<Reference<? extends SlicingDeviceOwner>> owner;
-    
-    public List<Reference<? extends SlicingDeviceOwner>> getOwner() {
-       return this.owner;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/serialNumber")
     private String serialNumber;
     
     public String getSerialNumber() {
        return this.serialNumber;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
+    private Reference<? extends SlicingDeviceType> type;
+    
+    /**
+    * Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.
+    */
+    public Reference<? extends SlicingDeviceType> getType() {
+       return this.type;
     }
 
  

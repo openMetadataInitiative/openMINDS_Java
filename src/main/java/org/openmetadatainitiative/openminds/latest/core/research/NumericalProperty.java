@@ -48,6 +48,7 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
     
     public class EmbeddedBuilder {
 
+        public EmbeddedBuilder externalDefinitionOfName(String externalDefinitionOfName) { NumericalProperty.this.externalDefinitionOfName = externalDefinitionOfName; return this; }
         public EmbeddedBuilder name(String name) { NumericalProperty.this.name = name; return this; }
         public EmbeddedBuilder value(List<Function<NumericalPropertyValue.EmbeddedBuilder, NumericalPropertyValue>> value) { NumericalProperty.this.value = value.stream().map(b -> b.apply(NumericalPropertyValue.createEmbedded())).toList(); return this; }
         
@@ -64,7 +65,14 @@ public class NumericalProperty extends Instance implements org.openmetadatainiti
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/name")
+   @JsonProperty(value = "https://openminds.om-i.org/props/externalDefinitionOfName")
+    private String externalDefinitionOfName;
+    
+    public String getExternalDefinitionOfName() {
+       return this.externalDefinitionOfName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**

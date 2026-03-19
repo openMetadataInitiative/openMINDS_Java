@@ -50,11 +50,12 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ContentType>{
         public Builder dataType(List<Reference<DataType>> dataType) { ContentType.this.dataType = dataType; return this; }
+        public Builder definingSource(List<String> definingSource) { ContentType.this.definingSource = definingSource; return this; }
         public Builder description(String description) { ContentType.this.description = description; return this; }
         public Builder displayLabel(String displayLabel) { ContentType.this.displayLabel = displayLabel; return this; }
         public Builder fileExtension(List<String> fileExtension) { ContentType.this.fileExtension = fileExtension; return this; }
+        public Builder isBasedOn(List<Reference<ContentType>> isBasedOn) { ContentType.this.isBasedOn = isBasedOn; return this; }
         public Builder name(String name) { ContentType.this.name = name; return this; }
-        public Builder relatedMediaType(String relatedMediaType) { ContentType.this.relatedMediaType = relatedMediaType; return this; }
         public Builder specification(String specification) { ContentType.this.specification = specification; return this; }
         public Builder synonym(List<String> synonym) { ContentType.this.synonym = synonym; return this; }
         
@@ -79,6 +80,13 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
     
     public List<Reference<DataType>> getDataType() {
        return this.dataType;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/definingSource")
+    private List<String> definingSource;
+    
+    public List<String> getDefiningSource() {
+       return this.definingSource;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -108,6 +116,13 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
        return this.fileExtension;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/isBasedOn")
+    private List<Reference<ContentType>> isBasedOn;
+    
+    public List<Reference<ContentType>> getIsBasedOn() {
+       return this.isBasedOn;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
@@ -116,16 +131,6 @@ public class ContentType extends Instance implements org.openmetadatainitiative.
     */
     public String getName() {
        return this.name;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/relatedMediaType")
-    private String relatedMediaType;
-    
-    /**
-    * Reference to an official two-part identifier for file formats and format contents.
-    */
-    public String getRelatedMediaType() {
-       return this.relatedMediaType;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/specification")

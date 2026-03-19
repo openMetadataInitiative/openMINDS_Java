@@ -23,7 +23,7 @@ import static org.openmetadatainitiative.openminds.latest.core.digitalIdentifier
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ORCID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity{
+public class ORCID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.actors.intf.PersonDigitalIdentifier{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ORCID";
 
     @JsonIgnore

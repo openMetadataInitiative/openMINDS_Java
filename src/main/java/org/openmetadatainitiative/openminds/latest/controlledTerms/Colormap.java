@@ -23,7 +23,7 @@ import static org.openmetadatainitiative.openminds.latest.controlledTerms.Colorm
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Colormap extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.ViewerSpecificationPreferredDisplayColor{
+public class Colormap extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeKeyword, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.BookKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterKeyword, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateFrameworkVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.AnatomicalAtlasVersionKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateFrameworkKeyword, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.AnatomicalAtlasKeyword, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.ViewerSpecificationPreferredDisplayColor, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.InterfaceKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ServiceKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.InterfaceVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword, org.openmetadatainitiative.openminds.latest.core.products.intf.HardwareProductKeyword{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Colormap";
 
     @JsonIgnore
@@ -50,9 +50,10 @@ public class Colormap extends Instance implements org.openmetadatainitiative.ope
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Colormap>{
         public Builder definition(String definition) { Colormap.this.definition = definition; return this; }
         public Builder description(String description) { Colormap.this.description = description; return this; }
-        public Builder interlexIdentifier(String interlexIdentifier) { Colormap.this.interlexIdentifier = interlexIdentifier; return this; }
-        public Builder knowledgeSpaceLink(String knowledgeSpaceLink) { Colormap.this.knowledgeSpaceLink = knowledgeSpaceLink; return this; }
         public Builder name(String name) { Colormap.this.name = name; return this; }
+        public Builder otherCrossReference(List<String> otherCrossReference) { Colormap.this.otherCrossReference = otherCrossReference; return this; }
+        public Builder otherOntologyIdentifier(List<String> otherOntologyIdentifier) { Colormap.this.otherOntologyIdentifier = otherOntologyIdentifier; return this; }
+        public Builder preferredCrossReference(String preferredCrossReference) { Colormap.this.preferredCrossReference = preferredCrossReference; return this; }
         public Builder preferredOntologyIdentifier(String preferredOntologyIdentifier) { Colormap.this.preferredOntologyIdentifier = preferredOntologyIdentifier; return this; }
         public Builder synonym(List<String> synonym) { Colormap.this.synonym = synonym; return this; }
         
@@ -92,26 +93,6 @@ public class Colormap extends Instance implements org.openmetadatainitiative.ope
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/interlexIdentifier")
-    private String interlexIdentifier;
-    
-    /**
-    * Persistent identifier for a term registered in the InterLex project.
-    */
-    public String getInterlexIdentifier() {
-       return this.interlexIdentifier;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/knowledgeSpaceLink")
-    private String knowledgeSpaceLink;
-    
-    /**
-    * Persistent link to an encyclopedia entry in the Knowledge Space project.
-    */
-    public String getKnowledgeSpaceLink() {
-       return this.knowledgeSpaceLink;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
@@ -120,6 +101,27 @@ public class Colormap extends Instance implements org.openmetadatainitiative.ope
     */
     public String getName() {
        return this.name;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/otherCrossReference")
+    private List<String> otherCrossReference;
+    
+    public List<String> getOtherCrossReference() {
+       return this.otherCrossReference;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/otherOntologyIdentifier")
+    private List<String> otherOntologyIdentifier;
+    
+    public List<String> getOtherOntologyIdentifier() {
+       return this.otherOntologyIdentifier;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/preferredCrossReference")
+    private String preferredCrossReference;
+    
+    public String getPreferredCrossReference() {
+       return this.preferredCrossReference;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/preferredOntologyIdentifier")

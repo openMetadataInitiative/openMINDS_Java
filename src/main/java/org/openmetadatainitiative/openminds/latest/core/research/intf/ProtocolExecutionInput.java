@@ -13,7 +13,7 @@ public interface ProtocolExecutionInput extends Entity {
 
    class Deserializer extends ByTypeDeserializer<ProtocolExecutionInput> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectState.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.class);
+            super(org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectState.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.class);
         }
     }
     

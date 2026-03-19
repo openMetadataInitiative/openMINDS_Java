@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.SubjectG
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SubjectGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen{
+public class SubjectGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateFrameworkVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.AnatomicalAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SubjectGroup";
 
     @JsonIgnore
@@ -54,6 +54,7 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
         public Builder additionalRemarks(String additionalRemarks) { SubjectGroup.this.additionalRemarks = additionalRemarks; return this; }
         public Builder biologicalSex(List<Reference<BiologicalSex>> biologicalSex) { SubjectGroup.this.biologicalSex = biologicalSex; return this; }
         public Builder internalIdentifier(String internalIdentifier) { SubjectGroup.this.internalIdentifier = internalIdentifier; return this; }
+        public Builder isPartOf(List<Reference<SubjectGroup>> isPartOf) { SubjectGroup.this.isPartOf = isPartOf; return this; }
         public Builder lookupLabel(String lookupLabel) { SubjectGroup.this.lookupLabel = lookupLabel; return this; }
         public Builder numberOfSubjects(Object numberOfSubjects) { SubjectGroup.this.numberOfSubjects = numberOfSubjects; return this; }
         public Builder species(List<Reference<? extends SubjectGroupSpecies>> species) { SubjectGroup.this.species = species; return this; }
@@ -103,6 +104,16 @@ public class SubjectGroup extends Instance implements org.openmetadatainitiative
     */
     public String getInternalIdentifier() {
        return this.internalIdentifier;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
+    private List<Reference<SubjectGroup>> isPartOf;
+    
+    /**
+    * Reference to the ensemble of multiple things or beings.
+    */
+    public List<Reference<SubjectGroup>> getIsPartOf() {
+       return this.isPartOf;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")

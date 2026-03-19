@@ -13,7 +13,7 @@ public interface SetupHasPart extends Entity {
 
    class Deserializer extends ByTypeDeserializer<SetupHasPart> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.products.Setup.class, org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.class, org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.class, org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.class, org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.class, org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.class);
+            super(org.openmetadatainitiative.openminds.latest.core.products.Setup.class, org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.class, org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.class, org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.class, org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.class, org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoil.class, org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScanner.class, org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.class);
         }
     }
     

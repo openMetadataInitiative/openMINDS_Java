@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectCoordinator;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.ProjectType;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart;
 
 
@@ -50,12 +51,13 @@ public class Project extends Instance implements org.openmetadatainitiative.open
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Project>{
-        public Builder coordinator(List<Reference<? extends ProjectCoordinator>> coordinator) { Project.this.coordinator = coordinator; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { Project.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
         public Builder description(String description) { Project.this.description = description; return this; }
         public Builder fullName(String fullName) { Project.this.fullName = fullName; return this; }
         public Builder hasPart(List<Reference<? extends ProjectHasPart>> hasPart) { Project.this.hasPart = hasPart; return this; }
         public Builder homepage(String homepage) { Project.this.homepage = homepage; return this; }
         public Builder shortName(String shortName) { Project.this.shortName = shortName; return this; }
+        public Builder type(Reference<ProjectType> type) { Project.this.type = type; return this; }
         
 
         public Project build(OpenMINDSContext context) {
@@ -73,14 +75,11 @@ public class Project extends Instance implements org.openmetadatainitiative.open
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/coordinator")
-    private List<Reference<? extends ProjectCoordinator>> coordinator;
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * Legal person who organizes the collaborative work of people or groups.
-    */
-    public List<Reference<? extends ProjectCoordinator>> getCoordinator() {
-       return this.coordinator;
+    public List<Contribution> getContribution() {
+       return this.contribution;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -128,6 +127,16 @@ public class Project extends Instance implements org.openmetadatainitiative.open
     */
     public String getShortName() {
        return this.shortName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
+    private Reference<ProjectType> type;
+    
+    /**
+    * Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.
+    */
+    public Reference<ProjectType> getType() {
+       return this.type;
     }
 
  

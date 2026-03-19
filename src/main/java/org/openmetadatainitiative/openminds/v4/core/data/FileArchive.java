@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.v4.core.data.FileArchive.SEMA
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.core.data.intf.ServiceLinkDataLocation, org.openmetadatainitiative.openminds.v4.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.v4.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.v4.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.v4.computation.intf.SimulationOutput{
+public class FileArchive extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.computation.intf.GenericComputationOutput, org.openmetadatainitiative.openminds.v4.computation.intf.DataAnalysisOutput, org.openmetadatainitiative.openminds.v4.computation.intf.SimulationOutput, org.openmetadatainitiative.openminds.v4.computation.intf.VisualizationOutput, org.openmetadatainitiative.openminds.v4.core.data.intf.ServiceLinkDataLocation{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/FileArchive";
 
     @JsonIgnore

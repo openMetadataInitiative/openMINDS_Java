@@ -42,9 +42,9 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.GenericComputation.class, name = org.openmetadatainitiative.openminds.latest.computation.GenericComputation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.class, name = org.openmetadatainitiative.openminds.latest.computation.HardwareSystem.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.class, name = org.openmetadatainitiative.openminds.latest.computation.LaunchConfiguration.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.LocalFile.class, name = org.openmetadatainitiative.openminds.latest.computation.LocalFile.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.ModelValidation.class, name = org.openmetadatainitiative.openminds.latest.computation.ModelValidation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.Optimization.class, name = org.openmetadatainitiative.openminds.latest.computation.Optimization.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.ServiceDeployment.class, name = org.openmetadatainitiative.openminds.latest.computation.ServiceDeployment.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.Simulation.class, name = org.openmetadatainitiative.openminds.latest.computation.Simulation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.class, name = org.openmetadatainitiative.openminds.latest.computation.SoftwareAgent.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.ValidationTest.class, name = org.openmetadatainitiative.openminds.latest.computation.ValidationTest.SEMANTIC_NAME),
@@ -53,10 +53,16 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.class, name = org.openmetadatainitiative.openminds.latest.computation.WorkflowExecution.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.class, name = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipe.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.class, name = org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessChannel.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessChannel.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessEligibilityType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessEligibilityType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessForm.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessForm.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessProcessType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessProcessType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeReference.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeReference.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalCavity.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalCavity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalIdentificationType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalPlane.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType.SEMANTIC_NAME),
@@ -71,19 +77,24 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.CellType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ChemicalMixtureType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Colormap.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationInterfaceType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationInterfaceType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationProtocol.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationProtocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowConstructionType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.CranialWindowReinforcementType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DependencyImpact.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DependencyImpact.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DeploymentEnvironmentType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DeploymentEnvironmentType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceMountingType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceMountingType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Disease.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.DiseaseModel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ElectricalStimulusType.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ExternalBodyRegion.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ExternalBodyRegion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.FileBundleGrouping.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.FileRepositoryType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.FileUsageRole.SEMANTIC_NAME),
@@ -93,47 +104,68 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Language.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Language.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MRAcquisitionType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MRAcquisitionType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIFatSuppressionTechnique.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIFatSuppressionTechnique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIParallelAcquisitionTechnique.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIParallelAcquisitionTechnique.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIPulseSequence.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIPulseSequence.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MRISpoilingTechnique.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MRISpoilingTechnique.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIWeighting.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIWeighting.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredSignalType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConsentRequirement.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConsentRequirement.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConstraint.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConstraint.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationForm.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationForm.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationScope.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationScope.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.MuscularStructure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.MuscularStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.NervousSystemStructure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.NervousSystemStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OlfactoryStimulusType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingDevice.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OperatingSystem.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OperationalApproach.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OperationalApproach.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganSystemStructure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganSystemStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSubstance.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganismSystem.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganizationType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganizationType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.PaymentModelType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.PaymentModelType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.PreparationType.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.ProjectType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.ProjectType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.PulseShape.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.PulseShape.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.QualitativeOverlap.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SemanticDataType.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Service.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Service.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SignalDirectionality.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SignalDirectionality.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SkeletalStructure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SkeletalStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareApplicationCategory.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SovereignState.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SovereignState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SpatialEncoding.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SpatialEncoding.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Species.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Species.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationApproach.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.StimulationTechnique.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SubcellularEntity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.SupranationalBody.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.SupranationalBody.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.TactileStimulusType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Technique.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.TermSuggestion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.Terminology.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueStructure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.UnitOfMeasurement.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.VascularStructure.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.VascularStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.class, name = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.class, name = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.SEMANTIC_NAME),
@@ -151,12 +183,22 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.class, name = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.class, name = org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridImage.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridImage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridVolume.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridVolume.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.class, name = org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.IdentifiersDotOrgID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Interface.class, name = org.openmetadatainitiative.openminds.latest.core.products.Interface.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.InterfaceVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.InterfaceVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.LEI.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.LEI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.License.class, name = org.openmetadatainitiative.openminds.latest.core.data.License.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.LocalFile.class, name = org.openmetadatainitiative.openminds.latest.core.data.LocalFile.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.class, name = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Model.class, name = org.openmetadatainitiative.openminds.latest.core.products.Model.SEMANTIC_NAME),
@@ -168,11 +210,11 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.latest.core.research.Protocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Service.class, name = org.openmetadatainitiative.openminds.latest.core.products.Service.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.class, name = org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Setup.class, name = org.openmetadatainitiative.openminds.latest.core.products.Setup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Software.class, name = org.openmetadatainitiative.openminds.latest.core.products.Software.SEMANTIC_NAME),
@@ -186,9 +228,8 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.class, name = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.class, name = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.class, name = org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.UsageAgreement.class, name = org.openmetadatainitiative.openminds.latest.core.data.UsageAgreement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.WebService.class, name = org.openmetadatainitiative.openminds.latest.core.products.WebService.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.class, name = org.openmetadatainitiative.openminds.latest.ephys.activity.CellPatching.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.class, name = org.openmetadatainitiative.openminds.latest.ephys.device.Electrode.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.class, name = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.SEMANTIC_NAME),
@@ -197,8 +238,13 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.class, name = org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.class, name = org.openmetadatainitiative.openminds.latest.ephys.device.Pipette.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.class, name = org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.class, name = org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.class, name = org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.neuroimaging.activity.DynamicMRIAcquisition.class, name = org.openmetadatainitiative.openminds.latest.neuroimaging.activity.DynamicMRIAcquisition.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoil.class, name = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoil.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoilUsage.class, name = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoilUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScanner.class, name = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScanner.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScannerUsage.class, name = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScannerUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.neuroimaging.activity.StaticMRIAcquisition.class, name = org.openmetadatainitiative.openminds.latest.neuroimaging.activity.StaticMRIAcquisition.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.Book.class, name = org.openmetadatainitiative.openminds.latest.publications.Book.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.Chapter.class, name = org.openmetadatainitiative.openminds.latest.publications.Chapter.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.LearningResource.class, name = org.openmetadatainitiative.openminds.latest.publications.LearningResource.SEMANTIC_NAME),
@@ -210,12 +256,12 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.class, name = org.openmetadatainitiative.openminds.latest.publications.PublicationIssue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.class, name = org.openmetadatainitiative.openminds.latest.publications.PublicationVolume.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.class, name = org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.class, name = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.class, name = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.class, name = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.class, name = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.SingleColor.SEMANTIC_NAME),
@@ -302,12 +348,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.computation.LocalFile.Builder createLocalFile(String localId){
-                final org.openmetadatainitiative.openminds.latest.computation.LocalFile.Builder builder = org.openmetadatainitiative.openminds.latest.computation.LocalFile.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.computation.ModelValidation.Builder createModelValidation(String localId){
                 final org.openmetadatainitiative.openminds.latest.computation.ModelValidation.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ModelValidation.create(new LocalId(localId));
                 builders.add(builder);
@@ -316,6 +356,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.computation.Optimization.Builder createOptimization(String localId){
                 final org.openmetadatainitiative.openminds.latest.computation.Optimization.Builder builder = org.openmetadatainitiative.openminds.latest.computation.Optimization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.computation.ServiceDeployment.Builder createServiceDeployment(String localId){
+                final org.openmetadatainitiative.openminds.latest.computation.ServiceDeployment.Builder builder = org.openmetadatainitiative.openminds.latest.computation.ServiceDeployment.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -374,6 +420,30 @@ public class OpenMINDS {
         public final class ControlledTerms{
             private ControlledTerms(){}
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AccessChannel.Builder createAccessChannel(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AccessChannel.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessChannel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AccessEligibilityType.Builder createAccessEligibilityType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AccessEligibilityType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessEligibilityType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AccessForm.Builder createAccessForm(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AccessForm.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessForm.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AccessProcessType.Builder createAccessProcessType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AccessProcessType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AccessProcessType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.Builder createActionStatusType(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ActionStatusType.create(new LocalId(localId));
                 builders.add(builder);
@@ -386,6 +456,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AgeReference.Builder createAgeReference(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AgeReference.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AgeReference.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.Builder createAnalysisTechnique(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnalysisTechnique.create(new LocalId(localId));
                 builders.add(builder);
@@ -394,6 +470,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.Builder createAnatomicalAxesOrientation(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalAxesOrientation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalCavity.Builder createAnatomicalCavity(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalCavity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.AnatomicalCavity.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -482,6 +564,18 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationInterfaceType.Builder createCommunicationInterfaceType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationInterfaceType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationInterfaceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationProtocol.Builder createCommunicationProtocol(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationProtocol.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.CommunicationProtocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.Builder createContributionType(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ContributionType.create(new LocalId(localId));
                 builders.add(builder);
@@ -508,6 +602,24 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.Builder createDataType(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DependencyImpact.Builder createDependencyImpact(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DependencyImpact.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DependencyImpact.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DeploymentEnvironmentType.Builder createDeploymentEnvironmentType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DeploymentEnvironmentType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DeploymentEnvironmentType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceMountingType.Builder createDeviceMountingType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceMountingType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceMountingType.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -548,14 +660,14 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.Builder createEthicsAssessment(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.EthicsAssessment.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder createExperimentalApproach(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder createExperimentalApproach(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ExternalBodyRegion.Builder createExternalBodyRegion(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ExternalBodyRegion.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ExternalBodyRegion.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -614,14 +726,26 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.MRAcquisitionType.Builder createMRAcquisitionType(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.MRAcquisitionType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MRAcquisitionType.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MRIFatSuppressionTechnique.Builder createMRIFatSuppressionTechnique(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MRIFatSuppressionTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIFatSuppressionTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MRIParallelAcquisitionTechnique.Builder createMRIParallelAcquisitionTechnique(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MRIParallelAcquisitionTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIParallelAcquisitionTechnique.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
             public org.openmetadatainitiative.openminds.latest.controlledTerms.MRIPulseSequence.Builder createMRIPulseSequence(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.MRIPulseSequence.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MRIPulseSequence.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MRISpoilingTechnique.Builder createMRISpoilingTechnique(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MRISpoilingTechnique.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MRISpoilingTechnique.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -662,8 +786,44 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConsentRequirement.Builder createModificationConsentRequirement(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConsentRequirement.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConsentRequirement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConstraint.Builder createModificationConstraint(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConstraint.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationConstraint.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationForm.Builder createModificationForm(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationForm.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationForm.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationScope.Builder createModificationScope(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationScope.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ModificationScope.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.Builder createMolecularEntity(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MolecularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.MuscularStructure.Builder createMuscularStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.MuscularStructure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.MuscularStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.NervousSystemStructure.Builder createNervousSystemStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.NervousSystemStructure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.NervousSystemStructure.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -686,6 +846,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OperationalApproach.Builder createOperationalApproach(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OperationalApproach.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OperationalApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.Builder createOpticalStimulusType(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OpticalStimulusType.create(new LocalId(localId));
                 builders.add(builder);
@@ -694,6 +860,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.Builder createOrgan(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Organ.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OrganSystemStructure.Builder createOrganSystemStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OrganSystemStructure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganSystemStructure.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -710,8 +882,20 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.OrganizationType.Builder createOrganizationType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.OrganizationType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.OrganizationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.Builder createPatchClampVariation(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PatchClampVariation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.PaymentModelType.Builder createPaymentModelType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.PaymentModelType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PaymentModelType.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -722,14 +906,26 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.Builder createProductAccessibility(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder createProgrammingLanguage(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder createProgrammingLanguage(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.ProjectType.Builder createProjectType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.ProjectType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.ProjectType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus.Builder createPublicationStatus(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.PulseShape.Builder createPulseShape(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.PulseShape.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.PulseShape.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -746,14 +942,20 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.Service.Builder createService(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.Service.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.Service.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder createSetupType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder createSetupType(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SetupType.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SignalDirectionality.Builder createSignalDirectionality(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SignalDirectionality.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SignalDirectionality.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SkeletalStructure.Builder createSkeletalStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SkeletalStructure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SkeletalStructure.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -766,6 +968,18 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.Builder createSoftwareFeature(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SoftwareFeature.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SovereignState.Builder createSovereignState(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SovereignState.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SovereignState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SpatialEncoding.Builder createSpatialEncoding(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SpatialEncoding.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SpatialEncoding.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -796,6 +1010,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.Builder createSubjectAttribute(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.SupranationalBody.Builder createSupranationalBody(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.SupranationalBody.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.SupranationalBody.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -836,14 +1056,14 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder createTypeOfUncertainty(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TissueStructure.Builder createTissueStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TissueStructure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TissueStructure.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.Builder createUBERONParcellation(String localId){
-                final org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.UBERONParcellation.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder createTypeOfUncertainty(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -854,8 +1074,20 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.VascularStructure.Builder createVascularStructure(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.VascularStructure.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.VascularStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.Builder createVisualStimulusType(String localId){
                 final org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.VisualStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.Builder createWeightType(String localId){
+                final org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.Builder builder = org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -865,6 +1097,12 @@ public class OpenMINDS {
 
         public final class Core{
             private Core(){}
+            
+            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.Builder createAccessibility(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
             
             public org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.Builder createAccountInformation(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.create(new LocalId(localId));
@@ -968,8 +1206,32 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.Builder createGRIDID(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.Builder createGenericIdentifier(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.GridImage.Builder createGridImage(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.GridImage.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.GridImage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.Builder createGridImageStack(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.GridVolume.Builder createGridVolume(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.GridVolume.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.GridVolume.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.Builder createGridVolumeSequence(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -980,8 +1242,20 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.Builder createHardwareProduct(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.Builder createISNI(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -998,8 +1272,32 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.core.products.Interface.Builder createInterface(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Interface.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Interface.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.InterfaceVersion.Builder createInterfaceVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.InterfaceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.InterfaceVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.LEI.Builder createLEI(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.LEI.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.LEI.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.core.data.License.Builder createLicense(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.data.License.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.License.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.LocalFile.Builder createLocalFile(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.LocalFile.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.LocalFile.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1070,12 +1368,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.Builder createRORID(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.create(new LocalId(localId));
                 builders.add(builder);
@@ -1096,6 +1388,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.Builder createSWHID(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.products.Service.Builder createService(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.products.Service.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.Service.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1178,20 +1476,14 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.core.data.UsageAgreement.Builder createUsageAgreement(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.UsageAgreement.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.UsageAgreement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.Builder createWebResource(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.products.WebService.Builder createWebService(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.products.WebService.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.WebService.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.Builder createWebServiceVersion(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1250,14 +1542,50 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.Builder createRecording(String localId){
-                final org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.entity.Recording.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder createRecordingActivity(String localId){
+                final org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder createRecordingActivity(String localId){
-                final org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.latest.ephys.activity.RecordingActivity.create(new LocalId(localId));
+        }
+        public final OpenMINDS.Latest.Neuroimaging neuroimaging = new Neuroimaging();
+
+        public final class Neuroimaging{
+            private Neuroimaging(){}
+            
+            public org.openmetadatainitiative.openminds.latest.neuroimaging.activity.DynamicMRIAcquisition.Builder createDynamicMRIAcquisition(String localId){
+                final org.openmetadatainitiative.openminds.latest.neuroimaging.activity.DynamicMRIAcquisition.Builder builder = org.openmetadatainitiative.openminds.latest.neuroimaging.activity.DynamicMRIAcquisition.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoil.Builder createMRICoil(String localId){
+                final org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoil.Builder builder = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoil.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoilUsage.Builder createMRICoilUsage(String localId){
+                final org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoilUsage.Builder builder = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoilUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScanner.Builder createMRIScanner(String localId){
+                final org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScanner.Builder builder = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScanner.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScannerUsage.Builder createMRIScannerUsage(String localId){
+                final org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScannerUsage.Builder builder = org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScannerUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.neuroimaging.activity.StaticMRIAcquisition.Builder createStaticMRIAcquisition(String localId){
+                final org.openmetadatainitiative.openminds.latest.neuroimaging.activity.StaticMRIAcquisition.Builder builder = org.openmetadatainitiative.openminds.latest.neuroimaging.activity.StaticMRIAcquisition.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1340,26 +1668,26 @@ public class OpenMINDS {
         public final class SANDS{
             private SANDS(){}
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.Builder createBrainAtlas(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.Builder createAnatomicalAtlas(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.Builder createBrainAtlasVersion(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.Builder createAnatomicalAtlasVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.Builder createCommonCoordinateSpace(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.Builder createCommonCoordinateFramework(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.Builder createCommonCoordinateSpaceVersion(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.Builder createCommonCoordinateFrameworkVersion(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1370,8 +1698,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.Builder createCustomCoordinateSpace(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
+            public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.Builder createCustomCoordinateFramework(String localId){
+                final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3202,7 +3530,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.v4.core.research.PropertyValueList.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.v4.core.research.Protocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.v4.core.research.ProtocolExecution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RRID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
@@ -3224,6 +3551,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.WebService.class, name = org.openmetadatainitiative.openminds.v4.core.products.WebService.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.WebServiceVersion.class, name = org.openmetadatainitiative.openminds.v4.core.products.WebServiceVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.class, name = org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.class, name = org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.device.Electrode.class, name = org.openmetadatainitiative.openminds.v4.ephys.device.Electrode.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArray.class, name = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArray.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArrayUsage.class, name = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArrayUsage.SEMANTIC_NAME),
@@ -4098,12 +4426,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.Builder createRORID(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.create(new LocalId(localId));
                 builders.add(builder);
@@ -4232,6 +4554,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.Builder createCellPatching(String localId){
                 final org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.Builder createChannel(String localId){
+                final org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -4472,6 +4800,1771 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v4.stimulation.activity.StimulationActivity.Builder createStimulationActivity(String localId){
                 final org.openmetadatainitiative.openminds.v4.stimulation.activity.StimulationActivity.Builder builder = org.openmetadatainitiative.openminds.v4.stimulation.activity.StimulationActivity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        
+
+        public void flush(PostProcessor postProcessor){
+            flush(OpenMINDSContext.defaultContext(), postProcessor);
+        }
+
+        public void flush(OpenMINDSContext context, PostProcessor postProcessor){
+            postProcessor.process(builders.stream().map(b -> b.build(context)));
+        }
+    }
+    public static OpenMINDS.V5 v5() {
+        return new V5();
+    }
+
+    public static final class V5 {
+        private V5(){}
+        @JsonTypeInfo(
+                use = JsonTypeInfo.Id.NAME,
+                defaultImpl = UnknownEntity.class
+        )
+        @JsonSubTypes({
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.class, name = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.class, name = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.class, name = org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.DataAnalysis.class, name = org.openmetadatainitiative.openminds.v5.computation.DataAnalysis.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.DataCopy.class, name = org.openmetadatainitiative.openminds.v5.computation.DataCopy.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.Environment.class, name = org.openmetadatainitiative.openminds.v5.computation.Environment.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.GenericComputation.class, name = org.openmetadatainitiative.openminds.v5.computation.GenericComputation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.HardwareSystem.class, name = org.openmetadatainitiative.openminds.v5.computation.HardwareSystem.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.LaunchConfiguration.class, name = org.openmetadatainitiative.openminds.v5.computation.LaunchConfiguration.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.ModelValidation.class, name = org.openmetadatainitiative.openminds.v5.computation.ModelValidation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.Optimization.class, name = org.openmetadatainitiative.openminds.v5.computation.Optimization.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.ServiceDeployment.class, name = org.openmetadatainitiative.openminds.v5.computation.ServiceDeployment.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.Simulation.class, name = org.openmetadatainitiative.openminds.v5.computation.Simulation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.SoftwareAgent.class, name = org.openmetadatainitiative.openminds.v5.computation.SoftwareAgent.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.ValidationTest.class, name = org.openmetadatainitiative.openminds.v5.computation.ValidationTest.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.ValidationTestVersion.class, name = org.openmetadatainitiative.openminds.v5.computation.ValidationTestVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.Visualization.class, name = org.openmetadatainitiative.openminds.v5.computation.Visualization.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.WorkflowExecution.class, name = org.openmetadatainitiative.openminds.v5.computation.WorkflowExecution.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipe.class, name = org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipe.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipeVersion.class, name = org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipeVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessChannel.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessChannel.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessEligibilityType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessEligibilityType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessForm.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessForm.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessProcessType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessProcessType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ActionStatusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ActionStatusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AgeCategory.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AgeCategory.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AgeReference.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AgeReference.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnalysisTechnique.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnalysisTechnique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalAxesOrientation.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalAxesOrientation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalCavity.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalCavity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalIdentificationType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalIdentificationType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalPlane.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalPlane.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationCriteriaType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationCriteriaType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AtlasType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AtlasType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.AuditoryStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.AuditoryStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalOrder.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalOrder.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalProcess.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalProcess.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalSex.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalSex.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.BreedingType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.BreedingType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CellCultureType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CellCultureType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CellType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CellType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ChemicalMixtureType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ChemicalMixtureType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Colormap.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Colormap.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationInterfaceType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationInterfaceType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationProtocol.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationProtocol.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ContributionType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ContributionType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowConstructionType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowConstructionType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowReinforcementType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowReinforcementType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.CriteriaQualityType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.CriteriaQualityType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DataType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DataType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DependencyImpact.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DependencyImpact.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DeploymentEnvironmentType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DeploymentEnvironmentType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceMountingType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceMountingType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DifferenceMeasure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DifferenceMeasure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Disease.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Disease.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.DiseaseModel.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.DiseaseModel.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.EducationalLevel.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.EducationalLevel.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ElectricalStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ElectricalStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ExperimentalApproach.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ExperimentalApproach.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ExternalBodyRegion.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ExternalBodyRegion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.FileBundleGrouping.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.FileBundleGrouping.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.FileRepositoryType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.FileRepositoryType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.FileUsageRole.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.FileUsageRole.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.GeneticStrainType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.GeneticStrainType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.GustatoryStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.GustatoryStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Handedness.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Handedness.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Language.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Language.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Laterality.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Laterality.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.LearningResourceType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.LearningResourceType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIFatSuppressionTechnique.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIFatSuppressionTechnique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIParallelAcquisitionTechnique.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIParallelAcquisitionTechnique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIPulseSequence.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIPulseSequence.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MRISpoilingTechnique.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MRISpoilingTechnique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIWeighting.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIWeighting.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredQuantity.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredQuantity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredSignalType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredSignalType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MetaDataModelType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MetaDataModelType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ModelAbstractionLevel.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ModelAbstractionLevel.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ModelScope.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ModelScope.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConsentRequirement.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConsentRequirement.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConstraint.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConstraint.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationForm.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationForm.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationScope.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationScope.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MolecularEntity.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MolecularEntity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.MuscularStructure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.MuscularStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.NervousSystemStructure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.NervousSystemStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OlfactoryStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OlfactoryStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingDevice.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingDevice.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingSystem.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingSystem.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OperationalApproach.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OperationalApproach.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OpticalStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OpticalStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Organ.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Organ.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganSystemStructure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganSystemStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSubstance.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSubstance.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSystem.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSystem.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganizationType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganizationType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.PatchClampVariation.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.PatchClampVariation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.PaymentModelType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.PaymentModelType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.PreparationType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.PreparationType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ProgrammingLanguage.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ProgrammingLanguage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.ProjectType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.ProjectType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.PublicationStatus.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.PublicationStatus.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.PulseShape.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.PulseShape.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.QualitativeOverlap.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.QualitativeOverlap.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SemanticDataType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SemanticDataType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SetupType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SetupType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SignalDirectionality.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SignalDirectionality.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SkeletalStructure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SkeletalStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareApplicationCategory.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareApplicationCategory.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareFeature.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareFeature.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SovereignState.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SovereignState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SpatialEncoding.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SpatialEncoding.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Species.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Species.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationApproach.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationApproach.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationTechnique.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationTechnique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SubcellularEntity.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SubcellularEntity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SubjectAttribute.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SubjectAttribute.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.SupranationalBody.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.SupranationalBody.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.TactileStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.TactileStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Technique.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Technique.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.TermSuggestion.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.TermSuggestion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.Terminology.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.Terminology.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleAttribute.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleAttribute.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueStructure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.TypeOfUncertainty.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.TypeOfUncertainty.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.UnitOfMeasurement.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.UnitOfMeasurement.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.VascularStructure.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.VascularStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.VisualStimulusType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.VisualStimulusType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.class, name = org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.class, name = org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Configuration.class, name = org.openmetadatainitiative.openminds.v5.core.research.Configuration.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Consortium.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Consortium.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.class, name = org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.ContentType.class, name = org.openmetadatainitiative.openminds.v5.core.data.ContentType.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.class, name = org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Dataset.class, name = org.openmetadatainitiative.openminds.v5.core.products.Dataset.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.File.class, name = org.openmetadatainitiative.openminds.v5.core.data.File.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileArchive.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileArchive.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileBundle.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileBundle.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileRepository.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileRepository.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridImage.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridImage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridVolume.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridVolume.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.class, name = org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.IdentifiersDotOrgID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.IdentifiersDotOrgID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Interface.class, name = org.openmetadatainitiative.openminds.v5.core.products.Interface.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.InterfaceVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.InterfaceVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.LEI.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.LEI.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.License.class, name = org.openmetadatainitiative.openminds.v5.core.data.License.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.LocalFile.class, name = org.openmetadatainitiative.openminds.v5.core.data.LocalFile.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.class, name = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Model.class, name = org.openmetadatainitiative.openminds.v5.core.products.Model.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Organization.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Organization.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Person.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Person.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Project.class, name = org.openmetadatainitiative.openminds.v5.core.products.Project.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.v5.core.research.Protocol.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Service.class, name = org.openmetadatainitiative.openminds.v5.core.products.Service.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.ServiceLink.class, name = org.openmetadatainitiative.openminds.v5.core.data.ServiceLink.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Setup.class, name = org.openmetadatainitiative.openminds.v5.core.products.Setup.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Software.class, name = org.openmetadatainitiative.openminds.v5.core.products.Software.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Strain.class, name = org.openmetadatainitiative.openminds.v5.core.research.Strain.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Subject.class, name = org.openmetadatainitiative.openminds.v5.core.research.Subject.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.class, name = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.class, name = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SubjectState.class, name = org.openmetadatainitiative.openminds.v5.core.research.SubjectState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.TissueSample.class, name = org.openmetadatainitiative.openminds.v5.core.research.TissueSample.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollection.class, name = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollection.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollectionState.class, name = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollectionState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleState.class, name = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleState.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.UsageAgreement.class, name = org.openmetadatainitiative.openminds.v5.core.data.UsageAgreement.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.WebResource.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.WebResource.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.activity.CellPatching.class, name = org.openmetadatainitiative.openminds.v5.ephys.activity.CellPatching.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.device.Electrode.class, name = org.openmetadatainitiative.openminds.v5.ephys.device.Electrode.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArray.class, name = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArray.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArrayUsage.class, name = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArrayUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.activity.ElectrodePlacement.class, name = org.openmetadatainitiative.openminds.v5.ephys.activity.ElectrodePlacement.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeUsage.class, name = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.device.Pipette.class, name = org.openmetadatainitiative.openminds.v5.ephys.device.Pipette.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.device.PipetteUsage.class, name = org.openmetadatainitiative.openminds.v5.ephys.device.PipetteUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.ephys.activity.RecordingActivity.class, name = org.openmetadatainitiative.openminds.v5.ephys.activity.RecordingActivity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.neuroimaging.activity.DynamicMRIAcquisition.class, name = org.openmetadatainitiative.openminds.v5.neuroimaging.activity.DynamicMRIAcquisition.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoil.class, name = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoil.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoilUsage.class, name = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoilUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScanner.class, name = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScanner.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScannerUsage.class, name = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScannerUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.neuroimaging.activity.StaticMRIAcquisition.class, name = org.openmetadatainitiative.openminds.v5.neuroimaging.activity.StaticMRIAcquisition.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.Book.class, name = org.openmetadatainitiative.openminds.v5.publications.Book.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.Chapter.class, name = org.openmetadatainitiative.openminds.v5.publications.Chapter.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.LearningResource.class, name = org.openmetadatainitiative.openminds.v5.publications.LearningResource.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.LivePaper.class, name = org.openmetadatainitiative.openminds.v5.publications.LivePaper.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.LivePaperResourceItem.class, name = org.openmetadatainitiative.openminds.v5.publications.LivePaperResourceItem.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.LivePaperSection.class, name = org.openmetadatainitiative.openminds.v5.publications.LivePaperSection.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.LivePaperVersion.class, name = org.openmetadatainitiative.openminds.v5.publications.LivePaperVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.Periodical.class, name = org.openmetadatainitiative.openminds.v5.publications.Periodical.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.PublicationIssue.class, name = org.openmetadatainitiative.openminds.v5.publications.PublicationIssue.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.PublicationVolume.class, name = org.openmetadatainitiative.openminds.v5.publications.PublicationVolume.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.class, name = org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.class, name = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.class, name = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.SingleColor.class, name = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.SingleColor.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueCulturePreparation.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueCulturePreparation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueSampleSlicing.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueSampleSlicing.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.stimulation.stimulus.EphysStimulus.class, name = org.openmetadatainitiative.openminds.v5.stimulation.stimulus.EphysStimulus.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.stimulation.activity.StimulationActivity.class, name = org.openmetadatainitiative.openminds.v5.stimulation.activity.StimulationActivity.SEMANTIC_NAME),
+                
+        })
+        public interface Entity {
+        }
+
+        public <T extends Entity> T load(String payload) throws JsonProcessingException {
+            return (T) ParsingUtils.OBJECT_MAPPER.readValue(payload, Entity.class);
+        }
+
+        private final List<org.openmetadatainitiative.openminds.utils.Builder<?>> builders = new ArrayList<>();
+
+        public final OpenMINDS.V5.Chemicals chemicals = new Chemicals();
+
+        public final class Chemicals{
+            private Chemicals(){}
+            
+            public org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
+                final org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.Builder createChemicalSubstance(String localId){
+                final org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.Builder builder = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.Builder createProductSource(String localId){
+                final org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.Builder builder = org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.Computation computation = new Computation();
+
+        public final class Computation{
+            private Computation(){}
+            
+            public org.openmetadatainitiative.openminds.v5.computation.DataAnalysis.Builder createDataAnalysis(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.DataAnalysis.Builder builder = org.openmetadatainitiative.openminds.v5.computation.DataAnalysis.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.DataCopy.Builder createDataCopy(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.DataCopy.Builder builder = org.openmetadatainitiative.openminds.v5.computation.DataCopy.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.Environment.Builder createEnvironment(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.Environment.Builder builder = org.openmetadatainitiative.openminds.v5.computation.Environment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.GenericComputation.Builder createGenericComputation(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.GenericComputation.Builder builder = org.openmetadatainitiative.openminds.v5.computation.GenericComputation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.HardwareSystem.Builder createHardwareSystem(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.HardwareSystem.Builder builder = org.openmetadatainitiative.openminds.v5.computation.HardwareSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.LaunchConfiguration.Builder createLaunchConfiguration(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.LaunchConfiguration.Builder builder = org.openmetadatainitiative.openminds.v5.computation.LaunchConfiguration.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.ModelValidation.Builder createModelValidation(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.ModelValidation.Builder builder = org.openmetadatainitiative.openminds.v5.computation.ModelValidation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.Optimization.Builder createOptimization(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.Optimization.Builder builder = org.openmetadatainitiative.openminds.v5.computation.Optimization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.ServiceDeployment.Builder createServiceDeployment(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.ServiceDeployment.Builder builder = org.openmetadatainitiative.openminds.v5.computation.ServiceDeployment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.Simulation.Builder createSimulation(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.Simulation.Builder builder = org.openmetadatainitiative.openminds.v5.computation.Simulation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.SoftwareAgent.Builder createSoftwareAgent(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.SoftwareAgent.Builder builder = org.openmetadatainitiative.openminds.v5.computation.SoftwareAgent.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.ValidationTest.Builder createValidationTest(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.ValidationTest.Builder builder = org.openmetadatainitiative.openminds.v5.computation.ValidationTest.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.ValidationTestVersion.Builder createValidationTestVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.ValidationTestVersion.Builder builder = org.openmetadatainitiative.openminds.v5.computation.ValidationTestVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.Visualization.Builder createVisualization(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.Visualization.Builder builder = org.openmetadatainitiative.openminds.v5.computation.Visualization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.WorkflowExecution.Builder createWorkflowExecution(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.WorkflowExecution.Builder builder = org.openmetadatainitiative.openminds.v5.computation.WorkflowExecution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipe.Builder createWorkflowRecipe(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipe.Builder builder = org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipe.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipeVersion.Builder createWorkflowRecipeVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipeVersion.Builder builder = org.openmetadatainitiative.openminds.v5.computation.WorkflowRecipeVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.ControlledTerms controlledTerms = new ControlledTerms();
+
+        public final class ControlledTerms{
+            private ControlledTerms(){}
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AccessChannel.Builder createAccessChannel(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AccessChannel.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessChannel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AccessEligibilityType.Builder createAccessEligibilityType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AccessEligibilityType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessEligibilityType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AccessForm.Builder createAccessForm(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AccessForm.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessForm.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AccessProcessType.Builder createAccessProcessType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AccessProcessType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AccessProcessType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ActionStatusType.Builder createActionStatusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ActionStatusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ActionStatusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AgeCategory.Builder createAgeCategory(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AgeCategory.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AgeCategory.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AgeReference.Builder createAgeReference(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AgeReference.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AgeReference.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnalysisTechnique.Builder createAnalysisTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnalysisTechnique.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnalysisTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalAxesOrientation.Builder createAnatomicalAxesOrientation(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalAxesOrientation.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalAxesOrientation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalCavity.Builder createAnatomicalCavity(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalCavity.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalCavity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalIdentificationType.Builder createAnatomicalIdentificationType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalIdentificationType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalIdentificationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalPlane.Builder createAnatomicalPlane(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalPlane.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnatomicalPlane.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationCriteriaType.Builder createAnnotationCriteriaType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationCriteriaType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationCriteriaType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationType.Builder createAnnotationType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AnnotationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AtlasType.Builder createAtlasType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AtlasType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AtlasType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.AuditoryStimulusType.Builder createAuditoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.AuditoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.AuditoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalOrder.Builder createBiologicalOrder(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalOrder.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalOrder.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalProcess.Builder createBiologicalProcess(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalProcess.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalProcess.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalSex.Builder createBiologicalSex(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalSex.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.BiologicalSex.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.BreedingType.Builder createBreedingType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.BreedingType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.BreedingType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CellCultureType.Builder createCellCultureType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CellCultureType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CellCultureType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CellType.Builder createCellType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CellType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CellType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ChemicalMixtureType.Builder createChemicalMixtureType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ChemicalMixtureType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ChemicalMixtureType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Colormap.Builder createColormap(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Colormap.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Colormap.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationInterfaceType.Builder createCommunicationInterfaceType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationInterfaceType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationInterfaceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationProtocol.Builder createCommunicationProtocol(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationProtocol.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CommunicationProtocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ContributionType.Builder createContributionType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ContributionType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ContributionType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowConstructionType.Builder createCranialWindowConstructionType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowConstructionType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowConstructionType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowReinforcementType.Builder createCranialWindowReinforcementType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowReinforcementType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CranialWindowReinforcementType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.CriteriaQualityType.Builder createCriteriaQualityType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.CriteriaQualityType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.CriteriaQualityType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DataType.Builder createDataType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DataType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DependencyImpact.Builder createDependencyImpact(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DependencyImpact.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DependencyImpact.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DeploymentEnvironmentType.Builder createDeploymentEnvironmentType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DeploymentEnvironmentType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DeploymentEnvironmentType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceMountingType.Builder createDeviceMountingType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceMountingType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceMountingType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceType.Builder createDeviceType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DeviceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DifferenceMeasure.Builder createDifferenceMeasure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DifferenceMeasure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DifferenceMeasure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Disease.Builder createDisease(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Disease.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Disease.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.DiseaseModel.Builder createDiseaseModel(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.DiseaseModel.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.DiseaseModel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.EducationalLevel.Builder createEducationalLevel(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.EducationalLevel.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.EducationalLevel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ElectricalStimulusType.Builder createElectricalStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ElectricalStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ElectricalStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ExperimentalApproach.Builder createExperimentalApproach(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ExperimentalApproach.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ExperimentalApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ExternalBodyRegion.Builder createExternalBodyRegion(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ExternalBodyRegion.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ExternalBodyRegion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.FileBundleGrouping.Builder createFileBundleGrouping(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.FileBundleGrouping.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.FileBundleGrouping.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.FileRepositoryType.Builder createFileRepositoryType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.FileRepositoryType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.FileRepositoryType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.FileUsageRole.Builder createFileUsageRole(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.FileUsageRole.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.FileUsageRole.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.GeneticStrainType.Builder createGeneticStrainType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.GeneticStrainType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.GeneticStrainType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.GustatoryStimulusType.Builder createGustatoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.GustatoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.GustatoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Handedness.Builder createHandedness(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Handedness.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Handedness.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Language.Builder createLanguage(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Language.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Language.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Laterality.Builder createLaterality(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Laterality.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Laterality.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.LearningResourceType.Builder createLearningResourceType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.LearningResourceType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.LearningResourceType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MRIFatSuppressionTechnique.Builder createMRIFatSuppressionTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MRIFatSuppressionTechnique.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIFatSuppressionTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MRIParallelAcquisitionTechnique.Builder createMRIParallelAcquisitionTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MRIParallelAcquisitionTechnique.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIParallelAcquisitionTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MRIPulseSequence.Builder createMRIPulseSequence(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MRIPulseSequence.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIPulseSequence.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MRISpoilingTechnique.Builder createMRISpoilingTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MRISpoilingTechnique.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MRISpoilingTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MRIWeighting.Builder createMRIWeighting(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MRIWeighting.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MRIWeighting.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredQuantity.Builder createMeasuredQuantity(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredQuantity.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredQuantity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredSignalType.Builder createMeasuredSignalType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredSignalType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MeasuredSignalType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MetaDataModelType.Builder createMetaDataModelType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MetaDataModelType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MetaDataModelType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ModelAbstractionLevel.Builder createModelAbstractionLevel(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ModelAbstractionLevel.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ModelAbstractionLevel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ModelScope.Builder createModelScope(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ModelScope.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ModelScope.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConsentRequirement.Builder createModificationConsentRequirement(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConsentRequirement.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConsentRequirement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConstraint.Builder createModificationConstraint(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConstraint.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationConstraint.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationForm.Builder createModificationForm(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationForm.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationForm.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationScope.Builder createModificationScope(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationScope.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ModificationScope.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MolecularEntity.Builder createMolecularEntity(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MolecularEntity.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MolecularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.MuscularStructure.Builder createMuscularStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.MuscularStructure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.MuscularStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.NervousSystemStructure.Builder createNervousSystemStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.NervousSystemStructure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.NervousSystemStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OlfactoryStimulusType.Builder createOlfactoryStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OlfactoryStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OlfactoryStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingDevice.Builder createOperatingDevice(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingDevice.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingDevice.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingSystem.Builder createOperatingSystem(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingSystem.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OperatingSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OperationalApproach.Builder createOperationalApproach(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OperationalApproach.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OperationalApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OpticalStimulusType.Builder createOpticalStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OpticalStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OpticalStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Organ.Builder createOrgan(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Organ.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Organ.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OrganSystemStructure.Builder createOrganSystemStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OrganSystemStructure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganSystemStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSubstance.Builder createOrganismSubstance(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSubstance.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSubstance.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSystem.Builder createOrganismSystem(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSystem.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganismSystem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.OrganizationType.Builder createOrganizationType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.OrganizationType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.OrganizationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.PatchClampVariation.Builder createPatchClampVariation(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.PatchClampVariation.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.PatchClampVariation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.PaymentModelType.Builder createPaymentModelType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.PaymentModelType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.PaymentModelType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.PreparationType.Builder createPreparationType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.PreparationType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.PreparationType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ProgrammingLanguage.Builder createProgrammingLanguage(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ProgrammingLanguage.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ProgrammingLanguage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.ProjectType.Builder createProjectType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.ProjectType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.ProjectType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.PublicationStatus.Builder createPublicationStatus(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.PublicationStatus.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.PublicationStatus.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.PulseShape.Builder createPulseShape(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.PulseShape.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.PulseShape.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.QualitativeOverlap.Builder createQualitativeOverlap(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.QualitativeOverlap.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.QualitativeOverlap.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SemanticDataType.Builder createSemanticDataType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SemanticDataType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SemanticDataType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SetupType.Builder createSetupType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SetupType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SetupType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SignalDirectionality.Builder createSignalDirectionality(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SignalDirectionality.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SignalDirectionality.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SkeletalStructure.Builder createSkeletalStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SkeletalStructure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SkeletalStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareApplicationCategory.Builder createSoftwareApplicationCategory(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareApplicationCategory.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareApplicationCategory.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareFeature.Builder createSoftwareFeature(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareFeature.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SoftwareFeature.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SovereignState.Builder createSovereignState(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SovereignState.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SovereignState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SpatialEncoding.Builder createSpatialEncoding(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SpatialEncoding.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SpatialEncoding.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Species.Builder createSpecies(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Species.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Species.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationApproach.Builder createStimulationApproach(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationApproach.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationApproach.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationTechnique.Builder createStimulationTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationTechnique.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.StimulationTechnique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SubcellularEntity.Builder createSubcellularEntity(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SubcellularEntity.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SubcellularEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SubjectAttribute.Builder createSubjectAttribute(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SubjectAttribute.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SubjectAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.SupranationalBody.Builder createSupranationalBody(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.SupranationalBody.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.SupranationalBody.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.TactileStimulusType.Builder createTactileStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.TactileStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.TactileStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Technique.Builder createTechnique(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Technique.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Technique.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.TermSuggestion.Builder createTermSuggestion(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.TermSuggestion.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.TermSuggestion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.Terminology.Builder createTerminology(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.Terminology.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.Terminology.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleAttribute.Builder createTissueSampleAttribute(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleAttribute.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleAttribute.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleType.Builder createTissueSampleType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueSampleType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.TissueStructure.Builder createTissueStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.TissueStructure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.TissueStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.TypeOfUncertainty.Builder createTypeOfUncertainty(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.TypeOfUncertainty.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.TypeOfUncertainty.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.UnitOfMeasurement.Builder createUnitOfMeasurement(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.UnitOfMeasurement.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.UnitOfMeasurement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.VascularStructure.Builder createVascularStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.VascularStructure.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.VascularStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.VisualStimulusType.Builder createVisualStimulusType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.VisualStimulusType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.VisualStimulusType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.Builder createWeightType(String localId){
+                final org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.Builder builder = org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.Core core = new Core();
+
+        public final class Core{
+            private Core(){}
+            
+            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.Builder createAccessibility(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.Builder createAccountInformation(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.Builder createComment(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.Configuration.Builder createConfiguration(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.Configuration.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.Configuration.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.actors.Consortium.Builder createConsortium(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.actors.Consortium.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.Consortium.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.Builder createContactInformation(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.ContentType.Builder createContentType(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.ContentType.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.ContentType.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.Builder createContentTypePattern(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.Builder createDOI(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Dataset.Builder createDataset(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Dataset.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Dataset.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.Builder createDatasetVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.File.Builder createFile(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.File.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.File.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.FileArchive.Builder createFileArchive(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.FileArchive.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.FileArchive.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.FileBundle.Builder createFileBundle(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.FileBundle.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.FileBundle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.FileRepository.Builder createFileRepository(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.FileRepository.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.Builder createFileRepositoryStructure(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.Builder createFunding(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.Builder createGenericIdentifier(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.GridImage.Builder createGridImage(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.GridImage.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.GridImage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.Builder createGridImageStack(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.GridVolume.Builder createGridVolume(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.GridVolume.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.GridVolume.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.Builder createGridVolumeSequence(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.Builder createHANDLE(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.Builder createHardwareProduct(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.Builder createISNI(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.Builder createISSN(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.IdentifiersDotOrgID.Builder createIdentifiersDotOrgID(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.IdentifiersDotOrgID.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.IdentifiersDotOrgID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Interface.Builder createInterface(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Interface.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Interface.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.InterfaceVersion.Builder createInterfaceVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.InterfaceVersion.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.InterfaceVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.LEI.Builder createLEI(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.LEI.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.LEI.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.License.Builder createLicense(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.License.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.License.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.LocalFile.Builder createLocalFile(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.LocalFile.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.LocalFile.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.Builder createMetaDataModel(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.Builder createMetaDataModelVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Model.Builder createModel(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Model.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Model.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.Builder createModelVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.Builder createORCID(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.actors.Organization.Builder createOrganization(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.actors.Organization.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.Organization.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.actors.Person.Builder createPerson(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.actors.Person.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.Person.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Project.Builder createProject(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Project.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Project.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.Builder createPropertyValueList(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.Protocol.Builder createProtocol(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.Protocol.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.Protocol.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.Builder createProtocolExecution(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.Builder createRORID(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.Builder createRRID(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.Builder createResearchProductGroup(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.Builder createSWHID(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Service.Builder createService(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Service.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Service.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.ServiceLink.Builder createServiceLink(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.ServiceLink.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.ServiceLink.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Setup.Builder createSetup(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Setup.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Setup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.Software.Builder createSoftware(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.Software.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.Software.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.Builder createSoftwareVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.Strain.Builder createStrain(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.Strain.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.Subject.Builder createSubject(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.Subject.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.Subject.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.Builder createSubjectGroup(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.Builder createSubjectGroupState(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.SubjectState.Builder createSubjectState(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.SubjectState.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.SubjectState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.TissueSample.Builder createTissueSample(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.TissueSample.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.TissueSample.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollection.Builder createTissueSampleCollection(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollection.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollection.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollectionState.Builder createTissueSampleCollectionState(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollectionState.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleCollectionState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.research.TissueSampleState.Builder createTissueSampleState(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.research.TissueSampleState.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.TissueSampleState.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.UsageAgreement.Builder createUsageAgreement(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.UsageAgreement.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.UsageAgreement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.WebResource.Builder createWebResource(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.WebResource.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.WebResource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.Ephys ephys = new Ephys();
+
+        public final class Ephys{
+            private Ephys(){}
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.activity.CellPatching.Builder createCellPatching(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.activity.CellPatching.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.device.Electrode.Builder createElectrode(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.device.Electrode.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.device.Electrode.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArray.Builder createElectrodeArray(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArray.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArray.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArrayUsage.Builder createElectrodeArrayUsage(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArrayUsage.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeArrayUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.activity.ElectrodePlacement.Builder createElectrodePlacement(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.activity.ElectrodePlacement.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.activity.ElectrodePlacement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeUsage.Builder createElectrodeUsage(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeUsage.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.device.ElectrodeUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.device.Pipette.Builder createPipette(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.device.Pipette.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.device.Pipette.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.device.PipetteUsage.Builder createPipetteUsage(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.device.PipetteUsage.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.device.PipetteUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.ephys.activity.RecordingActivity.Builder createRecordingActivity(String localId){
+                final org.openmetadatainitiative.openminds.v5.ephys.activity.RecordingActivity.Builder builder = org.openmetadatainitiative.openminds.v5.ephys.activity.RecordingActivity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.Neuroimaging neuroimaging = new Neuroimaging();
+
+        public final class Neuroimaging{
+            private Neuroimaging(){}
+            
+            public org.openmetadatainitiative.openminds.v5.neuroimaging.activity.DynamicMRIAcquisition.Builder createDynamicMRIAcquisition(String localId){
+                final org.openmetadatainitiative.openminds.v5.neuroimaging.activity.DynamicMRIAcquisition.Builder builder = org.openmetadatainitiative.openminds.v5.neuroimaging.activity.DynamicMRIAcquisition.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoil.Builder createMRICoil(String localId){
+                final org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoil.Builder builder = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoil.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoilUsage.Builder createMRICoilUsage(String localId){
+                final org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoilUsage.Builder builder = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRICoilUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScanner.Builder createMRIScanner(String localId){
+                final org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScanner.Builder builder = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScanner.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScannerUsage.Builder createMRIScannerUsage(String localId){
+                final org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScannerUsage.Builder builder = org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScannerUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.neuroimaging.activity.StaticMRIAcquisition.Builder createStaticMRIAcquisition(String localId){
+                final org.openmetadatainitiative.openminds.v5.neuroimaging.activity.StaticMRIAcquisition.Builder builder = org.openmetadatainitiative.openminds.v5.neuroimaging.activity.StaticMRIAcquisition.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.Publications publications = new Publications();
+
+        public final class Publications{
+            private Publications(){}
+            
+            public org.openmetadatainitiative.openminds.v5.publications.Book.Builder createBook(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.Book.Builder builder = org.openmetadatainitiative.openminds.v5.publications.Book.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.Chapter.Builder createChapter(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.Chapter.Builder builder = org.openmetadatainitiative.openminds.v5.publications.Chapter.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.LearningResource.Builder createLearningResource(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.LearningResource.Builder builder = org.openmetadatainitiative.openminds.v5.publications.LearningResource.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.LivePaper.Builder createLivePaper(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.LivePaper.Builder builder = org.openmetadatainitiative.openminds.v5.publications.LivePaper.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.LivePaperResourceItem.Builder createLivePaperResourceItem(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.LivePaperResourceItem.Builder builder = org.openmetadatainitiative.openminds.v5.publications.LivePaperResourceItem.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.LivePaperSection.Builder createLivePaperSection(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.LivePaperSection.Builder builder = org.openmetadatainitiative.openminds.v5.publications.LivePaperSection.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.LivePaperVersion.Builder createLivePaperVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.LivePaperVersion.Builder builder = org.openmetadatainitiative.openminds.v5.publications.LivePaperVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.Periodical.Builder createPeriodical(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.Periodical.Builder builder = org.openmetadatainitiative.openminds.v5.publications.Periodical.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.PublicationIssue.Builder createPublicationIssue(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.PublicationIssue.Builder builder = org.openmetadatainitiative.openminds.v5.publications.PublicationIssue.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.PublicationVolume.Builder createPublicationVolume(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.PublicationVolume.Builder builder = org.openmetadatainitiative.openminds.v5.publications.PublicationVolume.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.Builder createScholarlyArticle(String localId){
+                final org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.Builder builder = org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.SANDS SANDS = new SANDS();
+
+        public final class SANDS{
+            private SANDS(){}
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.Builder createAnatomicalAtlas(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.Builder createAnatomicalAtlasVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.Builder createCommonCoordinateFramework(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.Builder createCommonCoordinateFrameworkVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.Builder createCustomAnatomicalEntity(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.Builder createCustomCoordinateFramework(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.Builder createParcellationEntity(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.Builder createParcellationEntityVersion(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.SingleColor.Builder createSingleColor(String localId){
+                final org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.SpecimenPrep specimenPrep = new SpecimenPrep();
+
+        public final class SpecimenPrep{
+            private SpecimenPrep(){}
+            
+            public org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.Builder createCranialWindowPreparation(String localId){
+                final org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.Builder builder = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.Builder createSlicingDevice(String localId){
+                final org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.Builder builder = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.Builder createSlicingDeviceUsage(String localId){
+                final org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.Builder builder = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueCulturePreparation.Builder createTissueCulturePreparation(String localId){
+                final org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueCulturePreparation.Builder builder = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueCulturePreparation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueSampleSlicing.Builder createTissueSampleSlicing(String localId){
+                final org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueSampleSlicing.Builder builder = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.TissueSampleSlicing.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+        }
+        public final OpenMINDS.V5.Stimulation stimulation = new Stimulation();
+
+        public final class Stimulation{
+            private Stimulation(){}
+            
+            public org.openmetadatainitiative.openminds.v5.stimulation.stimulus.EphysStimulus.Builder createEphysStimulus(String localId){
+                final org.openmetadatainitiative.openminds.v5.stimulation.stimulus.EphysStimulus.Builder builder = org.openmetadatainitiative.openminds.v5.stimulation.stimulus.EphysStimulus.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.stimulation.activity.StimulationActivity.Builder createStimulationActivity(String localId){
+                final org.openmetadatainitiative.openminds.v5.stimulation.activity.StimulationActivity.Builder builder = org.openmetadatainitiative.openminds.v5.stimulation.activity.StimulationActivity.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }

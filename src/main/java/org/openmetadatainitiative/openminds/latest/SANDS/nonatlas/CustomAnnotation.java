@@ -12,14 +12,13 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification;
-import org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationCoordinateSpace;
+import org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationCoordinateFramework;
 import org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.intf.CustomAnnotationSpecification;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationCriteriaType;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationType;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality;
 import org.openmetadatainitiative.openminds.latest.core.data.File;
-import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 import org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution;
 
 
@@ -57,8 +56,7 @@ public class CustomAnnotation extends Instance implements org.openmetadatainitia
     
     public class EmbeddedBuilder {
 
-        public EmbeddedBuilder anchorPoint(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> anchorPoint) { CustomAnnotation.this.anchorPoint = anchorPoint.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
-        public EmbeddedBuilder coordinateSpace(Reference<? extends CustomAnnotationCoordinateSpace> coordinateSpace) { CustomAnnotation.this.coordinateSpace = coordinateSpace; return this; }
+        public EmbeddedBuilder coordinateFramework(Reference<? extends CustomAnnotationCoordinateFramework> coordinateFramework) { CustomAnnotation.this.coordinateFramework = coordinateFramework; return this; }
         public EmbeddedBuilder criteria(Reference<ProtocolExecution> criteria) { CustomAnnotation.this.criteria = criteria; return this; }
         public EmbeddedBuilder criteriaQualityType(Reference<CriteriaQualityType> criteriaQualityType) { CustomAnnotation.this.criteriaQualityType = criteriaQualityType; return this; }
         public EmbeddedBuilder criteriaType(Reference<AnnotationCriteriaType> criteriaType) { CustomAnnotation.this.criteriaType = criteriaType; return this; }
@@ -82,21 +80,11 @@ public class CustomAnnotation extends Instance implements org.openmetadatainitia
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/anchorPoint")
-    private List<QuantitativeValue> anchorPoint;
+   @JsonProperty(value = "https://openminds.om-i.org/props/coordinateFramework")
+    private Reference<? extends CustomAnnotationCoordinateFramework> coordinateFramework;
     
-    public List<QuantitativeValue> getAnchorPoint() {
-       return this.anchorPoint;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/coordinateSpace")
-    private Reference<? extends CustomAnnotationCoordinateSpace> coordinateSpace;
-    
-    /**
-    * Two or three dimensional geometric setting.
-    */
-    public Reference<? extends CustomAnnotationCoordinateSpace> getCoordinateSpace() {
-       return this.coordinateSpace;
+    public Reference<? extends CustomAnnotationCoordinateFramework> getCoordinateFramework() {
+       return this.coordinateFramework;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/criteria")

@@ -48,6 +48,7 @@ public class Copyright extends Instance implements org.openmetadatainitiative.op
     
     public class EmbeddedBuilder {
 
+        public EmbeddedBuilder customUsageClause(String customUsageClause) { Copyright.this.customUsageClause = customUsageClause; return this; }
         public EmbeddedBuilder holder(List<Reference<? extends CopyrightHolder>> holder) { Copyright.this.holder = holder; return this; }
         public EmbeddedBuilder year(List<String> year) { Copyright.this.year = year; return this; }
         
@@ -64,7 +65,14 @@ public class Copyright extends Instance implements org.openmetadatainitiative.op
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/holder")
+   @JsonProperty(value = "https://openminds.om-i.org/props/customUsageClause")
+    private String customUsageClause;
+    
+    public String getCustomUsageClause() {
+       return this.customUsageClause;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/holder")
     private List<Reference<? extends CopyrightHolder>> holder;
     
     /**

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.controlledTerms.MeasuredQuantity;
-import org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementMeasuredWith;
+import org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementObtainedWith;
 import org.openmetadatainitiative.openminds.latest.core.data.intf.MeasurementValue;
 
 
@@ -52,7 +52,7 @@ public class Measurement extends Instance implements org.openmetadatainitiative.
 
         public EmbeddedBuilder additionalRemarks(String additionalRemarks) { Measurement.this.additionalRemarks = additionalRemarks; return this; }
         public EmbeddedBuilder measuredQuantity(Reference<MeasuredQuantity> measuredQuantity) { Measurement.this.measuredQuantity = measuredQuantity; return this; }
-        public EmbeddedBuilder measuredWith(Reference<? extends MeasurementMeasuredWith> measuredWith) { Measurement.this.measuredWith = measuredWith; return this; }
+        public EmbeddedBuilder obtainedWith(Reference<? extends MeasurementObtainedWith> obtainedWith) { Measurement.this.obtainedWith = obtainedWith; return this; }
         public EmbeddedBuilder timestamp(String timestamp) { Measurement.this.timestamp = timestamp; return this; }
         public EmbeddedBuilder value(List<Function<MeasurementValue.EmbeddedBuilder, MeasurementValue>> value) { Measurement.this.value = value.stream().map(b -> b.apply(MeasurementValue.createEmbedded())).toList(); return this; }
         
@@ -86,11 +86,11 @@ public class Measurement extends Instance implements org.openmetadatainitiative.
        return this.measuredQuantity;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/measuredWith")
-    private Reference<? extends MeasurementMeasuredWith> measuredWith;
+    @JsonProperty(value = "https://openminds.om-i.org/props/obtainedWith")
+    private Reference<? extends MeasurementObtainedWith> obtainedWith;
     
-    public Reference<? extends MeasurementMeasuredWith> getMeasuredWith() {
-       return this.measuredWith;
+    public Reference<? extends MeasurementObtainedWith> getObtainedWith() {
+       return this.obtainedWith;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/timestamp")

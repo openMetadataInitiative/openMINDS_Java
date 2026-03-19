@@ -17,7 +17,6 @@ import org.openmetadatainitiative.openminds.latest.controlledTerms.AnnotationTyp
 import org.openmetadatainitiative.openminds.latest.controlledTerms.CriteriaQualityType;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.Laterality;
 import org.openmetadatainitiative.openminds.latest.core.data.File;
-import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 import org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution;
 
 
@@ -55,7 +54,6 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
     
     public class EmbeddedBuilder {
 
-        public EmbeddedBuilder anchorPoint(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> anchorPoint) { AtlasAnnotation.this.anchorPoint = anchorPoint.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
         public EmbeddedBuilder criteria(Reference<ProtocolExecution> criteria) { AtlasAnnotation.this.criteria = criteria; return this; }
         public EmbeddedBuilder criteriaQualityType(Reference<CriteriaQualityType> criteriaQualityType) { AtlasAnnotation.this.criteriaQualityType = criteriaQualityType; return this; }
         public EmbeddedBuilder criteriaType(Reference<AnnotationCriteriaType> criteriaType) { AtlasAnnotation.this.criteriaType = criteriaType; return this; }
@@ -79,14 +77,7 @@ public class AtlasAnnotation extends Instance implements org.openmetadatainitiat
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/anchorPoint")
-    private List<QuantitativeValue> anchorPoint;
-    
-    public List<QuantitativeValue> getAnchorPoint() {
-       return this.anchorPoint;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/criteria")
+   @JsonProperty(value = "https://openminds.om-i.org/props/criteria")
     private Reference<ProtocolExecution> criteria;
     
     /**

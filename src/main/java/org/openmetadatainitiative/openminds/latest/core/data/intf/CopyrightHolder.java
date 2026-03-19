@@ -13,7 +13,7 @@ public interface CopyrightHolder extends Entity {
 
    class Deserializer extends ByTypeDeserializer<CopyrightHolder> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.actors.Consortium.class, org.openmetadatainitiative.openminds.latest.core.actors.Organization.class, org.openmetadatainitiative.openminds.latest.core.actors.Person.class);
+            super(org.openmetadatainitiative.openminds.latest.core.actors.Organization.class, org.openmetadatainitiative.openminds.latest.core.actors.Person.class);
         }
     }
     

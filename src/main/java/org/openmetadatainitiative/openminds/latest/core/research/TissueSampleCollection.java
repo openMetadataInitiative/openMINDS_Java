@@ -30,7 +30,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.TissueSa
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen{
+public class TissueSampleCollection extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateFrameworkVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.AnatomicalAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/TissueSampleCollection";
 
     @JsonIgnore
@@ -59,6 +59,7 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
         public Builder anatomicalLocation(List<Reference<? extends TissueSampleCollectionAnatomicalLocation>> anatomicalLocation) { TissueSampleCollection.this.anatomicalLocation = anatomicalLocation; return this; }
         public Builder biologicalSex(List<Reference<BiologicalSex>> biologicalSex) { TissueSampleCollection.this.biologicalSex = biologicalSex; return this; }
         public Builder internalIdentifier(String internalIdentifier) { TissueSampleCollection.this.internalIdentifier = internalIdentifier; return this; }
+        public Builder isPartOf(List<Reference<TissueSampleCollection>> isPartOf) { TissueSampleCollection.this.isPartOf = isPartOf; return this; }
         public Builder laterality(List<Reference<Laterality>> laterality) { TissueSampleCollection.this.laterality = laterality; return this; }
         public Builder lookupLabel(String lookupLabel) { TissueSampleCollection.this.lookupLabel = lookupLabel; return this; }
         public Builder numberOfTissueSamples(Object numberOfTissueSamples) { TissueSampleCollection.this.numberOfTissueSamples = numberOfTissueSamples; return this; }
@@ -118,6 +119,16 @@ public class TissueSampleCollection extends Instance implements org.openmetadata
     */
     public String getInternalIdentifier() {
        return this.internalIdentifier;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPartOf")
+    private List<Reference<TissueSampleCollection>> isPartOf;
+    
+    /**
+    * Reference to the ensemble of multiple things or beings.
+    */
+    public List<Reference<TissueSampleCollection>> getIsPartOf() {
+       return this.isPartOf;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/laterality")

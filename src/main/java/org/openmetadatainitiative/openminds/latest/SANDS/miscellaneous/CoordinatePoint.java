@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.CoordinatePointCoordinateSpace;
+import org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.CoordinatePointCoordinateFramework;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue;
 
 
@@ -49,7 +49,7 @@ public class CoordinatePoint extends Instance implements org.openmetadatainitiat
     
     public class EmbeddedBuilder {
 
-        public EmbeddedBuilder coordinateSpace(Reference<? extends CoordinatePointCoordinateSpace> coordinateSpace) { CoordinatePoint.this.coordinateSpace = coordinateSpace; return this; }
+        public EmbeddedBuilder coordinateFramework(Reference<? extends CoordinatePointCoordinateFramework> coordinateFramework) { CoordinatePoint.this.coordinateFramework = coordinateFramework; return this; }
         public EmbeddedBuilder coordinates(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> coordinates) { CoordinatePoint.this.coordinates = coordinates.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
         
 
@@ -65,14 +65,11 @@ public class CoordinatePoint extends Instance implements org.openmetadatainitiat
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/coordinateSpace")
-    private Reference<? extends CoordinatePointCoordinateSpace> coordinateSpace;
+   @JsonProperty(value = "https://openminds.om-i.org/props/coordinateFramework")
+    private Reference<? extends CoordinatePointCoordinateFramework> coordinateFramework;
     
-    /**
-    * Two or three dimensional geometric setting.
-    */
-    public Reference<? extends CoordinatePointCoordinateSpace> getCoordinateSpace() {
-       return this.coordinateSpace;
+    public Reference<? extends CoordinatePointCoordinateFramework> getCoordinateFramework() {
+       return this.coordinateFramework;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/coordinates")

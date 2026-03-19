@@ -47,6 +47,7 @@ public class StringProperty extends Instance implements org.openmetadatainitiati
     
     public class EmbeddedBuilder {
 
+        public EmbeddedBuilder externalDefinitionOfName(String externalDefinitionOfName) { StringProperty.this.externalDefinitionOfName = externalDefinitionOfName; return this; }
         public EmbeddedBuilder name(String name) { StringProperty.this.name = name; return this; }
         public EmbeddedBuilder value(String value) { StringProperty.this.value = value; return this; }
         
@@ -63,7 +64,14 @@ public class StringProperty extends Instance implements org.openmetadatainitiati
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/name")
+   @JsonProperty(value = "https://openminds.om-i.org/props/externalDefinitionOfName")
+    private String externalDefinitionOfName;
+    
+    public String getExternalDefinitionOfName() {
+       return this.externalDefinitionOfName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
     /**

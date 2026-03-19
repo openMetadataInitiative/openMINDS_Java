@@ -47,29 +47,25 @@ public class QuantitativeValueArray extends Instance implements org.openmetadata
     }
 
     
+    public class EmbeddedBuilder {
 
-    
-    public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<QuantitativeValueArray>{
-        public Builder negativeUncertainties(List<Double> negativeUncertainties) { QuantitativeValueArray.this.negativeUncertainties = negativeUncertainties; return this; }
-        public Builder positiveUncertainties(List<Double> positiveUncertainties) { QuantitativeValueArray.this.positiveUncertainties = positiveUncertainties; return this; }
-        public Builder typeOfUncertainty(Reference<TypeOfUncertainty> typeOfUncertainty) { QuantitativeValueArray.this.typeOfUncertainty = typeOfUncertainty; return this; }
-        public Builder unit(Reference<UnitOfMeasurement> unit) { QuantitativeValueArray.this.unit = unit; return this; }
-        public Builder values(List<Double> values) { QuantitativeValueArray.this.values = values; return this; }
+        public EmbeddedBuilder negativeUncertainties(List<Double> negativeUncertainties) { QuantitativeValueArray.this.negativeUncertainties = negativeUncertainties; return this; }
+        public EmbeddedBuilder positiveUncertainties(List<Double> positiveUncertainties) { QuantitativeValueArray.this.positiveUncertainties = positiveUncertainties; return this; }
+        public EmbeddedBuilder typeOfUncertainty(Reference<TypeOfUncertainty> typeOfUncertainty) { QuantitativeValueArray.this.typeOfUncertainty = typeOfUncertainty; return this; }
+        public EmbeddedBuilder unit(Reference<UnitOfMeasurement> unit) { QuantitativeValueArray.this.unit = unit; return this; }
+        public EmbeddedBuilder values(List<Double> values) { QuantitativeValueArray.this.values = values; return this; }
         
 
-        public QuantitativeValueArray build(OpenMINDSContext context) {
-            QuantitativeValueArray.super.build(context);
+        public QuantitativeValueArray build(){
             return QuantitativeValueArray.this;
         }
     }
 
-    public static QuantitativeValueArray.Builder create(LocalId localId){
-        return new QuantitativeValueArray(localId).new Builder();
+    public static QuantitativeValueArray.EmbeddedBuilder createEmbedded(){
+        return new QuantitativeValueArray(null).new EmbeddedBuilder();
     }
+    
 
-    public QuantitativeValueArray.Builder copy(){
-        return ParsingUtils.OBJECT_MAPPER.convertValue(this, QuantitativeValueArray.class).new Builder();
-    }
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/negativeUncertainties")

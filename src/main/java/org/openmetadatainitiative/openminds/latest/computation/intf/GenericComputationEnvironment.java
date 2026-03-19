@@ -13,7 +13,7 @@ public interface GenericComputationEnvironment extends Entity {
 
    class Deserializer extends ByTypeDeserializer<GenericComputationEnvironment> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.computation.Environment.class, org.openmetadatainitiative.openminds.latest.core.products.WebServiceVersion.class);
+            super(org.openmetadatainitiative.openminds.latest.computation.Environment.class, org.openmetadatainitiative.openminds.latest.core.products.Service.class);
         }
     }
     

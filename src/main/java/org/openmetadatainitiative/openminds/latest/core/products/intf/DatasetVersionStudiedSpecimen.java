@@ -13,7 +13,7 @@ public interface DatasetVersionStudiedSpecimen extends Entity {
 
    class Deserializer extends ByTypeDeserializer<DatasetVersionStudiedSpecimen> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.research.Subject.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSample.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.class);
+            super(org.openmetadatainitiative.openminds.latest.core.research.Subject.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectState.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.class, org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSample.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleState.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollection.class, org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.class);
         }
     }
     

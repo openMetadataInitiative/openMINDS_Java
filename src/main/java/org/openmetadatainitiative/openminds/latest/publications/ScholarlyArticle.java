@@ -11,17 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.actors.Person;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.data.Copyright;
-import org.openmetadatainitiative.openminds.latest.core.data.License;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
-import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleAuthor;
 import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleCitedPublication;
-import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleCustodian;
 import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleIsPartOf;
 import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleKeyword;
-import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticlePublisher;
+import org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleUsageCondition;
 
 
 import static org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.SEMANTIC_NAME;
@@ -34,7 +32,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.Scholarly
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ScholarlyArticle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionRelatedPublication{
+public class ScholarlyArticle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeRelatedPublication, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperRelatedPublication, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateFrameworkVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.AnatomicalAtlasVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateFrameworkRelatedPublication, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.AnatomicalAtlasRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.InterfaceRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ServiceRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.InterfaceVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelRelatedPublication, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ScholarlyArticle";
 
     @JsonIgnore
@@ -61,22 +59,20 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ScholarlyArticle>{
         public Builder IRI(String IRI) { ScholarlyArticle.this.IRI = IRI; return this; }
         public Builder abstract_(String abstract_) { ScholarlyArticle.this.abstract_ = abstract_; return this; }
-        public Builder author(List<Reference<? extends ScholarlyArticleAuthor>> author) { ScholarlyArticle.this.author = author; return this; }
         public Builder citedPublication(List<Reference<? extends ScholarlyArticleCitedPublication>> citedPublication) { ScholarlyArticle.this.citedPublication = citedPublication; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { ScholarlyArticle.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { ScholarlyArticle.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { ScholarlyArticle.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder creationDate(String creationDate) { ScholarlyArticle.this.creationDate = creationDate; return this; }
-        public Builder custodian(List<Reference<? extends ScholarlyArticleCustodian>> custodian) { ScholarlyArticle.this.custodian = custodian; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { ScholarlyArticle.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder editor(List<Reference<Person>> editor) { ScholarlyArticle.this.editor = editor; return this; }
         public Builder funding(List<Reference<Funding>> funding) { ScholarlyArticle.this.funding = funding; return this; }
         public Builder isPartOf(Reference<? extends ScholarlyArticleIsPartOf> isPartOf) { ScholarlyArticle.this.isPartOf = isPartOf; return this; }
         public Builder keyword(List<Reference<? extends ScholarlyArticleKeyword>> keyword) { ScholarlyArticle.this.keyword = keyword; return this; }
-        public Builder license(Reference<License> license) { ScholarlyArticle.this.license = license; return this; }
         public Builder modificationDate(String modificationDate) { ScholarlyArticle.this.modificationDate = modificationDate; return this; }
         public Builder name(String name) { ScholarlyArticle.this.name = name; return this; }
         public Builder pagination(String pagination) { ScholarlyArticle.this.pagination = pagination; return this; }
         public Builder publicationDate(String publicationDate) { ScholarlyArticle.this.publicationDate = publicationDate; return this; }
-        public Builder publisher(Reference<? extends ScholarlyArticlePublisher> publisher) { ScholarlyArticle.this.publisher = publisher; return this; }
+        public Builder usageCondition(List<Reference<? extends ScholarlyArticleUsageCondition>> usageCondition) { ScholarlyArticle.this.usageCondition = usageCondition; return this; }
         public Builder versionIdentifier(String versionIdentifier) { ScholarlyArticle.this.versionIdentifier = versionIdentifier; return this; }
         
 
@@ -112,21 +108,25 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
        return this.abstract_;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/author")
-    private List<Reference<? extends ScholarlyArticleAuthor>> author;
-    
-    /**
-    * Creator of a literary or creative work, as well as a dataset publication.
-    */
-    public List<Reference<? extends ScholarlyArticleAuthor>> getAuthor() {
-       return this.author;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/citedPublication")
     private List<Reference<? extends ScholarlyArticleCitedPublication>> citedPublication;
     
     public List<Reference<? extends ScholarlyArticleCitedPublication>> getCitedPublication() {
        return this.citedPublication;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
+    
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
@@ -146,16 +146,6 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
        return this.creationDate;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends ScholarlyArticleCustodian>> custodian;
-    
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends ScholarlyArticleCustodian>> getCustodian() {
-       return this.custodian;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
@@ -164,13 +154,6 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
     */
     public Reference<DOI> getDigitalIdentifier() {
        return this.digitalIdentifier;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/editor")
-    private List<Reference<Person>> editor;
-    
-    public List<Reference<Person>> getEditor() {
-       return this.editor;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/funding")
@@ -201,16 +184,6 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
     */
     public List<Reference<? extends ScholarlyArticleKeyword>> getKeyword() {
        return this.keyword;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/license")
-    private Reference<License> license;
-    
-    /**
-    * Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.
-    */
-    public Reference<License> getLicense() {
-       return this.license;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/modificationDate")
@@ -244,11 +217,11 @@ public class ScholarlyArticle extends Instance implements org.openmetadatainitia
        return this.publicationDate;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/publisher")
-    private Reference<? extends ScholarlyArticlePublisher> publisher;
+    @JsonProperty(value = "https://openminds.om-i.org/props/usageCondition")
+    private List<Reference<? extends ScholarlyArticleUsageCondition>> usageCondition;
     
-    public Reference<? extends ScholarlyArticlePublisher> getPublisher() {
-       return this.publisher;
+    public List<Reference<? extends ScholarlyArticleUsageCondition>> getUsageCondition() {
+       return this.usageCondition;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")

@@ -14,10 +14,11 @@ import java.util.UUID;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.AgeCategory;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.Handedness;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.SubjectAttribute;
-import org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateAge;
+import org.openmetadatainitiative.openminds.latest.core.research.SpecimenAge;
+import org.openmetadatainitiative.openminds.latest.core.research.SpecimenWeight;
+import org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateAssociatedProtocol;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStatePathology;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateRelativeTimeIndication;
-import org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateWeight;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.research.SubjectState.SEMANTIC_NAME;
@@ -30,7 +31,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.SubjectS
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SubjectState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
+public class SubjectState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRICoilUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRIScannerUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.neuroimaging.activity.intf.StaticMRIAcquisitionInput, org.openmetadatainitiative.openminds.latest.neuroimaging.activity.intf.DynamicMRIAcquisitionInput, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageUsedSpecimen, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingInput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SubjectState";
 
     @JsonIgnore
@@ -56,8 +57,9 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<SubjectState>{
         public Builder additionalRemarks(String additionalRemarks) { SubjectState.this.additionalRemarks = additionalRemarks; return this; }
-        public Builder age(Function<SubjectStateAge.EmbeddedBuilder, SubjectStateAge> age) { SubjectState.this.age = age.apply(SubjectStateAge.createEmbedded()); return this; }
+        public Builder age(Function<SpecimenAge.EmbeddedBuilder, SpecimenAge> age) { SubjectState.this.age = age.apply(SpecimenAge.createEmbedded()); return this; }
         public Builder ageCategory(Reference<AgeCategory> ageCategory) { SubjectState.this.ageCategory = ageCategory; return this; }
+        public Builder associatedProtocol(List<Reference<? extends SubjectStateAssociatedProtocol>> associatedProtocol) { SubjectState.this.associatedProtocol = associatedProtocol; return this; }
         public Builder attribute(List<Reference<SubjectAttribute>> attribute) { SubjectState.this.attribute = attribute; return this; }
         public Builder descendedFrom(Reference<SubjectState> descendedFrom) { SubjectState.this.descendedFrom = descendedFrom; return this; }
         public Builder handedness(Reference<Handedness> handedness) { SubjectState.this.handedness = handedness; return this; }
@@ -65,7 +67,7 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
         public Builder lookupLabel(String lookupLabel) { SubjectState.this.lookupLabel = lookupLabel; return this; }
         public Builder pathology(List<Reference<? extends SubjectStatePathology>> pathology) { SubjectState.this.pathology = pathology; return this; }
         public Builder relativeTimeIndication(Function<SubjectStateRelativeTimeIndication.EmbeddedBuilder, SubjectStateRelativeTimeIndication> relativeTimeIndication) { SubjectState.this.relativeTimeIndication = relativeTimeIndication.apply(SubjectStateRelativeTimeIndication.createEmbedded()); return this; }
-        public Builder weight(Function<SubjectStateWeight.EmbeddedBuilder, SubjectStateWeight> weight) { SubjectState.this.weight = weight.apply(SubjectStateWeight.createEmbedded()); return this; }
+        public Builder weight(Function<SpecimenWeight.EmbeddedBuilder, SpecimenWeight> weight) { SubjectState.this.weight = weight.apply(SpecimenWeight.createEmbedded()); return this; }
         
 
         public SubjectState build(OpenMINDSContext context) {
@@ -94,12 +96,12 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/age")
-    private SubjectStateAge age;
+    private SpecimenAge age;
     
     /**
     * Time of life or existence at which some particular qualification, capacity or event arises.
     */
-    public SubjectStateAge getAge() {
+    public SpecimenAge getAge() {
        return this.age;
     }
 
@@ -111,6 +113,13 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
     */
     public Reference<AgeCategory> getAgeCategory() {
        return this.ageCategory;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/associatedProtocol")
+    private List<Reference<? extends SubjectStateAssociatedProtocol>> associatedProtocol;
+    
+    public List<Reference<? extends SubjectStateAssociatedProtocol>> getAssociatedProtocol() {
+       return this.associatedProtocol;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/attribute")
@@ -172,12 +181,12 @@ public class SubjectState extends Instance implements org.openmetadatainitiative
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/weight")
-    private SubjectStateWeight weight;
+    private SpecimenWeight weight;
     
     /**
     * Amount that a thing or being weighs.
     */
-    public SubjectStateWeight getWeight() {
+    public SpecimenWeight getWeight() {
        return this.weight;
     }
 

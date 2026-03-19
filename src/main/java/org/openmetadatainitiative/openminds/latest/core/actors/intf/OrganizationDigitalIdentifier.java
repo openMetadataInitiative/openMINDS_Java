@@ -13,7 +13,7 @@ public interface OrganizationDigitalIdentifier extends Entity {
 
    class Deserializer extends ByTypeDeserializer<OrganizationDigitalIdentifier> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GRIDID.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.class);
+            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.LEI.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.class);
         }
     }
     

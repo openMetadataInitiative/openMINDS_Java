@@ -11,13 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion;
-import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestCustodian;
-import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestDeveloper;
+import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestDocumentation;
+import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestKeyword;
+import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestRelatedPublication;
 import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestStudyTarget;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.DifferenceMeasure;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.Technique;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
 
 
@@ -31,7 +33,7 @@ import static org.openmetadatainitiative.openminds.latest.computation.Validation
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ValidationTest extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class ValidationTest extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ValidationTest";
 
     @JsonIgnore
@@ -56,19 +58,22 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ValidationTest>{
-        public Builder custodian(List<Reference<? extends ValidationTestCustodian>> custodian) { ValidationTest.this.custodian = custodian; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { ValidationTest.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { ValidationTest.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder description(String description) { ValidationTest.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends ValidationTestDeveloper>> developer) { ValidationTest.this.developer = developer; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { ValidationTest.this.digitalIdentifier = digitalIdentifier; return this; }
+        public Builder documentation(Reference<? extends ValidationTestDocumentation> documentation) { ValidationTest.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { ValidationTest.this.fullName = fullName; return this; }
-        public Builder hasVersion(List<Reference<ValidationTestVersion>> hasVersion) { ValidationTest.this.hasVersion = hasVersion; return this; }
         public Builder homepage(String homepage) { ValidationTest.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { ValidationTest.this.howToCite = howToCite; return this; }
+        public Builder keyword(List<Reference<? extends ValidationTestKeyword>> keyword) { ValidationTest.this.keyword = keyword; return this; }
         public Builder referenceDataAcquisition(List<Reference<Technique>> referenceDataAcquisition) { ValidationTest.this.referenceDataAcquisition = referenceDataAcquisition; return this; }
+        public Builder relatedPublication(List<Reference<? extends ValidationTestRelatedPublication>> relatedPublication) { ValidationTest.this.relatedPublication = relatedPublication; return this; }
         public Builder scope(Reference<ModelScope> scope) { ValidationTest.this.scope = scope; return this; }
         public Builder scoreType(Reference<DifferenceMeasure> scoreType) { ValidationTest.this.scoreType = scoreType; return this; }
         public Builder shortName(String shortName) { ValidationTest.this.shortName = shortName; return this; }
         public Builder studyTarget(List<Reference<? extends ValidationTestStudyTarget>> studyTarget) { ValidationTest.this.studyTarget = studyTarget; return this; }
+        public Builder supportChannel(List<String> supportChannel) { ValidationTest.this.supportChannel = supportChannel; return this; }
         
 
         public ValidationTest build(OpenMINDSContext context) {
@@ -86,14 +91,18 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends ValidationTestCustodian>> custodian;
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends ValidationTestCustodian>> getCustodian() {
-       return this.custodian;
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -106,16 +115,6 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends ValidationTestDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends ValidationTestDeveloper>> getDeveloper() {
-       return this.developer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
@@ -126,6 +125,13 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.digitalIdentifier;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends ValidationTestDocumentation> documentation;
+    
+    public Reference<? extends ValidationTestDocumentation> getDocumentation() {
+       return this.documentation;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
@@ -134,16 +140,6 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
     */
     public String getFullName() {
        return this.fullName;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
-    private List<Reference<ValidationTestVersion>> hasVersion;
-    
-    /**
-    * Reference to variants of an original.
-    */
-    public List<Reference<ValidationTestVersion>> getHasVersion() {
-       return this.hasVersion;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
@@ -166,11 +162,31 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
        return this.howToCite;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
+    private List<Reference<? extends ValidationTestKeyword>> keyword;
+    
+    /**
+    * Significant word or concept that are representative of something or someone.
+    */
+    public List<Reference<? extends ValidationTestKeyword>> getKeyword() {
+       return this.keyword;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/referenceDataAcquisition")
     private List<Reference<Technique>> referenceDataAcquisition;
     
     public List<Reference<Technique>> getReferenceDataAcquisition() {
        return this.referenceDataAcquisition;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
+    private List<Reference<? extends ValidationTestRelatedPublication>> relatedPublication;
+    
+    /**
+    * Reference to something that was made available for the general public to see or buy.
+    */
+    public List<Reference<? extends ValidationTestRelatedPublication>> getRelatedPublication() {
+       return this.relatedPublication;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/scope")
@@ -208,6 +224,16 @@ public class ValidationTest extends Instance implements org.openmetadatainitiati
     */
     public List<Reference<? extends ValidationTestStudyTarget>> getStudyTarget() {
        return this.studyTarget;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
+    private List<String> supportChannel;
+    
+    /**
+    * Way of communication used to interact with users or customers.
+    */
+    public List<String> getSupportChannel() {
+       return this.supportChannel;
     }
 
  

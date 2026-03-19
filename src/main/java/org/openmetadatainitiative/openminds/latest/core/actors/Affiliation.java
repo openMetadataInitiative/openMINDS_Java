@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.actors.intf.AffiliationMemberOf;
+import org.openmetadatainitiative.openminds.latest.core.actors.Organization;
+import org.openmetadatainitiative.openminds.latest.core.actors.Person;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.SEMANTIC_NAME;
@@ -48,9 +49,8 @@ public class Affiliation extends Instance implements org.openmetadatainitiative.
     
     public class EmbeddedBuilder {
 
-        public EmbeddedBuilder endDate(String endDate) { Affiliation.this.endDate = endDate; return this; }
-        public EmbeddedBuilder memberOf(Reference<? extends AffiliationMemberOf> memberOf) { Affiliation.this.memberOf = memberOf; return this; }
-        public EmbeddedBuilder startDate(String startDate) { Affiliation.this.startDate = startDate; return this; }
+        public EmbeddedBuilder organization(List<Reference<Organization>> organization) { Affiliation.this.organization = organization; return this; }
+        public EmbeddedBuilder person(Reference<Person> person) { Affiliation.this.person = person; return this; }
         
 
         public Affiliation build(){
@@ -65,31 +65,21 @@ public class Affiliation extends Instance implements org.openmetadatainitiative.
 
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/endDate")
-    private String endDate;
+   @JsonProperty(value = "https://openminds.om-i.org/props/organization")
+    private List<Reference<Organization>> organization;
     
     /**
-    * Date in the Gregorian calendar at which something terminates in time.
+    * Legally accountable, administrative and functional structure.
     */
-    public String getEndDate() {
-       return this.endDate;
+    public List<Reference<Organization>> getOrganization() {
+       return this.organization;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/memberOf")
-    private Reference<? extends AffiliationMemberOf> memberOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/person")
+    private Reference<Person> person;
     
-    public Reference<? extends AffiliationMemberOf> getMemberOf() {
-       return this.memberOf;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/startDate")
-    private String startDate;
-    
-    /**
-    * Date in the Gregorian calendar at which something begins in time
-    */
-    public String getStartDate() {
-       return this.startDate;
+    public Reference<Person> getPerson() {
+       return this.person;
     }
 
  

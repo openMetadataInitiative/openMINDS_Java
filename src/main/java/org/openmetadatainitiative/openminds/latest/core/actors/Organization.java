@@ -11,8 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.OrganizationType;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.SovereignState;
 import org.openmetadatainitiative.openminds.latest.core.actors.intf.OrganizationDigitalIdentifier;
+import org.openmetadatainitiative.openminds.latest.core.actors.intf.OrganizationJurisdiction;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Location;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Membership;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.actors.Organization.SEMANTIC_NAME;
@@ -25,7 +29,7 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.Organizati
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Organization extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAuthor, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionCustodian, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy, org.openmetadatainitiative.openminds.latest.publications.intf.BookAuthor, org.openmetadatainitiative.openminds.latest.publications.intf.BookCustodian, org.openmetadatainitiative.openminds.latest.publications.intf.BookPublisher, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperAuthor, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperCustodian, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAuthor, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceCustodian, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourcePublisher, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleAuthor, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticleCustodian, org.openmetadatainitiative.openminds.latest.publications.intf.ScholarlyArticlePublisher, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterAuthor, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterCustodian, org.openmetadatainitiative.openminds.latest.publications.intf.ChapterPublisher, org.openmetadatainitiative.openminds.latest.chemicals.intf.ProductSourceProvider, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceManufacturer, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceOwner, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayManufacturer, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayOwner, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteManufacturer, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteOwner, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeManufacturer, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeOwner, org.openmetadatainitiative.openminds.latest.core.actors.intf.AffiliationMemberOf, org.openmetadatainitiative.openminds.latest.core.actors.intf.ContributionContributor, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.FundingFunder, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetAuthor, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelVersionDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.SoftwareVersionDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectCoordinator, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionAuthor, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelDeveloper, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupManufacturer, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionCustodian, org.openmetadatainitiative.openminds.latest.core.products.intf.WebServiceVersionDeveloper, org.openmetadatainitiative.openminds.latest.core.data.intf.CopyrightHolder, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionCustodian, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionDeveloper, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestCustodian, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestDeveloper, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionCustodian, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeVersionDeveloper, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeCustodian, org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeDeveloper, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionAuthor, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasVersionCustodian, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceAuthor, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceCustodian, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasAuthor, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.BrainAtlasCustodian, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionAuthor, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.CommonCoordinateSpaceVersionCustodian{
+public class Organization extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRICoilContribution, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRIScannerContribution, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceContribution, org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperResourceItemHostedBy, org.openmetadatainitiative.openminds.latest.chemicals.intf.ProductSourceProvider, org.openmetadatainitiative.openminds.latest.core.actors.intf.ContributionContributor, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.FundingFunder, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.MembershipMember, org.openmetadatainitiative.openminds.latest.core.products.intf.SetupManufacturer, org.openmetadatainitiative.openminds.latest.core.products.intf.HardwareProductContribution, org.openmetadatainitiative.openminds.latest.core.data.intf.UsageAgreementAuthoringParty, org.openmetadatainitiative.openminds.latest.core.data.intf.CopyrightHolder, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayContribution, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeContribution, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteContribution{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Organization";
 
     @JsonIgnore
@@ -50,12 +54,17 @@ public class Organization extends Instance implements org.openmetadatainitiative
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Organization>{
-        public Builder affiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> affiliation) { Organization.this.affiliation = affiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
+        public Builder acronym(String acronym) { Organization.this.acronym = acronym; return this; }
+        public Builder alternateName(List<String> alternateName) { Organization.this.alternateName = alternateName; return this; }
+        public Builder countryOfFormation(Reference<SovereignState> countryOfFormation) { Organization.this.countryOfFormation = countryOfFormation; return this; }
         public Builder digitalIdentifier(List<Reference<? extends OrganizationDigitalIdentifier>> digitalIdentifier) { Organization.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder fullName(String fullName) { Organization.this.fullName = fullName; return this; }
         public Builder hasParent(List<Reference<Organization>> hasParent) { Organization.this.hasParent = hasParent; return this; }
         public Builder homepage(String homepage) { Organization.this.homepage = homepage; return this; }
-        public Builder shortName(String shortName) { Organization.this.shortName = shortName; return this; }
+        public Builder jurisdiction(Reference<? extends OrganizationJurisdiction> jurisdiction) { Organization.this.jurisdiction = jurisdiction; return this; }
+        public Builder location(Function<Location.EmbeddedBuilder, Location> location) { Organization.this.location = location.apply(Location.createEmbedded()); return this; }
+        public Builder membership(List<Function<Membership.EmbeddedBuilder, Membership>> membership) { Organization.this.membership = membership.stream().map(b -> b.apply(Membership.createEmbedded())).toList(); return this; }
+        public Builder name(String name) { Organization.this.name = name; return this; }
+        public Builder type(Reference<OrganizationType> type) { Organization.this.type = type; return this; }
         
 
         public Organization build(OpenMINDSContext context) {
@@ -73,14 +82,25 @@ public class Organization extends Instance implements org.openmetadatainitiative
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/affiliation")
-    private List<Affiliation> affiliation;
+   @JsonProperty(value = "https://openminds.om-i.org/props/acronym")
+    private String acronym;
     
-    /**
-    * Declaration of a person being closely associated to an organization.
-    */
-    public List<Affiliation> getAffiliation() {
-       return this.affiliation;
+    public String getAcronym() {
+       return this.acronym;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/alternateName")
+    private List<String> alternateName;
+    
+    public List<String> getAlternateName() {
+       return this.alternateName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/countryOfFormation")
+    private Reference<SovereignState> countryOfFormation;
+    
+    public Reference<SovereignState> getCountryOfFormation() {
+       return this.countryOfFormation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
@@ -91,16 +111,6 @@ public class Organization extends Instance implements org.openmetadatainitiative
     */
     public List<Reference<? extends OrganizationDigitalIdentifier>> getDigitalIdentifier() {
        return this.digitalIdentifier;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
-    private String fullName;
-    
-    /**
-    * Whole, non-abbreviated name of something or somebody.
-    */
-    public String getFullName() {
-       return this.fullName;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/hasParent")
@@ -123,14 +133,45 @@ public class Organization extends Instance implements org.openmetadatainitiative
        return this.homepage;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
-    private String shortName;
+    @JsonProperty(value = "https://openminds.om-i.org/props/jurisdiction")
+    private Reference<? extends OrganizationJurisdiction> jurisdiction;
+    
+    public Reference<? extends OrganizationJurisdiction> getJurisdiction() {
+       return this.jurisdiction;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/location")
+    private Location location;
+    
+    public Location getLocation() {
+       return this.location;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/membership")
+    private List<Membership> membership;
+    
+    public List<Membership> getMembership() {
+       return this.membership;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/name")
+    private String name;
     
     /**
-    * Shortened or fully abbreviated name of something or somebody.
+    * Word or phrase that constitutes the distinctive designation of a being or thing.
     */
-    public String getShortName() {
-       return this.shortName;
+    public String getName() {
+       return this.name;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
+    private Reference<OrganizationType> type;
+    
+    /**
+    * Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.
+    */
+    public Reference<OrganizationType> getType() {
+       return this.type;
     }
 
  

@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion;
-import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityRelatedUBERONTerm;
+import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityRelatedInterspeciesAnatomy;
 
 
 import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME;
@@ -25,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.Parcellati
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ParcellationEntity extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationStudyTarget, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfArray, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfElectrodes, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudyTarget, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelStudyTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionStudyTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyStudyTarget, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityVersionHasParent, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.QualitativeRelationAssessmentInRelationTo, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.AnatomicalTargetPositionAnatomicalTarget, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityStudyTarget{
+public class ParcellationEntity extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.GenericComputationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataAnalysisStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.OptimizationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.SimulationStudyTarget, org.openmetadatainitiative.openminds.latest.computation.intf.VisualizationStudyTarget, org.openmetadatainitiative.openminds.latest.neuroimaging.activity.intf.StaticMRIAcquisitionStudyTarget, org.openmetadatainitiative.openminds.latest.neuroimaging.activity.intf.StaticMRIAcquisitionTargetAnatomy, org.openmetadatainitiative.openminds.latest.neuroimaging.activity.intf.DynamicMRIAcquisitionStudyTarget, org.openmetadatainitiative.openminds.latest.neuroimaging.activity.intf.DynamicMRIAcquisitionTargetAnatomy, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationStudyTarget, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationStudyTarget, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingStudyTarget, org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationEntityVersionHasParent, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.QualitativeRelationAssessmentInRelationTo, org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.intf.AnatomicalTargetPositionAnatomicalTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionStudyTarget, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionAnatomicalLocation, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudyTarget, org.openmetadatainitiative.openminds.latest.core.products.intf.ModelStudyTarget, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfArray, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayUsageAnatomicalLocationOfElectrodes, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteUsageAnatomicalLocation, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.ElectrodePlacementStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.CellPatchingStudyTarget, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityStudyTarget{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ParcellationEntity";
 
     @JsonIgnore
@@ -54,11 +53,10 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
         public Builder alternateName(List<String> alternateName) { ParcellationEntity.this.alternateName = alternateName; return this; }
         public Builder definition(String definition) { ParcellationEntity.this.definition = definition; return this; }
         public Builder hasParent(List<Reference<ParcellationEntity>> hasParent) { ParcellationEntity.this.hasParent = hasParent; return this; }
-        public Builder hasVersion(List<Reference<ParcellationEntityVersion>> hasVersion) { ParcellationEntity.this.hasVersion = hasVersion; return this; }
         public Builder lookupLabel(String lookupLabel) { ParcellationEntity.this.lookupLabel = lookupLabel; return this; }
         public Builder name(String name) { ParcellationEntity.this.name = name; return this; }
         public Builder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationEntity.this.ontologyIdentifier = ontologyIdentifier; return this; }
-        public Builder relatedUBERONTerm(Reference<? extends ParcellationEntityRelatedUBERONTerm> relatedUBERONTerm) { ParcellationEntity.this.relatedUBERONTerm = relatedUBERONTerm; return this; }
+        public Builder relatedInterspeciesAnatomy(Reference<? extends ParcellationEntityRelatedInterspeciesAnatomy> relatedInterspeciesAnatomy) { ParcellationEntity.this.relatedInterspeciesAnatomy = relatedInterspeciesAnatomy; return this; }
         
 
         public ParcellationEntity build(OpenMINDSContext context) {
@@ -110,16 +108,6 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
        return this.hasParent;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
-    private List<Reference<ParcellationEntityVersion>> hasVersion;
-    
-    /**
-    * Reference to variants of an original.
-    */
-    public List<Reference<ParcellationEntityVersion>> getHasVersion() {
-       return this.hasVersion;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
     private String lookupLabel;
     
@@ -147,11 +135,11 @@ public class ParcellationEntity extends Instance implements org.openmetadatainit
        return this.ontologyIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/relatedUBERONTerm")
-    private Reference<? extends ParcellationEntityRelatedUBERONTerm> relatedUBERONTerm;
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedInterspeciesAnatomy")
+    private Reference<? extends ParcellationEntityRelatedInterspeciesAnatomy> relatedInterspeciesAnatomy;
     
-    public Reference<? extends ParcellationEntityRelatedUBERONTerm> getRelatedUBERONTerm() {
-       return this.relatedUBERONTerm;
+    public Reference<? extends ParcellationEntityRelatedInterspeciesAnatomy> getRelatedInterspeciesAnatomy() {
+       return this.relatedInterspeciesAnatomy;
     }
 
  

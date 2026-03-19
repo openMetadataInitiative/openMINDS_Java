@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.controlledTerms.Service;
 import org.openmetadatainitiative.openminds.latest.core.data.File;
 import org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkDataLocation;
+import org.openmetadatainitiative.openminds.latest.core.data.intf.ServiceLinkService;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.data.ServiceLink.SEMANTIC_NAME;
@@ -55,7 +55,7 @@ public class ServiceLink extends Instance implements org.openmetadatainitiative.
         public Builder displayLabel(String displayLabel) { ServiceLink.this.displayLabel = displayLabel; return this; }
         public Builder openDataIn(String openDataIn) { ServiceLink.this.openDataIn = openDataIn; return this; }
         public Builder previewImage(Reference<File> previewImage) { ServiceLink.this.previewImage = previewImage; return this; }
-        public Builder service(Reference<Service> service) { ServiceLink.this.service = service; return this; }
+        public Builder service(List<Reference<? extends ServiceLinkService>> service) { ServiceLink.this.service = service; return this; }
         
 
         public ServiceLink build(OpenMINDSContext context) {
@@ -102,9 +102,9 @@ public class ServiceLink extends Instance implements org.openmetadatainitiative.
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/service")
-    private Reference<Service> service;
+    private List<Reference<? extends ServiceLinkService>> service;
     
-    public Reference<Service> getService() {
+    public List<Reference<? extends ServiceLinkService>> getService() {
        return this.service;
     }
 

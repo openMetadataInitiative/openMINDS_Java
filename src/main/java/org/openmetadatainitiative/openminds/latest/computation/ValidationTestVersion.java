@@ -11,21 +11,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.openmetadatainitiative.openminds.latest.computation.ValidationTest;
 import org.openmetadatainitiative.openminds.latest.computation.ValidationTestVersion;
 import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionConfiguration;
-import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionCustodian;
-import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionDeveloper;
-import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionFullDocumentation;
+import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionDocumentation;
 import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionKeyword;
 import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionReferenceData;
 import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionRelatedPublication;
-import org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility;
+import org.openmetadatainitiative.openminds.latest.computation.intf.ValidationTestVersionUsageCondition;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
 import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.data.ContentType;
 import org.openmetadatainitiative.openminds.latest.core.data.Copyright;
 import org.openmetadatainitiative.openminds.latest.core.data.FileRepository;
-import org.openmetadatainitiative.openminds.latest.core.data.License;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
 
 
@@ -39,7 +40,7 @@ import static org.openmetadatainitiative.openminds.latest.computation.Validation
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ValidationTestVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput{
+public class ValidationTestVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ModelValidationInput, org.openmetadatainitiative.openminds.latest.computation.intf.DataCopyInput, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ValidationTestVersion";
 
     @JsonIgnore
@@ -64,33 +65,34 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ValidationTestVersion>{
-        public Builder accessibility(Reference<ProductAccessibility> accessibility) { ValidationTestVersion.this.accessibility = accessibility; return this; }
+        public Builder accessibility(Reference<Accessibility> accessibility) { ValidationTestVersion.this.accessibility = accessibility; return this; }
         public Builder configuration(Reference<? extends ValidationTestVersionConfiguration> configuration) { ValidationTestVersion.this.configuration = configuration; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { ValidationTestVersion.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { ValidationTestVersion.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { ValidationTestVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
-        public Builder custodian(List<Reference<? extends ValidationTestVersionCustodian>> custodian) { ValidationTestVersion.this.custodian = custodian; return this; }
         public Builder description(String description) { ValidationTestVersion.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends ValidationTestVersionDeveloper>> developer) { ValidationTestVersion.this.developer = developer; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { ValidationTestVersion.this.digitalIdentifier = digitalIdentifier; return this; }
+        public Builder documentation(Reference<? extends ValidationTestVersionDocumentation> documentation) { ValidationTestVersion.this.documentation = documentation; return this; }
         public Builder entryPoint(String entryPoint) { ValidationTestVersion.this.entryPoint = entryPoint; return this; }
         public Builder format(Reference<ContentType> format) { ValidationTestVersion.this.format = format; return this; }
-        public Builder fullDocumentation(Reference<? extends ValidationTestVersionFullDocumentation> fullDocumentation) { ValidationTestVersion.this.fullDocumentation = fullDocumentation; return this; }
         public Builder fullName(String fullName) { ValidationTestVersion.this.fullName = fullName; return this; }
         public Builder funding(List<Reference<Funding>> funding) { ValidationTestVersion.this.funding = funding; return this; }
         public Builder homepage(String homepage) { ValidationTestVersion.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { ValidationTestVersion.this.howToCite = howToCite; return this; }
-        public Builder isAlternativeVersionOf(List<Reference<ValidationTestVersion>> isAlternativeVersionOf) { ValidationTestVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        public Builder isNewVersionOf(Reference<ValidationTestVersion> isNewVersionOf) { ValidationTestVersion.this.isNewVersionOf = isNewVersionOf; return this; }
+        public Builder isPrecededBy(Reference<ValidationTestVersion> isPrecededBy) { ValidationTestVersion.this.isPrecededBy = isPrecededBy; return this; }
+        public Builder isVariantOf(List<Reference<ValidationTestVersion>> isVariantOf) { ValidationTestVersion.this.isVariantOf = isVariantOf; return this; }
+        public Builder isVersionOf(Reference<ValidationTest> isVersionOf) { ValidationTestVersion.this.isVersionOf = isVersionOf; return this; }
         public Builder keyword(List<Reference<? extends ValidationTestVersionKeyword>> keyword) { ValidationTestVersion.this.keyword = keyword; return this; }
-        public Builder license(List<Reference<License>> license) { ValidationTestVersion.this.license = license; return this; }
-        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { ValidationTestVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder publicationStatus(Reference<PublicationStatus> publicationStatus) { ValidationTestVersion.this.publicationStatus = publicationStatus; return this; }
         public Builder referenceData(List<Reference<? extends ValidationTestVersionReferenceData>> referenceData) { ValidationTestVersion.this.referenceData = referenceData; return this; }
         public Builder relatedPublication(List<Reference<? extends ValidationTestVersionRelatedPublication>> relatedPublication) { ValidationTestVersion.this.relatedPublication = relatedPublication; return this; }
         public Builder releaseDate(String releaseDate) { ValidationTestVersion.this.releaseDate = releaseDate; return this; }
         public Builder repository(Reference<FileRepository> repository) { ValidationTestVersion.this.repository = repository; return this; }
         public Builder shortName(String shortName) { ValidationTestVersion.this.shortName = shortName; return this; }
         public Builder supportChannel(List<String> supportChannel) { ValidationTestVersion.this.supportChannel = supportChannel; return this; }
+        public Builder usageCondition(List<Reference<? extends ValidationTestVersionUsageCondition>> usageCondition) { ValidationTestVersion.this.usageCondition = usageCondition; return this; }
         public Builder versionIdentifier(String versionIdentifier) { ValidationTestVersion.this.versionIdentifier = versionIdentifier; return this; }
-        public Builder versionInnovation(String versionInnovation) { ValidationTestVersion.this.versionInnovation = versionInnovation; return this; }
+        public Builder versionSpecification(String versionSpecification) { ValidationTestVersion.this.versionSpecification = versionSpecification; return this; }
         
 
         public ValidationTestVersion build(OpenMINDSContext context) {
@@ -109,12 +111,12 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/accessibility")
-    private Reference<ProductAccessibility> accessibility;
+    private Reference<Accessibility> accessibility;
     
     /**
     * Level to which something is accessible to someone or something.
     */
-    public Reference<ProductAccessibility> getAccessibility() {
+    public Reference<Accessibility> getAccessibility() {
        return this.accessibility;
     }
 
@@ -123,6 +125,20 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
     
     public Reference<? extends ValidationTestVersionConfiguration> getConfiguration() {
        return this.configuration;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
+    
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
@@ -135,16 +151,6 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends ValidationTestVersionCustodian>> custodian;
-    
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends ValidationTestVersionCustodian>> getCustodian() {
-       return this.custodian;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
@@ -155,16 +161,6 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends ValidationTestVersionDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends ValidationTestVersionDeveloper>> getDeveloper() {
-       return this.developer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
@@ -173,6 +169,13 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
     */
     public Reference<DOI> getDigitalIdentifier() {
        return this.digitalIdentifier;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends ValidationTestVersionDocumentation> documentation;
+    
+    public Reference<? extends ValidationTestVersionDocumentation> getDocumentation() {
+       return this.documentation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/entryPoint")
@@ -190,16 +193,6 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
     */
     public Reference<ContentType> getFormat() {
        return this.format;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/fullDocumentation")
-    private Reference<? extends ValidationTestVersionFullDocumentation> fullDocumentation;
-    
-    /**
-    * Non-abridged instructions, comments, and information for using a particular product.
-    */
-    public Reference<? extends ValidationTestVersionFullDocumentation> getFullDocumentation() {
-       return this.fullDocumentation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
@@ -242,24 +235,25 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isAlternativeVersionOf")
-    private List<Reference<ValidationTestVersion>> isAlternativeVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPrecededBy")
+    private Reference<ValidationTestVersion> isPrecededBy;
     
-    /**
-    * Reference to an original form where the essence was preserved, but presented in an alternative form.
-    */
-    public List<Reference<ValidationTestVersion>> getIsAlternativeVersionOf() {
-       return this.isAlternativeVersionOf;
+    public Reference<ValidationTestVersion> getIsPrecededBy() {
+       return this.isPrecededBy;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isNewVersionOf")
-    private Reference<ValidationTestVersion> isNewVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVariantOf")
+    private List<Reference<ValidationTestVersion>> isVariantOf;
     
-    /**
-    * Reference to a previous (potentially outdated) particular form of something.
-    */
-    public Reference<ValidationTestVersion> getIsNewVersionOf() {
-       return this.isNewVersionOf;
+    public List<Reference<ValidationTestVersion>> getIsVariantOf() {
+       return this.isVariantOf;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVersionOf")
+    private Reference<ValidationTest> isVersionOf;
+    
+    public Reference<ValidationTest> getIsVersionOf() {
+       return this.isVersionOf;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
@@ -272,24 +266,11 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/license")
-    private List<Reference<License>> license;
+    @JsonProperty(value = "https://openminds.om-i.org/props/publicationStatus")
+    private Reference<PublicationStatus> publicationStatus;
     
-    /**
-    * Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.
-    */
-    public List<Reference<License>> getLicense() {
-       return this.license;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/otherContribution")
-    private List<Contribution> otherContribution;
-    
-    /**
-    * Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.
-    */
-    public List<Contribution> getOtherContribution() {
-       return this.otherContribution;
+    public Reference<PublicationStatus> getPublicationStatus() {
+       return this.publicationStatus;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/referenceData")
@@ -349,6 +330,13 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
        return this.supportChannel;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/usageCondition")
+    private List<Reference<? extends ValidationTestVersionUsageCondition>> usageCondition;
+    
+    public List<Reference<? extends ValidationTestVersionUsageCondition>> getUsageCondition() {
+       return this.usageCondition;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
@@ -359,14 +347,11 @@ public class ValidationTestVersion extends Instance implements org.openmetadatai
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
-    private String versionInnovation;
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionSpecification")
+    private String versionSpecification;
     
-    /**
-    * Documentation on what changed in comparison to a previously published form of something.
-    */
-    public String getVersionInnovation() {
-       return this.versionInnovation;
+    public String getVersionSpecification() {
+       return this.versionSpecification;
     }
 
  

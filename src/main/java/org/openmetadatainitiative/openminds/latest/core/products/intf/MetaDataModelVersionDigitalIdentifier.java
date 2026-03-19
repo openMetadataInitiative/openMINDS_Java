@@ -13,7 +13,7 @@ public interface MetaDataModelVersionDigitalIdentifier extends Entity {
 
    class Deserializer extends ByTypeDeserializer<MetaDataModelVersionDigitalIdentifier> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.class);
+            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.class, org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.class);
         }
     }
     

@@ -12,11 +12,12 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.controlledTerms.TissueSampleAttribute;
-import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateAge;
+import org.openmetadatainitiative.openminds.latest.core.research.SpecimenAge;
+import org.openmetadatainitiative.openminds.latest.core.research.SpecimenWeight;
+import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateAssociatedProtocol;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStatePathology;
 import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateRelativeTimeIndication;
-import org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateWeight;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.research.TissueSampleCollectionState.SEMANTIC_NAME;
@@ -29,7 +30,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.TissueSa
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class TissueSampleCollectionState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput{
+public class TissueSampleCollectionState extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueCulturePreparationInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingInput, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.TissueSampleSlicingOutput, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateDescendedFrom, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionInput, org.openmetadatainitiative.openminds.latest.core.research.intf.ProtocolExecutionOutput, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityInput, org.openmetadatainitiative.openminds.latest.stimulation.activity.intf.StimulationActivityOutput, org.openmetadatainitiative.openminds.latest.ephys.activity.intf.RecordingActivityInput{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/TissueSampleCollectionState";
 
     @JsonIgnore
@@ -55,14 +56,15 @@ public class TissueSampleCollectionState extends Instance implements org.openmet
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<TissueSampleCollectionState>{
         public Builder additionalRemarks(String additionalRemarks) { TissueSampleCollectionState.this.additionalRemarks = additionalRemarks; return this; }
-        public Builder age(Function<TissueSampleCollectionStateAge.EmbeddedBuilder, TissueSampleCollectionStateAge> age) { TissueSampleCollectionState.this.age = age.apply(TissueSampleCollectionStateAge.createEmbedded()); return this; }
+        public Builder age(Function<SpecimenAge.EmbeddedBuilder, SpecimenAge> age) { TissueSampleCollectionState.this.age = age.apply(SpecimenAge.createEmbedded()); return this; }
+        public Builder associatedProtocol(List<Reference<? extends TissueSampleCollectionStateAssociatedProtocol>> associatedProtocol) { TissueSampleCollectionState.this.associatedProtocol = associatedProtocol; return this; }
         public Builder attribute(List<Reference<TissueSampleAttribute>> attribute) { TissueSampleCollectionState.this.attribute = attribute; return this; }
         public Builder descendedFrom(List<Reference<? extends TissueSampleCollectionStateDescendedFrom>> descendedFrom) { TissueSampleCollectionState.this.descendedFrom = descendedFrom; return this; }
         public Builder internalIdentifier(String internalIdentifier) { TissueSampleCollectionState.this.internalIdentifier = internalIdentifier; return this; }
         public Builder lookupLabel(String lookupLabel) { TissueSampleCollectionState.this.lookupLabel = lookupLabel; return this; }
         public Builder pathology(List<Reference<? extends TissueSampleCollectionStatePathology>> pathology) { TissueSampleCollectionState.this.pathology = pathology; return this; }
         public Builder relativeTimeIndication(Function<TissueSampleCollectionStateRelativeTimeIndication.EmbeddedBuilder, TissueSampleCollectionStateRelativeTimeIndication> relativeTimeIndication) { TissueSampleCollectionState.this.relativeTimeIndication = relativeTimeIndication.apply(TissueSampleCollectionStateRelativeTimeIndication.createEmbedded()); return this; }
-        public Builder weight(Function<TissueSampleCollectionStateWeight.EmbeddedBuilder, TissueSampleCollectionStateWeight> weight) { TissueSampleCollectionState.this.weight = weight.apply(TissueSampleCollectionStateWeight.createEmbedded()); return this; }
+        public Builder weight(Function<SpecimenWeight.EmbeddedBuilder, SpecimenWeight> weight) { TissueSampleCollectionState.this.weight = weight.apply(SpecimenWeight.createEmbedded()); return this; }
         
 
         public TissueSampleCollectionState build(OpenMINDSContext context) {
@@ -91,13 +93,20 @@ public class TissueSampleCollectionState extends Instance implements org.openmet
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/age")
-    private TissueSampleCollectionStateAge age;
+    private SpecimenAge age;
     
     /**
     * Time of life or existence at which some particular qualification, capacity or event arises.
     */
-    public TissueSampleCollectionStateAge getAge() {
+    public SpecimenAge getAge() {
        return this.age;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/associatedProtocol")
+    private List<Reference<? extends TissueSampleCollectionStateAssociatedProtocol>> associatedProtocol;
+    
+    public List<Reference<? extends TissueSampleCollectionStateAssociatedProtocol>> getAssociatedProtocol() {
+       return this.associatedProtocol;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/attribute")
@@ -149,12 +158,12 @@ public class TissueSampleCollectionState extends Instance implements org.openmet
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/weight")
-    private TissueSampleCollectionStateWeight weight;
+    private SpecimenWeight weight;
     
     /**
     * Amount that a thing or being weighs.
     */
-    public TissueSampleCollectionStateWeight getWeight() {
+    public SpecimenWeight getWeight() {
        return this.weight;
     }
 

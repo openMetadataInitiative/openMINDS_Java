@@ -11,13 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.controlledTerms.DeviceType;
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayConductorMaterial;
-import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayDigitalIdentifier;
+import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayContribution;
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayInsulatorMaterial;
 import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayIntrinsicResistance;
-import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayManufacturer;
-import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayOwner;
+import org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayType;
 
 
 import static org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArray.SEMANTIC_NAME;
@@ -56,19 +54,16 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<ElectrodeArray>{
         public Builder conductorMaterial(Reference<? extends ElectrodeArrayConductorMaterial> conductorMaterial) { ElectrodeArray.this.conductorMaterial = conductorMaterial; return this; }
+        public Builder contribution(List<Reference<? extends ElectrodeArrayContribution>> contribution) { ElectrodeArray.this.contribution = contribution; return this; }
         public Builder description(String description) { ElectrodeArray.this.description = description; return this; }
-        public Builder deviceType(Reference<DeviceType> deviceType) { ElectrodeArray.this.deviceType = deviceType; return this; }
-        public Builder digitalIdentifier(Reference<? extends ElectrodeArrayDigitalIdentifier> digitalIdentifier) { ElectrodeArray.this.digitalIdentifier = digitalIdentifier; return this; }
         public Builder electrodeIdentifier(List<String> electrodeIdentifier) { ElectrodeArray.this.electrodeIdentifier = electrodeIdentifier; return this; }
         public Builder insulatorMaterial(Reference<? extends ElectrodeArrayInsulatorMaterial> insulatorMaterial) { ElectrodeArray.this.insulatorMaterial = insulatorMaterial; return this; }
         public Builder internalIdentifier(String internalIdentifier) { ElectrodeArray.this.internalIdentifier = internalIdentifier; return this; }
         public Builder intrinsicResistance(Function<ElectrodeArrayIntrinsicResistance.EmbeddedBuilder, ElectrodeArrayIntrinsicResistance> intrinsicResistance) { ElectrodeArray.this.intrinsicResistance = intrinsicResistance.apply(ElectrodeArrayIntrinsicResistance.createEmbedded()); return this; }
-        public Builder lookupLabel(String lookupLabel) { ElectrodeArray.this.lookupLabel = lookupLabel; return this; }
-        public Builder manufacturer(List<Reference<? extends ElectrodeArrayManufacturer>> manufacturer) { ElectrodeArray.this.manufacturer = manufacturer; return this; }
         public Builder name(String name) { ElectrodeArray.this.name = name; return this; }
         public Builder numberOfElectrodes(Object numberOfElectrodes) { ElectrodeArray.this.numberOfElectrodes = numberOfElectrodes; return this; }
-        public Builder owner(List<Reference<? extends ElectrodeArrayOwner>> owner) { ElectrodeArray.this.owner = owner; return this; }
         public Builder serialNumber(String serialNumber) { ElectrodeArray.this.serialNumber = serialNumber; return this; }
+        public Builder type(Reference<? extends ElectrodeArrayType> type) { ElectrodeArray.this.type = type; return this; }
         
 
         public ElectrodeArray build(OpenMINDSContext context) {
@@ -93,6 +88,13 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
        return this.conductorMaterial;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Reference<? extends ElectrodeArrayContribution>> contribution;
+    
+    public List<Reference<? extends ElectrodeArrayContribution>> getContribution() {
+       return this.contribution;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
@@ -101,23 +103,6 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
     */
     public String getDescription() {
        return this.description;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/deviceType")
-    private Reference<DeviceType> deviceType;
-    
-    public Reference<DeviceType> getDeviceType() {
-       return this.deviceType;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
-    private Reference<? extends ElectrodeArrayDigitalIdentifier> digitalIdentifier;
-    
-    /**
-    * Digital handle to identify objects or legal persons.
-    */
-    public Reference<? extends ElectrodeArrayDigitalIdentifier> getDigitalIdentifier() {
-       return this.digitalIdentifier;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/electrodeIdentifier")
@@ -151,20 +136,6 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
        return this.intrinsicResistance;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/lookupLabel")
-    private String lookupLabel;
-    
-    public String getLookupLabel() {
-       return this.lookupLabel;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/manufacturer")
-    private List<Reference<? extends ElectrodeArrayManufacturer>> manufacturer;
-    
-    public List<Reference<? extends ElectrodeArrayManufacturer>> getManufacturer() {
-       return this.manufacturer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/name")
     private String name;
     
@@ -182,18 +153,21 @@ public class ElectrodeArray extends Instance implements org.openmetadatainitiati
        return this.numberOfElectrodes;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/owner")
-    private List<Reference<? extends ElectrodeArrayOwner>> owner;
-    
-    public List<Reference<? extends ElectrodeArrayOwner>> getOwner() {
-       return this.owner;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/serialNumber")
     private String serialNumber;
     
     public String getSerialNumber() {
        return this.serialNumber;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/type")
+    private Reference<? extends ElectrodeArrayType> type;
+    
+    /**
+    * Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.
+    */
+    public Reference<? extends ElectrodeArrayType> getType() {
+       return this.type;
     }
 
  

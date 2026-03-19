@@ -12,20 +12,21 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.controlledTerms.MetaDataModelType;
-import org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
 import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.data.ContentType;
 import org.openmetadatainitiative.openminds.latest.core.data.Copyright;
 import org.openmetadatainitiative.openminds.latest.core.data.FileRepository;
-import org.openmetadatainitiative.openminds.latest.core.data.License;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
+import org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel;
 import org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionCustodian;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionDeveloper;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionDigitalIdentifier;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionFullDocumentation;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionDocumentation;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionKeyword;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionRelatedPublication;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelVersionUsageCondition;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.SEMANTIC_NAME;
@@ -38,7 +39,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.MetaData
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class MetaDataModelVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class MetaDataModelVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.computation.intf.ServiceDeploymentDependsOn, org.openmetadatainitiative.openminds.latest.computation.intf.ServiceDeploymentUses, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/MetaDataModelVersion";
 
     @JsonIgnore
@@ -63,22 +64,22 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<MetaDataModelVersion>{
-        public Builder accessibility(Reference<ProductAccessibility> accessibility) { MetaDataModelVersion.this.accessibility = accessibility; return this; }
+        public Builder accessibility(Reference<Accessibility> accessibility) { MetaDataModelVersion.this.accessibility = accessibility; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { MetaDataModelVersion.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { MetaDataModelVersion.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { MetaDataModelVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
-        public Builder custodian(List<Reference<? extends MetaDataModelVersionCustodian>> custodian) { MetaDataModelVersion.this.custodian = custodian; return this; }
         public Builder description(String description) { MetaDataModelVersion.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends MetaDataModelVersionDeveloper>> developer) { MetaDataModelVersion.this.developer = developer; return this; }
         public Builder digitalIdentifier(Reference<? extends MetaDataModelVersionDigitalIdentifier> digitalIdentifier) { MetaDataModelVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder fullDocumentation(Reference<? extends MetaDataModelVersionFullDocumentation> fullDocumentation) { MetaDataModelVersion.this.fullDocumentation = fullDocumentation; return this; }
+        public Builder documentation(Reference<? extends MetaDataModelVersionDocumentation> documentation) { MetaDataModelVersion.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { MetaDataModelVersion.this.fullName = fullName; return this; }
         public Builder funding(List<Reference<Funding>> funding) { MetaDataModelVersion.this.funding = funding; return this; }
         public Builder homepage(String homepage) { MetaDataModelVersion.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { MetaDataModelVersion.this.howToCite = howToCite; return this; }
-        public Builder isAlternativeVersionOf(List<Reference<MetaDataModelVersion>> isAlternativeVersionOf) { MetaDataModelVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        public Builder isNewVersionOf(Reference<MetaDataModelVersion> isNewVersionOf) { MetaDataModelVersion.this.isNewVersionOf = isNewVersionOf; return this; }
+        public Builder isPrecededBy(Reference<MetaDataModelVersion> isPrecededBy) { MetaDataModelVersion.this.isPrecededBy = isPrecededBy; return this; }
+        public Builder isVariantOf(List<Reference<MetaDataModelVersion>> isVariantOf) { MetaDataModelVersion.this.isVariantOf = isVariantOf; return this; }
+        public Builder isVersionOf(Reference<MetaDataModel> isVersionOf) { MetaDataModelVersion.this.isVersionOf = isVersionOf; return this; }
         public Builder keyword(List<Reference<? extends MetaDataModelVersionKeyword>> keyword) { MetaDataModelVersion.this.keyword = keyword; return this; }
-        public Builder license(Reference<License> license) { MetaDataModelVersion.this.license = license; return this; }
-        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { MetaDataModelVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder publicationStatus(Reference<PublicationStatus> publicationStatus) { MetaDataModelVersion.this.publicationStatus = publicationStatus; return this; }
         public Builder relatedPublication(List<Reference<? extends MetaDataModelVersionRelatedPublication>> relatedPublication) { MetaDataModelVersion.this.relatedPublication = relatedPublication; return this; }
         public Builder releaseDate(String releaseDate) { MetaDataModelVersion.this.releaseDate = releaseDate; return this; }
         public Builder repository(Reference<FileRepository> repository) { MetaDataModelVersion.this.repository = repository; return this; }
@@ -87,8 +88,9 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
         public Builder specificationFormat(List<Reference<ContentType>> specificationFormat) { MetaDataModelVersion.this.specificationFormat = specificationFormat; return this; }
         public Builder supportChannel(List<String> supportChannel) { MetaDataModelVersion.this.supportChannel = supportChannel; return this; }
         public Builder type(Reference<MetaDataModelType> type) { MetaDataModelVersion.this.type = type; return this; }
+        public Builder usageCondition(List<Reference<? extends MetaDataModelVersionUsageCondition>> usageCondition) { MetaDataModelVersion.this.usageCondition = usageCondition; return this; }
         public Builder versionIdentifier(String versionIdentifier) { MetaDataModelVersion.this.versionIdentifier = versionIdentifier; return this; }
-        public Builder versionInnovation(String versionInnovation) { MetaDataModelVersion.this.versionInnovation = versionInnovation; return this; }
+        public Builder versionSpecification(String versionSpecification) { MetaDataModelVersion.this.versionSpecification = versionSpecification; return this; }
         
 
         public MetaDataModelVersion build(OpenMINDSContext context) {
@@ -107,13 +109,27 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/accessibility")
-    private Reference<ProductAccessibility> accessibility;
+    private Reference<Accessibility> accessibility;
     
     /**
     * Level to which something is accessible to someone or something.
     */
-    public Reference<ProductAccessibility> getAccessibility() {
+    public Reference<Accessibility> getAccessibility() {
        return this.accessibility;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
+    
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
@@ -126,16 +142,6 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
        return this.copyright;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends MetaDataModelVersionCustodian>> custodian;
-    
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends MetaDataModelVersionCustodian>> getCustodian() {
-       return this.custodian;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
     private String description;
     
@@ -144,16 +150,6 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
     */
     public String getDescription() {
        return this.description;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends MetaDataModelVersionDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends MetaDataModelVersionDeveloper>> getDeveloper() {
-       return this.developer;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
@@ -166,14 +162,11 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/fullDocumentation")
-    private Reference<? extends MetaDataModelVersionFullDocumentation> fullDocumentation;
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends MetaDataModelVersionDocumentation> documentation;
     
-    /**
-    * Non-abridged instructions, comments, and information for using a particular product.
-    */
-    public Reference<? extends MetaDataModelVersionFullDocumentation> getFullDocumentation() {
-       return this.fullDocumentation;
+    public Reference<? extends MetaDataModelVersionDocumentation> getDocumentation() {
+       return this.documentation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
@@ -216,24 +209,25 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isAlternativeVersionOf")
-    private List<Reference<MetaDataModelVersion>> isAlternativeVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPrecededBy")
+    private Reference<MetaDataModelVersion> isPrecededBy;
     
-    /**
-    * Reference to an original form where the essence was preserved, but presented in an alternative form.
-    */
-    public List<Reference<MetaDataModelVersion>> getIsAlternativeVersionOf() {
-       return this.isAlternativeVersionOf;
+    public Reference<MetaDataModelVersion> getIsPrecededBy() {
+       return this.isPrecededBy;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isNewVersionOf")
-    private Reference<MetaDataModelVersion> isNewVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVariantOf")
+    private List<Reference<MetaDataModelVersion>> isVariantOf;
     
-    /**
-    * Reference to a previous (potentially outdated) particular form of something.
-    */
-    public Reference<MetaDataModelVersion> getIsNewVersionOf() {
-       return this.isNewVersionOf;
+    public List<Reference<MetaDataModelVersion>> getIsVariantOf() {
+       return this.isVariantOf;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVersionOf")
+    private Reference<MetaDataModel> isVersionOf;
+    
+    public Reference<MetaDataModel> getIsVersionOf() {
+       return this.isVersionOf;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
@@ -246,24 +240,11 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/license")
-    private Reference<License> license;
+    @JsonProperty(value = "https://openminds.om-i.org/props/publicationStatus")
+    private Reference<PublicationStatus> publicationStatus;
     
-    /**
-    * Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.
-    */
-    public Reference<License> getLicense() {
-       return this.license;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/otherContribution")
-    private List<Contribution> otherContribution;
-    
-    /**
-    * Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.
-    */
-    public List<Contribution> getOtherContribution() {
-       return this.otherContribution;
+    public Reference<PublicationStatus> getPublicationStatus() {
+       return this.publicationStatus;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
@@ -346,6 +327,13 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
        return this.type;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/usageCondition")
+    private List<Reference<? extends MetaDataModelVersionUsageCondition>> usageCondition;
+    
+    public List<Reference<? extends MetaDataModelVersionUsageCondition>> getUsageCondition() {
+       return this.usageCondition;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
@@ -356,14 +344,11 @@ public class MetaDataModelVersion extends Instance implements org.openmetadatain
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
-    private String versionInnovation;
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionSpecification")
+    private String versionSpecification;
     
-    /**
-    * Documentation on what changed in comparison to a previously published form of something.
-    */
-    public String getVersionInnovation() {
-       return this.versionInnovation;
+    public String getVersionSpecification() {
+       return this.versionSpecification;
     }
 
  

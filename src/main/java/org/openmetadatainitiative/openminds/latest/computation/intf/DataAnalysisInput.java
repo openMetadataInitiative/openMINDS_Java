@@ -13,7 +13,7 @@ public interface DataAnalysisInput extends Entity {
 
    class Deserializer extends ByTypeDeserializer<DataAnalysisInput> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.computation.LocalFile.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.class);
+            super(org.openmetadatainitiative.openminds.latest.core.data.LocalFile.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.class);
         }
     }
     

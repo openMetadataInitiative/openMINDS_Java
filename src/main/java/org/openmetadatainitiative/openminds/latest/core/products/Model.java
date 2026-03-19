@@ -13,10 +13,12 @@ import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.controlledTerms.ModelAbstractionLevel;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.ModelScope;
-import org.openmetadatainitiative.openminds.latest.core.products.ModelVersion;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelCustodian;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelDeveloper;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelDigitalIdentifier;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelDocumentation;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelKeyword;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelRelatedPublication;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.ModelStudyTarget;
 
 
@@ -30,7 +32,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Model.SE
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Model extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class Model extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Model";
 
     @JsonIgnore
@@ -56,17 +58,20 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Model>{
         public Builder abstractionLevel(Reference<ModelAbstractionLevel> abstractionLevel) { Model.this.abstractionLevel = abstractionLevel; return this; }
-        public Builder custodian(List<Reference<? extends ModelCustodian>> custodian) { Model.this.custodian = custodian; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { Model.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { Model.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder description(String description) { Model.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends ModelDeveloper>> developer) { Model.this.developer = developer; return this; }
         public Builder digitalIdentifier(Reference<? extends ModelDigitalIdentifier> digitalIdentifier) { Model.this.digitalIdentifier = digitalIdentifier; return this; }
+        public Builder documentation(Reference<? extends ModelDocumentation> documentation) { Model.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { Model.this.fullName = fullName; return this; }
-        public Builder hasVersion(List<Reference<ModelVersion>> hasVersion) { Model.this.hasVersion = hasVersion; return this; }
         public Builder homepage(String homepage) { Model.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { Model.this.howToCite = howToCite; return this; }
+        public Builder keyword(List<Reference<? extends ModelKeyword>> keyword) { Model.this.keyword = keyword; return this; }
+        public Builder relatedPublication(List<Reference<? extends ModelRelatedPublication>> relatedPublication) { Model.this.relatedPublication = relatedPublication; return this; }
         public Builder scope(Reference<ModelScope> scope) { Model.this.scope = scope; return this; }
         public Builder shortName(String shortName) { Model.this.shortName = shortName; return this; }
         public Builder studyTarget(List<Reference<? extends ModelStudyTarget>> studyTarget) { Model.this.studyTarget = studyTarget; return this; }
+        public Builder supportChannel(List<String> supportChannel) { Model.this.supportChannel = supportChannel; return this; }
         
 
         public Model build(OpenMINDSContext context) {
@@ -94,14 +99,18 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
        return this.abstractionLevel;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends ModelCustodian>> custodian;
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends ModelCustodian>> getCustodian() {
-       return this.custodian;
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -114,16 +123,6 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends ModelDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends ModelDeveloper>> getDeveloper() {
-       return this.developer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends ModelDigitalIdentifier> digitalIdentifier;
     
@@ -134,6 +133,13 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
        return this.digitalIdentifier;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends ModelDocumentation> documentation;
+    
+    public Reference<? extends ModelDocumentation> getDocumentation() {
+       return this.documentation;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
@@ -142,16 +148,6 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
     */
     public String getFullName() {
        return this.fullName;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
-    private List<Reference<ModelVersion>> hasVersion;
-    
-    /**
-    * Reference to variants of an original.
-    */
-    public List<Reference<ModelVersion>> getHasVersion() {
-       return this.hasVersion;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
@@ -172,6 +168,26 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
     */
     public String getHowToCite() {
        return this.howToCite;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
+    private List<Reference<? extends ModelKeyword>> keyword;
+    
+    /**
+    * Significant word or concept that are representative of something or someone.
+    */
+    public List<Reference<? extends ModelKeyword>> getKeyword() {
+       return this.keyword;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
+    private List<Reference<? extends ModelRelatedPublication>> relatedPublication;
+    
+    /**
+    * Reference to something that was made available for the general public to see or buy.
+    */
+    public List<Reference<? extends ModelRelatedPublication>> getRelatedPublication() {
+       return this.relatedPublication;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/scope")
@@ -202,6 +218,16 @@ public class Model extends Instance implements org.openmetadatainitiative.openmi
     */
     public List<Reference<? extends ModelStudyTarget>> getStudyTarget() {
        return this.studyTarget;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
+    private List<String> supportChannel;
+    
+    /**
+    * Way of communication used to interact with users or customers.
+    */
+    public List<String> getSupportChannel() {
+       return this.supportChannel;
     }
 
  

@@ -13,7 +13,7 @@ public interface DatasetVersionInputData extends Entity {
 
    class Deserializer extends ByTypeDeserializer<DatasetVersionInputData> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlas.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.BrainAtlasVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpace.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateSpaceVersion.class);
+            super(org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, org.openmetadatainitiative.openminds.latest.core.miscellaneous.WebResource.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.class, org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.class);
         }
     }
     

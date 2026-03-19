@@ -11,20 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.controlledTerms.ProductAccessibility;
+import org.openmetadatainitiative.openminds.latest.controlledTerms.PublicationStatus;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
 import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.data.Copyright;
 import org.openmetadatainitiative.openminds.latest.core.data.FileRepository;
-import org.openmetadatainitiative.openminds.latest.core.data.License;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
+import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
+import org.openmetadatainitiative.openminds.latest.publications.LivePaper;
 import org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAbout;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionAuthor;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionCustodian;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionFullDocumentation;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionDocumentation;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionKeyword;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionRelatedPublication;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LivePaperVersionUsageCondition;
 
 
 import static org.openmetadatainitiative.openminds.latest.publications.LivePaperVersion.SEMANTIC_NAME;
@@ -37,7 +38,7 @@ import static org.openmetadatainitiative.openminds.latest.publications.LivePaper
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class LivePaperVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class LivePaperVersion extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/LivePaperVersion";
 
     @JsonIgnore
@@ -63,30 +64,31 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<LivePaperVersion>{
         public Builder about(List<Reference<? extends LivePaperVersionAbout>> about) { LivePaperVersion.this.about = about; return this; }
-        public Builder accessibility(Reference<ProductAccessibility> accessibility) { LivePaperVersion.this.accessibility = accessibility; return this; }
-        public Builder author(List<Reference<? extends LivePaperVersionAuthor>> author) { LivePaperVersion.this.author = author; return this; }
+        public Builder accessibility(Reference<Accessibility> accessibility) { LivePaperVersion.this.accessibility = accessibility; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { LivePaperVersion.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { LivePaperVersion.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { LivePaperVersion.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
-        public Builder custodian(List<Reference<? extends LivePaperVersionCustodian>> custodian) { LivePaperVersion.this.custodian = custodian; return this; }
         public Builder description(String description) { LivePaperVersion.this.description = description; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { LivePaperVersion.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder fullDocumentation(Reference<? extends LivePaperVersionFullDocumentation> fullDocumentation) { LivePaperVersion.this.fullDocumentation = fullDocumentation; return this; }
+        public Builder documentation(Reference<? extends LivePaperVersionDocumentation> documentation) { LivePaperVersion.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { LivePaperVersion.this.fullName = fullName; return this; }
         public Builder funding(List<Reference<Funding>> funding) { LivePaperVersion.this.funding = funding; return this; }
         public Builder homepage(String homepage) { LivePaperVersion.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { LivePaperVersion.this.howToCite = howToCite; return this; }
-        public Builder isAlternativeVersionOf(List<Reference<LivePaperVersion>> isAlternativeVersionOf) { LivePaperVersion.this.isAlternativeVersionOf = isAlternativeVersionOf; return this; }
-        public Builder isNewVersionOf(Reference<LivePaperVersion> isNewVersionOf) { LivePaperVersion.this.isNewVersionOf = isNewVersionOf; return this; }
+        public Builder isPrecededBy(Reference<LivePaperVersion> isPrecededBy) { LivePaperVersion.this.isPrecededBy = isPrecededBy; return this; }
+        public Builder isVariantOf(List<Reference<LivePaperVersion>> isVariantOf) { LivePaperVersion.this.isVariantOf = isVariantOf; return this; }
+        public Builder isVersionOf(Reference<LivePaper> isVersionOf) { LivePaperVersion.this.isVersionOf = isVersionOf; return this; }
         public Builder keyword(List<Reference<? extends LivePaperVersionKeyword>> keyword) { LivePaperVersion.this.keyword = keyword; return this; }
-        public Builder license(Reference<License> license) { LivePaperVersion.this.license = license; return this; }
         public Builder modificationDate(String modificationDate) { LivePaperVersion.this.modificationDate = modificationDate; return this; }
-        public Builder otherContribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> otherContribution) { LivePaperVersion.this.otherContribution = otherContribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder publicationStatus(Reference<PublicationStatus> publicationStatus) { LivePaperVersion.this.publicationStatus = publicationStatus; return this; }
         public Builder relatedPublication(List<Reference<? extends LivePaperVersionRelatedPublication>> relatedPublication) { LivePaperVersion.this.relatedPublication = relatedPublication; return this; }
         public Builder releaseDate(String releaseDate) { LivePaperVersion.this.releaseDate = releaseDate; return this; }
         public Builder repository(Reference<FileRepository> repository) { LivePaperVersion.this.repository = repository; return this; }
         public Builder shortName(String shortName) { LivePaperVersion.this.shortName = shortName; return this; }
         public Builder supportChannel(List<String> supportChannel) { LivePaperVersion.this.supportChannel = supportChannel; return this; }
+        public Builder usageCondition(List<Reference<? extends LivePaperVersionUsageCondition>> usageCondition) { LivePaperVersion.this.usageCondition = usageCondition; return this; }
         public Builder versionIdentifier(String versionIdentifier) { LivePaperVersion.this.versionIdentifier = versionIdentifier; return this; }
-        public Builder versionInnovation(String versionInnovation) { LivePaperVersion.this.versionInnovation = versionInnovation; return this; }
+        public Builder versionSpecification(String versionSpecification) { LivePaperVersion.this.versionSpecification = versionSpecification; return this; }
         
 
         public LivePaperVersion build(OpenMINDSContext context) {
@@ -112,23 +114,27 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/accessibility")
-    private Reference<ProductAccessibility> accessibility;
+    private Reference<Accessibility> accessibility;
     
     /**
     * Level to which something is accessible to someone or something.
     */
-    public Reference<ProductAccessibility> getAccessibility() {
+    public Reference<Accessibility> getAccessibility() {
        return this.accessibility;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/author")
-    private List<Reference<? extends LivePaperVersionAuthor>> author;
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * Creator of a literary or creative work, as well as a dataset publication.
-    */
-    public List<Reference<? extends LivePaperVersionAuthor>> getAuthor() {
-       return this.author;
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
@@ -139,16 +145,6 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
     */
     public Copyright getCopyright() {
        return this.copyright;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends LivePaperVersionCustodian>> custodian;
-    
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends LivePaperVersionCustodian>> getCustodian() {
-       return this.custodian;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -171,14 +167,11 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.digitalIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/fullDocumentation")
-    private Reference<? extends LivePaperVersionFullDocumentation> fullDocumentation;
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends LivePaperVersionDocumentation> documentation;
     
-    /**
-    * Non-abridged instructions, comments, and information for using a particular product.
-    */
-    public Reference<? extends LivePaperVersionFullDocumentation> getFullDocumentation() {
-       return this.fullDocumentation;
+    public Reference<? extends LivePaperVersionDocumentation> getDocumentation() {
+       return this.documentation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
@@ -221,24 +214,25 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.howToCite;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isAlternativeVersionOf")
-    private List<Reference<LivePaperVersion>> isAlternativeVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isPrecededBy")
+    private Reference<LivePaperVersion> isPrecededBy;
     
-    /**
-    * Reference to an original form where the essence was preserved, but presented in an alternative form.
-    */
-    public List<Reference<LivePaperVersion>> getIsAlternativeVersionOf() {
-       return this.isAlternativeVersionOf;
+    public Reference<LivePaperVersion> getIsPrecededBy() {
+       return this.isPrecededBy;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/isNewVersionOf")
-    private Reference<LivePaperVersion> isNewVersionOf;
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVariantOf")
+    private List<Reference<LivePaperVersion>> isVariantOf;
     
-    /**
-    * Reference to a previous (potentially outdated) particular form of something.
-    */
-    public Reference<LivePaperVersion> getIsNewVersionOf() {
-       return this.isNewVersionOf;
+    public List<Reference<LivePaperVersion>> getIsVariantOf() {
+       return this.isVariantOf;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/isVersionOf")
+    private Reference<LivePaper> isVersionOf;
+    
+    public Reference<LivePaper> getIsVersionOf() {
+       return this.isVersionOf;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
@@ -251,16 +245,6 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.keyword;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/license")
-    private Reference<License> license;
-    
-    /**
-    * Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.
-    */
-    public Reference<License> getLicense() {
-       return this.license;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/modificationDate")
     private String modificationDate;
     
@@ -268,14 +252,11 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.modificationDate;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/otherContribution")
-    private List<Contribution> otherContribution;
+    @JsonProperty(value = "https://openminds.om-i.org/props/publicationStatus")
+    private Reference<PublicationStatus> publicationStatus;
     
-    /**
-    * Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.
-    */
-    public List<Contribution> getOtherContribution() {
-       return this.otherContribution;
+    public Reference<PublicationStatus> getPublicationStatus() {
+       return this.publicationStatus;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
@@ -328,6 +309,13 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.supportChannel;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/usageCondition")
+    private List<Reference<? extends LivePaperVersionUsageCondition>> usageCondition;
+    
+    public List<Reference<? extends LivePaperVersionUsageCondition>> getUsageCondition() {
+       return this.usageCondition;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")
     private String versionIdentifier;
     
@@ -338,14 +326,11 @@ public class LivePaperVersion extends Instance implements org.openmetadatainitia
        return this.versionIdentifier;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/versionInnovation")
-    private String versionInnovation;
+    @JsonProperty(value = "https://openminds.om-i.org/props/versionSpecification")
+    private String versionSpecification;
     
-    /**
-    * Documentation on what changed in comparison to a previously published form of something.
-    */
-    public String getVersionInnovation() {
-       return this.versionInnovation;
+    public String getVersionSpecification() {
+       return this.versionSpecification;
     }
 
  

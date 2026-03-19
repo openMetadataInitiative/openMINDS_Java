@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.computation.WorkflowRecipeVersion;
-import org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeCustodian;
-import org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeDeveloper;
+import org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeDocumentation;
+import org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeKeyword;
+import org.openmetadatainitiative.openminds.latest.computation.intf.WorkflowRecipeRelatedPublication;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
 
 
@@ -27,7 +29,7 @@ import static org.openmetadatainitiative.openminds.latest.computation.WorkflowRe
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/WorkflowRecipe";
 
     @JsonIgnore
@@ -52,15 +54,18 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<WorkflowRecipe>{
-        public Builder custodian(List<Reference<? extends WorkflowRecipeCustodian>> custodian) { WorkflowRecipe.this.custodian = custodian; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { WorkflowRecipe.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { WorkflowRecipe.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder description(String description) { WorkflowRecipe.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends WorkflowRecipeDeveloper>> developer) { WorkflowRecipe.this.developer = developer; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { WorkflowRecipe.this.digitalIdentifier = digitalIdentifier; return this; }
+        public Builder documentation(Reference<? extends WorkflowRecipeDocumentation> documentation) { WorkflowRecipe.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { WorkflowRecipe.this.fullName = fullName; return this; }
-        public Builder hasVersion(List<Reference<WorkflowRecipeVersion>> hasVersion) { WorkflowRecipe.this.hasVersion = hasVersion; return this; }
         public Builder homepage(String homepage) { WorkflowRecipe.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { WorkflowRecipe.this.howToCite = howToCite; return this; }
+        public Builder keyword(List<Reference<? extends WorkflowRecipeKeyword>> keyword) { WorkflowRecipe.this.keyword = keyword; return this; }
+        public Builder relatedPublication(List<Reference<? extends WorkflowRecipeRelatedPublication>> relatedPublication) { WorkflowRecipe.this.relatedPublication = relatedPublication; return this; }
         public Builder shortName(String shortName) { WorkflowRecipe.this.shortName = shortName; return this; }
+        public Builder supportChannel(List<String> supportChannel) { WorkflowRecipe.this.supportChannel = supportChannel; return this; }
         
 
         public WorkflowRecipe build(OpenMINDSContext context) {
@@ -78,14 +83,18 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends WorkflowRecipeCustodian>> custodian;
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends WorkflowRecipeCustodian>> getCustodian() {
-       return this.custodian;
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -98,16 +107,6 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends WorkflowRecipeDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends WorkflowRecipeDeveloper>> getDeveloper() {
-       return this.developer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
@@ -118,6 +117,13 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.digitalIdentifier;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends WorkflowRecipeDocumentation> documentation;
+    
+    public Reference<? extends WorkflowRecipeDocumentation> getDocumentation() {
+       return this.documentation;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
@@ -126,16 +132,6 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
     */
     public String getFullName() {
        return this.fullName;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
-    private List<Reference<WorkflowRecipeVersion>> hasVersion;
-    
-    /**
-    * Reference to variants of an original.
-    */
-    public List<Reference<WorkflowRecipeVersion>> getHasVersion() {
-       return this.hasVersion;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
@@ -158,6 +154,26 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
        return this.howToCite;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
+    private List<Reference<? extends WorkflowRecipeKeyword>> keyword;
+    
+    /**
+    * Significant word or concept that are representative of something or someone.
+    */
+    public List<Reference<? extends WorkflowRecipeKeyword>> getKeyword() {
+       return this.keyword;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
+    private List<Reference<? extends WorkflowRecipeRelatedPublication>> relatedPublication;
+    
+    /**
+    * Reference to something that was made available for the general public to see or buy.
+    */
+    public List<Reference<? extends WorkflowRecipeRelatedPublication>> getRelatedPublication() {
+       return this.relatedPublication;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
@@ -166,6 +182,16 @@ public class WorkflowRecipe extends Instance implements org.openmetadatainitiati
     */
     public String getShortName() {
        return this.shortName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
+    private List<String> supportChannel;
+    
+    /**
+    * Way of communication used to interact with users or customers.
+    */
+    public List<String> getSupportChannel() {
+       return this.supportChannel;
     }
 
  

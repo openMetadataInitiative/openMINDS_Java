@@ -49,8 +49,8 @@ public class Contribution extends Instance implements org.openmetadatainitiative
     
     public class EmbeddedBuilder {
 
-        public EmbeddedBuilder contributor(Reference<? extends ContributionContributor> contributor) { Contribution.this.contributor = contributor; return this; }
-        public EmbeddedBuilder type(List<Reference<ContributionType>> type) { Contribution.this.type = type; return this; }
+        public EmbeddedBuilder contributor(List<Reference<? extends ContributionContributor>> contributor) { Contribution.this.contributor = contributor; return this; }
+        public EmbeddedBuilder type(Reference<ContributionType> type) { Contribution.this.type = type; return this; }
         
 
         public Contribution build(){
@@ -66,22 +66,22 @@ public class Contribution extends Instance implements org.openmetadatainitiative
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/contributor")
-    private Reference<? extends ContributionContributor> contributor;
+    private List<Reference<? extends ContributionContributor>> contributor;
     
     /**
     * Legal person that gave or supplied something as a part or share.
     */
-    public Reference<? extends ContributionContributor> getContributor() {
+    public List<Reference<? extends ContributionContributor>> getContributor() {
        return this.contributor;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/type")
-    private List<Reference<ContributionType>> type;
+    private Reference<ContributionType> type;
     
     /**
     * Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.
     */
-    public List<Reference<ContributionType>> getType() {
+    public Reference<ContributionType> getType() {
        return this.type;
     }
 

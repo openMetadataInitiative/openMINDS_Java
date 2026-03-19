@@ -13,18 +13,16 @@ import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.controlledTerms.EducationalLevel;
 import org.openmetadatainitiative.openminds.latest.controlledTerms.LearningResourceType;
-import org.openmetadatainitiative.openminds.latest.core.actors.Person;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.data.Copyright;
-import org.openmetadatainitiative.openminds.latest.core.data.License;
 import org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI;
 import org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAuthor;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceCitedPublication;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceCustodian;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceKeyword;
-import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourcePublisher;
 import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceRequiredTime;
+import org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceUsageCondition;
 
 
 import static org.openmetadatainitiative.openminds.latest.publications.LearningResource.SEMANTIC_NAME;
@@ -65,27 +63,25 @@ public class LearningResource extends Instance implements org.openmetadatainitia
         public Builder IRI(String IRI) { LearningResource.this.IRI = IRI; return this; }
         public Builder about(List<Reference<? extends LearningResourceAbout>> about) { LearningResource.this.about = about; return this; }
         public Builder abstract_(String abstract_) { LearningResource.this.abstract_ = abstract_; return this; }
-        public Builder author(List<Reference<? extends LearningResourceAuthor>> author) { LearningResource.this.author = author; return this; }
         public Builder citedPublication(List<Reference<? extends LearningResourceCitedPublication>> citedPublication) { LearningResource.this.citedPublication = citedPublication; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { LearningResource.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { LearningResource.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder copyright(Function<Copyright.EmbeddedBuilder, Copyright> copyright) { LearningResource.this.copyright = copyright.apply(Copyright.createEmbedded()); return this; }
         public Builder creationDate(String creationDate) { LearningResource.this.creationDate = creationDate; return this; }
-        public Builder custodian(List<Reference<? extends LearningResourceCustodian>> custodian) { LearningResource.this.custodian = custodian; return this; }
         public Builder digitalIdentifier(Reference<DOI> digitalIdentifier) { LearningResource.this.digitalIdentifier = digitalIdentifier; return this; }
-        public Builder editor(List<Reference<Person>> editor) { LearningResource.this.editor = editor; return this; }
         public Builder educationalLevel(Reference<EducationalLevel> educationalLevel) { LearningResource.this.educationalLevel = educationalLevel; return this; }
         public Builder funding(List<Reference<Funding>> funding) { LearningResource.this.funding = funding; return this; }
         public Builder keyword(List<Reference<? extends LearningResourceKeyword>> keyword) { LearningResource.this.keyword = keyword; return this; }
         public Builder learningOutcome(String learningOutcome) { LearningResource.this.learningOutcome = learningOutcome; return this; }
-        public Builder license(Reference<License> license) { LearningResource.this.license = license; return this; }
         public Builder modificationDate(String modificationDate) { LearningResource.this.modificationDate = modificationDate; return this; }
         public Builder name(String name) { LearningResource.this.name = name; return this; }
         public Builder order(Object order) { LearningResource.this.order = order; return this; }
         public Builder prerequisite(String prerequisite) { LearningResource.this.prerequisite = prerequisite; return this; }
         public Builder publicationDate(String publicationDate) { LearningResource.this.publicationDate = publicationDate; return this; }
-        public Builder publisher(Reference<? extends LearningResourcePublisher> publisher) { LearningResource.this.publisher = publisher; return this; }
         public Builder requiredTime(Function<LearningResourceRequiredTime.EmbeddedBuilder, LearningResourceRequiredTime> requiredTime) { LearningResource.this.requiredTime = requiredTime.apply(LearningResourceRequiredTime.createEmbedded()); return this; }
         public Builder topic(String topic) { LearningResource.this.topic = topic; return this; }
         public Builder type(Reference<LearningResourceType> type) { LearningResource.this.type = type; return this; }
+        public Builder usageCondition(List<Reference<? extends LearningResourceUsageCondition>> usageCondition) { LearningResource.this.usageCondition = usageCondition; return this; }
         public Builder versionIdentifier(String versionIdentifier) { LearningResource.this.versionIdentifier = versionIdentifier; return this; }
         
 
@@ -128,21 +124,25 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.abstract_;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/author")
-    private List<Reference<? extends LearningResourceAuthor>> author;
-    
-    /**
-    * Creator of a literary or creative work, as well as a dataset publication.
-    */
-    public List<Reference<? extends LearningResourceAuthor>> getAuthor() {
-       return this.author;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/citedPublication")
     private List<Reference<? extends LearningResourceCitedPublication>> citedPublication;
     
     public List<Reference<? extends LearningResourceCitedPublication>> getCitedPublication() {
        return this.citedPublication;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
+    
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/copyright")
@@ -162,16 +162,6 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.creationDate;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends LearningResourceCustodian>> custodian;
-    
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends LearningResourceCustodian>> getCustodian() {
-       return this.custodian;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<DOI> digitalIdentifier;
     
@@ -180,13 +170,6 @@ public class LearningResource extends Instance implements org.openmetadatainitia
     */
     public Reference<DOI> getDigitalIdentifier() {
        return this.digitalIdentifier;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/editor")
-    private List<Reference<Person>> editor;
-    
-    public List<Reference<Person>> getEditor() {
-       return this.editor;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/educationalLevel")
@@ -221,16 +204,6 @@ public class LearningResource extends Instance implements org.openmetadatainitia
     
     public String getLearningOutcome() {
        return this.learningOutcome;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/license")
-    private Reference<License> license;
-    
-    /**
-    * Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.
-    */
-    public Reference<License> getLicense() {
-       return this.license;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/modificationDate")
@@ -271,13 +244,6 @@ public class LearningResource extends Instance implements org.openmetadatainitia
        return this.publicationDate;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/publisher")
-    private Reference<? extends LearningResourcePublisher> publisher;
-    
-    public Reference<? extends LearningResourcePublisher> getPublisher() {
-       return this.publisher;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/requiredTime")
     private LearningResourceRequiredTime requiredTime;
     
@@ -300,6 +266,13 @@ public class LearningResource extends Instance implements org.openmetadatainitia
     */
     public Reference<LearningResourceType> getType() {
        return this.type;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/usageCondition")
+    private List<Reference<? extends LearningResourceUsageCondition>> usageCondition;
+    
+    public List<Reference<? extends LearningResourceUsageCondition>> getUsageCondition() {
+       return this.usageCondition;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/versionIdentifier")

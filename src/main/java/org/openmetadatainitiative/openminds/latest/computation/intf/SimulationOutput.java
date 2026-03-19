@@ -13,7 +13,7 @@ public interface SimulationOutput extends Entity {
 
    class Deserializer extends ByTypeDeserializer<SimulationOutput> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.computation.LocalFile.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileArchive.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class);
+            super(org.openmetadatainitiative.openminds.latest.core.data.LocalFile.class, org.openmetadatainitiative.openminds.latest.core.data.File.class, org.openmetadatainitiative.openminds.latest.core.data.FileArchive.class, org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class);
         }
     }
     

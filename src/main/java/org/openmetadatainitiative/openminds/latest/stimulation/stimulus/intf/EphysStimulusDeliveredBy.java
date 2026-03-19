@@ -13,7 +13,7 @@ public interface EphysStimulusDeliveredBy extends Entity {
 
    class Deserializer extends ByTypeDeserializer<EphysStimulusDeliveredBy> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.class, org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.class, org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.class, org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.class);
+            super(org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeArrayUsage.class, org.openmetadatainitiative.openminds.latest.ephys.device.ElectrodeUsage.class, org.openmetadatainitiative.openminds.latest.ephys.device.PipetteUsage.class, org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRICoilUsage.class, org.openmetadatainitiative.openminds.latest.neuroimaging.device.MRIScannerUsage.class, org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.class);
         }
     }
     

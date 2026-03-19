@@ -13,7 +13,7 @@ public interface CranialWindowPreparationDimension extends Entity {
 
    class Deserializer extends ByTypeDeserializer<CranialWindowPreparationDimension> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.class);
+            super(org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CircularSector.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipsoid.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.EquilateralTriangle.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Frustum.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.IsoscelesTriangle.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Kite.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Parallelogram.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RegularPolygon.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rhombus.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCone.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCylinder.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightPrism.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightTriangle.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Sphere.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Spheroid.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Square.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Trapezoid.class, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.class);
         }
     }
     
@@ -23,16 +23,96 @@ public interface CranialWindowPreparationDimension extends Entity {
 
     class EmbeddedBuilder {
         
-        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.EmbeddedBuilder circle(){
-            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Circle.createEmbedded();
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.EmbeddedBuilder centroidalPyramid(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.createEmbedded();
         }
         
-        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.EmbeddedBuilder ellipse(){
-            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Ellipse.createEmbedded();
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.EmbeddedBuilder circle(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.createEmbedded();
         }
         
-        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.EmbeddedBuilder rectangle(){
-            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShapes.Rectangle.createEmbedded();
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CircularSector.EmbeddedBuilder circularSector(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CircularSector.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.EmbeddedBuilder cube(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.EmbeddedBuilder ellipse(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipsoid.EmbeddedBuilder ellipsoid(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipsoid.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.EquilateralTriangle.EmbeddedBuilder equilateralTriangle(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.EquilateralTriangle.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Frustum.EmbeddedBuilder frustum(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Frustum.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.IsoscelesTriangle.EmbeddedBuilder isoscelesTriangle(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.IsoscelesTriangle.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Kite.EmbeddedBuilder kite(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Kite.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Parallelogram.EmbeddedBuilder parallelogram(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Parallelogram.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.EmbeddedBuilder rectangle(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RegularPolygon.EmbeddedBuilder regularPolygon(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RegularPolygon.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rhombus.EmbeddedBuilder rhombus(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rhombus.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCone.EmbeddedBuilder rightCone(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCone.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCylinder.EmbeddedBuilder rightCylinder(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCylinder.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightPrism.EmbeddedBuilder rightPrism(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightPrism.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightTriangle.EmbeddedBuilder rightTriangle(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightTriangle.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Sphere.EmbeddedBuilder sphere(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Sphere.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Spheroid.EmbeddedBuilder spheroid(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Spheroid.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Square.EmbeddedBuilder square(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Square.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Trapezoid.EmbeddedBuilder trapezoid(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Trapezoid.createEmbedded();
+        }
+        
+        public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.EmbeddedBuilder triangle(){
+            return org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.createEmbedded();
         }
         
 

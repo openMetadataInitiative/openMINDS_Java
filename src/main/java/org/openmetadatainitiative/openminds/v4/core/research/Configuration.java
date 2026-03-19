@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.v4.core.research.Configuratio
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.v4.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v4.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.v4.stimulation.stimulus.intf.EphysStimulusSpecification{
+public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.v4.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v4.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.v4.stimulation.stimulus.intf.EphysStimulusSpecification{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Configuration";
 
     @JsonIgnore

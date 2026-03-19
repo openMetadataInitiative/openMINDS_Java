@@ -13,7 +13,7 @@ public interface LivePaperResourceItemHostedBy extends Entity {
 
    class Deserializer extends ByTypeDeserializer<LivePaperResourceItemHostedBy> {
         public Deserializer() {
-            super(org.openmetadatainitiative.openminds.latest.core.actors.Organization.class, org.openmetadatainitiative.openminds.latest.core.products.WebService.class, org.openmetadatainitiative.openminds.latest.controlledTerms.Service.class);
+            super(org.openmetadatainitiative.openminds.latest.core.actors.Organization.class, org.openmetadatainitiative.openminds.latest.core.products.Service.class, org.openmetadatainitiative.openminds.latest.core.products.Service.class);
         }
     }
     

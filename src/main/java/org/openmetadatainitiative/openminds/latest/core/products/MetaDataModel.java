@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelCustodian;
-import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelDeveloper;
+import org.openmetadatainitiative.openminds.latest.core.actors.Affiliation;
+import org.openmetadatainitiative.openminds.latest.core.actors.Contribution;
 import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelDigitalIdentifier;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelDocumentation;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelKeyword;
+import org.openmetadatainitiative.openminds.latest.core.products.intf.MetaDataModelRelatedPublication;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.SEMANTIC_NAME;
@@ -27,7 +29,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.MetaData
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class MetaDataModel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
+public class MetaDataModel extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.latest.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/MetaDataModel";
 
     @JsonIgnore
@@ -52,15 +54,18 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<MetaDataModel>{
-        public Builder custodian(List<Reference<? extends MetaDataModelCustodian>> custodian) { MetaDataModel.this.custodian = custodian; return this; }
+        public Builder contribution(List<Function<Contribution.EmbeddedBuilder, Contribution>> contribution) { MetaDataModel.this.contribution = contribution.stream().map(b -> b.apply(Contribution.createEmbedded())).toList(); return this; }
+        public Builder contributorAffiliation(List<Function<Affiliation.EmbeddedBuilder, Affiliation>> contributorAffiliation) { MetaDataModel.this.contributorAffiliation = contributorAffiliation.stream().map(b -> b.apply(Affiliation.createEmbedded())).toList(); return this; }
         public Builder description(String description) { MetaDataModel.this.description = description; return this; }
-        public Builder developer(List<Reference<? extends MetaDataModelDeveloper>> developer) { MetaDataModel.this.developer = developer; return this; }
         public Builder digitalIdentifier(Reference<? extends MetaDataModelDigitalIdentifier> digitalIdentifier) { MetaDataModel.this.digitalIdentifier = digitalIdentifier; return this; }
+        public Builder documentation(Reference<? extends MetaDataModelDocumentation> documentation) { MetaDataModel.this.documentation = documentation; return this; }
         public Builder fullName(String fullName) { MetaDataModel.this.fullName = fullName; return this; }
-        public Builder hasVersion(List<Reference<MetaDataModelVersion>> hasVersion) { MetaDataModel.this.hasVersion = hasVersion; return this; }
         public Builder homepage(String homepage) { MetaDataModel.this.homepage = homepage; return this; }
         public Builder howToCite(String howToCite) { MetaDataModel.this.howToCite = howToCite; return this; }
+        public Builder keyword(List<Reference<? extends MetaDataModelKeyword>> keyword) { MetaDataModel.this.keyword = keyword; return this; }
+        public Builder relatedPublication(List<Reference<? extends MetaDataModelRelatedPublication>> relatedPublication) { MetaDataModel.this.relatedPublication = relatedPublication; return this; }
         public Builder shortName(String shortName) { MetaDataModel.this.shortName = shortName; return this; }
+        public Builder supportChannel(List<String> supportChannel) { MetaDataModel.this.supportChannel = supportChannel; return this; }
         
 
         public MetaDataModel build(OpenMINDSContext context) {
@@ -78,14 +83,18 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/custodian")
-    private List<Reference<? extends MetaDataModelCustodian>> custodian;
+   @JsonProperty(value = "https://openminds.om-i.org/props/contribution")
+    private List<Contribution> contribution;
     
-    /**
-    * The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.
-    */
-    public List<Reference<? extends MetaDataModelCustodian>> getCustodian() {
-       return this.custodian;
+    public List<Contribution> getContribution() {
+       return this.contribution;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/contributorAffiliation")
+    private List<Affiliation> contributorAffiliation;
+    
+    public List<Affiliation> getContributorAffiliation() {
+       return this.contributorAffiliation;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/description")
@@ -98,16 +107,6 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.description;
     }
 
-    @JsonProperty(value = "https://openminds.om-i.org/props/developer")
-    private List<Reference<? extends MetaDataModelDeveloper>> developer;
-    
-    /**
-    * Legal person that creates or improves products or services (e.g., software, applications, etc.).
-    */
-    public List<Reference<? extends MetaDataModelDeveloper>> getDeveloper() {
-       return this.developer;
-    }
-
     @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
     private Reference<? extends MetaDataModelDigitalIdentifier> digitalIdentifier;
     
@@ -118,6 +117,13 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.digitalIdentifier;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/documentation")
+    private Reference<? extends MetaDataModelDocumentation> documentation;
+    
+    public Reference<? extends MetaDataModelDocumentation> getDocumentation() {
+       return this.documentation;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/fullName")
     private String fullName;
     
@@ -126,16 +132,6 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
     */
     public String getFullName() {
        return this.fullName;
-    }
-
-    @JsonProperty(value = "https://openminds.om-i.org/props/hasVersion")
-    private List<Reference<MetaDataModelVersion>> hasVersion;
-    
-    /**
-    * Reference to variants of an original.
-    */
-    public List<Reference<MetaDataModelVersion>> getHasVersion() {
-       return this.hasVersion;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/homepage")
@@ -158,6 +154,26 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
        return this.howToCite;
     }
 
+    @JsonProperty(value = "https://openminds.om-i.org/props/keyword")
+    private List<Reference<? extends MetaDataModelKeyword>> keyword;
+    
+    /**
+    * Significant word or concept that are representative of something or someone.
+    */
+    public List<Reference<? extends MetaDataModelKeyword>> getKeyword() {
+       return this.keyword;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/relatedPublication")
+    private List<Reference<? extends MetaDataModelRelatedPublication>> relatedPublication;
+    
+    /**
+    * Reference to something that was made available for the general public to see or buy.
+    */
+    public List<Reference<? extends MetaDataModelRelatedPublication>> getRelatedPublication() {
+       return this.relatedPublication;
+    }
+
     @JsonProperty(value = "https://openminds.om-i.org/props/shortName")
     private String shortName;
     
@@ -166,6 +182,16 @@ public class MetaDataModel extends Instance implements org.openmetadatainitiativ
     */
     public String getShortName() {
        return this.shortName;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/supportChannel")
+    private List<String> supportChannel;
+    
+    /**
+    * Way of communication used to interact with users or customers.
+    */
+    public List<String> getSupportChannel() {
+       return this.supportChannel;
     }
 
  

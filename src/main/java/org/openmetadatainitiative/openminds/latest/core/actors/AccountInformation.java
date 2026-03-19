@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.openmetadatainitiative.openminds.latest.core.products.WebService;
+import org.openmetadatainitiative.openminds.latest.core.products.Service;
 
 
 import static org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.SEMANTIC_NAME;
@@ -49,7 +49,7 @@ public class AccountInformation extends Instance implements org.openmetadatainit
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<AccountInformation>{
-        public Builder service(Reference<WebService> service) { AccountInformation.this.service = service; return this; }
+        public Builder service(Reference<Service> service) { AccountInformation.this.service = service; return this; }
         public Builder userName(String userName) { AccountInformation.this.userName = userName; return this; }
         
 
@@ -69,9 +69,9 @@ public class AccountInformation extends Instance implements org.openmetadatainit
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/service")
-    private Reference<WebService> service;
+    private Reference<Service> service;
     
-    public Reference<WebService> getService() {
+    public Reference<Service> getService() {
        return this.service;
     }
 

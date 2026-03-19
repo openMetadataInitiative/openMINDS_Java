@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 import org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion;
-import org.openmetadatainitiative.openminds.latest.core.data.File;
+import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationTerminologyVersionDataLocation;
+import org.openmetadatainitiative.openminds.latest.SANDS.atlas.intf.ParcellationTerminologyVersionDigitalIdentifier;
 
 
 import static org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.SEMANTIC_NAME;
@@ -49,7 +50,8 @@ public class ParcellationTerminologyVersion extends Instance implements org.open
     
     public class EmbeddedBuilder {
 
-        public EmbeddedBuilder dataLocation(List<Reference<File>> dataLocation) { ParcellationTerminologyVersion.this.dataLocation = dataLocation; return this; }
+        public EmbeddedBuilder dataLocation(List<Reference<? extends ParcellationTerminologyVersionDataLocation>> dataLocation) { ParcellationTerminologyVersion.this.dataLocation = dataLocation; return this; }
+        public EmbeddedBuilder digitalIdentifier(Reference<? extends ParcellationTerminologyVersionDigitalIdentifier> digitalIdentifier) { ParcellationTerminologyVersion.this.digitalIdentifier = digitalIdentifier; return this; }
         public EmbeddedBuilder hasEntity(List<Reference<ParcellationEntityVersion>> hasEntity) { ParcellationTerminologyVersion.this.hasEntity = hasEntity; return this; }
         public EmbeddedBuilder ontologyIdentifier(List<String> ontologyIdentifier) { ParcellationTerminologyVersion.this.ontologyIdentifier = ontologyIdentifier; return this; }
         
@@ -67,10 +69,20 @@ public class ParcellationTerminologyVersion extends Instance implements org.open
     
 
    @JsonProperty(value = "https://openminds.om-i.org/props/dataLocation")
-    private List<Reference<File>> dataLocation;
+    private List<Reference<? extends ParcellationTerminologyVersionDataLocation>> dataLocation;
     
-    public List<Reference<File>> getDataLocation() {
+    public List<Reference<? extends ParcellationTerminologyVersionDataLocation>> getDataLocation() {
        return this.dataLocation;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/digitalIdentifier")
+    private Reference<? extends ParcellationTerminologyVersionDigitalIdentifier> digitalIdentifier;
+    
+    /**
+    * Digital handle to identify objects or legal persons.
+    */
+    public Reference<? extends ParcellationTerminologyVersionDigitalIdentifier> getDigitalIdentifier() {
+       return this.digitalIdentifier;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/hasEntity")
