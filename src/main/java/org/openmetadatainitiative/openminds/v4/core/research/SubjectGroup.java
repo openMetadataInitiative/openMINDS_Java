@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.v4.core.research.SubjectGroup
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class SubjectGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen, org.openmetadatainitiative.openminds.v4.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.v4.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.v4.core.data.intf.FileBundleGroupedBy{
+public class SubjectGroup extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.core.products.intf.DatasetVersionStudiedSpecimen, org.openmetadatainitiative.openminds.v4.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.v4.SANDS.atlas.intf.CommonCoordinateSpaceVersionUsedSpecimen, org.openmetadatainitiative.openminds.v4.SANDS.atlas.intf.BrainAtlasVersionUsedSpecimen{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/SubjectGroup";
 
     @JsonIgnore

@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ki
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Kite extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.specimenPrep.activity.intf.CranialWindowPreparationDimension, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.RightPrismBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.CentroidalPyramidBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.FrustumMajorBaseShape{
+public class Kite extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.CentroidalPyramidBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.RightPrismBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.FrustumMajorBaseShape, org.openmetadatainitiative.openminds.v5.specimenPrep.activity.intf.CranialWindowPreparationDimension{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Kite";
 
     @JsonIgnore

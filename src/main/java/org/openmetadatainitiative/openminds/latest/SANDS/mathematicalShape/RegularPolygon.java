@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShap
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class RegularPolygon extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.RightPrismBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.CentroidalPyramidBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.FrustumMajorBaseShape{
+public class RegularPolygon extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.CentroidalPyramidBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.RightPrismBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.FrustumMajorBaseShape, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/RegularPolygon";
 
     @JsonIgnore

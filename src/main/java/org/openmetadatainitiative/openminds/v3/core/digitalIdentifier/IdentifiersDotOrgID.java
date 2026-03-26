@@ -23,7 +23,7 @@ import static org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.Ide
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class IdentifiersDotOrgID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionDigitalIdentifier{
+public class IdentifiersDotOrgID extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetVersionDigitalIdentifier, org.openmetadatainitiative.openminds.v3.core.products.intf.DatasetDigitalIdentifier{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/core/IdentifiersDotOrgID";
 
     @JsonIgnore

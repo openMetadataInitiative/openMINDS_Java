@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.v5.core.research.Configuratio
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.v5.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v5.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.v5.core.miscellaneous.intf.DependencyFulfilledBy, org.openmetadatainitiative.openminds.v5.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusSpecification{
+public class Configuration extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusSpecification, org.openmetadatainitiative.openminds.v5.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v5.computation.intf.WorkflowExecutionConfiguration, org.openmetadatainitiative.openminds.v5.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.v5.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.v5.core.miscellaneous.intf.DependencyFulfilledBy{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Configuration";
 
     @JsonIgnore

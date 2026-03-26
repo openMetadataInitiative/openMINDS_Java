@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.El
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Ellipse extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.specimenPrep.activity.intf.CranialWindowPreparationDimension, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.RightCylinderBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.FrustumMajorBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.RightConeBaseShape{
+public class Ellipse extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.RightConeBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.RightCylinderBaseShape, org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.intf.FrustumMajorBaseShape, org.openmetadatainitiative.openminds.v5.specimenPrep.activity.intf.CranialWindowPreparationDimension{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Ellipse";
 
     @JsonIgnore

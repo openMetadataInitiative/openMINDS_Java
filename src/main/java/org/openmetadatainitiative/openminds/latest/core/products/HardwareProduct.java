@@ -30,7 +30,7 @@ import static org.openmetadatainitiative.openminds.latest.core.products.Hardware
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class HardwareProduct extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRICoilType, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRIScannerType, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceType, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayType, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeType, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteType{
+public class HardwareProduct extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRICoilType, org.openmetadatainitiative.openminds.latest.neuroimaging.device.intf.MRIScannerType, org.openmetadatainitiative.openminds.latest.ephys.device.intf.PipetteType, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeType, org.openmetadatainitiative.openminds.latest.ephys.device.intf.ElectrodeArrayType, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceType{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/HardwareProduct";
 
     @JsonIgnore

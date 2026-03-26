@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Behavior
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class BehavioralProtocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionProtocol, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
+public class BehavioralProtocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.products.intf.DatasetVersionProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionStateAssociatedProtocol, org.openmetadatainitiative.openminds.latest.core.data.intf.FileBundleGroupedBy{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/BehavioralProtocol";
 
     @JsonIgnore

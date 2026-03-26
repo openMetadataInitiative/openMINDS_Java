@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShap
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Circle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.RightCylinderBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.FrustumMajorBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.RightConeBaseShape{
+public class Circle extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.RightConeBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.RightCylinderBaseShape, org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.intf.FrustumMajorBaseShape, org.openmetadatainitiative.openminds.latest.specimenPrep.activity.intf.CranialWindowPreparationDimension{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Circle";
 
     @JsonIgnore

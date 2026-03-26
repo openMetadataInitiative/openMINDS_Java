@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.v5.core.research.Protocol.SEM
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Protocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.core.research.intf.TissueSampleCollectionStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.SubjectGroupStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.TissueSampleStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.SubjectStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.products.intf.DatasetVersionProtocol{
+public class Protocol extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.core.products.intf.DatasetVersionProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.SubjectGroupStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.TissueSampleStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.SubjectStateAssociatedProtocol, org.openmetadatainitiative.openminds.v5.core.research.intf.TissueSampleCollectionStateAssociatedProtocol{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Protocol";
 
     @JsonIgnore

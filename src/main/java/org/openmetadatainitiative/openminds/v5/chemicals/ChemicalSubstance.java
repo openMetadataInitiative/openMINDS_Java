@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstanc
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ChemicalSubstance extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeArrayInsulatorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeInsulatorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.PipetteMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.PipetteUsageLabelingCompound{
+public class ChemicalSubstance extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.chemicals.intf.AmountOfChemicalChemicalProduct, org.openmetadatainitiative.openminds.v5.ephys.device.intf.PipetteMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.PipetteUsageLabelingCompound, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeConductorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeInsulatorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeArrayConductorMaterial, org.openmetadatainitiative.openminds.v5.ephys.device.intf.ElectrodeArrayInsulatorMaterial{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ChemicalSubstance";
 
     @JsonIgnore

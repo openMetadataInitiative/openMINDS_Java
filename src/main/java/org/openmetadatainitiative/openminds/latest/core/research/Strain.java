@@ -29,7 +29,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Strain.S
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Strain extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionSpecies{
+public class Strain extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleCollectionSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectGroupSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.SubjectSpecies, org.openmetadatainitiative.openminds.latest.core.research.intf.TissueSampleSpecies{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Strain";
 
     @JsonIgnore

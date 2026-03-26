@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.v5.core.research.PropertyValu
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class PropertyValueList extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.intf.CustomAnnotationSpecification, org.openmetadatainitiative.openminds.v5.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.v5.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusSpecification{
+public class PropertyValueList extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusSpecification, org.openmetadatainitiative.openminds.v5.computation.intf.ValidationTestVersionConfiguration, org.openmetadatainitiative.openminds.v5.core.products.intf.ModelVersionConfiguration, org.openmetadatainitiative.openminds.v5.core.research.intf.CustomPropertySetDataLocation, org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.intf.CustomAnnotationSpecification{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/PropertyValueList";
 
     @JsonIgnore

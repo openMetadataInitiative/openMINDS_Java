@@ -29,7 +29,7 @@ import static org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeUsag
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class ElectrodeUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.v4.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.v4.stimulation.stimulus.intf.EphysStimulusGeneratedBy, org.openmetadatainitiative.openminds.v4.ephys.entity.intf.RecordingRecordedWith, org.openmetadatainitiative.openminds.v4.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.v4.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.v4.ephys.activity.intf.RecordingActivityDevice{
+public class ElectrodeUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.v4.stimulation.stimulus.intf.EphysStimulusGeneratedBy, org.openmetadatainitiative.openminds.v4.core.data.intf.MeasurementMeasuredWith, org.openmetadatainitiative.openminds.v4.ephys.activity.intf.RecordingActivityDevice, org.openmetadatainitiative.openminds.v4.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.v4.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.v4.ephys.entity.intf.RecordingRecordedWith{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/ElectrodeUsage";
 
     @JsonIgnore

@@ -28,7 +28,7 @@ import static org.openmetadatainitiative.openminds.v4.SANDS.atlas.CommonCoordina
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class CommonCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v4.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v4.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v4.core.data.intf.FileBundleGroupedBy{
+public class CommonCoordinateSpace extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.core.products.intf.DatasetVersionInputData, org.openmetadatainitiative.openminds.v4.core.products.intf.ProjectHasPart, org.openmetadatainitiative.openminds.v4.core.data.intf.FileBundleGroupedBy, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v4.publications.intf.LearningResourceAbout{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/CommonCoordinateSpace";
 
     @JsonIgnore
