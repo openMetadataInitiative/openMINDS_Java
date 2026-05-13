@@ -43,7 +43,7 @@ jobs:
 
     - name: Push to main
       run: |
-        rsync -a --delete --exclude 'img/' --exclude 'pom.xml' --exclude 'README*' --exclude 'LICENSE' target/ main/
+        rsync -a --delete --exclude '.git/' --exclude 'img/' --exclude 'pom.xml' --exclude 'README*' --exclude 'LICENSE' target/ main/
         cd main
         rm -rf build openMINDS.egg-info
         git config --global user.email "openminds@ebrains.eu"
