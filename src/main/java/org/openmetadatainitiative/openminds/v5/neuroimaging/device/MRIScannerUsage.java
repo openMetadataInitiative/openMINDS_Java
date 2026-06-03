@@ -22,6 +22,7 @@ import org.openmetadatainitiative.openminds.v5.controlledTerms.SpatialEncoding;
 import org.openmetadatainitiative.openminds.v5.core.data.File;
 import org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValue;
 import org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray;
+import org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRIScanner;
 import org.openmetadatainitiative.openminds.v5.neuroimaging.device.intf.MRIScannerUsageMetadataLocation;
 import org.openmetadatainitiative.openminds.v5.neuroimaging.device.intf.MRIScannerUsageSliceGap;
 import org.openmetadatainitiative.openminds.v5.neuroimaging.device.intf.MRIScannerUsageSliceThickness;
@@ -39,7 +40,7 @@ import static org.openmetadatainitiative.openminds.v5.neuroimaging.device.MRISca
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class MRIScannerUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.v5.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.v5.core.data.intf.GridVolumeSequenceObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.GridImageObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.GridImageStackObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.MeasurementObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.GridVolumeObtainedWith, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
+public class MRIScannerUsage extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V5.Entity, org.openmetadatainitiative.openminds.v5.ephys.activity.intf.ElectrodePlacementDevice, org.openmetadatainitiative.openminds.v5.ephys.activity.intf.CellPatchingDevice, org.openmetadatainitiative.openminds.v5.core.data.intf.GridVolumeObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.GridImageObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.GridVolumeSequenceObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.GridImageStackObtainedWith, org.openmetadatainitiative.openminds.v5.core.data.intf.MeasurementObtainedWith, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusDeliveredBy, org.openmetadatainitiative.openminds.v5.stimulation.stimulus.intf.EphysStimulusGeneratedBy{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/MRIScannerUsage";
 
     @JsonIgnore
@@ -67,6 +68,7 @@ public class MRIScannerUsage extends Instance implements org.openmetadatainitiat
         public Builder MRIWeighting(Reference<MRIWeighting> MRIWeighting) { MRIScannerUsage.this.MRIWeighting = MRIWeighting; return this; }
         public Builder MTPulseShape(Reference<PulseShape> MTPulseShape) { MRIScannerUsage.this.MTPulseShape = MTPulseShape; return this; }
         public Builder accelerationFactor(Object accelerationFactor) { MRIScannerUsage.this.accelerationFactor = accelerationFactor; return this; }
+        public Builder device(Reference<MRIScanner> device) { MRIScannerUsage.this.device = device; return this; }
         public Builder diffusionEncodingParameters(List<Reference<File>> diffusionEncodingParameters) { MRIScannerUsage.this.diffusionEncodingParameters = diffusionEncodingParameters; return this; }
         public Builder dwellTime(Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue> dwellTime) { MRIScannerUsage.this.dwellTime = dwellTime.apply(QuantitativeValue.createEmbedded()); return this; }
         public Builder echoTime(List<Function<QuantitativeValue.EmbeddedBuilder, QuantitativeValue>> echoTime) { MRIScannerUsage.this.echoTime = echoTime.stream().map(b -> b.apply(QuantitativeValue.createEmbedded())).toList(); return this; }
@@ -133,6 +135,16 @@ public class MRIScannerUsage extends Instance implements org.openmetadatainitiat
     
     public Object getAccelerationFactor() {
        return this.accelerationFactor;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/device")
+    private Reference<MRIScanner> device;
+    
+    /**
+    * Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.
+    */
+    public Reference<MRIScanner> getDevice() {
+       return this.device;
     }
 
     @JsonProperty(value = "https://openminds.om-i.org/props/diffusionEncodingParameters")
