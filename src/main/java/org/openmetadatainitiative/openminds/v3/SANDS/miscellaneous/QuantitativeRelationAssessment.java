@@ -26,7 +26,7 @@ import static org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.Quanti
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class QuantitativeRelationAssessment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.ParcellationEntityVersionRelationAssessment, org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.intf.CustomAnatomicalEntityRelationAssessment{
+public class QuantitativeRelationAssessment extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V3.Entity, org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.intf.CustomAnatomicalEntityRelationAssessment, org.openmetadatainitiative.openminds.v3.SANDS.atlas.intf.ParcellationEntityVersionRelationAssessment{
     public static final String SEMANTIC_NAME = "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment";
 
     @JsonIgnore
