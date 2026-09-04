@@ -33,7 +33,6 @@ public class OpenMINDS {
                 defaultImpl = UnknownEntity.class
         )
         @JsonSubTypes({
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.class, name = org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.class, name = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.class, name = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalSubstance.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.class, name = org.openmetadatainitiative.openminds.latest.chemicals.ProductSource.SEMANTIC_NAME),
@@ -169,7 +168,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.class, name = org.openmetadatainitiative.openminds.latest.controlledTerms.WeightType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Accessibility.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.class, name = org.openmetadatainitiative.openminds.latest.core.actors.AccountInformation.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.class, name = org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.class, name = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Comment.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.Configuration.class, name = org.openmetadatainitiative.openminds.latest.core.research.Configuration.SEMANTIC_NAME),
@@ -177,9 +175,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.class, name = org.openmetadatainitiative.openminds.latest.core.actors.ContactInformation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.ContentType.class, name = org.openmetadatainitiative.openminds.latest.core.data.ContentType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.class, name = org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.Contribution.class, name = org.openmetadatainitiative.openminds.latest.core.actors.Contribution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.Copyright.class, name = org.openmetadatainitiative.openminds.latest.core.data.Copyright.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.class, name = org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.DOI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Dataset.class, name = org.openmetadatainitiative.openminds.latest.core.products.Dataset.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.DatasetVersion.SEMANTIC_NAME),
@@ -187,19 +182,18 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.File.class, name = org.openmetadatainitiative.openminds.latest.core.data.File.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FileArchive.class, name = org.openmetadatainitiative.openminds.latest.core.data.FileArchive.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FileBundle.class, name = org.openmetadatainitiative.openminds.latest.core.data.FileBundle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.class, name = org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.class, name = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.class, name = org.openmetadatainitiative.openminds.latest.core.data.FileRepositoryStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Funding.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.GenericIdentifier.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.GeoCoordinates.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.GeoCoordinates.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridImage.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridImage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridImageSequence.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridImageSequence.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridVolume.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridVolume.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.class, name = org.openmetadatainitiative.openminds.latest.core.data.GridVolumeSequence.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.HANDLE.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.class, name = org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.Hash.class, name = org.openmetadatainitiative.openminds.latest.core.data.Hash.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISBN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISNI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ISSN.SEMANTIC_NAME),
@@ -210,13 +204,11 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.License.class, name = org.openmetadatainitiative.openminds.latest.core.data.License.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.LocalFile.class, name = org.openmetadatainitiative.openminds.latest.core.data.LocalFile.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Location.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Location.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.Measurement.class, name = org.openmetadatainitiative.openminds.latest.core.data.Measurement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Membership.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Membership.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.class, name = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.MetaDataModelVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Model.class, name = org.openmetadatainitiative.openminds.latest.core.products.Model.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.class, name = org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.ORCID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.Organization.class, name = org.openmetadatainitiative.openminds.latest.core.actors.Organization.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.actors.Person.class, name = org.openmetadatainitiative.openminds.latest.core.actors.Person.SEMANTIC_NAME),
@@ -224,11 +216,10 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.latest.core.research.PropertyValueList.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.latest.core.research.Protocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.latest.core.research.ProtocolExecution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.data.RegularTimeSeries.class, name = org.openmetadatainitiative.openminds.latest.core.data.RegularTimeSeries.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.latest.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.SWHID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.Service.class, name = org.openmetadatainitiative.openminds.latest.core.products.Service.SEMANTIC_NAME),
@@ -238,9 +229,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.class, name = org.openmetadatainitiative.openminds.latest.core.products.SoftwareVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.SpecimenAge.class, name = org.openmetadatainitiative.openminds.latest.core.research.SpecimenAge.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.SpecimenWeight.class, name = org.openmetadatainitiative.openminds.latest.core.research.SpecimenWeight.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.class, name = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.Strain.class, name = org.openmetadatainitiative.openminds.latest.core.research.Strain.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.StringProperty.class, name = org.openmetadatainitiative.openminds.latest.core.research.StringProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.Subject.class, name = org.openmetadatainitiative.openminds.latest.core.research.Subject.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.class, name = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.class, name = org.openmetadatainitiative.openminds.latest.core.research.SubjectGroupState.SEMANTIC_NAME),
@@ -279,19 +268,13 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.class, name = org.openmetadatainitiative.openminds.latest.publications.ScholarlyArticle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlas.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AnatomicalAtlasVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.class, name = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CircularSector.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CircularSector.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFramework.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.CommonCoordinateFrameworkVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.class, name = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.class, name = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.class, name = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.class, name = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipsoid.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipsoid.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.EquilateralTriangle.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.EquilateralTriangle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Frustum.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Frustum.SEMANTIC_NAME),
@@ -300,11 +283,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Parallelogram.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Parallelogram.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.class, name = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RegularPolygon.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RegularPolygon.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rhombus.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rhombus.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCone.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.RightCone.SEMANTIC_NAME),
@@ -317,7 +295,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Square.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Square.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Trapezoid.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Trapezoid.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.class, name = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.class, name = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.class, name = org.openmetadatainitiative.openminds.latest.specimenPrep.activity.CranialWindowPreparation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.class, name = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDevice.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.class, name = org.openmetadatainitiative.openminds.latest.specimenPrep.device.SlicingDeviceUsage.SEMANTIC_NAME),
@@ -340,12 +317,6 @@ public class OpenMINDS {
 
         public final class Chemicals{
             private Chemicals(){}
-            
-            public org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.Builder createAmountOfChemical(String localId){
-                final org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.AmountOfChemical.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
             
             public org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
                 final org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.latest.chemicals.ChemicalMixture.create(new LocalId(localId));
@@ -1175,12 +1146,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.Builder createAffiliation(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Affiliation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.BehavioralProtocol.create(new LocalId(localId));
                 builders.add(builder);
@@ -1219,24 +1184,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.Builder createContentTypePattern(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.ContentTypePattern.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.actors.Contribution.Builder createContribution(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.latest.core.actors.Contribution.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.data.Copyright.Builder createCopyright(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Copyright.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.Builder createCustomPropertySet(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.CustomPropertySet.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1283,12 +1230,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.Builder createFilePathPattern(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FilePathPattern.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.core.data.FileRepository.Builder createFileRepository(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.FileRepository.create(new LocalId(localId));
                 builders.add(builder);
@@ -1325,6 +1266,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.latest.core.data.GridImageSequence.Builder createGridImageSequence(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.GridImageSequence.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.GridImageSequence.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.Builder createGridImageStack(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.GridImageStack.create(new LocalId(localId));
                 builders.add(builder);
@@ -1351,12 +1298,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.Builder createHardwareProduct(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.HardwareProduct.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.data.Hash.Builder createHash(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Hash.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1421,12 +1362,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.data.Measurement.Builder createMeasurement(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.Measurement.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.core.miscellaneous.Membership.Builder createMembership(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.miscellaneous.Membership.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.Membership.create(new LocalId(localId));
                 builders.add(builder);
@@ -1453,12 +1388,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.Builder createModelVersion(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.latest.core.products.ModelVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.Builder createNumericalProperty(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.NumericalProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1505,20 +1434,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.Builder createQuantitativeValue(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.Builder createQuantitativeValueRange(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.latest.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1531,6 +1448,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.Builder createRRID(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.RRID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.latest.core.data.RegularTimeSeries.Builder createRegularTimeSeries(String localId){
+                final org.openmetadatainitiative.openminds.latest.core.data.RegularTimeSeries.Builder builder = org.openmetadatainitiative.openminds.latest.core.data.RegularTimeSeries.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1589,20 +1512,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.Builder createStockNumber(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.latest.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.core.research.Strain.Builder createStrain(String localId){
                 final org.openmetadatainitiative.openminds.latest.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.Strain.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.core.research.StringProperty.Builder createStringProperty(String localId){
-                final org.openmetadatainitiative.openminds.latest.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.latest.core.research.StringProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1859,26 +1770,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.Builder createAnatomicalTargetPosition(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.Builder createAtlasAnnotation(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.Builder createCentroidalPyramid(String localId){
                 final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.CentroidalPyramid.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.Builder createCircle(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Circle.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1901,12 +1794,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.Builder createCoordinatePoint(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.Builder createCube(String localId){
                 final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Cube.create(new LocalId(localId));
                 builders.add(builder);
@@ -1919,20 +1806,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.Builder createCustomAnnotation(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.Builder createCustomCoordinateFramework(String localId){
                 final org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.nonatlas.CustomCoordinateFramework.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.Builder createEllipse(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Ellipse.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -1981,36 +1856,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.Builder createParcellationEntityVersion(String localId){
                 final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.Builder createParcellationTerminology(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.Builder createParcellationTerminologyVersion(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.Builder createQualitativeRelationAssessment(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder createQuantitativeRelationAssessment(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.Builder createRectangle(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Rectangle.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -2083,12 +1928,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.Builder createTriangle(String localId){
                 final org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.mathematicalShape.Triangle.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.Builder createViewerSpecification(String localId){
-                final org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.latest.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -2169,6 +2008,7 @@ public class OpenMINDS {
                 defaultImpl = UnknownEntity.class
         )
         @JsonSubTypes({
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.class, name = org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.class, name = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.class, name = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalSubstance.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.class, name = org.openmetadatainitiative.openminds.v3.chemicals.ProductSource.SEMANTIC_NAME),
@@ -2268,6 +2108,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.class, name = org.openmetadatainitiative.openminds.v3.controlledTerms.UnitOfMeasurement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.class, name = org.openmetadatainitiative.openminds.v3.controlledTerms.VisualStimulusType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.class, name = org.openmetadatainitiative.openminds.v3.core.actors.AccountInformation.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.class, name = org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.class, name = org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.class, name = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Comment.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.Configuration.class, name = org.openmetadatainitiative.openminds.v3.core.research.Configuration.SEMANTIC_NAME),
@@ -2275,25 +2116,32 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.class, name = org.openmetadatainitiative.openminds.v3.core.actors.ContactInformation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.ContentType.class, name = org.openmetadatainitiative.openminds.v3.core.data.ContentType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.class, name = org.openmetadatainitiative.openminds.v3.core.data.ContentTypePattern.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.actors.Contribution.class, name = org.openmetadatainitiative.openminds.v3.core.actors.Contribution.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.Copyright.class, name = org.openmetadatainitiative.openminds.v3.core.data.Copyright.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.class, name = org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.Dataset.class, name = org.openmetadatainitiative.openminds.v3.core.products.Dataset.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.class, name = org.openmetadatainitiative.openminds.v3.core.products.DatasetVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.File.class, name = org.openmetadatainitiative.openminds.v3.core.data.File.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.FileArchive.class, name = org.openmetadatainitiative.openminds.v3.core.data.FileArchive.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.FileBundle.class, name = org.openmetadatainitiative.openminds.v3.core.data.FileBundle.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.class, name = org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.FileRepository.class, name = org.openmetadatainitiative.openminds.v3.core.data.FileRepository.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.class, name = org.openmetadatainitiative.openminds.v3.core.data.FileRepositoryStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.class, name = org.openmetadatainitiative.openminds.v3.core.miscellaneous.Funding.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.GRIDID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.HANDLE.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.Hash.class, name = org.openmetadatainitiative.openminds.v3.core.data.Hash.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISSN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.IdentifiersDotOrgID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.License.class, name = org.openmetadatainitiative.openminds.v3.core.data.License.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.data.Measurement.class, name = org.openmetadatainitiative.openminds.v3.core.data.Measurement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.class, name = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.class, name = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModelVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.Model.class, name = org.openmetadatainitiative.openminds.v3.core.products.Model.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.class, name = org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.class, name = org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ORCID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.actors.Organization.class, name = org.openmetadatainitiative.openminds.v3.core.actors.Organization.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.actors.Person.class, name = org.openmetadatainitiative.openminds.v3.core.actors.Person.SEMANTIC_NAME),
@@ -2301,7 +2149,9 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.v3.core.research.PropertyValueList.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.v3.core.research.Protocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.v3.core.research.ProtocolExecution.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.class, name = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.class, name = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.RRID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.v3.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
@@ -2310,7 +2160,9 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.Setup.class, name = org.openmetadatainitiative.openminds.v3.core.products.Setup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.Software.class, name = org.openmetadatainitiative.openminds.v3.core.products.Software.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.class, name = org.openmetadatainitiative.openminds.v3.core.products.SoftwareVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.class, name = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.Strain.class, name = org.openmetadatainitiative.openminds.v3.core.research.Strain.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.StringProperty.class, name = org.openmetadatainitiative.openminds.v3.core.research.StringProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.Subject.class, name = org.openmetadatainitiative.openminds.v3.core.research.Subject.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.class, name = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.class, name = org.openmetadatainitiative.openminds.v3.core.research.SubjectGroupState.SEMANTIC_NAME),
@@ -2323,6 +2175,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.WebService.class, name = org.openmetadatainitiative.openminds.v3.core.products.WebService.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.class, name = org.openmetadatainitiative.openminds.v3.core.products.WebServiceVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.class, name = org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.class, name = org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.class, name = org.openmetadatainitiative.openminds.v3.ephys.device.Electrode.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.class, name = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArray.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.class, name = org.openmetadatainitiative.openminds.v3.ephys.device.ElectrodeArrayUsage.SEMANTIC_NAME),
@@ -2343,15 +2196,27 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.class, name = org.openmetadatainitiative.openminds.v3.publications.PublicationIssue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.class, name = org.openmetadatainitiative.openminds.v3.publications.PublicationVolume.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.class, name = org.openmetadatainitiative.openminds.v3.publications.ScholarlyArticle.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.class, name = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.class, name = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpace.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.CommonCoordinateSpaceVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.class, name = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.class, name = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.class, name = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.class, name = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.class, name = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.class, name = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.class, name = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.class, name = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.class, name = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.class, name = org.openmetadatainitiative.openminds.v3.specimenPrep.activity.CranialWindowPreparation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.class, name = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDevice.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.class, name = org.openmetadatainitiative.openminds.v3.specimenPrep.device.SlicingDeviceUsage.SEMANTIC_NAME),
@@ -2374,6 +2239,12 @@ public class OpenMINDS {
 
         public final class Chemicals{
             private Chemicals(){}
+            
+            public org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.Builder createAmountOfChemical(String localId){
+                final org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.AmountOfChemical.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
             
             public org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
                 final org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.v3.chemicals.ChemicalMixture.create(new LocalId(localId));
@@ -2987,6 +2858,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.Builder createAffiliation(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Affiliation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.BehavioralProtocol.create(new LocalId(localId));
                 builders.add(builder);
@@ -3029,6 +2906,24 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.actors.Contribution.Builder createContribution(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.v3.core.actors.Contribution.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.data.Copyright.Builder createCopyright(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Copyright.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.Builder createCustomPropertySet(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.CustomPropertySet.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.Builder createDOI(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.DOI.create(new LocalId(localId));
                 builders.add(builder);
@@ -3065,6 +2960,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.Builder createFilePathPattern(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FilePathPattern.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.data.FileRepository.Builder createFileRepository(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.FileRepository.create(new LocalId(localId));
                 builders.add(builder);
@@ -3095,6 +2996,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.data.Hash.Builder createHash(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Hash.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.ISBN.create(new LocalId(localId));
                 builders.add(builder);
@@ -3119,6 +3026,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.data.Measurement.Builder createMeasurement(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.v3.core.data.Measurement.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.Builder createMetaDataModel(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.MetaDataModel.create(new LocalId(localId));
                 builders.add(builder);
@@ -3139,6 +3052,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.Builder createModelVersion(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.v3.core.products.ModelVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.Builder createNumericalProperty(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.NumericalProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3185,8 +3104,20 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.Builder createQuantitativeValue(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.Builder createQuantitativeValueRange(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.v3.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3239,8 +3170,20 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.Builder createStockNumber(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.v3.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.core.research.Strain.Builder createStrain(String localId){
                 final org.openmetadatainitiative.openminds.v3.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.Strain.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.core.research.StringProperty.Builder createStringProperty(String localId){
+                final org.openmetadatainitiative.openminds.v3.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.v3.core.research.StringProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3319,6 +3262,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.Builder createCellPatching(String localId){
                 final org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.activity.CellPatching.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.Builder createChannel(String localId){
+                final org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.v3.ephys.entity.Channel.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3455,6 +3404,18 @@ public class OpenMINDS {
         public final class SANDS{
             private SANDS(){}
             
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.Builder createAnatomicalTargetPosition(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.Builder createAtlasAnnotation(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.Builder createBrainAtlas(String localId){
                 final org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
                 builders.add(builder);
@@ -3463,6 +3424,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.Builder createBrainAtlasVersion(String localId){
                 final org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.Builder createCircle(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Circle.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3479,14 +3446,32 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.Builder createCoordinatePoint(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.Builder createCustomAnatomicalEntity(String localId){
                 final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.Builder createCustomAnnotation(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.Builder createCustomCoordinateSpace(String localId){
                 final org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.Builder createEllipse(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Ellipse.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3503,8 +3488,44 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.Builder createParcellationTerminology(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.Builder createParcellationTerminologyVersion(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.Builder createQualitativeRelationAssessment(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder createQuantitativeRelationAssessment(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.Builder createRectangle(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.mathematicalShapes.Rectangle.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.Builder createSingleColor(String localId){
                 final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.Builder createViewerSpecification(String localId){
+                final org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.v3.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -3585,7 +3606,6 @@ public class OpenMINDS {
                 defaultImpl = UnknownEntity.class
         )
         @JsonSubTypes({
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.chemicals.AmountOfChemical.class, name = org.openmetadatainitiative.openminds.v4.chemicals.AmountOfChemical.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.chemicals.ChemicalMixture.class, name = org.openmetadatainitiative.openminds.v4.chemicals.ChemicalMixture.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.chemicals.ChemicalSubstance.class, name = org.openmetadatainitiative.openminds.v4.chemicals.ChemicalSubstance.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.chemicals.ProductSource.class, name = org.openmetadatainitiative.openminds.v4.chemicals.ProductSource.SEMANTIC_NAME),
@@ -3687,7 +3707,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.controlledTerms.UnitOfMeasurement.class, name = org.openmetadatainitiative.openminds.v4.controlledTerms.UnitOfMeasurement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.controlledTerms.VisualStimulusType.class, name = org.openmetadatainitiative.openminds.v4.controlledTerms.VisualStimulusType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.actors.AccountInformation.class, name = org.openmetadatainitiative.openminds.v4.core.actors.AccountInformation.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.actors.Affiliation.class, name = org.openmetadatainitiative.openminds.v4.core.actors.Affiliation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.BehavioralProtocol.class, name = org.openmetadatainitiative.openminds.v4.core.research.BehavioralProtocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.Comment.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.Comment.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.Configuration.class, name = org.openmetadatainitiative.openminds.v4.core.research.Configuration.SEMANTIC_NAME),
@@ -3695,32 +3714,25 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.actors.ContactInformation.class, name = org.openmetadatainitiative.openminds.v4.core.actors.ContactInformation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.ContentType.class, name = org.openmetadatainitiative.openminds.v4.core.data.ContentType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.ContentTypePattern.class, name = org.openmetadatainitiative.openminds.v4.core.data.ContentTypePattern.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.actors.Contribution.class, name = org.openmetadatainitiative.openminds.v4.core.actors.Contribution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.Copyright.class, name = org.openmetadatainitiative.openminds.v4.core.data.Copyright.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.CustomPropertySet.class, name = org.openmetadatainitiative.openminds.v4.core.research.CustomPropertySet.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.DOI.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.DOI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.Dataset.class, name = org.openmetadatainitiative.openminds.v4.core.products.Dataset.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.DatasetVersion.class, name = org.openmetadatainitiative.openminds.v4.core.products.DatasetVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.File.class, name = org.openmetadatainitiative.openminds.v4.core.data.File.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.FileArchive.class, name = org.openmetadatainitiative.openminds.v4.core.data.FileArchive.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.FileBundle.class, name = org.openmetadatainitiative.openminds.v4.core.data.FileBundle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.FilePathPattern.class, name = org.openmetadatainitiative.openminds.v4.core.data.FilePathPattern.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.FileRepository.class, name = org.openmetadatainitiative.openminds.v4.core.data.FileRepository.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.FileRepositoryStructure.class, name = org.openmetadatainitiative.openminds.v4.core.data.FileRepositoryStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.Funding.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.Funding.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.GRIDID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.GRIDID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.HANDLE.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.HANDLE.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.Hash.class, name = org.openmetadatainitiative.openminds.v4.core.data.Hash.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISBN.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISBN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISSN.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISSN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.IdentifiersDotOrgID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.IdentifiersDotOrgID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.License.class, name = org.openmetadatainitiative.openminds.v4.core.data.License.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.data.Measurement.class, name = org.openmetadatainitiative.openminds.v4.core.data.Measurement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.MetaDataModel.class, name = org.openmetadatainitiative.openminds.v4.core.products.MetaDataModel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.MetaDataModelVersion.class, name = org.openmetadatainitiative.openminds.v4.core.products.MetaDataModelVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.Model.class, name = org.openmetadatainitiative.openminds.v4.core.products.Model.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.ModelVersion.class, name = org.openmetadatainitiative.openminds.v4.core.products.ModelVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.NumericalProperty.class, name = org.openmetadatainitiative.openminds.v4.core.research.NumericalProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ORCID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ORCID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.actors.Organization.class, name = org.openmetadatainitiative.openminds.v4.core.actors.Organization.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.actors.Person.class, name = org.openmetadatainitiative.openminds.v4.core.actors.Person.SEMANTIC_NAME),
@@ -3728,9 +3740,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.v4.core.research.PropertyValueList.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.v4.core.research.Protocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.v4.core.research.ProtocolExecution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValue.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueRange.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueRange.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.RRID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.v4.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
@@ -3739,9 +3749,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.Setup.class, name = org.openmetadatainitiative.openminds.v4.core.products.Setup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.Software.class, name = org.openmetadatainitiative.openminds.v4.core.products.Software.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.SoftwareVersion.class, name = org.openmetadatainitiative.openminds.v4.core.products.SoftwareVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.StockNumber.class, name = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.StockNumber.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.Strain.class, name = org.openmetadatainitiative.openminds.v4.core.research.Strain.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.StringProperty.class, name = org.openmetadatainitiative.openminds.v4.core.research.StringProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.Subject.class, name = org.openmetadatainitiative.openminds.v4.core.research.Subject.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.SubjectGroup.class, name = org.openmetadatainitiative.openminds.v4.core.research.SubjectGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.research.SubjectGroupState.class, name = org.openmetadatainitiative.openminds.v4.core.research.SubjectGroupState.SEMANTIC_NAME),
@@ -3754,7 +3762,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.WebService.class, name = org.openmetadatainitiative.openminds.v4.core.products.WebService.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.core.products.WebServiceVersion.class, name = org.openmetadatainitiative.openminds.v4.core.products.WebServiceVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.class, name = org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.class, name = org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.device.Electrode.class, name = org.openmetadatainitiative.openminds.v4.ephys.device.Electrode.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArray.class, name = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArray.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArrayUsage.class, name = org.openmetadatainitiative.openminds.v4.ephys.device.ElectrodeArrayUsage.SEMANTIC_NAME),
@@ -3775,27 +3782,15 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.publications.PublicationIssue.class, name = org.openmetadatainitiative.openminds.v4.publications.PublicationIssue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.publications.PublicationVolume.class, name = org.openmetadatainitiative.openminds.v4.publications.PublicationVolume.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.publications.ScholarlyArticle.class, name = org.openmetadatainitiative.openminds.v4.publications.ScholarlyArticle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.AnatomicalTargetPosition.class, name = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.AnatomicalTargetPosition.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.AtlasAnnotation.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.AtlasAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlas.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlas.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlasVersion.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlasVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Circle.class, name = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Circle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.CommonCoordinateSpace.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.CommonCoordinateSpace.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.CommonCoordinateSpaceVersion.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.CommonCoordinateSpaceVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.CoordinatePoint.class, name = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.CoordinatePoint.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnatomicalEntity.class, name = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnnotation.class, name = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomCoordinateSpace.class, name = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomCoordinateSpace.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Ellipse.class, name = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Ellipse.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationEntity.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationEntityVersion.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminology.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminology.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminologyVersion.class, name = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminologyVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QualitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QualitativeRelationAssessment.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QuantitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QuantitativeRelationAssessment.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Rectangle.class, name = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Rectangle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.SingleColor.class, name = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.SingleColor.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.ViewerSpecification.class, name = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.ViewerSpecification.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.specimenPrep.activity.CranialWindowPreparation.class, name = org.openmetadatainitiative.openminds.v4.specimenPrep.activity.CranialWindowPreparation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.specimenPrep.device.SlicingDevice.class, name = org.openmetadatainitiative.openminds.v4.specimenPrep.device.SlicingDevice.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v4.specimenPrep.device.SlicingDeviceUsage.class, name = org.openmetadatainitiative.openminds.v4.specimenPrep.device.SlicingDeviceUsage.SEMANTIC_NAME),
@@ -3818,12 +3813,6 @@ public class OpenMINDS {
 
         public final class Chemicals{
             private Chemicals(){}
-            
-            public org.openmetadatainitiative.openminds.v4.chemicals.AmountOfChemical.Builder createAmountOfChemical(String localId){
-                final org.openmetadatainitiative.openminds.v4.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.v4.chemicals.AmountOfChemical.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
             
             public org.openmetadatainitiative.openminds.v4.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
                 final org.openmetadatainitiative.openminds.v4.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.v4.chemicals.ChemicalMixture.create(new LocalId(localId));
@@ -4449,12 +4438,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.actors.Affiliation.Builder createAffiliation(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.v4.core.actors.Affiliation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.v4.core.research.BehavioralProtocol.create(new LocalId(localId));
                 builders.add(builder);
@@ -4497,24 +4480,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.actors.Contribution.Builder createContribution(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.v4.core.actors.Contribution.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.core.data.Copyright.Builder createCopyright(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.v4.core.data.Copyright.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.core.research.CustomPropertySet.Builder createCustomPropertySet(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.v4.core.research.CustomPropertySet.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.DOI.Builder createDOI(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.DOI.create(new LocalId(localId));
                 builders.add(builder);
@@ -4551,12 +4516,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.data.FilePathPattern.Builder createFilePathPattern(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.v4.core.data.FilePathPattern.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.data.FileRepository.Builder createFileRepository(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.data.FileRepository.Builder builder = org.openmetadatainitiative.openminds.v4.core.data.FileRepository.create(new LocalId(localId));
                 builders.add(builder);
@@ -4587,12 +4546,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.data.Hash.Builder createHash(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.v4.core.data.Hash.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.ISBN.create(new LocalId(localId));
                 builders.add(builder);
@@ -4617,12 +4570,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.data.Measurement.Builder createMeasurement(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.v4.core.data.Measurement.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.products.MetaDataModel.Builder createMetaDataModel(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.products.MetaDataModel.Builder builder = org.openmetadatainitiative.openminds.v4.core.products.MetaDataModel.create(new LocalId(localId));
                 builders.add(builder);
@@ -4643,12 +4590,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v4.core.products.ModelVersion.Builder createModelVersion(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.v4.core.products.ModelVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.core.research.NumericalProperty.Builder createNumericalProperty(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.v4.core.research.NumericalProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -4695,20 +4636,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValue.Builder createQuantitativeValue(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueRange.Builder createQuantitativeValueRange(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.v4.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -4761,20 +4690,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.StockNumber.Builder createStockNumber(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.v4.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.core.research.Strain.Builder createStrain(String localId){
                 final org.openmetadatainitiative.openminds.v4.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.v4.core.research.Strain.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.core.research.StringProperty.Builder createStringProperty(String localId){
-                final org.openmetadatainitiative.openminds.v4.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.v4.core.research.StringProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -4853,12 +4770,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.Builder createCellPatching(String localId){
                 final org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.Builder builder = org.openmetadatainitiative.openminds.v4.ephys.activity.CellPatching.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.Builder createChannel(String localId){
-                final org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.Builder builder = org.openmetadatainitiative.openminds.v4.ephys.entity.Channel.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -4995,18 +4906,6 @@ public class OpenMINDS {
         public final class SANDS{
             private SANDS(){}
             
-            public org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.AnatomicalTargetPosition.Builder createAnatomicalTargetPosition(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.atlas.AtlasAnnotation.Builder createAtlasAnnotation(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlas.Builder createBrainAtlas(String localId){
                 final org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlas.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlas.create(new LocalId(localId));
                 builders.add(builder);
@@ -5015,12 +4914,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlasVersion.Builder createBrainAtlasVersion(String localId){
                 final org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlasVersion.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.atlas.BrainAtlasVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Circle.Builder createCircle(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Circle.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Circle.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -5037,32 +4930,14 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.CoordinatePoint.Builder createCoordinatePoint(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnatomicalEntity.Builder createCustomAnatomicalEntity(String localId){
                 final org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnatomicalEntity.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnatomicalEntity.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnnotation.Builder createCustomAnnotation(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomCoordinateSpace.Builder createCustomCoordinateSpace(String localId){
                 final org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomCoordinateSpace.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.nonatlas.CustomCoordinateSpace.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Ellipse.Builder createEllipse(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Ellipse.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Ellipse.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -5079,44 +4954,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminology.Builder createParcellationTerminology(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminologyVersion.Builder createParcellationTerminologyVersion(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QualitativeRelationAssessment.Builder createQualitativeRelationAssessment(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder createQuantitativeRelationAssessment(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Rectangle.Builder createRectangle(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Rectangle.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.mathematicalShapes.Rectangle.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.SingleColor.Builder createSingleColor(String localId){
                 final org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.SingleColor.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.SingleColor.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.ViewerSpecification.Builder createViewerSpecification(String localId){
-                final org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.v4.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -5197,7 +5036,6 @@ public class OpenMINDS {
                 defaultImpl = UnknownEntity.class
         )
         @JsonSubTypes({
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.AmountOfChemical.class, name = org.openmetadatainitiative.openminds.v5.chemicals.AmountOfChemical.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.class, name = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.class, name = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalSubstance.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.class, name = org.openmetadatainitiative.openminds.v5.chemicals.ProductSource.SEMANTIC_NAME),
@@ -5333,7 +5171,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.class, name = org.openmetadatainitiative.openminds.v5.controlledTerms.WeightType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Accessibility.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.class, name = org.openmetadatainitiative.openminds.v5.core.actors.AccountInformation.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Affiliation.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Affiliation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.class, name = org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Comment.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Configuration.class, name = org.openmetadatainitiative.openminds.v5.core.research.Configuration.SEMANTIC_NAME),
@@ -5341,9 +5178,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.class, name = org.openmetadatainitiative.openminds.v5.core.actors.ContactInformation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.ContentType.class, name = org.openmetadatainitiative.openminds.v5.core.data.ContentType.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.class, name = org.openmetadatainitiative.openminds.v5.core.data.ContentTypePattern.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Contribution.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Contribution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.Copyright.class, name = org.openmetadatainitiative.openminds.v5.core.data.Copyright.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.CustomPropertySet.class, name = org.openmetadatainitiative.openminds.v5.core.research.CustomPropertySet.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Dataset.class, name = org.openmetadatainitiative.openminds.v5.core.products.Dataset.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.DatasetVersion.SEMANTIC_NAME),
@@ -5351,7 +5185,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.File.class, name = org.openmetadatainitiative.openminds.v5.core.data.File.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileArchive.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileArchive.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileBundle.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileBundle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FilePathPattern.class, name = org.openmetadatainitiative.openminds.v5.core.data.FilePathPattern.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileRepository.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileRepository.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.class, name = org.openmetadatainitiative.openminds.v5.core.data.FileRepositoryStructure.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Funding.SEMANTIC_NAME),
@@ -5363,7 +5196,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.HANDLE.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.class, name = org.openmetadatainitiative.openminds.v5.core.products.HardwareProduct.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.Hash.class, name = org.openmetadatainitiative.openminds.v5.core.data.Hash.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISNI.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISSN.SEMANTIC_NAME),
@@ -5374,13 +5206,11 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.License.class, name = org.openmetadatainitiative.openminds.v5.core.data.License.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.LocalFile.class, name = org.openmetadatainitiative.openminds.v5.core.data.LocalFile.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Location.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Location.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.Measurement.class, name = org.openmetadatainitiative.openminds.v5.core.data.Measurement.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Membership.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Membership.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.class, name = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModel.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.MetaDataModelVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Model.class, name = org.openmetadatainitiative.openminds.v5.core.products.Model.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.NumericalProperty.class, name = org.openmetadatainitiative.openminds.v5.core.research.NumericalProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ORCID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Organization.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Organization.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.actors.Person.class, name = org.openmetadatainitiative.openminds.v5.core.actors.Person.SEMANTIC_NAME),
@@ -5388,9 +5218,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.class, name = org.openmetadatainitiative.openminds.v5.core.research.PropertyValueList.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Protocol.class, name = org.openmetadatainitiative.openminds.v5.core.research.Protocol.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.class, name = org.openmetadatainitiative.openminds.v5.core.research.ProtocolExecution.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValue.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValue.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueRange.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueRange.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
@@ -5402,9 +5230,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.class, name = org.openmetadatainitiative.openminds.v5.core.products.SoftwareVersion.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SpecimenAge.class, name = org.openmetadatainitiative.openminds.v5.core.research.SpecimenAge.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SpecimenWeight.class, name = org.openmetadatainitiative.openminds.v5.core.research.SpecimenWeight.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.StockNumber.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.StockNumber.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Strain.class, name = org.openmetadatainitiative.openminds.v5.core.research.Strain.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.StringProperty.class, name = org.openmetadatainitiative.openminds.v5.core.research.StringProperty.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.Subject.class, name = org.openmetadatainitiative.openminds.v5.core.research.Subject.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.class, name = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.class, name = org.openmetadatainitiative.openminds.v5.core.research.SubjectGroupState.SEMANTIC_NAME),
@@ -5443,19 +5269,13 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.class, name = org.openmetadatainitiative.openminds.v5.publications.ScholarlyArticle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlas.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AnatomicalAtlasVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.AnatomicalTargetPosition.class, name = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.AnatomicalTargetPosition.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AtlasAnnotation.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AtlasAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CentroidalPyramid.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CentroidalPyramid.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Circle.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Circle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CircularSector.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CircularSector.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFramework.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.CommonCoordinateFrameworkVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.CoordinatePoint.class, name = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.CoordinatePoint.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Cube.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Cube.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.class, name = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnatomicalEntity.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnnotation.class, name = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnnotation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.class, name = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipse.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipse.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipsoid.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipsoid.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.EquilateralTriangle.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.EquilateralTriangle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Frustum.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Frustum.SEMANTIC_NAME),
@@ -5464,11 +5284,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Parallelogram.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Parallelogram.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntity.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminology.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminology.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminologyVersion.class, name = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminologyVersion.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QualitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QualitativeRelationAssessment.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QuantitativeRelationAssessment.class, name = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QuantitativeRelationAssessment.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rectangle.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rectangle.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.RegularPolygon.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.RegularPolygon.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rhombus.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rhombus.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.RightCone.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.RightCone.SEMANTIC_NAME),
@@ -5481,7 +5296,6 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Square.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Square.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Trapezoid.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Trapezoid.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Triangle.class, name = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Triangle.SEMANTIC_NAME),
-                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.ViewerSpecification.class, name = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.ViewerSpecification.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.activity.CranialWindowPreparation.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDevice.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.class, name = org.openmetadatainitiative.openminds.v5.specimenPrep.device.SlicingDeviceUsage.SEMANTIC_NAME),
@@ -5504,12 +5318,6 @@ public class OpenMINDS {
 
         public final class Chemicals{
             private Chemicals(){}
-            
-            public org.openmetadatainitiative.openminds.v5.chemicals.AmountOfChemical.Builder createAmountOfChemical(String localId){
-                final org.openmetadatainitiative.openminds.v5.chemicals.AmountOfChemical.Builder builder = org.openmetadatainitiative.openminds.v5.chemicals.AmountOfChemical.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
             
             public org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.Builder createChemicalMixture(String localId){
                 final org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.Builder builder = org.openmetadatainitiative.openminds.v5.chemicals.ChemicalMixture.create(new LocalId(localId));
@@ -6339,12 +6147,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.core.actors.Affiliation.Builder createAffiliation(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.actors.Affiliation.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.Affiliation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.Builder createBehavioralProtocol(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.BehavioralProtocol.create(new LocalId(localId));
                 builders.add(builder);
@@ -6387,24 +6189,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.core.actors.Contribution.Builder createContribution(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.actors.Contribution.Builder builder = org.openmetadatainitiative.openminds.v5.core.actors.Contribution.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.core.data.Copyright.Builder createCopyright(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.data.Copyright.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.Copyright.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.core.research.CustomPropertySet.Builder createCustomPropertySet(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.research.CustomPropertySet.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.CustomPropertySet.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.Builder createDOI(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.DOI.create(new LocalId(localId));
                 builders.add(builder);
@@ -6443,12 +6227,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v5.core.data.FileBundle.Builder createFileBundle(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.data.FileBundle.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.FileBundle.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.core.data.FilePathPattern.Builder createFilePathPattern(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.data.FilePathPattern.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.FilePathPattern.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -6519,12 +6297,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.core.data.Hash.Builder createHash(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.data.Hash.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.Hash.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.Builder createISBN(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.ISBN.create(new LocalId(localId));
                 builders.add(builder);
@@ -6585,12 +6357,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.core.data.Measurement.Builder createMeasurement(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.data.Measurement.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.Measurement.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.core.miscellaneous.Membership.Builder createMembership(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.miscellaneous.Membership.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.Membership.create(new LocalId(localId));
                 builders.add(builder);
@@ -6617,12 +6383,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.Builder createModelVersion(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.Builder builder = org.openmetadatainitiative.openminds.v5.core.products.ModelVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.core.research.NumericalProperty.Builder createNumericalProperty(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.research.NumericalProperty.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.NumericalProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -6669,20 +6429,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValue.Builder createQuantitativeValue(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValue.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValue.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.Builder createQuantitativeValueArray(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueRange.Builder createQuantitativeValueRange(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueRange.Builder builder = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueRange.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -6753,20 +6501,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.StockNumber.Builder createStockNumber(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.StockNumber.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.StockNumber.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.core.research.Strain.Builder createStrain(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.research.Strain.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.Strain.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.core.research.StringProperty.Builder createStringProperty(String localId){
-                final org.openmetadatainitiative.openminds.v5.core.research.StringProperty.Builder builder = org.openmetadatainitiative.openminds.v5.core.research.StringProperty.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -7023,26 +6759,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.AnatomicalTargetPosition.Builder createAnatomicalTargetPosition(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.AnatomicalTargetPosition.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.AnatomicalTargetPosition.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.AtlasAnnotation.Builder createAtlasAnnotation(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.AtlasAnnotation.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.AtlasAnnotation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CentroidalPyramid.Builder createCentroidalPyramid(String localId){
                 final org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CentroidalPyramid.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.CentroidalPyramid.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Circle.Builder createCircle(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Circle.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Circle.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -7065,12 +6783,6 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.CoordinatePoint.Builder createCoordinatePoint(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.CoordinatePoint.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.CoordinatePoint.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Cube.Builder createCube(String localId){
                 final org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Cube.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Cube.create(new LocalId(localId));
                 builders.add(builder);
@@ -7083,20 +6795,8 @@ public class OpenMINDS {
                 return builder;
             }
             
-            public org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnnotation.Builder createCustomAnnotation(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnnotation.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomAnnotation.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
             public org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.Builder createCustomCoordinateFramework(String localId){
                 final org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.nonatlas.CustomCoordinateFramework.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipse.Builder createEllipse(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipse.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Ellipse.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -7145,36 +6845,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.Builder createParcellationEntityVersion(String localId){
                 final org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationEntityVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminology.Builder createParcellationTerminology(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminology.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminology.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminologyVersion.Builder createParcellationTerminologyVersion(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminologyVersion.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.atlas.ParcellationTerminologyVersion.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QualitativeRelationAssessment.Builder createQualitativeRelationAssessment(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QualitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QualitativeRelationAssessment.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder createQuantitativeRelationAssessment(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QuantitativeRelationAssessment.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.QuantitativeRelationAssessment.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rectangle.Builder createRectangle(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rectangle.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Rectangle.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
@@ -7247,12 +6917,6 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Triangle.Builder createTriangle(String localId){
                 final org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Triangle.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.mathematicalShape.Triangle.create(new LocalId(localId));
-                builders.add(builder);
-                return builder;
-            }
-            
-            public org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.ViewerSpecification.Builder createViewerSpecification(String localId){
-                final org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.ViewerSpecification.Builder builder = org.openmetadatainitiative.openminds.v5.SANDS.miscellaneous.ViewerSpecification.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }
