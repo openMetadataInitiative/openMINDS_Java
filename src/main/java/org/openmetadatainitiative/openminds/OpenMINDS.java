@@ -5191,6 +5191,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.GenericIdentifier.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.GeoCoordinates.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.GeoCoordinates.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridImage.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridImage.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridImageSequence.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridImageSequence.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridVolume.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridVolume.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.class, name = org.openmetadatainitiative.openminds.v5.core.data.GridVolumeSequence.SEMANTIC_NAME),
@@ -5221,6 +5222,7 @@ public class OpenMINDS {
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.QuantitativeValueArray.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RORID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.SEMANTIC_NAME),
+                @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.data.RegularTimeSeries.class, name = org.openmetadatainitiative.openminds.v5.core.data.RegularTimeSeries.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.class, name = org.openmetadatainitiative.openminds.v5.core.miscellaneous.ResearchProductGroup.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.class, name = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.SWHID.SEMANTIC_NAME),
                 @JsonSubTypes.Type(value = org.openmetadatainitiative.openminds.v5.core.products.Service.class, name = org.openmetadatainitiative.openminds.v5.core.products.Service.SEMANTIC_NAME),
@@ -6267,6 +6269,12 @@ public class OpenMINDS {
                 return builder;
             }
             
+            public org.openmetadatainitiative.openminds.v5.core.data.GridImageSequence.Builder createGridImageSequence(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.GridImageSequence.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.GridImageSequence.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
             public org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.Builder createGridImageStack(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.GridImageStack.create(new LocalId(localId));
                 builders.add(builder);
@@ -6443,6 +6451,12 @@ public class OpenMINDS {
             
             public org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.Builder createRRID(String localId){
                 final org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.Builder builder = org.openmetadatainitiative.openminds.v5.core.digitalIdentifier.RRID.create(new LocalId(localId));
+                builders.add(builder);
+                return builder;
+            }
+            
+            public org.openmetadatainitiative.openminds.v5.core.data.RegularTimeSeries.Builder createRegularTimeSeries(String localId){
+                final org.openmetadatainitiative.openminds.v5.core.data.RegularTimeSeries.Builder builder = org.openmetadatainitiative.openminds.v5.core.data.RegularTimeSeries.create(new LocalId(localId));
                 builders.add(builder);
                 return builder;
             }

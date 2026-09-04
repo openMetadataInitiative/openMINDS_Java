@@ -53,6 +53,7 @@ public class Accessibility extends Instance implements org.openmetadatainitiativ
 
     
     public class Builder implements org.openmetadatainitiative.openminds.utils.Builder<Accessibility>{
+        public Builder application(String application) { Accessibility.this.application = application; return this; }
         public Builder channel(Reference<AccessChannel> channel) { Accessibility.this.channel = channel; return this; }
         public Builder eligibility(Reference<AccessEligibilityType> eligibility) { Accessibility.this.eligibility = eligibility; return this; }
         public Builder form(Reference<AccessForm> form) { Accessibility.this.form = form; return this; }
@@ -75,7 +76,14 @@ public class Accessibility extends Instance implements org.openmetadatainitiativ
     }
     
 
-   @JsonProperty(value = "https://openminds.om-i.org/props/channel")
+   @JsonProperty(value = "https://openminds.om-i.org/props/application")
+    private String application;
+    
+    public String getApplication() {
+       return this.application;
+    }
+
+    @JsonProperty(value = "https://openminds.om-i.org/props/channel")
     private Reference<AccessChannel> channel;
     
     public Reference<AccessChannel> getChannel() {
