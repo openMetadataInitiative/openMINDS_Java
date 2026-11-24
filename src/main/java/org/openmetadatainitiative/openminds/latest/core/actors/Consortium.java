@@ -25,7 +25,7 @@ import static org.openmetadatainitiative.openminds.latest.core.actors.Consortium
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class Consortium extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.actors.intf.ContributionContributor, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.MembershipMember{
+public class Consortium extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.miscellaneous.intf.MembershipMember, org.openmetadatainitiative.openminds.latest.core.actors.intf.ContributionContributor{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/Consortium";
 
     @JsonIgnore
