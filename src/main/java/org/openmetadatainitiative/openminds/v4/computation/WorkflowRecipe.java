@@ -27,7 +27,7 @@ import static org.openmetadatainitiative.openminds.v4.computation.WorkflowRecipe
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v4.core.products.intf.ProjectHasPart{
+public class WorkflowRecipe extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.V4.Entity, org.openmetadatainitiative.openminds.v4.publications.intf.LearningResourceAbout, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.CommentAbout, org.openmetadatainitiative.openminds.v4.core.miscellaneous.intf.ResearchProductGroupHasPart, org.openmetadatainitiative.openminds.v4.core.products.intf.ProjectHasPart{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/WorkflowRecipe";
 
     @JsonIgnore
