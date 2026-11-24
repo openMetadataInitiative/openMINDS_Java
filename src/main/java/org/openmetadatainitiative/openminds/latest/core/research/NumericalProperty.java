@@ -24,7 +24,7 @@ import static org.openmetadatainitiative.openminds.latest.core.research.Numerica
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @SuppressWarnings("unused")
-public class NumericalProperty extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle, org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair{
+public class NumericalProperty extends Instance implements org.openmetadatainitiative.openminds.OpenMINDS.Latest.Entity, org.openmetadatainitiative.openminds.latest.core.research.intf.PropertyValueListPropertyValuePair, org.openmetadatainitiative.openminds.latest.specimenPrep.device.intf.SlicingDeviceUsageSlicingAngle{
     public static final String SEMANTIC_NAME = "https://openminds.om-i.org/types/NumericalProperty";
 
     @JsonIgnore
